@@ -18,6 +18,7 @@ CUDA Version 9.0.176
 `apt-get install -y vim`  
 `apt-get install -y git`  
 `apt-get install -y gcc-4.8`
+`apt-get install -y g++-4.8`  
 
   ubuntu16.04默认gcc版本5.4，安装4.8版本后，重定向软链接  
 `cd /usr/bin`  
@@ -26,6 +27,8 @@ CUDA Version 9.0.176
 `ln -s gcc-ar-4.8 gcc-ar`  
 `ln -s gcc-nm-4.8 gcc-nm`  
 `ln -s gcc-ranlib-4.8 gcc-ranlib`  
+`rm g++`  
+`ln -s g++-4.8 g++`  
 
 `cd && gcc -v` 检查版本
 
@@ -36,17 +39,13 @@ CUDA Version 9.0.176
 升级pip后，pip报错，参照https://blog.csdn.net/zong596568821xp/article/details/80410416修复  
 `vim /usr/bin/pip`  
 将原文  
-```
-from pip import main
+```from pip import main
 if __name__ == '__main__':
-    sys.exit(main())
-```    
+    sys.exit(main())```    
 修改为  
-```   
-from pip import __main__ 
+```from pip import __main__ 
 if __name__ == '__main__': 
-    sys.exit(__main__._main())
-```   
+    sys.exit(__main__._main())```   
 安装keras相关依赖包  
 `pip install -U --user keras_applications==1.0.6 --no-deps`  
 `pip install -U --user keras_preprocessing==1.0.5 --no-deps`  
@@ -77,7 +76,7 @@ if __name__ == '__main__':
 `git checkout r1.8`
 
 ### 6. configure
-`./configure`
+`./configure`  
 jemalloc默认Y  
 Google Cloud Platform \ Hadoop \ Amazon S3 \ Apache Kafka Platform选择N  
 CUDA选择Y，CUDA version默认9.0，位置默认，cuDNN version输入7.3，位置默认  
@@ -85,5 +84,15 @@ compute capabilities输入6.1
 -march=native默认，表示对探测本机CPU架构并做相应优化  
 其他不懂全选择默认
 
+
 ### 7. 使用bazel编译生成pip安装包
-bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
+7.0 修改./third_party/gpus/crosstools/CROSSTOOL_nvcc.tpl中  
+cxx_builtin_include_directory: "/usr/local/cuda-8.0/include"  
+7.1 apt-get install python-enum34  
+
+7.n 编译，--verbose_failures查看详细报错信息，搜索并解决  
+bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package --verbose_failures
+
+### 8. 生成whl
+./bazel-bin/tensorflow/tools/pip_package/build_pip_package --nightly_flag ../
+
