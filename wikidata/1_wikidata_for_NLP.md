@@ -18,8 +18,36 @@ NULL
 使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/2_select_json.py" target="_blank">2_select_json.py</a>剔除“多语言”，保留中文和英文，精简“claims”的内容，得到20190520_simplified.json，文件大小约75G。
 
 #### 2.3 数据统计
-tobe continue
+使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/3_statistic_json.py" target="_blank">3_statistic_json.py</a>，统计20190520_simplified.json中的一些数据，如下表所示：
 
+index | Question | Answer 
+-|-|-
+   | using `type` |  <x>
+1  | number_of_entities | 56832908
+2  | number_of_items_entities | 56826764
+3  | number_of_properties_entities | 6144
+   | using `labels` `descriptions` `aliases` |  <x>
+4  | number_of_items_with_chinese_labels | 3063642
+5  | number_of_items_with_english_labels | 43932804
+6  | number_of_items_with_chinese_descriptions | 25166784
+7  | number_of_items_with_english_descriptions | 42370338
+8  | number_of_items_with_chinese_aliases | 435323
+9  | number_of_items_with_english_aliases | 3869923
+   | using `claims`  | <x>
+10 | number_of_unique_properties | 5931
+11 | average_number_of_properties_per_item | 7.78
+12 | top_10_properties | P31(53478229),P577(22698118),P1476(22615223),P1433(21604886),P2093(21035907),P304(20326201),P478(20258231),P433(18519562),P698(17814736),P356(16913695),
+
+简单小结一下：
+1. entity一共5千万+，绝大部分是item(实物或抽象概念)，只有6144个是property(属性或者关系)。(注：从`claims`中统计得到的property数量为5931个，低于6144个，可能是在2_select_json.py中筛掉了)。
+2. 有中文名称(label)的不到6%，这数值低了点。
+3. Top 1 property是P31，`is instance of`。
+
+#### 2.4 数据使用
+一些可以尝试的方向(需要调研一下相关工作)：
+1. 如参考资料1中所提及的，可以考虑做实体相关的，如与命名实体识别相结合。
+2. 实体关系分类，预测两个item之间的property。
+3. 。。。
 
 
 ### 参考资料
