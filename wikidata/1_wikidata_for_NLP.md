@@ -10,7 +10,8 @@ NULL
 
 这里使用另外一个链接，下载文件最近的一个文件。   
 `wget -c --tries=0 https://dumps.wikimedia.org/other/wikidata/20190520.json.gz `   
-国内网速大约下载2-3天，得到一个50G+的压缩包，解压后的json文件约700G。
+国内网速大约下载2-3天，得到一个50G+的压缩包，解压后的json文件约700G。  
+提供一个百度网盘的zip分卷压缩包的永久链接：https://pan.baidu.com/s/1Jv_xhdvY79bEq_jmocASPw 提取码:baoj  
 
 #### 2.2 数据精简
 700G的json文件，没法一次读入内存，不过可以按行读取数据，每一行都可以解析成一项。   
