@@ -24,20 +24,20 @@ NULL
 index | Question | Answer 
 -|-|-
    | using `type` |  <x>
-1  | number_of_entities | 56832908
-2  | number_of_items_entities | 56826764
+1  | number_of_entities | 45543529
+2  | number_of_items_entities | 45537385
 3  | number_of_properties_entities | 6144
    | using `labels` `descriptions` `aliases` |  <x>
 4  | number_of_items_with_chinese_labels | 3063642
 5  | number_of_items_with_english_labels | 43932804
-6  | number_of_items_with_chinese_descriptions | 25166784
-7  | number_of_items_with_english_descriptions | 42370338
-8  | number_of_items_with_chinese_aliases | 435323
-9  | number_of_items_with_english_aliases | 3869923
+6  | number_of_items_with_chinese_descriptions | 21420896
+7  | number_of_items_with_english_descriptions | 36342487
+8  | number_of_items_with_chinese_aliases | 435047
+9  | number_of_items_with_english_aliases | 3859187
    | using `claims`  | <x>
-10 | number_of_unique_properties | 5931
-11 | average_number_of_properties_per_item | 7.78
-12 | top_10_properties | P31(53478229),P577(22698118),P1476(22615223),P1433(21604886),P2093(21035907),P304(20326201),P478(20258231),P433(18519562),P698(17814736),P356(16913695),
+10 | number_of_unique_properties | 5923
+11 | average_number_of_properties_per_item | 8
+12 | top_10_properties | [('P31', 44433450), ('P577', 22200427), ('P1476', 22153694), ('P1433', 21175822), ('P2093', 20967148), ('P304', 20247218), ('P478', 20182421), ('P433', 18457728), ('P698', 17759991), ('P356', 16890418)]
 
 简单小结一下：
 1. entity一共5千万+，绝大部分是item(实物或抽象概念)，只有6144个是property(属性或者关系)。(注：从`claims`中统计得到的property数量为5931个，低于6144个，可能是在2_select_json.py中筛掉了)。
