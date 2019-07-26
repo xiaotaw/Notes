@@ -1,6 +1,7 @@
 import json
 from collections import defaultdict
-f = open("wikidata/20190520_simplified.json", encoding="utf8")
+f = open("wikidata/20190520_zh_en.json", encoding="utf8")
+#f = open("wikidata/20190520_zh.json", encoding="utf8")
 _ = f.readline()
 number_of_entities = 0
 number_of_items = 0
@@ -49,6 +50,19 @@ average_number_of_properties_per_item_1 = sum(valid_number_of_properties_lst) / 
 
 a = list(unique_properties.items())
 a.sort(key=lambda x: x[1], reverse = True)
+
+print("number_of_entities: %d" % number_of_entities)
+print("number_of_items_entities: %d" % number_of_items)
+print("number_of_properties_entities: %d" % number_of_properties)
+print("number_of_unique_properties : %d" % number_of_unique_properties)
+print("number_of_items_with_english_labels : %d" % number_of_items_with_english_labels)
+print("number_of_items_with_chinese_labels: %d" % number_of_items_with_chinese_labels)
+print("number_of_items_with_english_descriptions: %d" % number_of_items_with_english_descriptions)
+print("number_of_items_with_chinese_descriptions: %d" % number_of_items_with_chinese_descriptions)
+print("number_of_items_with_chinese_aliases : %d" % number_of_items_with_chinese_aliases )
+print("number_of_items_with_english_aliases : %d" % number_of_items_with_english_aliases )
+print("average_number_of_properties_per_item : %d" % average_number_of_properties_per_item)
+print("Top10_freq_properties: " + str(a[:10]))
 
 f = open("wikidata/property_frequency.txt", "w", encoding="utf8")
 for k, v in a:

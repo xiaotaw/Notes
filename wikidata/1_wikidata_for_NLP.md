@@ -11,15 +11,15 @@ NULL
 这里使用另外一个链接，下载文件最近的一个文件。   
 `wget -c --tries=0 https://dumps.wikimedia.org/other/wikidata/20190520.json.gz `   
 国内网速大约下载2-3天，得到一个50G+的压缩包，解压后的json文件约700G。  
-提供一个百度网盘的zip分卷压缩包的永久链接：https://pan.baidu.com/s/1Jv_xhdvY79bEq_jmocASPw 提取码:baoj  
+提供一个百度网盘的zip分卷压缩包的永久链接，方便下载：https://pan.baidu.com/s/1Jv_xhdvY79bEq_jmocASPw 提取码:baoj  
 
 #### 2.2 数据精简
 700G的json文件，没法一次读入内存，不过可以按行读取数据，每一行都可以解析成一项。   
 
-使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/2_select_json.py" target="_blank">2_select_json.py</a>剔除“多语言”，保留中文和英文，精简“claims”的内容，得到20190520_simplified.json，文件大小约75G。
+使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/2_select_json.py" target="_blank">2_select_json.py</a>剔除“多语言”，保留中文和英文，精简“claims”的内容，得到20190520_zh_en.json，文件大小约69G。若仅保留中文，得到20190520_zh.json，文件大小约3.2G。
 
 #### 2.3 数据统计
-使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/3_statistic_json.py" target="_blank">3_statistic_json.py</a>，统计20190520_simplified.json中的一些数据，如下表所示：
+使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/3_statistic_json.py" target="_blank">3_statistic_json.py</a>，统计20190520_zh_en.json中的一些数据，如下表所示：
 
 index | Question | Answer 
 -|-|-
@@ -43,6 +43,29 @@ index | Question | Answer
 1. entity一共5千万+，绝大部分是item(实物或抽象概念)，只有6144个是property(属性或者关系)。(注：从`claims`中统计得到的property数量为5931个，低于6144个，可能是在2_select_json.py中筛掉了)。
 2. 有中文名称(label)的不到6%，这数值低了点。
 3. Top 1 property是P31，`is instance of`。
+
+
+
+使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/3_statistic_json.py" target="_blank">3_statistic_json.py</a>，统计20190520_zh.json中的一些数据，如下表所示：
+
+index | Question | Answer 
+-|-|-
+   | using `type` |  <x>
+1  | number_of_entities | 3063642
+2  | number_of_items_entities | 3062159
+3  | number_of_properties_entities | 1483
+   | using `labels` `descriptions` `aliases` |  <x>
+4  | number_of_items_with_chinese_labels | 3063642
+5  | number_of_items_with_english_labels | 0
+6  | number_of_items_with_chinese_descriptions | 953876
+7  | number_of_items_with_english_descriptions | 0
+8  | number_of_items_with_chinese_aliases | 234773
+9  | number_of_items_with_english_aliases | 0
+   | using `claims`  | <x>
+10 | number_of_unique_properties | 5380
+11 | average_number_of_properties_per_item | 8
+12 | top_10_properties | [('P31', 2800424), ('P17', 1226158), ('P131', 1047561), ('P421', 880494), ('P1448', 789746), ('P442', 742836), ('P373', 583702), ('P646', 555855), ('P18', 435318), ('P625', 374786)]
+
 
 #### 2.4 数据使用
 一些可以尝试的方向(需要调研一下相关工作)：
