@@ -9,5 +9,5 @@ neo4j version
 ```
 and get `neo4j 3.5.8`.
 
-# 0 Reading Documents
+# 1 Reading Documents
 * One morning for official documents <a href="https://neo4j.com/docs/getting-started/current/" target="_blank">The Neo4j Getting Started Guide v3.5</a>, and the core concept lies <a href="https://neo4j.com/docs/getting-started/current/graphdb-concepts/" target="_blank">Chapter 2. Graph database concepts</a> 
