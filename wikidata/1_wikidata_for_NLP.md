@@ -6,20 +6,22 @@ NULL
 
 ### 2. 离线使用
 #### 2.1 数据下载
-按照官方数据下载说明：<a href="https://www.wikidata.org/wiki/Wikidata:Database_download" target="_blank">Wikidata:Database download</a>，使用推荐的<a href="https://dumps.wikimedia.org/wikidatawiki/entities/" target="_blank">json格式的数据</a>。
+* 按照官方数据下载说明：<a href="https://www.wikidata.org/wiki/Wikidata:Database_download" target="_blank">Wikidata:Database download</a>，使用推荐的<a href="https://dumps.wikimedia.org/wikidatawiki/entities/" target="_blank">json格式的数据</a>。
 
-这里使用另外一个链接，下载文件最近的一个文件。   
+* 这里使用另外一个链接，下载文件最近的一个文件。   
 `wget -c --tries=0 https://dumps.wikimedia.org/other/wikidata/20190520.json.gz `   
 国内网速大约下载2-3天，得到一个50G+的压缩包，解压后的json文件约700G。  
-提供一个百度网盘的zip分卷压缩包的永久链接，方便下载：https://pan.baidu.com/s/1Jv_xhdvY79bEq_jmocASPw 提取码:baoj  
+* 提供一个百度网盘的zip分卷压缩包的永久链接，方便下载：https://pan.baidu.com/s/1Jv_xhdvY79bEq_jmocASPw 提取码:baoj  
 
 #### 2.2 数据精简
-700G的json文件，没法一次读入内存，不过可以按行读取数据，每一行都可以解析成一项。   
+* 700G的json文件，没法一次读入内存，不过可以按行读取数据，每一行都可以解析成一项。   
 
-使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/2_select_json.py" target="_blank">2_select_json.py</a>剔除“多语言”，保留中文和英文，精简“claims”的内容，得到20190520_zh_en.json，文件大小约69G。若仅保留中文，得到20190520_zh.json，文件大小约3.2G。
+* 数据解析，参考文档<a href="https://www.mediawiki.org/wiki/Wikibase/DataModel/JSON" target="_blank">Wikibase/DataModel/JSON</a>
+
+* 使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/2_select_json.py" target="_blank">2_select_json.py</a>剔除“多语言”，保留中文和英文，精简“claims”的内容，得到20190520_zh_en.json，文件大小约69G。若仅保留中文，得到20190520_zh.json，文件大小约3.2G。
 
 #### 2.3 数据统计
-使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/3_statistic_json.py" target="_blank">3_statistic_json.py</a>，统计20190520_zh_en.json中的一些数据，如下表所示：
+* 使用脚本<a href="https://github.com/xiaotaw/Notes/blob/master/wikidata/3_statistic_json.py" target="_blank">3_statistic_json.py</a>，统计20190520_zh_en.json中的一些数据，如下表所示：
 
 index | Question | Answer 
 -|-|-
@@ -39,7 +41,7 @@ index | Question | Answer
 11 | average_number_of_properties_per_item | 8
 12 | top_10_properties | [('P31', 44433450), ('P577', 22200427), ('P1476', 22153694), ('P1433', 21175822), ('P2093', 20967148), ('P304', 20247218), ('P478', 20182421), ('P433', 18457728), ('P698', 17759991), ('P356', 16890418)]
 
-简单小结一下：
+* 简单小结一下：
 1. entity一共5千万+，绝大部分是item(实物或抽象概念)，只有6144个是property(属性或者关系)。(注：从`claims`中统计得到的property数量为5931个，低于6144个，可能是在2_select_json.py中筛掉了)。
 2. 有中文名称(label)的不到6%，这数值低了点。
 3. Top 1 property是P31，`is instance of`。
@@ -68,7 +70,7 @@ index | Question | Answer
 
 
 #### 2.4 数据使用
-一些可以尝试的方向(需要调研一下相关工作)：
+* 一些可以尝试的方向(需要调研一下相关工作)：
 1. 如参考资料1中所提及的，可以考虑做实体相关的，如与命名实体识别相结合。
 2. 实体关系分类，预测两个item之间的property。
 3. 。。。
