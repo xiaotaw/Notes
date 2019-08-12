@@ -3,9 +3,8 @@ import argparse
 import codecs
 import logging
 import os
+import random
 import sys
-import numpy as np
-from collections import namedtuple
 
 #assert (sys.version_info.major == 3), u"python version"
 
@@ -36,9 +35,9 @@ def parse_args(args=None):
 def split_corpus(corpus, n_val, n_test):
     assert isinstance(corpus, list)
     l = len(corpus)
-    np.random.seed(0)
-    m = np.arange(l)
-    np.random.shuffle(m)
+    random.seed(0)
+    m = list(range(l))
+    random.shuffle(m)
     val_lst, test_lst, train_lst = [], [], []
     for i, v in enumerate(m):
         if i < n_val:
@@ -55,12 +54,15 @@ if __name__ == "__main__":
     
     for fn in args.filenames:
         f = codecs.open(fn, encoding="utf8")
-        s = f.readlines()
+        s = f.read()
+        s = s.replace("\r", "")
+        s = s.replace(u"\u2028", " ").replace(u"\u2029", " ")
+        s = [x+"\n" for x in s.strip().split("\n")]
         f.close()
         logging.info("Read %s, total lines %d ..." % (fn, len(s)))
         
         val, test, train = split_corpus(s, args.n_val, args.n_test)
-        logging.info("Splited, val: %d, test: %d, train: %d" % (len(val), 
+        logging.info("Splited %s, val: %d, test: %d, train: %d" % (fn, len(val), 
             len(test), len(train)))
             
         filepath, filename = os.path.split(fn)
@@ -75,7 +77,7 @@ if __name__ == "__main__":
             basename=args.basename, extension=args.extension)
         
         if len(val) > 0:
-            f = codecs.open(fn_format % "var", "w", encoding="utf8")
+            f = codecs.open(fn_format % "val", "w", encoding="utf8")
             _ = f.write("".join(val))
             f.close()
         if len(test) > 0:
