@@ -1,4 +1,5 @@
-# 从官网获取指定镜像
+# 1 获取/上传镜像
+## 1.1 官网
 * 浏览器登录[dockerhub](https://hub.docker.com/)，搜索CUDA，进入nvidia/CUDA
 * 找到对应的docker pull command `docker pull nvidia/cuda`，直接使用将获取tag为latest的镜像
 * 在overview页面，可以寻找最新镜像对应的tag，例如：10.1-cudnn7-runtime-ubuntu16.04
@@ -9,8 +10,14 @@ REPOSITORY | TAG | IMAGE ID | CREATED | SIZE
 -|-|-|-|-
 nvidia/cuda | 10.1-cudnn7-runtime-ubuntu16.04 | b400c26dd64a | 7 days ago | 1.64GB
 
+## 1.2 阿里云（登录使用）
+#### 1.2.1 镜像加速器 
+* 详情参考：https://cr.console.aliyun.com/cn-beijing/instances/mirrors
+#### 1.2.2 用户公开镜像
+* 详情参考：https://cr.console.aliyun.com/cn-beijing/instances/images
+* All the images mentioned in this page are available in aliyun: [**Image List**](https://github.com/xiaotaw/Notes/blob/master/docker/images.md).
 
-# 将镜像上传至阿里云本地镜像仓库
+#### 1.2.3 将镜像上传至阿里云本地镜像仓库
 * 登录[阿里云镜像服务管理控制台](https://cr.console.aliyun.com)，进入容器镜像服务
 * 默认实例->访问凭证，设置固定密码
 * 默认实例->命名空间，根据指引创建命名空间 xt-cuda
@@ -20,7 +27,11 @@ nvidia/cuda | 10.1-cudnn7-runtime-ubuntu16.04 | b400c26dd64a | 7 days ago | 1.64
 * 将本地镜像标tag：`docker tag b400c26dd64a registry.cn-beijing.aliyuncs.com/xt-cuda/cuda:10.1-cudnn7-runtime-ubuntu16.04`
 * 上传至阿里云：`docker push registry.cn-beijing.aliyuncs.com/xt-cuda/cuda:10.1-cudnn7-runtime-ubuntu16.04`
 
-# 基于cuda:10.1-cudnn7-runtime-ubuntu16.04，创建pytorch1.1.0镜像
+
+
+
+# 2 创建镜像
+## 2.1 基于cuda:10.1-cudnn7-runtime-ubuntu16.04，创建pytorch1.1.0镜像
 * 在容器外，下载anaconda3的安装包：`cd /home/xt/Documents/data/ && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh`
 * 创建并运行一个容器：`nvidia-docker run -v /home/xt/Documents/data/:/data/ -it nvidia/cuda:10.1-cudnn7-runtime-ubuntu16.04`，容器中有一个自带CUDA10和cudnn7的干净ubuntu16.04系统，没有其他多余的东西。 `-v`选项，将本地`/home/xt/Documents/data/`映射到容器内的`/data/`，刚下载的Miniconda3安装包就在容器内`/data/`目录下。
 * 安装Miniconda3: `cd /data/ && bash Miniconda3-2019.07-Linux-x86_64.sh`
@@ -32,3 +43,8 @@ nvidia/cuda | 10.1-cudnn7-runtime-ubuntu16.04 | b400c26dd64a | 7 days ago | 1.64
 * 将本地镜像标tag：`docker tag 2b197ded9713 registry.cn-beijing.aliyuncs.com/xt-cuda/cuda:10.1-cudnn7-runtime-ubuntu16.04-miniconda3-py37-pytorch1_1_0`
 * 上传至阿里云：`docker push registry.cn-beijing.aliyuncs.com/xt-cuda/cuda:10.1-cudnn7-runtime-ubuntu16.04-miniconda3-py37-pytorch1_1_0`。
 * 新镜像安装了Miniconda3，python3，pytorch1.1，内容大了不少，有5.5GB，呵呵，上传有点慢（开始使用anaconda3,7.5G，呵呵呵）。
+* **更新：安装fairseq** 安装fairseq之前，注意需`source activate py3_7pytorch1_1_0`；另外依赖于gcc，`apt-get update && apt-get install build-essential`；最后`pip install fairseq`；上传至阿里云：`docker push registry.cn-beijing.aliyuncs.com/xt-cuda/cuda:10.1-cudnn7-runtime-ubuntu16.04-miniconda3-py37-pytorch1_1_0_gcc_fairseq`，由于很多Layer已经存在，只需上传200M，比较快。
+* **更新：安装vim** `apt-get install vim`；上传至阿里云: `docker push registry.cn-beijing.aliyuncs.com/xt-cuda/cuda:10.1-cudnn7-runtime-ubuntu16.04-miniconda3-py37-pytorch1_1_0_gcc_fairseq_vim`
+
+# 3 保存镜像
+docker save -o xxx.tar IMAGE
