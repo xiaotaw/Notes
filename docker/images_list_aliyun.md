@@ -7,3 +7,10 @@
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-runtime-ubuntu16.04-miniconda3-py37-pytorch1_1_0 | 带CUDA的ubt系统镜像，添加miniconda3，torch1.1.0 | e8a6faa2ba5f036979951902ef0e3d39582fd2f7e9b8a899170daa87a5a8706d
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-runtime-ubuntu16.04-miniconda3-py37-pytorch1_1_0_gcc_fairseq | 带CUDA的ubt系统镜像，添加miniconda3，torch1.1.0，以及gcc，fairseq | efa99afd282cf7cd67ca0171e423d09acc750998b2f0ce5bcfe484ee68db3b5e
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-runtime-ubuntu16.04-miniconda3-py37-pytorch1_1_0_gcc_fairseq_vim | 带CUDA的ubt系统镜像，添加miniconda3，torch1.1.0，以及gcc，fairseq,vim | 40242d03859d011585893cc90df2df0b1fc9c8dd4f54fb1c42ab6815240527eb
+
+
+
+地区 |主题 | 仓库 | tag | 备注 | Digest
+-|-|-|-|-|-
+华北2（北京）| web | registry.cn-beijing.aliyuncs.com/xt-web/web | ubuntu16.04 | basic | 93b34b7632eed4e9909cf7a140e162cdf1bbd984aef49b24cb1f7e0d6e2d67d0
+
