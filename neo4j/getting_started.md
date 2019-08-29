@@ -128,10 +128,8 @@ REMOVE n.id
 
 # 最后可以得到数据如图所示
 MATCH (n) RETURN n
-
-（insert the pic here）
 ```
-
+![load csv result](https://github.com/xiaotaw/Notes/blob/master/neo4j/pics/load_csv_result_graph.png)
 
 # Reading Documents
 * One morning for official documents <a href="https://neo4j.com/docs/getting-started/current/" target="_blank">The Neo4j Getting Started Guide v3.5</a>, and the core concept lies <a href="https://neo4j.com/docs/getting-started/current/graphdb-concepts/" target="_blank">Chapter 2. Graph database concepts</a> 
