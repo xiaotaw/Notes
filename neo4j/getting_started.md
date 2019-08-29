@@ -67,11 +67,76 @@ password:
 
 # 输入默认密码neo4j，确认，输入新密码进行重置后，即可使用neo4j。
 ```
+# load csv
+* 参考官方教程[LOAD CSV](https://neo4j.com/docs/getting-started/current/cypher-intro/load-csv/)
+
+```bash
+# 数据准备
+# 在/var/lib/neo4j/import下，创建三个csv文件：
+
+# File 1. persons.csv, a list of persons:
+id,name
+1,Charlie Sheen
+2,Michael Douglas
+3,Martin Sheen
+4,Morgan Freeman
+
+# File 2. movies.csv, a list of movies:
+id,title,country,year
+1,Wall Street,USA,1987
+2,The American President,USA,1995
+3,The Shawshank Redemption,USA,1994
+
+# File 3. roles.csv, a list of which role was played by some of these persons in each movie:
+personId,movieId,role
+1,1,Bud Fox
+4,1,Carl Fox
+3,1,Gordon Gekko
+4,2,A.J. MacInerney
+3,2,President Andrew Shepherd
+5,3,Ellis Boyd 'Red' Redding
+```
+
+```cypher
+# 在浏览器内
+CREATE CONSTRAINT ON (person:Person) ASSERT person.id IS UNIQUE
+
+CREATE CONSTRAINT ON (movie:Movie) ASSERT movie.id IS UNIQUE
+
+CREATE INDEX ON :Country(name)
+
+LOAD CSV WITH HEADERS FROM "file:///persons.csv" AS csvLine
+CREATE (p:Person {id: toInteger(csvLine.id), name: csvLine.name})
+
+LOAD CSV WITH HEADERS FROM "file:///movies.csv" AS csvLine
+MERGE (country:Country {name: csvLine.country})
+CREATE (movie:Movie {id: toInteger(csvLine.id), title: csvLine.title, year:toInteger(csvLine.year)})
+CREATE (movie)-[:MADE_IN]->(country)
+
+USING PERIODIC COMMIT 500
+LOAD CSV WITH HEADERS FROM "file:///roles.csv" AS csvLine
+MATCH (person:Person {id: toInteger(csvLine.personId)}),(movie:Movie {id: toInteger(csvLine.movieId)})
+CREATE (person)-[:PLAYED {role: csvLine.role}]->(movie)
+
+DROP CONSTRAINT ON (person:Person) ASSERT person.id IS UNIQUE
+
+DROP CONSTRAINT ON (movie:Movie) ASSERT movie.id IS UNIQUE
+
+MATCH (n)
+WHERE n:Person OR n:Movie
+REMOVE n.id
+
+# 最后可以得到数据如图所示
+MATCH (n) RETURN n
+
+（insert the pic here）
+```
 
 
 # Reading Documents
 * One morning for official documents <a href="https://neo4j.com/docs/getting-started/current/" target="_blank">The Neo4j Getting Started Guide v3.5</a>, and the core concept lies <a href="https://neo4j.com/docs/getting-started/current/graphdb-concepts/" target="_blank">Chapter 2. Graph database concepts</a> 
 
+* 官方文档加载太慢了
 
 # Others
 ### 批量导入数据方法对比
