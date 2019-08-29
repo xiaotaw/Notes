@@ -12,16 +12,16 @@ _ = f.readline()
 
 
 f_item = open(fn_item, "w", encoding="utf8")
-f_item.write("id, zh_label, en_label, zh_description, en_description")
-item_format = "{id}, {zh_label}, {en_label}, {zh_description}, {en_description}"
+f_item.write("id,zh_label,en_label,zh_description,en_description\n")
+item_format = "{id},{zh_label},{en_label},{zh_description},{en_description}\n"
 
 f_property = open(fn_property, "w", encoding="utf8")
-f_property.write("id, zh_label, en_label, zh_description, en_description")
-property_format = "{id}, {zh_label}, {en_label}, {zh_description}, {en_description}"
+f_property.write("id,zh_label,en_label,zh_description,en_description\n")
+property_format = "{id},{zh_label},{en_label},{zh_description},{en_description}\n"
 
 f_claim = open(fn_claim, "w", encoding="utf8")
-f_claim.write("from, to, claim")
-claim_format = "{from}, {to}, {claim}"
+f_claim.write("from,to,claim\n")
+claim_format = "{from},{to},{claim}\n"
 
 n = 0
 while(True):
