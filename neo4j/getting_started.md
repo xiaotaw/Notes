@@ -31,6 +31,44 @@ neo4j version
 docker pull registry.cn-beijing.aliyuncs.com/xt-web/web:ubuntu16.04-neo4j
 ```
 
+# run
+### remote connect 
+```bash
+# 使用docker，直接使用默认配置的目录，避免与权限有关的坑。
+docker pull registry.cn-beijing.aliyuncs.com/xt-web/web:ubuntu16.04-neo4j-vim
+
+# 运行docker，注意端口映射: 
+docker run -v /data/:/data/ -p 7100:7100 -p 7101:7101  -it registry.cn-beijing.aliyuncs.com/xt-web/web:ubuntu16.04-neo4j-vim
+
+# 修改远程连接相关配置
+vi /etc/neo4j/neo4j.conf
+
+# 第71行的 “#dbms.connector.bolt.listen_address=:7687”
+# 修改为 “#dbms.connector.bolt.listen_address=0.0.0.0:7100” 
+# 允许远程访问neo4j的数据库
+
+# 第75行的“dbms.connector.http.listen_address=:7474”
+# 修改为“dbms.connector.http.listen_address=0.0.0.0:7101”
+# 允许远程访问neo4j的browser
+
+# 保存退出vim
+
+# 运行neo4j
+service neo4j start
+
+# (x.x.x.x为neo4j服务器地址，若为本机可用localhost或127.0.0.1替代)
+# 在浏览器中输入 http://x.x.x.x:7101/browser，稍等一会儿即出现登录页面，类似如下信息：
+:server connect
+Connect to Neo4j
+Database access requires an authenticated connection.
+Connect URL：bolt://x.x.x.x:7100
+username: neo4j
+password: 
+
+# 输入默认密码neo4j，确认，输入新密码进行重置后，即可使用neo4j。
+```
+
+
 # Reading Documents
 * One morning for official documents <a href="https://neo4j.com/docs/getting-started/current/" target="_blank">The Neo4j Getting Started Guide v3.5</a>, and the core concept lies <a href="https://neo4j.com/docs/getting-started/current/graphdb-concepts/" target="_blank">Chapter 2. Graph database concepts</a> 
 
