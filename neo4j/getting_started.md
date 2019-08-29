@@ -1,4 +1,5 @@
 # Install
+### ubuntu 18.04
 On my ubuntu 18.04, just tpye:
 ```bash
 sudo apt-get install neo4j
@@ -8,6 +9,27 @@ After installed, check version by:
 neo4j version
 ```
 and get `neo4j 3.5.8`.
+
+### ubuntu 16.04（docker）
+```bash
+# 添加源
+wget -O - https://debian.neo4j.org/neotechnology.gpg.key |  apt-key add -
+echo 'deb https://debian.neo4j.org/repo stable/' |  tee /etc/apt/sources.list.d/neo4j.list
+
+# 更新
+apt-get update
+# 注：发现报错"E: The method driver /usr/lib/apt/methods/http could not be found."，用apt-get install apt-transport-https修复，之后再apt-get update
+
+# 安装
+apt-get install neo4j
+
+# 检查
+neo4j version
+# 得到 neo4j 3.5.8
+
+# get the docker
+docker pull registry.cn-beijing.aliyuncs.com/xt-web/web:ubuntu16.04-neo4j
+```
 
 # Reading Documents
 * One morning for official documents <a href="https://neo4j.com/docs/getting-started/current/" target="_blank">The Neo4j Getting Started Guide v3.5</a>, and the core concept lies <a href="https://neo4j.com/docs/getting-started/current/graphdb-concepts/" target="_blank">Chapter 2. Graph database concepts</a> 
