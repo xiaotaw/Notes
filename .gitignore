@@ -3,3 +3,7 @@ wikidata/wikidata/20190520.json.zip
 wikidata/wikidata/20190520.json
 wikidata/wikidata/20190520_zh.json
 wikidata/wikidata/20190520_zh_en.json
+
+wikidata/wikidata/20190520_zh.claim.csv
+wikidata/wikidata/20190520_zh.item.csv
+wikidata/wikidata/20190520_zh.property.csv

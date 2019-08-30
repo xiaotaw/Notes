@@ -3,27 +3,21 @@ import json
 import pandas as pd
 from collections import defaultdict
 
-fn = "wikidata/20190520_zh_en.json_dummy.txt"
-fn_item = "wikidata/20190520_zh_en.item_dummy.csv"
-fn_claim = "wikidata/20190520_zh_en.claim_dummy.csv"
-fn_property = "wikidata/20190520_zh_en.property_dummy.csv"
+debug = False
+
+if debug:
+    fn = "wikidata/20190520_zh.json_dummy.txt"
+    fn_item = "wikidata/20190520_zh.item_dummy.csv"
+    fn_claim = "wikidata/20190520_zh.claim_dummy.csv"
+    fn_property = "wikidata/20190520_zh.property_dummy.csv"
+else:
+    fn = "wikidata/20190520_zh.json"
+    fn_item = "wikidata/20190520_zh.item.csv"
+    fn_claim = "wikidata/20190520_zh.claim.csv"
+    fn_property = "wikidata/20190520_zh.property.csv"
 
 f = open(fn, encoding="utf8")
 _ = f.readline()
-
-"""
-f_item = open(fn_item, "w", encoding="utf8")
-f_item.write("id,zh_label,en_label,zh_description,en_description\n")
-item_format = "{id},{zh_label},{en_label},{zh_description},{en_description}\n"
-
-f_property = open(fn_property, "w", encoding="utf8")
-f_property.write("id,zh_label,en_label,zh_description,en_description\n")
-property_format = "{id},{zh_label},{en_label},{zh_description},{en_description}\n"
-
-f_claim = open(fn_claim, "w", encoding="utf8")
-f_claim.write("from,to,claim\n")
-claim_format = "{from},{to},{claim}\n"
-"""
 
 n = 0
 items_lst = []
@@ -39,16 +33,12 @@ while(True):
         break
     e = json.loads(x)
     if e["type"] == "item":
-        item = {"id": "", "zh_label": "", "en_label": "", "zh_description": "", "en_description":""}
+        item = {"id": "", "zh_label": "", "zh_description": "",}
         item["id"] = e["id"]
-        if "en" in e["labels"]:
-            item["en_label"] = e["labels"]["en"]
         if "zh" in e["labels"]:
             item["zh_label"] = e["labels"]["zh"]
         if "zh-cn" in e["labels"]:
             item["zh_label"] = e["labels"]["zh-cn"]
-        if "en" in e["descriptions"]:
-            item["en_description"] = e["descriptions"]["en"]
         if "zh" in e["descriptions"]:
             item["zh_description"] = e["descriptions"]["zh"]
         if "zh-cn" in e["descriptions"]:
@@ -69,16 +59,12 @@ while(True):
                 else:
                     pass # todo 
     elif e["type"] == "property":
-        property = {"id": "", "zh_label": "", "en_label": "", "zh_description": "", "en_description":""}
+        property = {"id": "", "zh_label": "", "zh_description": ""}
         property["id"] = e["id"]
-        if "en" in e["labels"]:
-            property["en_label"] = e["labels"]["en"]
         if "zh" in e["labels"]:
             property["zh_label"] = e["labels"]["zh"]
         if "zh-cn" in e["labels"]:
             property["zh_label"] = e["labels"]["zh-cn"]
-        if "en" in e["descriptions"]:
-            property["en_description"] = e["descriptions"]["en"]
         if "zh" in e["descriptions"]:
             property["zh_description"] = e["descriptions"]["zh"]
         if "zh-cn" in e["descriptions"]:
@@ -112,8 +98,5 @@ df_properties.to_csv(fn_property, encoding="utf8")
 df_claims = pd.DataFrame(claims_lst)
 df_claims.to_csv(fn_claim, encoding="utf8")
 
-#f_item.close()
-#f_claim.close()
-#f_property.close()
 
 print("finished, total: %d" % n)
