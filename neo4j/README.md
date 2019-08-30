@@ -1,6 +1,19 @@
-# Install
-### ubuntu 18.04
-On my ubuntu 18.04, just tpye:
+## 目录
+
+* [安装neo4j](#Install)
+  * [ubuntu](#ubuntu)
+* [运行neo4j服务](#运行neo4j服务)
+  * [浏览器远程连接](#浏览器远程连接)
+* [使用neo4j](#使用neo4j)
+  * [基本介绍](#基本介绍)
+  * [从CSV中加载数据](#从CSV中加载数据)
+* [参考资料](#参考资料)
+* [其他](#Others)
+  * [批量导入数据方法对比](#批量导入数据方法对比)
+
+## Install
+### ubuntu
+* On my ubuntu 18.04, just tpye:
 ```bash
 sudo apt-get install neo4j
 ```
@@ -10,7 +23,7 @@ neo4j version
 ```
 and get `neo4j 3.5.8`.
 
-### ubuntu 16.04（docker）
+* On ubuntu16.04 docker
 ```bash
 # 添加源
 wget -O - https://debian.neo4j.org/neotechnology.gpg.key |  apt-key add -
@@ -31,8 +44,8 @@ neo4j version
 docker pull registry.cn-beijing.aliyuncs.com/xt-web/web:ubuntu16.04-neo4j
 ```
 
-# run
-### remote connect 
+## 运行neo4j服务 
+### 浏览器远程连接
 ```bash
 # 使用docker，直接使用默认配置的目录，避免与权限有关的坑。
 docker pull registry.cn-beijing.aliyuncs.com/xt-web/web:ubuntu16.04-neo4j-vim
@@ -67,7 +80,11 @@ password:
 
 # 输入默认密码neo4j，确认，输入新密码进行重置后，即可使用neo4j。
 ```
-# load csv
+## 使用neo4j
+### 基本介绍
+neo4j是一个图数据库，neo表示新的意思，j表示java。如名字中指明的那样，neo4j是java实现的。但是neo4j提供了很多其他语言的接口，比如python(py2neo)。  
+cypher作为neo4j的标准数据库语言，官方的教程也多基于cypher，笔记中使用cypher。
+### 从CSV中加载数据
 * 参考官方教程[LOAD CSV](https://neo4j.com/docs/getting-started/current/cypher-intro/load-csv/)
 
 ```bash
@@ -131,12 +148,12 @@ MATCH (n) RETURN n
 ```
 ![load csv result](https://github.com/xiaotaw/Notes/blob/master/neo4j/pics/load_csv_result_graph.png)
 
-# Reading Documents
+## 参考资料
 * One morning for official documents <a href="https://neo4j.com/docs/getting-started/current/" target="_blank">The Neo4j Getting Started Guide v3.5</a>, and the core concept lies <a href="https://neo4j.com/docs/getting-started/current/graphdb-concepts/" target="_blank">Chapter 2. Graph database concepts</a> 
 
 * 官方文档加载太慢了
 
-# Others
+## Others
 ### 批量导入数据方法对比
 
 |<blank>|CREATE语句|LOAD CSV语句|Batch Inserter|Batch Import|Neo4j-import|

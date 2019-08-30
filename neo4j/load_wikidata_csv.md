@@ -3,7 +3,7 @@
 ### preprocess
 * see [wikidata数据使用：将wikidata导入neo4j](https://github.com/xiaotaw/Notes/blob/master/wikidata/README.md#%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8)
 
-### load 
+### load_dummy
 ```cypher
 
 CREATE CONSTRAINT ON (i:Item) ASSERT i.id IS UNIQUE
@@ -21,4 +21,27 @@ LOAD CSV WITH HEADERS FROM "file:///20190520_zh_en.claim_dummy.csv" AS csvLine
 MATCH (f:Item {id: csvLine.from}),(t:Item {id: csvLine.to}),(c:Property {id: csvLine.claim})
 CREATE (f)-[:CLAIM {id: c.id, zh_label: c.zh_label, en_label: c.en_label,
 zh_description: c.zh_description, en_description: c.en_description}]->(t)
+```
+
+### load
+```cypher
+
+CREATE CONSTRAINT ON (i:Item) ASSERT i.id IS UNIQUE
+
+LOAD CSV WITH HEADERS FROM "file:///20190520_zh.item.csv" AS csvLine
+CREATE (i:Item {id: csvLine.id, zh_label: csvLine.zh_label, zh_description: csvLine.zh_description})
+
+LOAD CSV WITH HEADERS FROM "file:///20190520_zh.property.csv" AS csvLine
+CREATE (i:Property:Item {id: csvLine.id, zh_label: csvLine.zh_label, zh_description: csvLine.zh_description})
+
+# by far, memory usage: 17 G
+
+
+USING PERIODIC COMMIT 500
+LOAD CSV WITH HEADERS FROM "file:///20190520_zh.claim.csv" AS csvLine
+MATCH (f:Item {id: csvLine.from}),(t:Item {id: csvLine.to}),(c:Property {id: csvLine.claim})
+CREATE (f)-[:CLAIM {id: c.id, zh_label: c.zh_label, zh_description: c.zh_description}]->(t)
+
+# this step need a lot of time, the claim.csv file contains 15 million line
+
 ```
