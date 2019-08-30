@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import pandas as pd
 from collections import defaultdict
 
 fn = "wikidata/20190520_zh_en.json_dummy.txt"
@@ -10,7 +11,7 @@ fn_property = "wikidata/20190520_zh_en.property_dummy.csv"
 f = open(fn, encoding="utf8")
 _ = f.readline()
 
-
+"""
 f_item = open(fn_item, "w", encoding="utf8")
 f_item.write("id,zh_label,en_label,zh_description,en_description\n")
 item_format = "{id},{zh_label},{en_label},{zh_description},{en_description}\n"
@@ -22,8 +23,12 @@ property_format = "{id},{zh_label},{en_label},{zh_description},{en_description}\
 f_claim = open(fn_claim, "w", encoding="utf8")
 f_claim.write("from,to,claim\n")
 claim_format = "{from},{to},{claim}\n"
+"""
 
 n = 0
+items_lst = []
+claims_lst = []
+properties_lst = []
 while(True):
     if n % 100000 == 0:
         print("processing: %d" % n)
@@ -49,9 +54,9 @@ while(True):
         if "zh-cn" in e["descriptions"]:
             item["zh_description"] = e["descriptions"]["zh-cn"]
         # aliases are ignored
-        #print(item)
-        item_str = item_format.format(**item)
-        f_item.write(item_str)
+        items_lst.append(item)
+        #item_str = item_format.format(**item)
+        #f_item.write(item_str)
         for p, dd in e["claims"].items():
             for d in dd:
                 if isinstance(d["value"], dict) and  "entity-type" in d["value"]:
@@ -59,7 +64,8 @@ while(True):
                     claim["from"] = e["id"]
                     claim["to"] = d["value"]["id"]
                     claim["claim"] = p
-                    f_claim.write(claim_format.format(**claim))
+                    #f_claim.write(claim_format.format(**claim))
+                    claims_lst.append(claim)
                 else:
                     pass # todo 
     elif e["type"] == "property":
@@ -78,7 +84,8 @@ while(True):
         if "zh-cn" in e["descriptions"]:
             property["zh_description"] = e["descriptions"]["zh-cn"]
         # aliases are ignored
-        f_property.write(property_format.format(**property))
+        #f_property.write(property_format.format(**property))
+        properties_lst.append(property)
         for p, dd in e["claims"].items():
             for d in dd:
                 if isinstance(d["value"], dict) and  "entity-type" in d["value"]:
@@ -86,17 +93,27 @@ while(True):
                     claim["from"] = e["id"]
                     claim["to"] = d["value"]["id"]
                     claim["claim"] = p
-                    f_claim.write(claim_format.format(**claim))
+                    #f_claim.write(claim_format.format(**claim))
+                    claims_lst.append(claim)
                 else:
                     pass # todo 
     else:
         print("unexpected type :" + e["type"])
         break
-        
 
 f.close()
-f_item.close()
-f_claim.close()
-f_property.close()
+
+df_items = pd.DataFrame(items_lst)
+df_items.to_csv(fn_item, encoding="utf8")
+
+df_properties = pd.DataFrame(properties_lst)
+df_properties.to_csv(fn_property, encoding="utf8")
+
+df_claims = pd.DataFrame(claims_lst)
+df_claims.to_csv(fn_claim, encoding="utf8")
+
+#f_item.close()
+#f_claim.close()
+#f_property.close()
 
 print("finished, total: %d" % n)

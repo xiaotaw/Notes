@@ -1,428 +1,428 @@
-id,zh_label,en_label,zh_description,en_description
-P19,出生地,place of birth,人、動物或虚拟角色的已知最詳細的誕生地點,most specific known (e.g. city instead of country, or hospital instead of city) birth location of a person, animal or fictional character
-P22,父亲,father,男性家长,male parent of the subject. For stepfather, use "stepparent" (P3448)
-P39,官职,position held,项目担任的公职,subject currently or formerly holds the object position or public office
-P88,委托人,commissioned by,委托艺术家进行创作的人,person or organization that commissioned this work
-P102,政党,member of political party,政治人物所屬的政黨,the political party of which this politician is or has been a member
-P108,雇主,employer,雇用此人物的人或機構,person or organization for which the subject works or worked
-P109,签名,signature,,image of a person's signature
-P111,物理量,measured physical quantity,,value of a physical property expressed as number multiplied by a unit
-P119,墓地,place of burial,一个人的坟墓、埋葬地、骨灰撒放地点，等 (例：城市或坟场)。,location of grave, resting place, place of ash-scattering, etc, (e.g. town/city or cemetery) for a person or animal. There may be several places: e.g. re-burials, cenotaphs, parts of body buried separately.
-P131,所在行政领土实体,located in the administrative territorial entity,此项所地处的，代表领土一部分的上级行政实体。指定所处非行政性地点，或有关活动的项时，请使用P276（位置）,the item is located on the territory of the following administrative entity. Use P276 (location) for specifying the location of non-administrative places and for items about events
-P149,建筑风格,architectural style,项的建筑风格,architectural style of a structure
-P166,奖项,award received,人物、机构或作品所获的奖项,award or recognition received by a person, organisation or creative work
-P169,首席執行長,chief executive officer,公司最高行政管理人员,highest-ranking corporate officer appointed as the CEO within an organization
-P171,父分类,parent taxon,上一級的生物分類單元所屬,closest parent taxon of the taxon in question
-P175,表演者/音乐艺术家,performer,艺术家，音乐团体，或与该项目有关的其他表演者,performer involved in the performance or the recording of a musical work
-P178,开发者,developer,,organisation or person that developed the item
-P183,原产于,endemic to,,sole location or habitat type where the taxon lives
-P200,流入水域,lake inflows,,major inflow sources — rivers, aquifers, glacial runoff, etc. Some terms may not be place names, e.g. none
-P220,国际标准化组织639-3代码,ISO 639-3 code,國際標準化組織639-3中定義的語言的標識符,identifier for a language defined in ISO 639-3
-P225,学名,taxon name,物種學名,correct scientific name of a taxon (according to the reference given)
-P230,ICAO航空公司代码,ICAO airline designator,3個字母的代碼，用於識別航空公司（P:239用於機場）,three letter identifier for an airline (two letters only until 1982) (for airports, see P239)
-P246,元素符号,element symbol,,identifier for a chemical element
-P263,官邸,official residence,,the residence at which heads of government and other senior figures officially reside
-P298,ISO 3166-1三字母代码,ISO 3166-1 alpha-3 code,含三位字母的 ISO 3166-1 国家代码,identifier for a country in three-letter format per ISO 3166-1
-P305,互联网工程任务组语言标签,IETF language tag,互聯網工程任務組的語言標識符,identifier for a language per the Internet Engineering Task Force
-P348,软件版本,software version identifier,软件的所有版本,numeric or symbolic identifier of version of a software or file format, current and past
-P355,子组织,subsidiary,母机构下辖的组织，如子机构、子公司、下属部队等,subsidiary of a company or organization, opposite of parent organization (P749)
-P371,主持人,presenter,电台或电视节目的主要主持人,someone who takes a main role in presenting a radio or television program or a performing arts show
-P375,发射载具,space launch vehicle,,type of rocket or other vehicle for launching subject payload into outer space
-P407,作品或名称语言,language of work or name,与此作品或名称有关的语言（人物请使用P103和P1412）,language associated with this creative work (such as books, shows, songs, or websites) or a name (for persons use P103 and P1412)
-P421,时区,located in time zone,所处的时区,time zone for this item
-P428,植物学作者缩写,botanist author abbreviation,学名命名人的标准缩写形式（仅适用于藻类、真菌和植物）,standard form (official abbreviation) of a personal name for use in an author citation (only for names of algae, fungi and plants)
-P443,读音,pronunciation audio,,audio file with pronunciation
-P449,首播电视台,original network,广播电视节目的首播电台、电视台，并不包括重播或转播,network(s) the radio or television show was originally aired on,  including
-P461,相对概念,opposite of,与此项相反的概念,item that is the opposite of this item
-P467,立法者,legislated by,通过某项法律的立法机关,indicates that an act or bill was passed by a legislature.  The value can be a particular session of the legislature
-P497,中国历代人物传记资料库编号,CBDB ID,中國傳記數據庫中某人的標識符,identifer for a person in the China Biographical Database
-P512,学位,academic degree,一种学术称号,academic degree that the person holds
-P517,相互作用,interaction,與粒子相互作用的四個基本力（強（Q11415），電磁（Q849919），弱（Q11418）和重力（Q11412））的子集,subset of the four fundamental forces (strong (Q11415), electromagnetic (Q849919), weak (Q11418), and gravitation (Q11412) with which a particle interacts
-P533,目标,target,军事行动或恐怖袭击的目标,target of a terrorist attack or military operation
-P555,,doubles record,,win/lose balance for a player in doubles tournaments
-P557,疾病數據庫,DiseasesDB,來自疾病數據庫的標識符,identifier sourced on the Diseases Database
-P560,方向,direction,,qualifier to indicate the direction of the parent statement's value relative to the subject item
-P561,,NATO reporting name,,official reporting name assigned by the ASCC for NATO use
-P564,,singles record,,win/lose balance for a player in singles tournaments
-P598,,commander of,,for persons who are notable as commanding officers, the units they commanded
-P604,,MedlinePlus ID,,health information from U.S. government agencies, and health-related organizations
-P611,宗教團,religious order,個人或宗教信仰所屬的僧侶或修女的教團,order of monks or nuns to which an individual or religious house belongs
-P636,,route of administration,,path by which a drug, fluid, poison, or other substance is taken into the body
-P660,,EC enzyme classification,,the Enzyme Commission (EC)-based accepted name of any enzyme classifications of the protein or RNA molecule
-P664,主办方,organizer,組織事件的人或機構,person or institution organizing an event
-P665,京都基因與基因组百科全書標識符,KEGG ID,來自處理基因組，酶途徑和生物化學品的數據庫的標識符,identifier from databases dealing with genomes, enzymatic pathways, and biological chemicals
-P669,所在街道,located on street,街道，道路或广场上的物品所在的位置。 要添加号码，请使用Property：P670“街道号码”作为限定符。 如果街道上没有物品，请使用物业P969。,street, road, or square, where the item is located. To add the number, use Property:P670 "street number" as qualifier. Use property P6375 if there is no item for the street
-P710,参与者,participant,積極參與/參加活動的人，團體或組織（對象）（主題）。 最好符合“對像有角色”（P3831）。 將P1923用於團隊參與者。,person, group of people or organization (object) that actively takes/took part in an event or process (subject).  Preferably qualify with "object has role" (P3831). Use P1923 for participants that are teams.
-P716,,JPL Small-Body Database ID,,identifier in the JPL Small-Body Database
-P735,名字,given name,名字或这个人的另一个名字;值属性不应该使用链接消歧和姓氏,first name or another given name of this person; values used with the property shouldn't link disambiguations nor family names
-P740,成立地点,location of formation,组织成立的地点,location where a group or organization was formed
-P742,化名,pseudonym,,alias used by someone (for nickname use P1449)
-P750,发行商,distributor,作品的出版方,distributor of a creative work; distributor for a record label
-P769,,significant drug interaction,,clinically significant interaction between two pharmacologically active substances (i.e., drugs and/or active metabolites) where concomitant intake can lead to altered effectiveness or adverse drug events.
-P777,,Swedish civil parish code/ATA code,,identifier for a civil parish in Sweden
-P779,,Church of Sweden Pastoratskod,,identifier for a pastoral district of the Church of Sweden
-P784,,mushroom cap shape,,
-P788,,mushroom ecological type,,
-P797,管理机关,authority,對給定實體具有行政權力的實體,entity having executive power on given entity
-P807,分离自,separated from,主體是通過從確定的對像中分離出來而建立或開始的,subject was founded or started by separating from identified object
-P817,,decay mode,,type of decay that a radioactive isotope undergoes (should be used as a qualifier for "decays to")
-P830,EOL ID,Encyclopedia of Life ID,網路生命大百科（EOL）專案碼,eol.org item reference number
-P886,LIR,Lexicon istoric retic ID,瑞士歷史辭典，是一部關於瑞士歷史的百科全書，建立目的是為了將現代歷史研究成果展現給大眾。,identifier in the Lexicon istoric retic (LIR), Romansh variant of Historical Dictionary of Switzerland
-P938,,FishBase species ID,,identifier for a species in FishBase
-P950,BNE编码,BNE ID,,identifier from the authority file of the Biblioteca Nacional de España. Format for persons: "XX" followed by 4 to 7 digits
-P957,ISBN-10,ISBN-10,一本書（版）的標識符，十位數,identifier for a book (edition), ten digit
-P962,,MycoBank taxon name ID,,identifier per MycoBank - a database that provides an authoritative and comprehensive list of names of fungi
-P964,,Austrian municipality key,,identifier for municipalities in Austria
-P967,,guest of honor,,guest(s) of honor invited to an event, e.g. a convention
-P981,,BAG residence ID,,BAG code for Dutch residencies ("woonplaats", mostly municipalities)
-P1002,引擎配置,engine configuration,发动机汽缸的配置,configuration of an engine's cylinders
-P1006,NTA识别码（荷兰）,National Thesaurus for Author Names ID,,identifier from the Dutch National Thesaurus for Author names
-P1016,,asteroid taxonomy,,type of asteroid classification
-P1022,,CNO-11 occupation code,,Spanish classification of occupations CNO-11 maintained by the Spanish INE (Instituto Nacional de Estadística)
-P1025,大学文档系统版本,SUDOC editions,法國聯合目錄中的標識符（另見P269）,identifier in the French union catalog (see also P269)
-P1027,颁发者,conferred by,向收件人頒發獎品或授予榮譽的人或組織,person or organization who awards a prize to or bestows an honor upon a recipient
-P1029,机组人员,crew member,,person that participated operating or serving aboard this vehicle
-P1046,发现方法,discovery method,發現一顆系外行星的方式,way an exoplanet was discovered
-P1047,,Catholic Hierarchy person ID,,identifer for the person on catholic-hierarchy.org
-P1057,染色体,chromosome,一個實體所在的染色體,chromosome on which an entity is localized
-P1066,老师,student of,传授技艺者,person who has taught this person
-P1073,,writable file format,,file format a program can create and/or write to
-P1081,人类发展指数,Human Development Index,一個國家的人类发展指数值,HDI value of a country
-P1084,,EUL editions,,identifier for a book (edition) in the Egyptian union catalog
-P1103,站台对应轨道数量,number of platform tracks,,number of tracks served by the platforms at a railway station
-P1108,电负性,electronegativity,,tendency of an atom or functional group to attract electrons
-P1110,出席人数,attendance,赛事、展览等事件的观众人数,number of people (spectators, ticket holders) at an event or exhibition
-P1111,得票数,votes received,候选人在选举中所获得的票数,qualifier stating the number of votes for a candidate in an election
-P1122,自旋量子数,spin quantum number,,a quantum number; a dimensionless rational number;  the intrinsic spin angular momentum is this times the Dirac or reduced Planck constant
-P1133,,DGO4 identifier,,identifier per Direction générale opérationelle (Wallonia)
-P1142,政治意识形态,political ideology,此组织或个人的政治意识形态,political ideology of this organization or person
-P1146,IAAF运动员编码,IAAF athlete ID,在國際田徑總會(IAAF)的資料庫與網站之中，田徑選手的編號,identifier for athletes in International Association of Athletics Federations (IAAF) database and website
-P1161,Z39.5縮寫,Z39.5 abbreviation,Z39.5 書目編碼/縮寫，是1969年美國國家資訊標準組織所設另，此縮寫在美國受到廣泛使用,Z39.5 bibliographic code/abbreviation established in 1969 by National Information Standards Organization and used widely in the US and elsewhere
-P1170,發送訊號,transmitted signal type,某裝置發送出的訊號類型,type of signal transmitted by a device
-P1172,Geokod,Geokod,瑞典行政單位的舊制編碼（1862-1951）,identifier for historical administrative division of Sweden (1862-1951)
-P1193,感染率,prevalence,某疾病在總人口中的感染比率,portion of a population with a given disease
-P1201,太空交通船,space tug,將搭載物從鄰近目標星球的軌道移動到目標軌道上、或是跨星球之間軌道，所設計的太空載具,spacecraft vehicle designed to move the payload from a reference orbit to the target orbit, or direct it to an interplanetary trajectory
-P1204,維基媒體主題的主要話題,Wikimedia portal's main topic,此主題頁面（Portal）的主題項目,primary topic of this Wikimedia portal
-P1242,Theatricalia劇作索引碼,Theatricalia play ID,在戲劇資料庫（ http://theatricalia.com ）中劇本作品的索引資料,identifier for a theatrical work, in the Theatricalia database
-P1245,OmegaWiki定义,OmegaWiki Defined Meaning,在OmegaWiki網站上所呈現的「定義值（Defined Meaning）」,"Defined Meaning" on the site OmegaWiki
-P1247,壓縮比,compression ratio,引擎容積的壓縮比率,compression ratio of an engine
-P1263,NNDB,NNDB people ID,NNDB传记数据库中的编码,identifier in the Notable Names Database, a biographical database: only for people entries
-P1268,代表对象,represents,,organization or individual that an entity represents
-P1270,,Norwegian Register journal ID,,identifier for academic journals
-P1276,,Dictionnaire du Jura ID,,identifier in the encyclopedia Dictionnaire du Jura
-P1297,,IRS Employer Identification Number,,number given to businesses by the United States Internal Revenue Service
-P1309,,EGAXA ID,,identifier in Bibliotheca Alexandrina
-P1312,維面,has facet polytope,組成幾何圖形的面或其他少一個維度的對象,facet of a polytope, in the next-lower dimension
-P1323,,Terminologia Anatomica 98 ID,,Terminologia Anatomica (1998 edition) human anatomical terminology identifier
-P1326,最晚日期,latest date,发生某事的可能最晚时间，用作对其他日期属性的限定条件,latest possible time that something could have occurred. Use as qualifier for other date properties
-P1346,获胜者,winner,在某项活动中取得胜利的一方,winner of an event - do not use for awards (use P166 instead), nor for wars or battles
-P1350,参赛次数,number of matches played/races/starts,某比赛中的比赛场次，或某人/某队的参赛次数,matches or games a player or a team played during an event. Also a total number of matches a player officially appeared in during the whole career.
-P1352,排名,ranking,某人、隊伍、或作品在某比賽或排行榜中的排名,the subject's numbered position within a tournament or group of performers
-P1356,,number of losses,,number of sporting matches, games or events lost
-P1363,得分或進球者,points/goal scored by,在比賽中得分或進球的某位人物,person who scored a point or goal in a game
-P1375,NSK編碼,NSK ID,位在克羅埃西亞的首都薩格勒布市的「國家與學院圖書館」(NSK)的資料索引碼,identifier for an item in the National and University Library in Zagreb (including leading zeroes)
-P1377,港铁站代码,MTR station code,由香港铁路所发布的车站代码,identifier for a station in Hong Kong issued by MTR
-P1386,,Japanese High School Code,,identifier for a high school in Japan
-P1397,國家地理名稱目錄(俄),State Catalogue of Geographical Names (Russia) ID,俄羅斯國家地理名稱目錄中的代碼,identifier in State Catalogue of Geographical Names (Russia)
-P1399,所犯罪名,convicted of,此人犯下的罪行,crime a person was convicted of
-P1415,牛津國家人物傳記大辭典編號,Oxford Dictionary of National Biography ID,牛津大學出版社所使用的線上傳記資源（前身是牛津國家傳記大辭典）控制編號,identifier used by the Oxford Dictionary of National Biography
-P1419,形状,shape,物体的几何形状,shape of an object
-P1420,同物異名,taxon synonym,次异名,(incorrect) name(s) listed as synonym(s) of a taxon name
-P1422,桑德拉特网人物编号,Sandrart.net person ID,17世紀藝術和文化史研究平台中的個人識別號碼,personal Identification number in Research Platform for Art and Cultural History of the 17th Century (Sandrart.net)
-P1435,文化遗产保护状况,heritage designation,历史遗迹的保护状况,heritage designation of a cultural or natural site
-P1445,虚构世界描述于,fictional universe described in,,to link a fictional universe with a work that describes it: <universe> "described in the work:" <work>
-P1449,昵称,nickname,人物或事物的绰号,informal name (for a pseudonym use P742)
-P1456,古迹列表,list of monuments,,link to the list of heritage monuments in the place/area
-P1474,,Nupill Literatura Digital - Document,,identifier for a document in Nupill Literatura Digital
-P1476,标题,title,作品的标题、作品（例如書、電影或網站）的名稱,published title of a work, such as a newspaper article, a literary work, a website, or a performance work
-P1536,,immediate cause of,,immediate cause of this effect
-P1537,,contributing factor of,,thing that is significantly influenced by this cause, but does not directly result from it.  See 'Help:Modeling causes' for examples and discussion.
-P1545,系列序號,series ordinal,在序列中所處的序號，其值通常為數字,position of an item in its parent series, generally to be used as a qualifier. Different from "rank"
-P1552,擁有特性,has quality,該實體的固有性質或可辨別的非物質特徵,the entity has an inherent or distinguishing non-material characteristic
-P1556,數學文摘作者標識符,zbMATH author ID,數學文摘數據庫中個人的標識符,identifier of a person in the Zentralblatt MATH database
-P1558,拍速标记,tempo marking,,indication about the speed or pace of a given musical piece
-P1566,地理名字库编号,GeoNames ID,地理名字庫地理數據庫中的標識符,identifier in the GeoNames geographical database
-P1594,法官,judge,主审该案的法官、地方法官或同等人士,Judge, magistrate or equivalent, presiding at a trial
-P1600,,Inventari del Patrimoni Arquitectònic de Catalunya code,,identifier for an architectural property in Catalonia. max. 5-digit numeric
-P1606,,natural reservoir of,,pathogen of which this species is a long-term host
-P1632,,Hermann-Mauguin notation,,Hermann-Mauguin notation of the mineral's symmetry element (short form)
-P1635,宗教姓名,religious name,被視為或被用作宗教團體成員的名稱,name taken or used as a member of a religious community
-P1641,,port,,default communication endpoint in TCP, UDP, or other transport protocol
-P1654,,wing configuration,,configuration of wing(s) used by an aircraft
-P1693,,Terminologia Embryologica,,standardized list of words used in the description of human embryologic and fetal structures
-P1695,,NLP ID,,identifier for authority control per the National Library of Poland. Format: "A", 7 digits, "X" or another digit.
-P1712,,Metacritic ID,標識符,identifier for Metacritic
-P1715,,RKD/ESD (Slovenia) ID,,reference number of intangible cultural heritage of Slovenia (EID)
-P1716,品牌,brand,,brand of a product
-P1721,汉语拼音转写,pinyin transliteration,,hanyu pinyin transliteration of a pinyin text (usually to be used as a qualifier)
-P1732,,Naturbase ID,,identifier in the Naturbase database published by the Norwegian Environment Agency
-P1734,,oath of office date,,when person swore the oath of office
-P1738,,Merck Index monograph,,URL stem of page in The Merck Index Online
-P1743,,Bradley and Fletcher checklist number,,reference for a species in the Bradley and Fletcher checklist of British lepidoptera
-P1746,動物園銀行名稱或命名行為標識符,ZooBank ID for name or act,動物園銀行上的名稱或命名行為的標識符,identifier for a name or nomenclatural act at ZooBank
-P1747,,Flora of China ID,,identifier for a taxon in Flora of the People's Republic of China
-P1748,,NCI Thesaurus ID,,identifier in the United States National Cancer Institute Thesaurus, vocabulary for clinical care, translational and basic research, etc
-P1769,,denkXweb identifier,,identifier in the  online database for cultural heritage monuments in the German state of Hesse
-P1770,,Romania LMI code,,identifier in 'Lista monumentelor istorice din România' (Romanian heritage sites)
-P1775,,follower of,,for unknown artists who work in the manner of the named artist
-P1782,表字,courtesy name,汉字文化圈传统上在本名之外的一个正式代称,name bestowed upon a person at adulthood in addition to one's given name, mostly in East Asia
-P1792,相关人物分类,category of associated people,維基媒體類別適用於與此地點相關的人員,Wikimedia category for people associated with this place
-P1794,,bureau du patrimoine de Seine-Saint-Denis ID,,identifier in the atlas-patrimoine93.fr website
-P1803,,Masaryk University person ID,,identifer for a person affiliated with Masaryk University (staff, alumnus, student…)
-P1831,选民数,electorate,某地区已登记的选民人数,set of persons qualified to vote during elections
-P1837,高楼迷编码,Gaoloumi ID,,identifier for a building in the Gaoloumi database
-P1842,,Global Anabaptist Mennonite Encyclopedia Online ID,,identifier for Global Anabaptist Mennonite Encyclopedia Online
-P1843,生物俗名,taxon common name,,common or vernacular name of a biological taxon
-P1868,实际投票数,ballots cast,包含有效票和废票数目的投票总数,total number of ballot(s) cast, including invalid or blank ballots
-P1873,,maximum number of players,,maximum numbers of players of a game
-P1876,船只,vessel,事件涉及的船只,vessel involved in this mission, voyage or event
-P1882,,Web Gallery of Art ID,,identifier for an artist in the Web Gallery of Art
-P1907,,Australian Dictionary of Biography ID,,article about the person in the Australian Dictionary of Biography
-P1917,,posttranslational modification association with,,This property should link a gene and a disease due to an altered posttranslational modification
-P1933,mobygames标识符,MobyGames ID,,identifier for MobyGames
-P1935,,Database of Classical Scholars ID,,identifier for persons in the Database of Classical Scholars
-P1937,,UN/LOCODE,,geographic location code mantained by UNECE
-P1940,,conifers.org ID,,identifier for a taxon in the conifers.org database
-P1947,Mapillary編號,Mapillary ID,,ID for a photo on Mapillary, a service for crowdsourcing map photos
-P1961,,CTHS society ID,,identifier of Comité des travaux historiques et scientifiques
-P1969,荷兰电影仪表导演编号,MovieMeter director ID,荷蘭電影儀表電影數據庫中人物的標識符,identifier for a person on the MovieMeter film database
-P1978,,USDA NDB number,,identifier for a food item in the United States Department of Agriculture National Nutrient Database
-P1980,,PolSys ID,,identifier for a person in the PolSys database of Norwegian politicians
-P1983,ANN公司ID,Anime News Network company ID,,identifier of a company on animenewsnetwork.com
-P2005,,Catalogus Professorum Halensis,,biographical entry in the Catalogus Professorum Halensis
-P2007,,ZooBank publication ID,,identifier for a publication at ZooBank
-P2019,,AllMovie artist ID,,identifier for a person on the AllMovie film database
-P2037,GitHub使用者名稱,GitHub username,GitHub上此項目，個人或組織的用戶名,username of this project, person or organization on GitHub
-P2052,速度,speed,,magnitude of the velocity of the item
-P2053,,watershed area,,size of a stream's watershed (drainage basin)
-P2081,,BLDAM object ID,,Object ID to identify cultural heritage monuments in Brandenburg, Germany
-P2107,,decomposition point,,decomposition point of a substance
-P2117,,combustion enthalpy,,enthalpy difference of a substance for combustion
-P2125,修订平文式罗马字,Revised Hepburn romanization,,romanized Japanese following the Revised Hepburn romanization system
-P2131,名义GDP,nominal GDP,名义国内生产总值,market value of all officially recognized final goods and services produced within a country in a given period of time
-P2133,,total debt,,amount of debt for a company, organization or public entity
-P2152,,antiparticle,,particle with the same rest mass and opposite charges
-P2165,,SIGIC group ID,,SIGIC - Slovenian Music Information Center (property for music group)
-P2169,,PublicWhip ID,,identifer in the PublicWhip database of British MPs
-P2172,,Parliamentary record identifier,,Parliamentary record identifier for British MPs
-P2173,,BBC News Democracy Live ID,,Identifer in the BBC News Democracy Live database of British MPs
-P2179,,ACM Classification Code (2012),,ACM Computing Classification Code of 2012 (8 digits)
-P2180,芬蘭國家傳記標識符,Kansallisbiografia ID,芬蘭國家傳記數據庫條目的代碼,code of the entry on the Kansallisbiografia database
-P2182,,Finnish Ministers database ID,,code of the entry on the Finnish ministers database
-P2189,,BiblioNet publisher ID,,identifier in the BiblioNet database of publishers
-P2191,,NILF author id,,numeric author identifier within the Vegetti Catalog of Fantastic Literature
-P2193,,Soccerbase player ID,,player ID on the Soccerbase.com website
-P2197,,production rate,,amount of produced in a given time
-P2200,,electric charge,,electric charge of a subatomic particle
-P2208,,average shot length,,cinemetrical measure
-P2209,資源鍛造項目,SourceForge project,一個軟件產品的官方資源鍛造存儲庫（“項目”）的標識符,identifier for an official SourceForge repository ("project") for a software product
-P2248,,argument of periapsis,,angle from the body's ascending node to its periapsis
-P2253,,DfE URN,,Department for Education Unique Reference Number; school identifier used by the UK government
-P2254,,maximum operating altitude,,ceiling or maximum density altitude at which an aircraft can operate
-P2257,事件频率,frequency of event,事件发生的频率,standard nominal interval between scheduled or regularly recurring events. Include unit of time, e.g. "year" (Q577)
-P2258,行動裝置國家代碼,mobile country code,,identifier for countries in ITU-T Recommendation E.212 for use in describing mobile networks
-P2267,,PolitiFact Personality ID,,person or group whose statements have been fact checked by PolitiFact.com
-P2278,,Member of the Hellenic Parliament ID,,an identifier for members, or former members, of the national parliament of Greece
-P2279,,ambitus,,musical interval/range of a melody
-P2283,使用,uses,使用的对象,item or concept used by the subject or in the operation
-P2294,經常收支,balance of trade,,exports minus imports. not to be confused with current account balance and balance of payments
-P2307,命名空間,namespace,限定符與P2302一起定義屬性約束（維基數據屬性約束）,qualifier to define a property constraint in combination with P2302 (Wikidata property constraint)
-P2312,最大数值,maximum value,,qualifier to define a property constraint in combination with P2302. "no value" can be used to specify no upper bound
-P2324,,quantity buried,,number of remains buried or interred
-P2327,,ProCyclingStats race ID,,
-P2346,,Elonet movie ID,,identifier for a movie in the Elonet database
-P2355,,UNESCO Atlas of the World's Languages in Danger ID,,identifier for endangered languages listed by UNESCO
-P2359,,Roman nomen gentilicium,,standard part of the name of a Roman, link to items about the Roman gens only
-P2379,,deprecated in version,,software version it was deprecated in
-P2383,,CTHS person ID,,identifier for a person in the directory of French learned societies
-P2392,,teaching method,,teaching method adopted by an educational institution
-P2403,资产总值,total assets,,value of assets held by a private or public entity
-P2408,時代背景,set in period,历史或未来时期的作品的設定,historical, contemporary or future period the work is set in
-P2410,,WikiPathways ID,,describes in which biological pathways a biological entity occurs
-P2412,時裝模特兒指南設計師標識符,FMD designer ID,到時裝模特兒指南網站上的設計師檔案的外部鏈接,external link to a designer's profile at the FMD (Fashion Model Directory) website
-P2427,全球研究標識符數據庫標識符,GRID ID,來自全球研究標識數據庫的機構標識符,institutional identifier from the GRID.ac global research identifier database
-P2437,季度数,number of seasons,電視節目系列或廣播系列的季節數,number of seasons a television or radio series has had
-P2453,,nominee,,qualifier used with «nominated for» to specify which person or organization was nominated
-P2454,,KNAW past member ID,,identifier for a person in the Royal Netherlands Academy of Arts and Sciences past member database
-P2459,,IBU biathlete ID,,biathlete's identifier in the International Biathlon Union's database
-P2462,,member of the deme,,
-P2468,,Theatricalia theatre ID,,identifier for a theatre, in the theatricalia.com database
-P2481,,Elite Prospects player ID,,ice hockey player ID assigned by Elite Prospects
-P2482,,SABR person ID,,identifier of a person in the Society for American Baseball Research database
-P2483,,NCES District ID,,identifier for a school district or education agency in the United States
-P2499,,league level above,,the league above this sports league
-P2532,最低气压,lowest atmospheric pressure,,minimum pressure measured or estimated for a storm (a measure of strength for tropical cyclones)
-P2538,,Nationalmuseum Sweden artist ID,,artist identifier for Nationalmuseum in Sweden
-P2547,周长,perimeter,,linear distance around the outside of an object
-P2555,,fee,,fee or toll payable to use, transit or enter the subject (only for one-time fees, do NOT use it for an ongoing fee, tuition fee or trading fee)
-P2559,维基数据使用说明,Wikidata usage instructions,,text describing how to use a property or item. Eventually, this statement is to replace usage instructions currently found in description. Until the corresponding feature is implemented, do not remove it from description.
-P2561,名称,name,名稱主題是已知的。 如果有更具體的屬性，請使用它,name the subject is known by. If a more specific property is available, use that
-P2564,,Köppen climate classification,,indicates the characteristic climate of a place
-P2567,,amended by,,document is amended by specified other document
-P2572,推特主题标签,Twitter hashtag,與此實體關聯的推特主題標籤。 格式：不包括“＃”符號,Twitter hashtag associated with this entity. Format: do not include the "#" symbol
-P2574,,National-Football-Teams.com player ID,,identifier for a football player, at National-Football-Teams.com
-P2575,,measures,,physical quantity that this device measures
-P2583,,distance from Earth,,estimated distance to astronomical objects
-P2587,,has phoneme,,the language's phonology includes this sound
-P2597,,Gram staining,,Gram stain type of a bacterial strain
-P2599,,block size,,size of block for this block cipher or hash function
-P2606,戲驛唯一标识符,PlayStation ID,索尼计算机娱乐公司指定的PlayStation软件和硬件的唯一标识符,unique identifier of PlayStation software and hardware assigned by Sony Computer Entertainment Inc.
-P2619,,Hungarian company ID,,identifier for a company in the company register of Hungary
-P2624,,MetroLyrics ID,,identifier for a song or artist at the MetroLyrics website
-P2641,,Davis Cup player ID,,identifier for a tennis player, in the Davis Cup database
-P2657,,EU Transparency Register ID,,identity code for an organisation, in the transparency register of the European Union
-P2685,,Basketball-Reference.com NBA player ID,,identifier for a NBA player on the Basketball Reference website
-P2702,,dataset distribution,,particular manner of distribution of a data set (database or file) that is publicly available
-P2723,,Deezer album ID,,identifier for an album or single on Deezer
-P2725,,GOG application ID,,identifier for an application (or film) available from the distribution platform GOG.com
-P2752,,New Zealand Organisms Register ID,,identifier for a taxon names in the New Zealand Organisms Register
-P2772,,FIS alpine skier ID,,identifier for an alpine skier, in the International Ski Federation database
-P2773,,FIS cross-country skier ID,,identifier for a cross-country skier, in the International Ski Federation database
-P2775,,FIS ski jumper ID,,identifier for a ski jumper, in the International Ski Federation database
-P2783,丹麥上市建築案例標識符,Danish listed buildings case ID,丹麥上市建築案例編號,case number of a listed building in Denmark
-P2789,,connects with,,item with which the item is physically connected
-P2793,,clearance,,distance between surface under bridge and bottom of a bridge deck
-P2804,,World Sailing member ID,,member identifier for a sailor in the World Sailing database
-P2809,,Australasian Pollen and Spore Atlas Code,,identifier for a pollen or spore in the Australasian Pollen and Spore Atlas, managed by the Australian National University
-P2810,,LPGA Tour golf player ID,,identifier for a golf player, in the LPGA database
-P2821,,by-product,,product of a chemical or industrial process, of secondary economic value
-P2823,,Royal Belgian Football Association player ID,,identifier for a player, on the official Belgian football federation website
-P2826,,Megogo ID,,identifier for the film in the database Megogo
-P2839,,gait,,gait of an animal
-P2843,,Benezit ID,,identifier in Benezit Dictionary of Artists
-P2848,無線局域網,Wi-Fi access,通過無線局域網訪問互聯網,internet access availability through Wi-Fi
-P2855,,VAT-rate,,percentage value-added tax in this country or region. Do not use for sales tax. For specialised rates, use qualifiers
-P2896,出版频率,publication interval,期刊报纸的出版频率,standard publication interval for daily or periodical publications
-P2928,,memory capacity,,memory storage capacity of some data storage device
-P2945,,British Book Trade Index ID,,identifier for an individual or business entity listed in the  University of Oxford's Bodleian Libraries' British Book Trade Index database
-P2950,,Nomisma ID,,identifier in Nomisma.org, a linked open data thesaurus of numismatic concepts
-P2952,,boat of heritage interest ID,,identifier of a ship
-P2970,,Kinopolis film ID,,identifier for films in the German Kinopolis database
-P2971,,GCatholic church ID,,ID of a church on GCatholic.org
-P2972,,SNAP ID,,identifier for an ancient person, in the SNAP project
-P2974,,habitat,,the natural environment in which an organism lives, or the physical environment that surrounds a species population
-P3000,法定结婚年龄,marriageable age,一般法律许可最小结婚年龄,性别不同，法定结婚年龄也不同。,minimum age at which a person is generally allowed by law to marry. Use qualifier "applies to part" (P518), to specify if it applies only to males (Q6581097), females (Q6581072) or both genders (Q27177113)
-P3005,,valid in place,,place where a statement is valid
-P3015,,backup or reserve team or crew,,team or crew that is kept ready to act as reserve
-P3016,,French national research structure identifier,,identifier in the French national research structure repertory
-P3033,软件包管理系统,package management system,包管理系统用于发布软件,package management system used to publish the software
-P3038,,IWM memorial ID,,identifier for a war memorial, in the UK Imperial War Museum's War Memorials Register
-P3039,,wheelbase,,distance between centers of front wheel and rear wheel
-P3040,聲雲標識符,SoundCloud ID,聲雲上的個人，樂隊，廣播電台或其他實體的標識符,identifier for a person, band, radio station or other entity, on SoundCloud
-P3055,,NAQ elected person ID,,official identifier of a person elected to the National Assembly of Quebec (NAQ) or one of its predecessors
-P3067,,GS1 country code,,GS1 Prefix, the first three digits, usually identifying the national GS1 Member Organization to which the manufacturer is registered (not necessarily where the product is actually made)
-P3071,,standard molar entropy,,entropy content of one mole of substance under standard conditions (25°C, 1 bar)
-P3082,,destroyed,,physical items destroyed by this event
-P3083,,SIMBAD ID,,identifier for an astronomical object, in the University of Strasbourg's SIMBAD database
-P3085,,qualifies for event,,this event qualifies for that event
-P3090,航班编号,flight number,,identifier for a specific flight
-P3092,,film crew member,,member of the crew creating an audiovisual work, used for miscellaneous roles qualified with the job title when no specific property exists. Don't use if such a property is available: notably for cast member (P161), director (P57), etc.
-P3093,,recovered by,,person, organisation or vehicle that recovered the item. Use the most specific value known.
-P3100,,Flora of Australia ID (old),,identifier for a plant taxon, in the Flora of Australia Online
-P3116,,ISzDb dub ID,,identifier of a dub version for a film in the ISzDb (a Hungarian dub database)
-P3118,,OpenDomesday settlement ID,,Identifier for a British settlement, in the OpenDomesday digitisation of the Domesday Book
-P3124,,Polish scientist ID,,identifier for a scientist, in the Polish Government's Information Processing Centre database
-P3126,,ALCUIN ID,,identifier of a philosopher in the ALCUIN Infothek der Scholastik
-P3129,,cine.gr film ID,,identifier for a movie at the Greek movie database cine.gr
-P3150,生日,birthday,出生月和日。用於無法得知完整「出生日期」(P569)時,item for day and month on which the subject was born. Used when full "date of birth" (P569) isn't known.
-P3153,,Crossref funder ID,,identifier for an organisation that funds research, in the Crossref registry
-P3155,,Runeberg book ID,,Identifier for book item in the Runeberg digital library collection
-P3159,,UGentMemorialis ID,,identifier for a professor at the Ghent University
-P3165,,Horsetelex ID,,identifier for a horse on Horsetelex database
-P3173,,offers view on,,things, places another place offers views on
-P3174,,art director,,person credited as the art director/artistic director of this work
-P3177,,Patrimonio Web JCyL ID,,identifier of a building or site in Patrimonio Web of Junta de Castilla y León
-P3180,视觉小说数据库标识符,Visual Novel Database ID,視覺小說數據庫中的標識符,identifier at the Visual Novel Database
-P3187,,Marburger Professorenkatalog ID,,identifier for a professor, in the Marburger Professorenkatalog of professors at the Philipps-Universität Marburg, Germany
-P3196,USGS地震資料庫ID,USGS earthquake ID,,identifier for an earthquake or other seismic event, in the United States Geological Survey database
-P3199,,charity number (Isle of Man),,Charity number of a charity or charitable organisation registered on the Isle of Man
-P3205,,patient of,,was treated or studied as a patient by this person
-P3215,,SIRET number,,number of a French establishment or company
-P3224,,NAICS code,,classification in the North American Industry Classification System
-P3253,,optimum viable temperature,,the operating temperature where the culturing of micro-organisms and/or enzyme activity thrives best
-P3254,属性提议讨论,property proposal discussion,进行了創建属性的讨论的页面（或页面章節）的url,URL of the page (or page section) on which the creation of the property was discussed
-P3273,,Actorenregister ID,,unique identifier in the Dutch Actorenregister database
-P3333,,ACM Digital Library event ID,,unique identifier of an event or conference series of the Association for Computing Machinery (ACM)
-P3344,,Vote Smart ID,,identifies candidates in US elections for national and state government within Project Vote Smart's database
-P3349,,designed to carry,,what the vehicle or class of vehicles is or was designed to carry
-P3358,,positive prognostic predictor,,the presence of the genetic variant helps to prognose good outcome for the disease
-P3375,,GECD Firmen-ID,,identifier of a film company in the German Early Cinema Database
-P3383,电影海报,film poster,,poster used to promote and advertise this film (if file is available on Commons). Use P154 for logos, P18 for movie stills and related images. Items about film posters can be linked with the qualifier "subject of" (P805).
-P3394,,Finnish Lake ID,,ID for a lake in the Järviwiki database of Finnish lakes over 1 ha in extent.
-P3413,,Leopoldina member ID,,identifier in the members' database of the Leopoldina – German Academy of Sciences
-P3416,,end period,,last period in which the statement is still valid (including the period-value)
-P3432,,parent cell line,,closest parent cell line of the cell line in question
-P3434,,ERIH PLUS ID,,identifier of a journal in ERIH PLUS
-P3439,,angular resolution,,angular resolution of an optical instrument
-P3445,,Cinema of Israel ID,,Identifier number in "Cinema of Israel" website
-P3447,,mirrors data from,,the website automatically crawls or mirrors another website as its data source
-P3451,夜景,nighttime view,,image of the subject at night, or at least in twilight
-P3466,,Israeli CBS municipal ID,,The Israeli municipal code (Hebrew סמל) is an outline encoding used by the Israel Central Bureau of Statistics to finely fine-tune their statistics. It's a unique identifier given to each municipality in Israel.
-P3468,,National Inventors Hall of Fame ID,,identifier for an inductee in the United States National Inventors Hall of Fame
-P3473,,Ubuntu package,,name of the official Ubuntu package
-P3503,,LombardiaBeniCulturali building ID,,identifier of a historical building in the cultural heritage database of the Lombardy Region of Italy
-P3544,,Te Papa person ID,,identifier assigned to a person by the Museum of New Zealand Te Papa Tongarewa
-P3547,,AFL Tables player ID,,ID for a VFL/AFL player at afltables.com
-P3556,,World Curling Tour ID,,ID on the World Curling Tour database
-P3566,,Just Sports Stats ID,,ID for American or Canadian football player in www.justsportsstats.com
-P3571,,ESPN.com MLB player ID,,ID for a Major League Baseball player at ESPN.com
-P3581,,Pro Football Hall of Fame ID,,identifier for American football players in the Pro Football Hall of Fame
-P3582,,SunshineTour golf player ID,,identifier for a golf player, in the SunshineTour database
-P3592,沙羅周期,Saros cycle of eclipse,,
-P3594,,Araneae Spider ID,,identifier for a taxon in araneae.nmbe.ch
-P3636,,PDB ligand ID,,identifier for small molecules and ligands in the Protein Data Bank (PDB)
-P3651,,American Hockey League player ID,,ID of a player at TheAHL.com
-P3660,,FootballFacts.ru player ID,,ID for a football player at FootballFacts.ru
-P3678,,SA Rugby player ID,,identifier for a rugby player on the South African Rugby Union website
-P3680,主張此敘述者,statement supported by,,entity that supports a given statement
-P3693,,short-track speed skater ISU ID,,identifier for a short track speed skater on the ShorttrackOnLine.info website, based on ISU ID
-P3694,,SpeedSkatingNews.info speed skater ID,,identifier for a speed skater on the SpeedSkatingNews.info website
-P3697,,Sports-Reference.com college football player ID,,identifier for a college football player on the Sports Reference college football (SRCFB) website
-P3702,,Catalogue of Illuminated Manuscripts ID,,manuscript identifier in the British Library Catalogue of Illuminated Manuscripts
-P3721,,public key fingerprint,,short sequence of bytes to identify a longer cryptographic public key
-P3734,,category for value same as Wikidata,,item for categories of pages with template parameter value same as Wikidata
-P3737,,maximum wavelength of sensitivity,,maximum wavelength that the item can detect
-P3750,,KMDb documentary film ID,,ID of a documentary film at Korean Movie Database
-P3751,,Shoftim BeIsrael judge ID,,database about the judges of Israel
-P3752,最差時間複雜度,worst-case time complexity,一個演算法在最差情況的時間複雜度,time complexity of an algorithm at most
-P3772,,agonist of,,protein for which this chemical acts as an agonist
-P3782,Artnet 藝術家編號,Artnet artist ID,,identifier of an artist in the Artnet database of auction results
-P3787,,danskefilm silent film ID,,identifier for a silent film in danskefilm.dk
-P3795,,Flora of Israel Online plant ID,,identifier for a plant taxon or cultivar in the Flora of Israel Online database
-P3801,,INEGI municipality ID,,identifier for a municipality in Mexico published by INEGI
-P3835,,Mendeley person ID,,identifier for an author of scholarly works, at mendeley.com
-P3852,,FlyBase Gene ID,,Identifier for a gene in the FlyBase database of Drosophila genes and genomes
-P3862,,MyDramaList name ID,,identifier for a person in the MyDramaList database
-P3878,,Soundex,,phonetic algorithm for indexing names by sound, as pronounced in English. Format: initial of word followed by 3 digits (0-6)
-P3881,,National Track & Field Hall of Fame athlete ID,,identifier for an athlete on the National Track & Field Hall of Fame webpages
-P3885,,History of Modern Biomedicine ID,,identifier of a person or topic in the History of Modern Biomedicine database
-P3888,,Boijmans artist ID,,identifier for an artist in the Museum Boijmans Van Beuningen
-P3892,,PictoRight ID-Droit de suite,,identifier for a visual artist for their droit de suite (money collection with artwork transfers) of the Dutch collective rights management organisation PictoRight and sister organisations worldwide
-P3903,,column,,typographical column in the page of a document
-P3913,,MobyGames developer ID,,ID of a developer at MobyGames
-P3915,,Athletics Australia athlete ID,,identifier for an Australian athlete on the Athletics Australia website
-P3916,教科文组织同义词库ID,UNESCO Thesaurus ID,,identifier for a concept in the UNESCO Thesaurus
-P3923,,IAAF Diamond League athlete ID,,identifier for an athlete on the IAAF Diamond League website
-P3932,,Digital Valencian Library author ID,,identifier of a person in the database of the Valencian Library, the regional library in the Land of Valencia, Spain
-P3939,,ESTC citation number,,identifier in the English Short Title Catalogue
-P3941,,Israel Antiquities Authority ID,,ID in the Israeli Antiquities Authority archive
-P3943,湯博樂標識符,Tumblr ID,湯博樂上的帳戶名稱,account name on Tumblr
-P3950,,narrower external class,,more specific subclass included in other ontology but not in Wikidata
-P3953,,ALPG Tour golf player ID,,identifier for a female golf player on the Australian Ladies Professional Golf website
-P3957,,RealGM basketball player ID,,identifier for a basketball player on the RealGM website
-P3980,,Unifrance person ID,,identifier of a person on unifrance.org
-P3995,,Filmweb.pl ID,,identifier for person, film (movie) or TV series, in the filmweb.pl database
-P4015,我視頻用戶名,Vimeo username,此項目在我視頻上的用戶名,this item's username on Vimeo
-P4021,,danskefilm animated film ID,,identifier for a animated film in danskefilm.dk
-P4024,,ADW taxon ID,,identifier for a taxon, in the Animal Diversity Web database
-P4026,,Cullum number,,identifier for a graduate of the US Military Academy (West Point)
-P4038,,Danish List of Lights and Fog signals ID,,identifier in the Danish List of a Lighthouse, beacon or fog signal in the Kingdom of Denmark
-P4068,,Chinese Olympic Committee athlete ID,,identifier for a Chinese athlete at the Chinese Olympic Committee's CIS Chinese Athletes Database website
-P4073,维基亚维基标识符,Fandom wiki ID,維基亞中一個主題維基的標識符,identifier of a topic's wiki, in Fandom.com
-P4076,,WorldSBK.com racer identifier,,identifier for a motorcycle racer on the WorldSBK.com website
-P4079,,Theatres Trust Database ID,,identifier of the Theatres Trust Database
-P4080,,number of houses,,number of houses in given territorial entity
-P4104,,Carnegie Hall agent ID,,identifier for a person or ensemble in the Carnegie Hall Linked Open Data (LOD)
-P4109,,URN-NBN,,URI in the urn:nbn: namespace as specified by RFC 3188
-P4113,,FRED time-series ID,,identifier for an economic data set provided by St. Louis Fed's Federal Reserve Economic Data (FRED)
-P4115,,INSPIRE ID,,universal identifier from Infrastructure for Spatial Information in the European Community (INSPIRE), used across EU databases
+,en_description,en_label,id,zh_description,zh_label
+0,"most specific known (e.g. city instead of country, or hospital instead of city) birth location of a person, animal or fictional character",place of birth,P19,人、動物或虚拟角色的已知最詳細的誕生地點,出生地
+1,"male parent of the subject. For stepfather, use ""stepparent"" (P3448)",father,P22,男性家长,父亲
+2,subject currently or formerly holds the object position or public office,position held,P39,项目担任的公职,官职
+3,person or organization that commissioned this work,commissioned by,P88,委托艺术家进行创作的人,委托人
+4,the political party of which this politician is or has been a member,member of political party,P102,政治人物所屬的政黨,政党
+5,person or organization for which the subject works or worked,employer,P108,雇用此人物的人或機構,雇主
+6,image of a person's signature,signature,P109,,签名
+7,value of a physical property expressed as number multiplied by a unit,measured physical quantity,P111,,物理量
+8,"location of grave, resting place, place of ash-scattering, etc, (e.g. town/city or cemetery) for a person or animal. There may be several places: e.g. re-burials, cenotaphs, parts of body buried separately.",place of burial,P119,一个人的坟墓、埋葬地、骨灰撒放地点，等 (例：城市或坟场)。,墓地
+9,the item is located on the territory of the following administrative entity. Use P276 (location) for specifying the location of non-administrative places and for items about events,located in the administrative territorial entity,P131,此项所地处的，代表领土一部分的上级行政实体。指定所处非行政性地点，或有关活动的项时，请使用P276（位置）,所在行政领土实体
+10,architectural style of a structure,architectural style,P149,项的建筑风格,建筑风格
+11,"award or recognition received by a person, organisation or creative work",award received,P166,人物、机构或作品所获的奖项,奖项
+12,highest-ranking corporate officer appointed as the CEO within an organization,chief executive officer,P169,公司最高行政管理人员,首席執行長
+13,closest parent taxon of the taxon in question,parent taxon,P171,上一級的生物分類單元所屬,父分类
+14,performer involved in the performance or the recording of a musical work,performer,P175,艺术家，音乐团体，或与该项目有关的其他表演者,表演者/音乐艺术家
+15,organisation or person that developed the item,developer,P178,,开发者
+16,sole location or habitat type where the taxon lives,endemic to,P183,,原产于
+17,"major inflow sources — rivers, aquifers, glacial runoff, etc. Some terms may not be place names, e.g. none",lake inflows,P200,,流入水域
+18,identifier for a language defined in ISO 639-3,ISO 639-3 code,P220,國際標準化組織639-3中定義的語言的標識符,国际标准化组织639-3代码
+19,correct scientific name of a taxon (according to the reference given),taxon name,P225,物種學名,学名
+20,"three letter identifier for an airline (two letters only until 1982) (for airports, see P239)",ICAO airline designator,P230,3個字母的代碼，用於識別航空公司（P:239用於機場）,ICAO航空公司代码
+21,identifier for a chemical element,element symbol,P246,,元素符号
+22,the residence at which heads of government and other senior figures officially reside,official residence,P263,,官邸
+23,identifier for a country in three-letter format per ISO 3166-1,ISO 3166-1 alpha-3 code,P298,含三位字母的 ISO 3166-1 国家代码,ISO 3166-1三字母代码
+24,identifier for a language per the Internet Engineering Task Force,IETF language tag,P305,互聯網工程任務組的語言標識符,互联网工程任务组语言标签
+25,"numeric or symbolic identifier of version of a software or file format, current and past",software version identifier,P348,软件的所有版本,软件版本
+26,"subsidiary of a company or organization, opposite of parent organization (P749)",subsidiary,P355,母机构下辖的组织，如子机构、子公司、下属部队等,子组织
+27,someone who takes a main role in presenting a radio or television program or a performing arts show,presenter,P371,电台或电视节目的主要主持人,主持人
+28,type of rocket or other vehicle for launching subject payload into outer space,space launch vehicle,P375,,发射载具
+29,"language associated with this creative work (such as books, shows, songs, or websites) or a name (for persons use P103 and P1412)",language of work or name,P407,与此作品或名称有关的语言（人物请使用P103和P1412）,作品或名称语言
+30,time zone for this item,located in time zone,P421,所处的时区,时区
+31,"standard form (official abbreviation) of a personal name for use in an author citation (only for names of algae, fungi and plants)",botanist author abbreviation,P428,学名命名人的标准缩写形式（仅适用于藻类、真菌和植物）,植物学作者缩写
+32,audio file with pronunciation,pronunciation audio,P443,,读音
+33,"network(s) the radio or television show was originally aired on,  including",original network,P449,广播电视节目的首播电台、电视台，并不包括重播或转播,首播电视台
+34,item that is the opposite of this item,opposite of,P461,与此项相反的概念,相对概念
+35,indicates that an act or bill was passed by a legislature.  The value can be a particular session of the legislature,legislated by,P467,通过某项法律的立法机关,立法者
+36,identifer for a person in the China Biographical Database,CBDB ID,P497,中國傳記數據庫中某人的標識符,中国历代人物传记资料库编号
+37,academic degree that the person holds,academic degree,P512,一种学术称号,学位
+38,"subset of the four fundamental forces (strong (Q11415), electromagnetic (Q849919), weak (Q11418), and gravitation (Q11412) with which a particle interacts",interaction,P517,與粒子相互作用的四個基本力（強（Q11415），電磁（Q849919），弱（Q11418）和重力（Q11412））的子集,相互作用
+39,target of a terrorist attack or military operation,target,P533,军事行动或恐怖袭击的目标,目标
+40,win/lose balance for a player in doubles tournaments,doubles record,P555,,
+41,identifier sourced on the Diseases Database,DiseasesDB,P557,來自疾病數據庫的標識符,疾病數據庫
+42,qualifier to indicate the direction of the parent statement's value relative to the subject item,direction,P560,,方向
+43,official reporting name assigned by the ASCC for NATO use,NATO reporting name,P561,,
+44,win/lose balance for a player in singles tournaments,singles record,P564,,
+45,"for persons who are notable as commanding officers, the units they commanded",commander of,P598,,
+46,"health information from U.S. government agencies, and health-related organizations",MedlinePlus ID,P604,,
+47,order of monks or nuns to which an individual or religious house belongs,religious order,P611,個人或宗教信仰所屬的僧侶或修女的教團,宗教團
+48,"path by which a drug, fluid, poison, or other substance is taken into the body",route of administration,P636,,
+49,the Enzyme Commission (EC)-based accepted name of any enzyme classifications of the protein or RNA molecule,EC enzyme classification,P660,,
+50,person or institution organizing an event,organizer,P664,組織事件的人或機構,主办方
+51,"identifier from databases dealing with genomes, enzymatic pathways, and biological chemicals",KEGG ID,P665,來自處理基因組，酶途徑和生物化學品的數據庫的標識符,京都基因與基因组百科全書標識符
+52,"street, road, or square, where the item is located. To add the number, use Property:P670 ""street number"" as qualifier. Use property P6375 if there is no item for the street",located on street,P669,街道，道路或广场上的物品所在的位置。 要添加号码，请使用Property：P670“街道号码”作为限定符。 如果街道上没有物品，请使用物业P969。,所在街道
+53,"person, group of people or organization (object) that actively takes/took part in an event or process (subject).  Preferably qualify with ""object has role"" (P3831). Use P1923 for participants that are teams.",participant,P710,積極參與/參加活動的人，團體或組織（對象）（主題）。 最好符合“對像有角色”（P3831）。 將P1923用於團隊參與者。,参与者
+54,identifier in the JPL Small-Body Database,JPL Small-Body Database ID,P716,,
+55,first name or another given name of this person; values used with the property shouldn't link disambiguations nor family names,given name,P735,名字或这个人的另一个名字;值属性不应该使用链接消歧和姓氏,名字
+56,location where a group or organization was formed,location of formation,P740,组织成立的地点,成立地点
+57,alias used by someone (for nickname use P1449),pseudonym,P742,,化名
+58,distributor of a creative work; distributor for a record label,distributor,P750,作品的出版方,发行商
+59,"clinically significant interaction between two pharmacologically active substances (i.e., drugs and/or active metabolites) where concomitant intake can lead to altered effectiveness or adverse drug events.",significant drug interaction,P769,,
+60,identifier for a civil parish in Sweden,Swedish civil parish code/ATA code,P777,,
+61,identifier for a pastoral district of the Church of Sweden,Church of Sweden Pastoratskod,P779,,
+62,,mushroom cap shape,P784,,
+63,,mushroom ecological type,P788,,
+64,entity having executive power on given entity,authority,P797,對給定實體具有行政權力的實體,管理机关
+65,subject was founded or started by separating from identified object,separated from,P807,主體是通過從確定的對像中分離出來而建立或開始的,分离自
+66,"type of decay that a radioactive isotope undergoes (should be used as a qualifier for ""decays to"")",decay mode,P817,,
+67,eol.org item reference number,Encyclopedia of Life ID,P830,網路生命大百科（EOL）專案碼,EOL ID
+68,"identifier in the Lexicon istoric retic (LIR), Romansh variant of Historical Dictionary of Switzerland",Lexicon istoric retic ID,P886,瑞士歷史辭典，是一部關於瑞士歷史的百科全書，建立目的是為了將現代歷史研究成果展現給大眾。,LIR
+69,identifier for a species in FishBase,FishBase species ID,P938,,
+70,"identifier from the authority file of the Biblioteca Nacional de España. Format for persons: ""XX"" followed by 4 to 7 digits",BNE ID,P950,,BNE编码
+71,"identifier for a book (edition), ten digit",ISBN-10,P957,一本書（版）的標識符，十位數,ISBN-10
+72,identifier per MycoBank - a database that provides an authoritative and comprehensive list of names of fungi,MycoBank taxon name ID,P962,,
+73,identifier for municipalities in Austria,Austrian municipality key,P964,,
+74,"guest(s) of honor invited to an event, e.g. a convention",guest of honor,P967,,
+75,"BAG code for Dutch residencies (""woonplaats"", mostly municipalities)",BAG residence ID,P981,,
+76,configuration of an engine's cylinders,engine configuration,P1002,发动机汽缸的配置,引擎配置
+77,identifier from the Dutch National Thesaurus for Author names,National Thesaurus for Author Names ID,P1006,,NTA识别码（荷兰）
+78,type of asteroid classification,asteroid taxonomy,P1016,,
+79,Spanish classification of occupations CNO-11 maintained by the Spanish INE (Instituto Nacional de Estadística),CNO-11 occupation code,P1022,,
+80,identifier in the French union catalog (see also P269),SUDOC editions,P1025,法國聯合目錄中的標識符（另見P269）,大学文档系统版本
+81,person or organization who awards a prize to or bestows an honor upon a recipient,conferred by,P1027,向收件人頒發獎品或授予榮譽的人或組織,颁发者
+82,person that participated operating or serving aboard this vehicle,crew member,P1029,,机组人员
+83,way an exoplanet was discovered,discovery method,P1046,發現一顆系外行星的方式,发现方法
+84,identifer for the person on catholic-hierarchy.org,Catholic Hierarchy person ID,P1047,,
+85,chromosome on which an entity is localized,chromosome,P1057,一個實體所在的染色體,染色体
+86,person who has taught this person,student of,P1066,传授技艺者,老师
+87,file format a program can create and/or write to,writable file format,P1073,,
+88,HDI value of a country,Human Development Index,P1081,一個國家的人类发展指数值,人类发展指数
+89,identifier for a book (edition) in the Egyptian union catalog,EUL editions,P1084,,
+90,number of tracks served by the platforms at a railway station,number of platform tracks,P1103,,站台对应轨道数量
+91,tendency of an atom or functional group to attract electrons,electronegativity,P1108,,电负性
+92,"number of people (spectators, ticket holders) at an event or exhibition",attendance,P1110,赛事、展览等事件的观众人数,出席人数
+93,qualifier stating the number of votes for a candidate in an election,votes received,P1111,候选人在选举中所获得的票数,得票数
+94,a quantum number; a dimensionless rational number;  the intrinsic spin angular momentum is this times the Dirac or reduced Planck constant,spin quantum number,P1122,,自旋量子数
+95,identifier per Direction générale opérationelle (Wallonia),DGO4 identifier,P1133,,
+96,political ideology of this organization or person,political ideology,P1142,此组织或个人的政治意识形态,政治意识形态
+97,identifier for athletes in International Association of Athletics Federations (IAAF) database and website,IAAF athlete ID,P1146,在國際田徑總會(IAAF)的資料庫與網站之中，田徑選手的編號,IAAF运动员编码
+98,Z39.5 bibliographic code/abbreviation established in 1969 by National Information Standards Organization and used widely in the US and elsewhere,Z39.5 abbreviation,P1161,Z39.5 書目編碼/縮寫，是1969年美國國家資訊標準組織所設另，此縮寫在美國受到廣泛使用,Z39.5縮寫
+99,type of signal transmitted by a device,transmitted signal type,P1170,某裝置發送出的訊號類型,發送訊號
+100,identifier for historical administrative division of Sweden (1862-1951),Geokod,P1172,瑞典行政單位的舊制編碼（1862-1951）,Geokod
+101,portion of a population with a given disease,prevalence,P1193,某疾病在總人口中的感染比率,感染率
+102,"spacecraft vehicle designed to move the payload from a reference orbit to the target orbit, or direct it to an interplanetary trajectory",space tug,P1201,將搭載物從鄰近目標星球的軌道移動到目標軌道上、或是跨星球之間軌道，所設計的太空載具,太空交通船
+103,primary topic of this Wikimedia portal,Wikimedia portal's main topic,P1204,此主題頁面（Portal）的主題項目,維基媒體主題的主要話題
+104,"identifier for a theatrical work, in the Theatricalia database",Theatricalia play ID,P1242,在戲劇資料庫（ http://theatricalia.com ）中劇本作品的索引資料,Theatricalia劇作索引碼
+105,"""Defined Meaning"" on the site OmegaWiki",OmegaWiki Defined Meaning,P1245,在OmegaWiki網站上所呈現的「定義值（Defined Meaning）」,OmegaWiki定义
+106,compression ratio of an engine,compression ratio,P1247,引擎容積的壓縮比率,壓縮比
+107,"identifier in the Notable Names Database, a biographical database: only for people entries",NNDB people ID,P1263,NNDB传记数据库中的编码,NNDB
+108,organization or individual that an entity represents,represents,P1268,,代表对象
+109,identifier for academic journals,Norwegian Register journal ID,P1270,,
+110,identifier in the encyclopedia Dictionnaire du Jura,Dictionnaire du Jura ID,P1276,,
+111,number given to businesses by the United States Internal Revenue Service,IRS Employer Identification Number,P1297,,
+112,identifier in Bibliotheca Alexandrina,EGAXA ID,P1309,,
+113,"facet of a polytope, in the next-lower dimension",has facet polytope,P1312,組成幾何圖形的面或其他少一個維度的對象,維面
+114,Terminologia Anatomica (1998 edition) human anatomical terminology identifier,Terminologia Anatomica 98 ID,P1323,,
+115,latest possible time that something could have occurred. Use as qualifier for other date properties,latest date,P1326,发生某事的可能最晚时间，用作对其他日期属性的限定条件,最晚日期
+116,"winner of an event - do not use for awards (use P166 instead), nor for wars or battles",winner,P1346,在某项活动中取得胜利的一方,获胜者
+117,matches or games a player or a team played during an event. Also a total number of matches a player officially appeared in during the whole career.,number of matches played/races/starts,P1350,某比赛中的比赛场次，或某人/某队的参赛次数,参赛次数
+118,the subject's numbered position within a tournament or group of performers,ranking,P1352,某人、隊伍、或作品在某比賽或排行榜中的排名,排名
+119,"number of sporting matches, games or events lost",number of losses,P1356,,
+120,person who scored a point or goal in a game,points/goal scored by,P1363,在比賽中得分或進球的某位人物,得分或進球者
+121,identifier for an item in the National and University Library in Zagreb (including leading zeroes),NSK ID,P1375,位在克羅埃西亞的首都薩格勒布市的「國家與學院圖書館」(NSK)的資料索引碼,NSK編碼
+122,identifier for a station in Hong Kong issued by MTR,MTR station code,P1377,由香港铁路所发布的车站代码,港铁站代码
+123,identifier for a high school in Japan,Japanese High School Code,P1386,,
+124,identifier in State Catalogue of Geographical Names (Russia),State Catalogue of Geographical Names (Russia) ID,P1397,俄羅斯國家地理名稱目錄中的代碼,國家地理名稱目錄(俄)
+125,crime a person was convicted of,convicted of,P1399,此人犯下的罪行,所犯罪名
+126,identifier used by the Oxford Dictionary of National Biography,Oxford Dictionary of National Biography ID,P1415,牛津大學出版社所使用的線上傳記資源（前身是牛津國家傳記大辭典）控制編號,牛津國家人物傳記大辭典編號
+127,shape of an object,shape,P1419,物体的几何形状,形状
+128,(incorrect) name(s) listed as synonym(s) of a taxon name,taxon synonym,P1420,次异名,同物異名
+129,personal Identification number in Research Platform for Art and Cultural History of the 17th Century (Sandrart.net),Sandrart.net person ID,P1422,17世紀藝術和文化史研究平台中的個人識別號碼,桑德拉特网人物编号
+130,heritage designation of a cultural or natural site,heritage designation,P1435,历史遗迹的保护状况,文化遗产保护状况
+131,"to link a fictional universe with a work that describes it: <universe> ""described in the work:"" <work>",fictional universe described in,P1445,,虚构世界描述于
+132,informal name (for a pseudonym use P742),nickname,P1449,人物或事物的绰号,昵称
+133,link to the list of heritage monuments in the place/area,list of monuments,P1456,,古迹列表
+134,identifier for a document in Nupill Literatura Digital,Nupill Literatura Digital - Document,P1474,,
+135,"published title of a work, such as a newspaper article, a literary work, a website, or a performance work",title,P1476,作品的标题、作品（例如書、電影或網站）的名稱,标题
+136,immediate cause of this effect,immediate cause of,P1536,,
+137,"thing that is significantly influenced by this cause, but does not directly result from it.  See 'Help:Modeling causes' for examples and discussion.",contributing factor of,P1537,,
+138,"position of an item in its parent series, generally to be used as a qualifier. Different from ""rank""",series ordinal,P1545,在序列中所處的序號，其值通常為數字,系列序號
+139,the entity has an inherent or distinguishing non-material characteristic,has quality,P1552,該實體的固有性質或可辨別的非物質特徵,擁有特性
+140,identifier of a person in the Zentralblatt MATH database,zbMATH author ID,P1556,數學文摘數據庫中個人的標識符,數學文摘作者標識符
+141,indication about the speed or pace of a given musical piece,tempo marking,P1558,,拍速标记
+142,identifier in the GeoNames geographical database,GeoNames ID,P1566,地理名字庫地理數據庫中的標識符,地理名字库编号
+143,"Judge, magistrate or equivalent, presiding at a trial",judge,P1594,主审该案的法官、地方法官或同等人士,法官
+144,identifier for an architectural property in Catalonia. max. 5-digit numeric,Inventari del Patrimoni Arquitectònic de Catalunya code,P1600,,
+145,pathogen of which this species is a long-term host,natural reservoir of,P1606,,
+146,Hermann-Mauguin notation of the mineral's symmetry element (short form),Hermann-Mauguin notation,P1632,,
+147,name taken or used as a member of a religious community,religious name,P1635,被視為或被用作宗教團體成員的名稱,宗教姓名
+148,"default communication endpoint in TCP, UDP, or other transport protocol",port,P1641,,
+149,configuration of wing(s) used by an aircraft,wing configuration,P1654,,
+150,standardized list of words used in the description of human embryologic and fetal structures,Terminologia Embryologica,P1693,,
+151,"identifier for authority control per the National Library of Poland. Format: ""A"", 7 digits, ""X"" or another digit.",NLP ID,P1695,,
+152,identifier for Metacritic,Metacritic ID,P1712,標識符,
+153,reference number of intangible cultural heritage of Slovenia (EID),RKD/ESD (Slovenia) ID,P1715,,
+154,brand of a product,brand,P1716,,品牌
+155,hanyu pinyin transliteration of a pinyin text (usually to be used as a qualifier),pinyin transliteration,P1721,,汉语拼音转写
+156,identifier in the Naturbase database published by the Norwegian Environment Agency,Naturbase ID,P1732,,
+157,when person swore the oath of office,oath of office date,P1734,,
+158,URL stem of page in The Merck Index Online,Merck Index monograph,P1738,,
+159,reference for a species in the Bradley and Fletcher checklist of British lepidoptera,Bradley and Fletcher checklist number,P1743,,
+160,identifier for a name or nomenclatural act at ZooBank,ZooBank ID for name or act,P1746,動物園銀行上的名稱或命名行為的標識符,動物園銀行名稱或命名行為標識符
+161,identifier for a taxon in Flora of the People's Republic of China,Flora of China ID,P1747,,
+162,"identifier in the United States National Cancer Institute Thesaurus, vocabulary for clinical care, translational and basic research, etc",NCI Thesaurus ID,P1748,,
+163,identifier in the  online database for cultural heritage monuments in the German state of Hesse,denkXweb identifier,P1769,,
+164,identifier in 'Lista monumentelor istorice din România' (Romanian heritage sites),Romania LMI code,P1770,,
+165,for unknown artists who work in the manner of the named artist,follower of,P1775,,
+166,"name bestowed upon a person at adulthood in addition to one's given name, mostly in East Asia",courtesy name,P1782,汉字文化圈传统上在本名之外的一个正式代称,表字
+167,Wikimedia category for people associated with this place,category of associated people,P1792,維基媒體類別適用於與此地點相關的人員,相关人物分类
+168,identifier in the atlas-patrimoine93.fr website,bureau du patrimoine de Seine-Saint-Denis ID,P1794,,
+169,"identifer for a person affiliated with Masaryk University (staff, alumnus, student…)",Masaryk University person ID,P1803,,
+170,set of persons qualified to vote during elections,electorate,P1831,某地区已登记的选民人数,选民数
+171,identifier for a building in the Gaoloumi database,Gaoloumi ID,P1837,,高楼迷编码
+172,identifier for Global Anabaptist Mennonite Encyclopedia Online,Global Anabaptist Mennonite Encyclopedia Online ID,P1842,,
+173,common or vernacular name of a biological taxon,taxon common name,P1843,,生物俗名
+174,"total number of ballot(s) cast, including invalid or blank ballots",ballots cast,P1868,包含有效票和废票数目的投票总数,实际投票数
+175,maximum numbers of players of a game,maximum number of players,P1873,,
+176,"vessel involved in this mission, voyage or event",vessel,P1876,事件涉及的船只,船只
+177,identifier for an artist in the Web Gallery of Art,Web Gallery of Art ID,P1882,,
+178,article about the person in the Australian Dictionary of Biography,Australian Dictionary of Biography ID,P1907,,
+179,This property should link a gene and a disease due to an altered posttranslational modification,posttranslational modification association with,P1917,,
+180,identifier for MobyGames,MobyGames ID,P1933,,mobygames标识符
+181,identifier for persons in the Database of Classical Scholars,Database of Classical Scholars ID,P1935,,
+182,geographic location code mantained by UNECE,UN/LOCODE,P1937,,
+183,identifier for a taxon in the conifers.org database,conifers.org ID,P1940,,
+184,"ID for a photo on Mapillary, a service for crowdsourcing map photos",Mapillary ID,P1947,,Mapillary編號
+185,identifier of Comité des travaux historiques et scientifiques,CTHS society ID,P1961,,
+186,identifier for a person on the MovieMeter film database,MovieMeter director ID,P1969,荷蘭電影儀表電影數據庫中人物的標識符,荷兰电影仪表导演编号
+187,identifier for a food item in the United States Department of Agriculture National Nutrient Database,USDA NDB number,P1978,,
+188,identifier for a person in the PolSys database of Norwegian politicians,PolSys ID,P1980,,
+189,identifier of a company on animenewsnetwork.com,Anime News Network company ID,P1983,,ANN公司ID
+190,biographical entry in the Catalogus Professorum Halensis,Catalogus Professorum Halensis,P2005,,
+191,identifier for a publication at ZooBank,ZooBank publication ID,P2007,,
+192,identifier for a person on the AllMovie film database,AllMovie artist ID,P2019,,
+193,"username of this project, person or organization on GitHub",GitHub username,P2037,GitHub上此項目，個人或組織的用戶名,GitHub使用者名稱
+194,magnitude of the velocity of the item,speed,P2052,,速度
+195,size of a stream's watershed (drainage basin),watershed area,P2053,,
+196,"Object ID to identify cultural heritage monuments in Brandenburg, Germany",BLDAM object ID,P2081,,
+197,decomposition point of a substance,decomposition point,P2107,,
+198,enthalpy difference of a substance for combustion,combustion enthalpy,P2117,,
+199,romanized Japanese following the Revised Hepburn romanization system,Revised Hepburn romanization,P2125,,修订平文式罗马字
+200,market value of all officially recognized final goods and services produced within a country in a given period of time,nominal GDP,P2131,名义国内生产总值,名义GDP
+201,"amount of debt for a company, organization or public entity",total debt,P2133,,
+202,particle with the same rest mass and opposite charges,antiparticle,P2152,,
+203,SIGIC - Slovenian Music Information Center (property for music group),SIGIC group ID,P2165,,
+204,identifer in the PublicWhip database of British MPs,PublicWhip ID,P2169,,
+205,Parliamentary record identifier for British MPs,Parliamentary record identifier,P2172,,
+206,Identifer in the BBC News Democracy Live database of British MPs,BBC News Democracy Live ID,P2173,,
+207,ACM Computing Classification Code of 2012 (8 digits),ACM Classification Code (2012),P2179,,
+208,code of the entry on the Kansallisbiografia database,Kansallisbiografia ID,P2180,芬蘭國家傳記數據庫條目的代碼,芬蘭國家傳記標識符
+209,code of the entry on the Finnish ministers database,Finnish Ministers database ID,P2182,,
+210,identifier in the BiblioNet database of publishers,BiblioNet publisher ID,P2189,,
+211,numeric author identifier within the Vegetti Catalog of Fantastic Literature,NILF author id,P2191,,
+212,player ID on the Soccerbase.com website,Soccerbase player ID,P2193,,
+213,amount of produced in a given time,production rate,P2197,,
+214,electric charge of a subatomic particle,electric charge,P2200,,
+215,cinemetrical measure,average shot length,P2208,,
+216,"identifier for an official SourceForge repository (""project"") for a software product",SourceForge project,P2209,一個軟件產品的官方資源鍛造存儲庫（“項目”）的標識符,資源鍛造項目
+217,angle from the body's ascending node to its periapsis,argument of periapsis,P2248,,
+218,Department for Education Unique Reference Number; school identifier used by the UK government,DfE URN,P2253,,
+219,ceiling or maximum density altitude at which an aircraft can operate,maximum operating altitude,P2254,,
+220,"standard nominal interval between scheduled or regularly recurring events. Include unit of time, e.g. ""year"" (Q577)",frequency of event,P2257,事件发生的频率,事件频率
+221,identifier for countries in ITU-T Recommendation E.212 for use in describing mobile networks,mobile country code,P2258,,行動裝置國家代碼
+222,person or group whose statements have been fact checked by PolitiFact.com,PolitiFact Personality ID,P2267,,
+223,"an identifier for members, or former members, of the national parliament of Greece",Member of the Hellenic Parliament ID,P2278,,
+224,musical interval/range of a melody,ambitus,P2279,,
+225,item or concept used by the subject or in the operation,uses,P2283,使用的对象,使用
+226,exports minus imports. not to be confused with current account balance and balance of payments,balance of trade,P2294,,經常收支
+227,qualifier to define a property constraint in combination with P2302 (Wikidata property constraint),namespace,P2307,限定符與P2302一起定義屬性約束（維基數據屬性約束）,命名空間
+228,"qualifier to define a property constraint in combination with P2302. ""no value"" can be used to specify no upper bound",maximum value,P2312,,最大数值
+229,number of remains buried or interred,quantity buried,P2324,,
+230,,ProCyclingStats race ID,P2327,,
+231,identifier for a movie in the Elonet database,Elonet movie ID,P2346,,
+232,identifier for endangered languages listed by UNESCO,UNESCO Atlas of the World's Languages in Danger ID,P2355,,
+233,"standard part of the name of a Roman, link to items about the Roman gens only",Roman nomen gentilicium,P2359,,
+234,software version it was deprecated in,deprecated in version,P2379,,
+235,identifier for a person in the directory of French learned societies,CTHS person ID,P2383,,
+236,teaching method adopted by an educational institution,teaching method,P2392,,
+237,value of assets held by a private or public entity,total assets,P2403,,资产总值
+238,"historical, contemporary or future period the work is set in",set in period,P2408,历史或未来时期的作品的設定,時代背景
+239,describes in which biological pathways a biological entity occurs,WikiPathways ID,P2410,,
+240,external link to a designer's profile at the FMD (Fashion Model Directory) website,FMD designer ID,P2412,到時裝模特兒指南網站上的設計師檔案的外部鏈接,時裝模特兒指南設計師標識符
+241,institutional identifier from the GRID.ac global research identifier database,GRID ID,P2427,來自全球研究標識數據庫的機構標識符,全球研究標識符數據庫標識符
+242,number of seasons a television or radio series has had,number of seasons,P2437,電視節目系列或廣播系列的季節數,季度数
+243,qualifier used with «nominated for» to specify which person or organization was nominated,nominee,P2453,,
+244,identifier for a person in the Royal Netherlands Academy of Arts and Sciences past member database,KNAW past member ID,P2454,,
+245,biathlete's identifier in the International Biathlon Union's database,IBU biathlete ID,P2459,,
+246,,member of the deme,P2462,,
+247,"identifier for a theatre, in the theatricalia.com database",Theatricalia theatre ID,P2468,,
+248,ice hockey player ID assigned by Elite Prospects,Elite Prospects player ID,P2481,,
+249,identifier of a person in the Society for American Baseball Research database,SABR person ID,P2482,,
+250,identifier for a school district or education agency in the United States,NCES District ID,P2483,,
+251,the league above this sports league,league level above,P2499,,
+252,minimum pressure measured or estimated for a storm (a measure of strength for tropical cyclones),lowest atmospheric pressure,P2532,,最低气压
+253,artist identifier for Nationalmuseum in Sweden,Nationalmuseum Sweden artist ID,P2538,,
+254,linear distance around the outside of an object,perimeter,P2547,,周长
+255,"fee or toll payable to use, transit or enter the subject (only for one-time fees, do NOT use it for an ongoing fee, tuition fee or trading fee)",fee,P2555,,
+256,"text describing how to use a property or item. Eventually, this statement is to replace usage instructions currently found in description. Until the corresponding feature is implemented, do not remove it from description.",Wikidata usage instructions,P2559,,维基数据使用说明
+257,"name the subject is known by. If a more specific property is available, use that",name,P2561,名稱主題是已知的。 如果有更具體的屬性，請使用它,名称
+258,indicates the characteristic climate of a place,Köppen climate classification,P2564,,
+259,document is amended by specified other document,amended by,P2567,,
+260,"Twitter hashtag associated with this entity. Format: do not include the ""#"" symbol",Twitter hashtag,P2572,與此實體關聯的推特主題標籤。 格式：不包括“＃”符號,推特主题标签
+261,"identifier for a football player, at National-Football-Teams.com",National-Football-Teams.com player ID,P2574,,
+262,physical quantity that this device measures,measures,P2575,,
+263,estimated distance to astronomical objects,distance from Earth,P2583,,
+264,the language's phonology includes this sound,has phoneme,P2587,,
+265,Gram stain type of a bacterial strain,Gram staining,P2597,,
+266,size of block for this block cipher or hash function,block size,P2599,,
+267,unique identifier of PlayStation software and hardware assigned by Sony Computer Entertainment Inc.,PlayStation ID,P2606,索尼计算机娱乐公司指定的PlayStation软件和硬件的唯一标识符,戲驛唯一标识符
+268,identifier for a company in the company register of Hungary,Hungarian company ID,P2619,,
+269,identifier for a song or artist at the MetroLyrics website,MetroLyrics ID,P2624,,
+270,"identifier for a tennis player, in the Davis Cup database",Davis Cup player ID,P2641,,
+271,"identity code for an organisation, in the transparency register of the European Union",EU Transparency Register ID,P2657,,
+272,identifier for a NBA player on the Basketball Reference website,Basketball-Reference.com NBA player ID,P2685,,
+273,particular manner of distribution of a data set (database or file) that is publicly available,dataset distribution,P2702,,
+274,identifier for an album or single on Deezer,Deezer album ID,P2723,,
+275,identifier for an application (or film) available from the distribution platform GOG.com,GOG application ID,P2725,,
+276,identifier for a taxon names in the New Zealand Organisms Register,New Zealand Organisms Register ID,P2752,,
+277,"identifier for an alpine skier, in the International Ski Federation database",FIS alpine skier ID,P2772,,
+278,"identifier for a cross-country skier, in the International Ski Federation database",FIS cross-country skier ID,P2773,,
+279,"identifier for a ski jumper, in the International Ski Federation database",FIS ski jumper ID,P2775,,
+280,case number of a listed building in Denmark,Danish listed buildings case ID,P2783,丹麥上市建築案例編號,丹麥上市建築案例標識符
+281,item with which the item is physically connected,connects with,P2789,,
+282,distance between surface under bridge and bottom of a bridge deck,clearance,P2793,,
+283,member identifier for a sailor in the World Sailing database,World Sailing member ID,P2804,,
+284,"identifier for a pollen or spore in the Australasian Pollen and Spore Atlas, managed by the Australian National University",Australasian Pollen and Spore Atlas Code,P2809,,
+285,"identifier for a golf player, in the LPGA database",LPGA Tour golf player ID,P2810,,
+286,"product of a chemical or industrial process, of secondary economic value",by-product,P2821,,
+287,"identifier for a player, on the official Belgian football federation website",Royal Belgian Football Association player ID,P2823,,
+288,identifier for the film in the database Megogo,Megogo ID,P2826,,
+289,gait of an animal,gait,P2839,,
+290,identifier in Benezit Dictionary of Artists,Benezit ID,P2843,,
+291,internet access availability through Wi-Fi,Wi-Fi access,P2848,通過無線局域網訪問互聯網,無線局域網
+292,"percentage value-added tax in this country or region. Do not use for sales tax. For specialised rates, use qualifiers",VAT-rate,P2855,,
+293,standard publication interval for daily or periodical publications,publication interval,P2896,期刊报纸的出版频率,出版频率
+294,memory storage capacity of some data storage device,memory capacity,P2928,,
+295,identifier for an individual or business entity listed in the  University of Oxford's Bodleian Libraries' British Book Trade Index database,British Book Trade Index ID,P2945,,
+296,"identifier in Nomisma.org, a linked open data thesaurus of numismatic concepts",Nomisma ID,P2950,,
+297,identifier of a ship,boat of heritage interest ID,P2952,,
+298,identifier for films in the German Kinopolis database,Kinopolis film ID,P2970,,
+299,ID of a church on GCatholic.org,GCatholic church ID,P2971,,
+300,"identifier for an ancient person, in the SNAP project",SNAP ID,P2972,,
+301,"the natural environment in which an organism lives, or the physical environment that surrounds a species population",habitat,P2974,,
+302,"minimum age at which a person is generally allowed by law to marry. Use qualifier ""applies to part"" (P518), to specify if it applies only to males (Q6581097), females (Q6581072) or both genders (Q27177113)",marriageable age,P3000,"一般法律许可最小结婚年龄,性别不同，法定结婚年龄也不同。",法定结婚年龄
+303,place where a statement is valid,valid in place,P3005,,
+304,team or crew that is kept ready to act as reserve,backup or reserve team or crew,P3015,,
+305,identifier in the French national research structure repertory,French national research structure identifier,P3016,,
+306,package management system used to publish the software,package management system,P3033,包管理系统用于发布软件,软件包管理系统
+307,"identifier for a war memorial, in the UK Imperial War Museum's War Memorials Register",IWM memorial ID,P3038,,
+308,distance between centers of front wheel and rear wheel,wheelbase,P3039,,
+309,"identifier for a person, band, radio station or other entity, on SoundCloud",SoundCloud ID,P3040,聲雲上的個人，樂隊，廣播電台或其他實體的標識符,聲雲標識符
+310,official identifier of a person elected to the National Assembly of Quebec (NAQ) or one of its predecessors,NAQ elected person ID,P3055,,
+311,"GS1 Prefix, the first three digits, usually identifying the national GS1 Member Organization to which the manufacturer is registered (not necessarily where the product is actually made)",GS1 country code,P3067,,
+312,"entropy content of one mole of substance under standard conditions (25°C, 1 bar)",standard molar entropy,P3071,,
+313,physical items destroyed by this event,destroyed,P3082,,
+314,"identifier for an astronomical object, in the University of Strasbourg's SIMBAD database",SIMBAD ID,P3083,,
+315,this event qualifies for that event,qualifies for event,P3085,,
+316,identifier for a specific flight,flight number,P3090,,航班编号
+317,"member of the crew creating an audiovisual work, used for miscellaneous roles qualified with the job title when no specific property exists. Don't use if such a property is available: notably for cast member (P161), director (P57), etc.",film crew member,P3092,,
+318,"person, organisation or vehicle that recovered the item. Use the most specific value known.",recovered by,P3093,,
+319,"identifier for a plant taxon, in the Flora of Australia Online",Flora of Australia ID (old),P3100,,
+320,identifier of a dub version for a film in the ISzDb (a Hungarian dub database),ISzDb dub ID,P3116,,
+321,"Identifier for a British settlement, in the OpenDomesday digitisation of the Domesday Book",OpenDomesday settlement ID,P3118,,
+322,"identifier for a scientist, in the Polish Government's Information Processing Centre database",Polish scientist ID,P3124,,
+323,identifier of a philosopher in the ALCUIN Infothek der Scholastik,ALCUIN ID,P3126,,
+324,identifier for a movie at the Greek movie database cine.gr,cine.gr film ID,P3129,,
+325,"item for day and month on which the subject was born. Used when full ""date of birth"" (P569) isn't known.",birthday,P3150,出生月和日。用於無法得知完整「出生日期」(P569)時,生日
+326,"identifier for an organisation that funds research, in the Crossref registry",Crossref funder ID,P3153,,
+327,Identifier for book item in the Runeberg digital library collection,Runeberg book ID,P3155,,
+328,identifier for a professor at the Ghent University,UGentMemorialis ID,P3159,,
+329,identifier for a horse on Horsetelex database,Horsetelex ID,P3165,,
+330,"things, places another place offers views on",offers view on,P3173,,
+331,person credited as the art director/artistic director of this work,art director,P3174,,
+332,identifier of a building or site in Patrimonio Web of Junta de Castilla y León,Patrimonio Web JCyL ID,P3177,,
+333,identifier at the Visual Novel Database,Visual Novel Database ID,P3180,視覺小說數據庫中的標識符,视觉小说数据库标识符
+334,"identifier for a professor, in the Marburger Professorenkatalog of professors at the Philipps-Universität Marburg, Germany",Marburger Professorenkatalog ID,P3187,,
+335,"identifier for an earthquake or other seismic event, in the United States Geological Survey database",USGS earthquake ID,P3196,,USGS地震資料庫ID
+336,Charity number of a charity or charitable organisation registered on the Isle of Man,charity number (Isle of Man),P3199,,
+337,was treated or studied as a patient by this person,patient of,P3205,,
+338,number of a French establishment or company,SIRET number,P3215,,
+339,classification in the North American Industry Classification System,NAICS code,P3224,,
+340,the operating temperature where the culturing of micro-organisms and/or enzyme activity thrives best,optimum viable temperature,P3253,,
+341,URL of the page (or page section) on which the creation of the property was discussed,property proposal discussion,P3254,进行了創建属性的讨论的页面（或页面章節）的url,属性提议讨论
+342,unique identifier in the Dutch Actorenregister database,Actorenregister ID,P3273,,
+343,unique identifier of an event or conference series of the Association for Computing Machinery (ACM),ACM Digital Library event ID,P3333,,
+344,identifies candidates in US elections for national and state government within Project Vote Smart's database,Vote Smart ID,P3344,,
+345,what the vehicle or class of vehicles is or was designed to carry,designed to carry,P3349,,
+346,the presence of the genetic variant helps to prognose good outcome for the disease,positive prognostic predictor,P3358,,
+347,identifier of a film company in the German Early Cinema Database,GECD Firmen-ID,P3375,,
+348,"poster used to promote and advertise this film (if file is available on Commons). Use P154 for logos, P18 for movie stills and related images. Items about film posters can be linked with the qualifier ""subject of"" (P805).",film poster,P3383,,电影海报
+349,ID for a lake in the Järviwiki database of Finnish lakes over 1 ha in extent.,Finnish Lake ID,P3394,,
+350,identifier in the members' database of the Leopoldina – German Academy of Sciences,Leopoldina member ID,P3413,,
+351,last period in which the statement is still valid (including the period-value),end period,P3416,,
+352,closest parent cell line of the cell line in question,parent cell line,P3432,,
+353,identifier of a journal in ERIH PLUS,ERIH PLUS ID,P3434,,
+354,angular resolution of an optical instrument,angular resolution,P3439,,
+355,"Identifier number in ""Cinema of Israel"" website",Cinema of Israel ID,P3445,,
+356,the website automatically crawls or mirrors another website as its data source,mirrors data from,P3447,,
+357,"image of the subject at night, or at least in twilight",nighttime view,P3451,,夜景
+358,The Israeli municipal code (Hebrew סמל) is an outline encoding used by the Israel Central Bureau of Statistics to finely fine-tune their statistics. It's a unique identifier given to each municipality in Israel.,Israeli CBS municipal ID,P3466,,
+359,identifier for an inductee in the United States National Inventors Hall of Fame,National Inventors Hall of Fame ID,P3468,,
+360,name of the official Ubuntu package,Ubuntu package,P3473,,
+361,identifier of a historical building in the cultural heritage database of the Lombardy Region of Italy,LombardiaBeniCulturali building ID,P3503,,
+362,identifier assigned to a person by the Museum of New Zealand Te Papa Tongarewa,Te Papa person ID,P3544,,
+363,ID for a VFL/AFL player at afltables.com,AFL Tables player ID,P3547,,
+364,ID on the World Curling Tour database,World Curling Tour ID,P3556,,
+365,ID for American or Canadian football player in www.justsportsstats.com,Just Sports Stats ID,P3566,,
+366,ID for a Major League Baseball player at ESPN.com,ESPN.com MLB player ID,P3571,,
+367,identifier for American football players in the Pro Football Hall of Fame,Pro Football Hall of Fame ID,P3581,,
+368,"identifier for a golf player, in the SunshineTour database",SunshineTour golf player ID,P3582,,
+369,,Saros cycle of eclipse,P3592,,沙羅周期
+370,identifier for a taxon in araneae.nmbe.ch,Araneae Spider ID,P3594,,
+371,identifier for small molecules and ligands in the Protein Data Bank (PDB),PDB ligand ID,P3636,,
+372,ID of a player at TheAHL.com,American Hockey League player ID,P3651,,
+373,ID for a football player at FootballFacts.ru,FootballFacts.ru player ID,P3660,,
+374,identifier for a rugby player on the South African Rugby Union website,SA Rugby player ID,P3678,,
+375,entity that supports a given statement,statement supported by,P3680,,主張此敘述者
+376,"identifier for a short track speed skater on the ShorttrackOnLine.info website, based on ISU ID",short-track speed skater ISU ID,P3693,,
+377,identifier for a speed skater on the SpeedSkatingNews.info website,SpeedSkatingNews.info speed skater ID,P3694,,
+378,identifier for a college football player on the Sports Reference college football (SRCFB) website,Sports-Reference.com college football player ID,P3697,,
+379,manuscript identifier in the British Library Catalogue of Illuminated Manuscripts,Catalogue of Illuminated Manuscripts ID,P3702,,
+380,short sequence of bytes to identify a longer cryptographic public key,public key fingerprint,P3721,,
+381,item for categories of pages with template parameter value same as Wikidata,category for value same as Wikidata,P3734,,
+382,maximum wavelength that the item can detect,maximum wavelength of sensitivity,P3737,,
+383,ID of a documentary film at Korean Movie Database,KMDb documentary film ID,P3750,,
+384,database about the judges of Israel,Shoftim BeIsrael judge ID,P3751,,
+385,time complexity of an algorithm at most,worst-case time complexity,P3752,一個演算法在最差情況的時間複雜度,最差時間複雜度
+386,protein for which this chemical acts as an agonist,agonist of,P3772,,
+387,identifier of an artist in the Artnet database of auction results,Artnet artist ID,P3782,,Artnet 藝術家編號
+388,identifier for a silent film in danskefilm.dk,danskefilm silent film ID,P3787,,
+389,identifier for a plant taxon or cultivar in the Flora of Israel Online database,Flora of Israel Online plant ID,P3795,,
+390,identifier for a municipality in Mexico published by INEGI,INEGI municipality ID,P3801,,
+391,"identifier for an author of scholarly works, at mendeley.com",Mendeley person ID,P3835,,
+392,Identifier for a gene in the FlyBase database of Drosophila genes and genomes,FlyBase Gene ID,P3852,,
+393,identifier for a person in the MyDramaList database,MyDramaList name ID,P3862,,
+394,"phonetic algorithm for indexing names by sound, as pronounced in English. Format: initial of word followed by 3 digits (0-6)",Soundex,P3878,,
+395,identifier for an athlete on the National Track & Field Hall of Fame webpages,National Track & Field Hall of Fame athlete ID,P3881,,
+396,identifier of a person or topic in the History of Modern Biomedicine database,History of Modern Biomedicine ID,P3885,,
+397,identifier for an artist in the Museum Boijmans Van Beuningen,Boijmans artist ID,P3888,,
+398,identifier for a visual artist for their droit de suite (money collection with artwork transfers) of the Dutch collective rights management organisation PictoRight and sister organisations worldwide,PictoRight ID-Droit de suite,P3892,,
+399,typographical column in the page of a document,column,P3903,,
+400,ID of a developer at MobyGames,MobyGames developer ID,P3913,,
+401,identifier for an Australian athlete on the Athletics Australia website,Athletics Australia athlete ID,P3915,,
+402,identifier for a concept in the UNESCO Thesaurus,UNESCO Thesaurus ID,P3916,,教科文组织同义词库ID
+403,identifier for an athlete on the IAAF Diamond League website,IAAF Diamond League athlete ID,P3923,,
+404,"identifier of a person in the database of the Valencian Library, the regional library in the Land of Valencia, Spain",Digital Valencian Library author ID,P3932,,
+405,identifier in the English Short Title Catalogue,ESTC citation number,P3939,,
+406,ID in the Israeli Antiquities Authority archive,Israel Antiquities Authority ID,P3941,,
+407,account name on Tumblr,Tumblr ID,P3943,湯博樂上的帳戶名稱,湯博樂標識符
+408,more specific subclass included in other ontology but not in Wikidata,narrower external class,P3950,,
+409,identifier for a female golf player on the Australian Ladies Professional Golf website,ALPG Tour golf player ID,P3953,,
+410,identifier for a basketball player on the RealGM website,RealGM basketball player ID,P3957,,
+411,identifier of a person on unifrance.org,Unifrance person ID,P3980,,
+412,"identifier for person, film (movie) or TV series, in the filmweb.pl database",Filmweb.pl ID,P3995,,
+413,this item's username on Vimeo,Vimeo username,P4015,此項目在我視頻上的用戶名,我視頻用戶名
+414,identifier for a animated film in danskefilm.dk,danskefilm animated film ID,P4021,,
+415,"identifier for a taxon, in the Animal Diversity Web database",ADW taxon ID,P4024,,
+416,identifier for a graduate of the US Military Academy (West Point),Cullum number,P4026,,
+417,"identifier in the Danish List of a Lighthouse, beacon or fog signal in the Kingdom of Denmark",Danish List of Lights and Fog signals ID,P4038,,
+418,identifier for a Chinese athlete at the Chinese Olympic Committee's CIS Chinese Athletes Database website,Chinese Olympic Committee athlete ID,P4068,,
+419,"identifier of a topic's wiki, in Fandom.com",Fandom wiki ID,P4073,維基亞中一個主題維基的標識符,维基亚维基标识符
+420,identifier for a motorcycle racer on the WorldSBK.com website,WorldSBK.com racer identifier,P4076,,
+421,identifier of the Theatres Trust Database,Theatres Trust Database ID,P4079,,
+422,number of houses in given territorial entity,number of houses,P4080,,
+423,identifier for a person or ensemble in the Carnegie Hall Linked Open Data (LOD),Carnegie Hall agent ID,P4104,,
+424,URI in the urn:nbn: namespace as specified by RFC 3188,URN-NBN,P4109,,
+425,identifier for an economic data set provided by St. Louis Fed's Federal Reserve Economic Data (FRED),FRED time-series ID,P4113,,
+426,"universal identifier from Infrastructure for Spatial Information in the European Community (INSPIRE), used across EU databases",INSPIRE ID,P4115,,
