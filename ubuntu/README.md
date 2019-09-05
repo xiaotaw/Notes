@@ -1,6 +1,11 @@
 ## 目录
-* [命令行/图形界面启动](命令行/图形界面启动)
-* [一些BUG](一些BUG)
+* [命令行/图形界面启动](#命令行/图形界面启动)
+* [终端中文显示为问号](#终端中文显示为问号)
+* [frp](#frp)
+* [vim](#vim)
+* [安装软件/程序/包](#安装软件/程序/包)
+  * [ubuntu18.04安装libgdk2.0-dev报错](#ubuntu18.04安装libgdk2.0-dev报错)
+  * [python安装opencv](#python安装opencv)
 
 ## 命令行/图形界面启动
 * 有时候需要关闭图形界面（如：安装显卡驱动），可以通过设置命令行模式开机重启。
@@ -12,7 +17,51 @@ sudo systemctl set-default multi-user.target
 sudo systemctl set-default graphical.target
 ```
 
-## 一些BUG
+## 终端中文显示为问号
+```bash
+# 进入容器，查看字符集
+root@xxxxxxxxxxxx:/# locale
+LANG=
+LANGUAGE=
+LC_CTYPE="POSIX"
+LC_NUMERIC="POSIX"
+LC_TIME="POSIX"
+LC_COLLATE="POSIX"
+LC_MONETARY="POSIX"
+LC_MESSAGES="POSIX"
+LC_PAPER="POSIX"
+LC_NAME="POSIX"
+LC_ADDRESS="POSIX"
+LC_TELEPHONE="POSIX"
+LC_MEASUREMENT="POSIX"
+LC_IDENTIFICATION="POSIX"
+LC_ALL=
+
+# 查看容器支持的字符集
+root@b18f56aa1e15:/# locale -a
+C
+C.UTF-8
+POSIX
+
+# POSIX不支持中文，更改为C.UTF-8即可（或者写入bashrc中）
+export LANG=C.UTF-8
+
+```
+## frp
+* frp是一个内网穿透工具，需要一台有公网ip的服务器作为跳板。  
+* 参考https://github.com/fatedier/frp
+
+## vim
+设置vim自动缩进，并且将tab替换为四个空格
+```bash
+# 打开vim配置文件，添加以下三行
+$ vim ~/.vimrc
+set ts=4
+set expandtab
+set autoindent
+```
+
+## 安装软件/程序/包
 ### ubuntu18.04安装libgdk2.0-dev报错
 * 问题: 
 ```bash
@@ -47,5 +96,10 @@ $ sudo apt-get install libfontconfig1=2.12.6-0ubuntu2
 $ sudo apt-get install libfontconfig1-dev libxft-dev
 $ sudo apt-get install libpango1.0-dev libcairo2-dev
 $ sudo apt-get install libgtk2.0-dev
+```
+
+### python安装opencv
+```bash 
+conda install -c menpo opencv3
 ```
 
