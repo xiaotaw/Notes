@@ -97,6 +97,8 @@ $ sudo apt-get install libfontconfig1-dev libxft-dev
 $ sudo apt-get install libpango1.0-dev libcairo2-dev
 $ sudo apt-get install libgtk2.0-dev
 ```
+* 其他方案（未尝试）
+libgtk2.0-dev依赖得部分库需要一个比较老的版本。参考https://blog.csdn.net/u014527548/article/details/80251046
 
 ### python安装opencv
 ```bash 
