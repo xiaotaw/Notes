@@ -1,7 +1,10 @@
 ## 目录
 * [命令行or图形界面启动](#命令行or图形界面启动)
 * [终端中文显示为问号](#终端中文显示为问号)
-* [frp](#frp)
+* [网络服务](#网络服务)
+  * [frp](#frp)
+  * [ss](#ss)
+  * [vnc4server](#vnc4server)
 * [vim](#vim)
 * [安装软件-程序-包](#安装软件-程序-包)
   * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
@@ -48,9 +51,22 @@ POSIX
 export LANG=C.UTF-8
 
 ```
-## frp
+## 网络服务
+### frp
 * frp是一个内网穿透工具，需要一台有公网ip的服务器作为跳板。  
 * 参考https://github.com/fatedier/frp
+
+### ss
+* 启动命令（老是忘记）：`sudo sslocal -c xxx.conf -d start`
+* 参考http://tanqingbo.com/2017/07/19/Ubuntu%E4%BD%BF%E7%94%A8shadowsocks%E7%BF%BB%E5%A2%99/
+
+### vnc4server
+* 常用命令  
+终止：`vnc4server -kill :2 `  
+启动：`vnc4server -geometry 960x768 :2`  
+* 参考网址  
+https://linuxconfig.org/vnc-server-on-ubuntu-18-04-bionic-beaver-linux  
+https://cloud.tencent.com/developer/article/1350304 
 
 ## vim
 设置vim自动缩进，并且将tab替换为四个空格
