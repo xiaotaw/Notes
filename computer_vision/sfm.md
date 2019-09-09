@@ -5,3 +5,7 @@
 ## 电子书籍
 腾讯云社区的一篇[文章](https://cloud.tencent.com/developer/news/274792)中提到，书籍《计算机视觉中的多视图几何》的百度云分享：  
 链接：https://pan.baidu.com/s/1glF0QaySRXd1cTZVtv5Kyg 密码：3jug
+
+## ppt
+CS231A: Computer Vision, From 3D Reconstruction to Recognition  
+http://web.stanford.edu/class/cs231a/course_notes.html
