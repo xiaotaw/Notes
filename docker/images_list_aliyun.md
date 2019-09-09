@@ -15,3 +15,7 @@
 华北2（北京）| web | registry.cn-beijing.aliyuncs.com/xt-web/web | ubuntu16.04 | basic | 93b34b7632eed4e9909cf7a140e162cdf1bbd984aef49b24cb1f7e0d6e2d67d0
 华北2（北京）| web | registry.cn-beijing.aliyuncs.com/xt-web/web | ubuntu16.04-miniconda2 | \ | \
 华北2（北京）| web | registry.cn-beijing.aliyuncs.com/xt-web/web | ubuntu16.04-miniconda2-flask | \ | \
+华北2（北京）| web | registry.cn-beijing.aliyuncs.com/xt-web/web | ubuntu16.04-pipenv | \ | \
+华北2（北京）| web | registry.cn-beijing.aliyuncs.com/xt-web/web | ubuntu16.04-pipenv-fun | \ | \
+华北2（北京）| web | registry.cn-beijing.aliyuncs.com/xt-web/web | ubuntu16.04-neo4j | \ | \
+华北2（北京）| web | registry.cn-beijing.aliyuncs.com/xt-web/web | ubuntu16.04-neo4j-vim | \ | \
