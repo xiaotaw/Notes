@@ -7,8 +7,10 @@
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-runtime-ubuntu16.04-miniconda3-py37-pytorch1_1_0 | 带CUDA的ubt系统镜像，添加miniconda3，torch1.1.0 | e8a6faa2ba5f036979951902ef0e3d39582fd2f7e9b8a899170daa87a5a8706d
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-runtime-ubuntu16.04-miniconda3-py37-pytorch1_1_0_gcc_fairseq | 带CUDA的ubt系统镜像，添加miniconda3，torch1.1.0，以及gcc，fairseq | efa99afd282cf7cd67ca0171e423d09acc750998b2f0ce5bcfe484ee68db3b5e
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-runtime-ubuntu16.04-miniconda3-py37-pytorch1_1_0_gcc_fairseq_vim | 带CUDA的ubt系统镜像，添加miniconda3，torch1.1.0，以及gcc，fairseq,vim | 40242d03859d011585893cc90df2df0b1fc9c8dd4f54fb1c42ab6815240527eb
-
-
+华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-devel-ubuntu16.04 | \ | \
+华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-devel-ubuntu16.04-building_tf_whl | 配置tensorflow的pip安装包编译环境 | \
+华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-devel-ubuntu16.04-building_tf_whl_r1.14 | 编译了r1.14，并执行bazel clean，大小缩减了许多 | \
+华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-runtime-ubuntu16.04-tf_gpu1.14_opted | 安装tensorflow-gpu=1.14，cpu指令集SSE4.1 SSE4.2 AVX AVX2 FMA | \
 
 地区 |主题 | 仓库 | tag | 备注 | Digest
 -|-|-|-|-|-

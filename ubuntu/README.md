@@ -7,6 +7,7 @@
   * [vnc4server](#vnc4server)
 * [vim](#vim)
 * [安装软件-程序-包](#安装软件-程序-包)
+  * [使用给国内源（待更新）]
   * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
   * [ubuntu18_04安装VisualSFM](#ubuntu18_04安装VisualSFM)
   * [python安装opencv](#python安装opencv)
