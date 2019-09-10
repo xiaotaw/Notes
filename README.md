@@ -1,4 +1,51 @@
-# Notes
-Notes under some topics, such as **docker**, **wikidata**.
+# 目录
+## compile_tf18_from_source
+* [简介](#简介)
+* [编译](#编译)
+  * [0_创建容器](#0_创建容器)
+  * [1_安装工具vim，git，gcc，g++](#1_安装工具vim，git，gcc，g++)
+  * [2_安装python和tensorflow依赖库](#2_安装python和tensorflow依赖库)
+  * [3_安装bazel](#3_安装bazel)
+  * [4_检查GPU依赖](#4_检查GPU依赖)
+  * [5_下载tensorflow源码，选择tensorflow版本](#5_下载tensorflow源码，选择tensorflow版本)
+  * [6_configure](#6_configure)
+  * [7_使用bazel编译生成pip安装包](#7_使用bazel编译生成pip安装包)
+  * [8_安装测试](#8_安装测试)
+* [参考资料](#参考资料)
 
-* Note for Notes: use lowercase and _ for filenames
+## wikidata
+* [简介](#简介)
+* [数据下载](#数据下载)
+* [数据精简](#数据精简)
+* [数据统计](#数据统计)
+* [数据使用](#数据使用)
+  * [将wikidata导入neo4j](将wikidata导入neo4j)
+  * [其他](#其他)
+* [参考资料](#参考资料)
+
+## ubuntu
+* [命令行or图形界面启动](#命令行or图形界面启动)
+* [终端中文显示为问号](#终端中文显示为问号)
+* [网络服务](#网络服务)
+  * [frp](#frp)
+  * [ss](#ss)
+  * [vnc4server](#vnc4server)
+* [vim](#vim)
+* [安装软件-程序-包](#安装软件-程序-包)
+  * [使用给国内源（待更新）]
+  * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
+  * [ubuntu18_04安装VisualSFM](#ubuntu18_04安装VisualSFM)
+  * [python安装opencv](#python安装opencv)
+
+## neo4j
+* [安装neo4j](#Install)
+  * [ubuntu](#ubuntu)
+* [运行neo4j服务](#运行neo4j服务)
+  * [浏览器远程连接](#浏览器远程连接)
+* [使用neo4j](#使用neo4j)
+  * [基本介绍](#基本介绍)
+  * [从CSV中加载数据](#从CSV中加载数据)
+* [参考资料](#参考资料)
+* [其他](#Others)
+  * [批量导入数据方法对比](#批量导入数据方法对比)
+
