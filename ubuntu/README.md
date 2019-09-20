@@ -5,12 +5,14 @@
   * [frp](#frp)
   * [ss](#ss)
   * [vnc4server](#vnc4server)
+  * [端口映射](#端口映射)
 * [vim](#vim)
 * [安装软件-程序-包](#安装软件-程序-包)
   * [使用给国内源（待更新）]
   * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
   * [ubuntu18_04安装VisualSFM](#ubuntu18_04安装VisualSFM)
   * [python安装opencv](#python安装opencv)
+  * [安装nvidia显卡驱动](#安装nvidia显卡驱动)
 
 ## 命令行or图形界面启动
 * 有时候需要关闭图形界面（如：安装显卡驱动），可以通过设置命令行模式开机重启。
@@ -68,6 +70,10 @@ export LANG=C.UTF-8
 * 参考网址  
 https://linuxconfig.org/vnc-server-on-ubuntu-18-04-bionic-beaver-linux  
 https://cloud.tencent.com/developer/article/1350304 
+
+### 端口映射
+（百度NAT）
+
 
 ## vim
 设置vim自动缩进，并且将tab替换为四个空格
@@ -206,5 +212,21 @@ cd ../../../..
 ### python安装opencv
 ```bash 
 conda install -c menpo opencv3
+```
+
+
+### 安装nvidia显卡驱动
+```bash
+# 参考https://www.jianshu.com/p/7373be733226
+
+# 去除已有的显卡驱动，禁用默认的显卡驱动
+# 进入multi-user模式，命令行模式，禁用图形界面服务
+
+
+# 检测系统适合的显卡
+ubuntu-drivers devices
+
+# 选择系统推荐的驱动，进行安装
+sudo apt-get install nvidia-driver-430
 ```
 
