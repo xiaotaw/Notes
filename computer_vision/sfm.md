@@ -9,3 +9,7 @@
 ## ppt
 CS231A: Computer Vision, From 3D Reconstruction to Recognition  
 http://web.stanford.edu/class/cs231a/course_notes.html
+
+
+## 博客
+对极几何（讲的非常清楚），是cs231a的课堂笔记的翻译 https://blog.csdn.net/Ketal_N/article/details/83744626
