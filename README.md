@@ -30,12 +30,21 @@
   * [frp](#frp)
   * [ss](#ss)
   * [vnc4server](#vnc4server)
+  * [端口映射](#端口映射)
 * [vim](#vim)
 * [安装软件-程序-包](#安装软件-程序-包)
   * [使用给国内源（待更新）]
   * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
   * [ubuntu18_04安装VisualSFM](#ubuntu18_04安装VisualSFM)
   * [python安装opencv](#python安装opencv)
+  * [安装nvidia显卡驱动](#安装nvidia显卡驱动)
+
+## computer_vision
+* [简介](#简介)
+* [数学基础](#数学基础)
+  * [四元数和三维旋转](#四元数和三维旋转)
+  * [李群和李代数](#李群和李代数)
+  * [图优化](#图优化)
 
 ## neo4j
 * [安装neo4j](#Install)
