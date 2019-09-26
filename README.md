@@ -33,11 +33,12 @@
   * [端口映射](#端口映射)
 * [vim](#vim)
 * [安装软件-程序-包](#安装软件-程序-包)
-  * [使用给国内源（待更新）]
+  * [使用国内源（待更新）]
   * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
   * [ubuntu18_04安装VisualSFM](#ubuntu18_04安装VisualSFM)
   * [python安装opencv](#python安装opencv)
   * [安装nvidia显卡驱动](#安装nvidia显卡驱动)
+  * [opencv和pcl](#opencv和pcl)
 
 ## computer_vision
 * [简介](#简介)
@@ -45,6 +46,23 @@
   * [四元数和三维旋转](#四元数和三维旋转)
   * [李群和李代数](#李群和李代数)
   * [图优化](#图优化)
+    * [数值优化](#数值优化)
+    * [参考资料](#参考资料)
+* [三维重建](#三维重建)
+  * [相机模型](#相机模型)
+  * [单目](#单目)
+  * [对极几何](#对极几何)
+  * [双目系统和sfm](#双目系统和sfm)
+  * [Active and Volumetric Stereo](#ActiveAndVolumetricStereo)
+  * [VisualSFM + Meshlab](#VisualSFM试用)
+* [疑问](#疑问)
+  * [怎么理解单应矩阵](#怎么理解单应矩阵)
+  * [本征矩阵和基础矩阵的自由度](#本征矩阵和基础矩阵的自由度)
+* [参考资料](#参考资料)
+  * [CS231A: Computer Vision, From 3D Reconstruction to Recognition](#CS231A)
+  * [视觉slam十四讲](#视觉slam十四讲)
+  * [sfm介绍博客](#sfm介绍博客)
+  * [《计算机视觉中的多视几何》](#《计算机视觉中的多视几何》)
 
 ## neo4j
 * [安装neo4j](#Install)

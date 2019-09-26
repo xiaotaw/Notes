@@ -8,11 +8,12 @@
   * [端口映射](#端口映射)
 * [vim](#vim)
 * [安装软件-程序-包](#安装软件-程序-包)
-  * [使用给国内源（待更新）]
+  * [使用国内源（待更新）]
   * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
   * [ubuntu18_04安装VisualSFM](#ubuntu18_04安装VisualSFM)
   * [python安装opencv](#python安装opencv)
   * [安装nvidia显卡驱动](#安装nvidia显卡驱动)
+  * [opencv和pcl](#opencv和pcl)
 
 ## 命令行or图形界面启动
 * 有时候需要关闭图形界面（如：安装显卡驱动），可以通过设置命令行模式开机重启。
@@ -86,6 +87,22 @@ set autoindent
 ```
 
 ## 安装软件-程序-包
+### 使用国内源
+参考https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/更新后，可能部分软件的源需手动添加
+
+1. nvidia-docker
+参照https://github.com/NVIDIA/nvidia-docker#ubuntu-16041804-debian-jessiestretchbuster
+```bash
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+```
+2. neo4j
+```bash
+wget -O - https://debian.neo4j.org/neotechnology.gpg.key |  apt-key add -
+echo 'deb https://debian.neo4j.org/repo stable/' |  tee /etc/apt/sources.list.d/neo4j.list
+```
+
 ### ubuntu18_04安装libgdk2.0-dev报错
 * 问题: 
 ```bash
@@ -214,7 +231,6 @@ cd ../../../..
 conda install -c menpo opencv3
 ```
 
-
 ### 安装nvidia显卡驱动
 ```bash
 # 参考https://www.jianshu.com/p/7373be733226
@@ -230,3 +246,10 @@ ubuntu-drivers devices
 sudo apt-get install nvidia-driver-430
 ```
 
+### opencv和pcl
+```bash
+# opencv库
+sudo apt-get install libopencv-dev
+# pcl库和pcl viewer
+sudo apt-get install libpcl-dev pcl-tools
+```
