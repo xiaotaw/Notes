@@ -6,6 +6,7 @@
   * [ss](#ss)
   * [vnc4server](#vnc4server)
   * [端口映射](#端口映射)
+* [服务管理](#服务管理)
 * [vim](#vim)
 * [安装软件-程序-包](#安装软件-程序-包)
   * [使用国内源（待更新）]
@@ -75,6 +76,22 @@ https://cloud.tencent.com/developer/article/1350304
 ### 端口映射
 （百度NAT）
 
+## 服务管理
+```bash
+# 编写脚本
+sudo vi /lib/systemd/system/XXX.service
+
+# 启动
+sudo systemctl daemon-reload
+sudo systemctl enable XXX.service
+sudo systemctl start XXX.service
+sudo reboot
+
+# 取消
+sudo systemctl disable XXX.service
+sudo systemctl stop XXX.service
+
+```
 
 ## vim
 设置vim自动缩进，并且将tab替换为四个空格
