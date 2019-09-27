@@ -5,6 +5,7 @@
   * [frp](#frp)
   * [ss](#ss)
   * [vnc4server](#vnc4server)
+  * [x11vnc](#x11vnc)
   * [端口映射](#端口映射)
 * [服务管理](#服务管理)
 * [vim](#vim)
@@ -72,6 +73,13 @@ export LANG=C.UTF-8
 * 参考网址  
 https://linuxconfig.org/vnc-server-on-ubuntu-18-04-bionic-beaver-linux  
 https://cloud.tencent.com/developer/article/1350304 
+
+### x11vnc
+```bash
+# 手动启动，需要先设置passwd
+x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth PATH_TO_YOUR_HOME/.vnc/passwd -rfbport 5900 -shared -o x11vnc.log
+
+```
 
 ### 端口映射
 （百度NAT）
