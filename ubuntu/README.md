@@ -10,7 +10,7 @@
 * [服务管理](#服务管理)
 * [vim](#vim)
 * [安装软件-程序-包](#安装软件-程序-包)
-  * [使用国内源（待更新）]
+  * [使用国内源](#使用国内源)
   * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
   * [ubuntu18_04安装VisualSFM](#ubuntu18_04安装VisualSFM)
   * [python安装opencv](#python安装opencv)

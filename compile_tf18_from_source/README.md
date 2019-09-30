@@ -16,6 +16,14 @@
 |tensorflow_gpu-1.14.0	| 2.7 |	GCC 5.4	| Bazel 0.26.1 |	7.4 |	10.1 |
 |tensorflow_gpu-1.8.0	| 2.7	| GCC 4.8	| Bazel 0.10.0	| 7 |	9 |
 
+* 百度云
+Cuntomized Tensorflow python installation packages  
+CPU optimization for 'Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz'  
+For more info: https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source  
+
+tensorflow-1.8.0-cp27-cp27mu-linux_x86_64.whl 链接: https://pan.baidu.com/s/1Lhh4z8rQ3OaP9aVc2i8nZw 提取码: hpyd 
+tensorflow-1.14.1-cp27-cp27mu-linux_x86_64.whl 链接: https://pan.baidu.com/s/1Quyh7vXny4ahWSFGmkmsvA 提取码: yxcn   
+
 ## 目录
 * [简介](#简介)
 * [编译](#编译)
