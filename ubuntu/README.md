@@ -7,10 +7,13 @@
   * [vnc4server](#vnc4server)
   * [x11vnc](#x11vnc)
   * [端口映射](#端口映射)
-* [服务管理](#服务管理)
+* [本地服务管理](#服务管理)
+  * [CodeServer](#CodeServer)
+  * [本地服务管理命令](#本地服务管理命令)
 * [vim](#vim)
 * [安装软件-程序-包](#安装软件-程序-包)
   * [使用国内源](#使用国内源)
+  * [pip使用清华源](#pip使用清华源)
   * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
   * [ubuntu18_04安装VisualSFM](#ubuntu18_04安装VisualSFM)
   * [python安装opencv](#python安装opencv)
@@ -85,6 +88,13 @@ x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth PATH_TO_YOUR_HOME/
 （百度NAT）
 
 ## 服务管理
+
+### CodeServer
+```bash
+docker run -it --rm --network="host" -v "${HOME}/.local/share/code-server:/home/coder/.local/share/code-server" -v "$PWD:/home/coder/project" codercom/code-server:v2 code-server --host 0.0.0.0  --port 5905
+```
+
+### 本地服务管理命令
 ```bash
 # 编写脚本
 sudo vi /lib/systemd/system/XXX.service
@@ -126,6 +136,11 @@ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.li
 ```bash
 wget -O - https://debian.neo4j.org/neotechnology.gpg.key |  apt-key add -
 echo 'deb https://debian.neo4j.org/repo stable/' |  tee /etc/apt/sources.list.d/neo4j.list
+```
+
+### pip使用清华源
+```bash
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple package_name
 ```
 
 ### ubuntu18_04安装libgdk2.0-dev报错

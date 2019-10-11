@@ -73,10 +73,13 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vnc4server" target="_blank">vnc4server</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#x11vnc" target="_blank">x11vnc</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#端口映射" target="_blank">端口映射</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#服务管理" target="_blank">服务管理</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#服务管理" target="_blank">本地服务管理</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#CodeServer" target="_blank">CodeServer</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#本地服务管理命令" target="_blank">本地服务管理命令</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vim" target="_blank">vim</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#安装软件-程序-包" target="_blank">安装软件-程序-包</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#使用国内源" target="_blank">使用国内源</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pip使用清华源" target="_blank">pip使用清华源</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#ubuntu18_04安装libgdk2.0-dev报错" target="_blank">ubuntu18_04安装libgdk2.0-dev报错</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#ubuntu18_04安装VisualSFM" target="_blank">ubuntu18_04安装VisualSFM</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#python安装opencv" target="_blank">python安装opencv</a>
