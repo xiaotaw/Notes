@@ -1,4 +1,23 @@
 ## 从源码编译tensorflow=1.14的pip安装包(2019/09/09)
+## 目录
+* [简介](#简介)
+* [编译](#编译)
+  * [0_创建容器](#0_创建容器)
+  * [1_安装工具vim，git，gcc，g++](#1_安装工具vim，git，gcc，g++)
+  * [2_安装python和tensorflow依赖库](#2_安装python和tensorflow依赖库)
+  * [3_安装bazel](#3_安装bazel)
+  * [4_检查GPU依赖](#4_检查GPU依赖)
+  * [5_下载tensorflow源码，选择tensorflow版本](#5_下载tensorflow源码，选择tensorflow版本)
+  * [6_configure](#6_configure)
+  * [7_使用bazel编译生成pip安装包](#7_使用bazel编译生成pip安装包)
+  * [8_安装测试](#8_安装测试)
+* [参考资料](#参考资料)
+
+## 简介
+
+初衷：官方tensorflow的pip安装包，为了兼容不同CPU，没有启用一些加速运算的指令集。在运行tensorflow时，
+会看到类似Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA的提示，
+因此，自行编译启用这些指令，加速运算（有时间的话，会做对比测试）
 
 
 * 历史版本：[从源码编译tensorflow=1.8的pip安装包(2019/03/16)](https://github.com/xiaotaw/Notes/blob/master/compile_tf18_from_source/20190316.md)
@@ -15,6 +34,7 @@
 |-|-|-|-|-|-|
 |tensorflow_gpu-1.14.0	| 2.7 |	GCC 5.4	| Bazel 0.26.1 |	7.4 |	10.1 |
 |tensorflow_gpu-1.8.0	| 2.7	| GCC 4.8	| Bazel 0.10.0	| 7 |	9 |
+|tensorflow_gpu-1.8.0	| 3.5	| GCC 4.8	| Bazel 0.10.0	| 7 |	9 |
 
 * 百度云
 Cuntomized Tensorflow python installation packages  
@@ -24,24 +44,6 @@ For more info: https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_so
 tensorflow-1.8.0-cp27-cp27mu-linux_x86_64.whl 链接: https://pan.baidu.com/s/1Lhh4z8rQ3OaP9aVc2i8nZw 提取码: hpyd 
 tensorflow-1.14.1-cp27-cp27mu-linux_x86_64.whl 链接: https://pan.baidu.com/s/1Quyh7vXny4ahWSFGmkmsvA 提取码: yxcn   
 
-## 目录
-* [简介](#简介)
-* [编译](#编译)
-  * [0_创建容器](#0_创建容器)
-  * [1_安装工具vim，git，gcc，g++](#1_安装工具vim，git，gcc，g++)
-  * [2_安装python和tensorflow依赖库](#2_安装python和tensorflow依赖库)
-  * [3_安装bazel](#3_安装bazel)
-  * [4_检查GPU依赖](#4_检查GPU依赖)
-  * [5_下载tensorflow源码，选择tensorflow版本](#5_下载tensorflow源码，选择tensorflow版本)
-  * [6_configure](#6_configure)
-  * [7_使用bazel编译生成pip安装包](#7_使用bazel编译生成pip安装包)
-  * [8_安装测试](#8_安装测试)
-* [参考资料](#参考资料)
-
-## 简介
-初衷：官方tensorflow的pip安装包，为了兼容不同CPU，没有启用一些加速运算的指令集。在运行tensorflow时，
-会看到类似Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA的提示，
-因此，自行编译启用这些指令，加速运算（有时间的话，会做对比测试）
 
 ## 编译
 ### 0_创建容器
@@ -67,8 +69,13 @@ apt-get install -y vim wget git gcc g++
 ### 2_安装python和tensorflow依赖库
 
 ```bash
+# for python2
 apt install -y python-dev python-pip
 pip install -U pip 
+
+# for python3
+apt install -y python3-dev python3-pip
+#pip3 install -U pip3 (有问题)
 ```
 升级pip后，pip报错，参照https://blog.csdn.net/zong596568821xp/article/details/80410416 进行修复，使用vim打开/usr/bin/pip
 ```vim 
@@ -84,9 +91,18 @@ if __name__ == '__main__':
 ```
 继续安装tensorflow的依赖库
 ```bash
+# for python2
+# 若是国内可使用清华源 -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install -U six numpy wheel setuptools mock 'future>=0.17.1'
 pip install -U keras_applications==1.0.6 --no-deps
 pip install -U keras_preprocessing==1.0.5 --no-deps
+
+
+# for python3
+# 若是国内可使用清华源 -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip3 install -U six numpy wheel setuptools mock 'future>=0.17.1'
+pip3 install -U keras_applications==1.0.6 --no-deps
+pip3 install -U keras_preprocessing==1.0.5 --no-deps
 ```
   
 ### 3_安装bazel
@@ -109,7 +125,7 @@ bash bazel-0.26.1-installer-linux-x86_64.sh
 ```bash
 # 检查nvidia驱动，得到 "NVIDIA-SMI 430.34       Driver Version: 430.34       CUDA Version: 10.1"
 nvidia-smi
-# 检查cuda版本，得到 "CUDA Version 10.1.243"
+# 检查cuda版本，得到类似 "CUDA Version 10.1.243" 结果。
 cat /usr/local/cuda/version.txt
 # 检查cudnn版本，得到 "#define CUDNN_MAJOR 7    #define CUDNN_MINOR 6   #define CUDNN_PATCHLEVEL 3"
 cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2
