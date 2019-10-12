@@ -8,5 +8,4 @@ wikidata/wikidata/20190520_zh.claim.csv
 wikidata/wikidata/20190520_zh.item.csv
 wikidata/wikidata/20190520_zh.property.csv
 
-tensorflow-1.8.0-cp27-cp27mu-linux_x86_64.whl
-tensorflow-1.14.1-cp27-cp27mu-linux_x86_64.whl
+tensorflow-*.whl
