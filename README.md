@@ -47,9 +47,12 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#创建镜像" target="_blank">创建镜像</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#保存镜像" target="_blank">保存镜像</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#使用容器" target="_blank">使用容器</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#指定端口映射" target="_blank">指定端口映射</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#容器使用本地端口" target="_blank">容器使用本地端口</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#端口映射" target="_blank">端口映射</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#指定端口映射" target="_blank">指定端口映射</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#容器使用本地端口" target="_blank">容器使用本地端口</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#docker图形界面" target="_blank">docker图形界面</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#容器时间与宿主机同步" target="_blank">容器时间与宿主机同步</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#异步进入容器" target="_blank">异步进入容器</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#个人容器镜像，存放于阿里云容器镜像服务器" target="_blank">个人容器镜像，存放于阿里云容器镜像服务器</a>
 
 ## neo4j
@@ -63,6 +66,9 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j#参考资料" target="_blank">参考资料</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j#Others" target="_blank">其他</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j#批量导入数据方法对比" target="_blank">批量导入数据方法对比</a>
+
+## reinforcement_learning
+* <a href="https://github.com/xiaotaw/Notes/tree/master/reinforcement_learning#参考资料" target="_blank">参考资料</a>
 
 ## ubuntu
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#命令行or图形界面启动" target="_blank">命令行or图形界面启动</a>

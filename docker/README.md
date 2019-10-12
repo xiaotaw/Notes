@@ -8,9 +8,12 @@
 * [创建镜像](#创建镜像)
 * [保存镜像](#保存镜像)
 * [使用容器](#使用容器)
-  * [指定端口映射](#指定端口映射)
-  * [容器使用本地端口](#容器使用本地端口)
+  * [端口映射](#端口映射)
+    * [指定端口映射](#指定端口映射)
+    * [容器使用本地端口](#容器使用本地端口)
   * [docker图形界面](#docker图形界面)
+  * [容器时间与宿主机同步](#容器时间与宿主机同步)
+  * [异步进入容器](#异步进入容器)
 * [个人容器镜像，存放于阿里云容器镜像服务器](#个人容器镜像，存放于阿里云容器镜像服务器)
 
 ## 下载和上传镜像
@@ -65,6 +68,7 @@ nvidia/cuda | 10.1-cudnn7-runtime-ubuntu16.04 | b400c26dd64a | 7 days ago | 1.64
 docker save -o xxx.tar IMAGE
 
 ## 使用容器
+
 ### 端口映射
 #### 指定端口映射
 将容器的80端口，映射到本地8080端口: `docker run -p 8080:80`
@@ -86,11 +90,20 @@ apt-get install xarclock
 xarclock
 # 运行后出现时钟
 ```
+https://blog.csdn.net/ericcchen/article/details/79253416
+
+
 ### 容器时间与宿主机同步
 1. 运行容器时，添加 -v /etc/localtime:/etc/localtime:ro
 
 
-https://blog.csdn.net/ericcchen/article/details/79253416
+### 异步进入容器
+```bash
+# 
+docker exec -it container_id /bin/bash
+
+docker exec -it container_id /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
+```
 
 ## 个人容器镜像，存放于阿里云容器镜像服务器
 
@@ -106,6 +119,7 @@ https://blog.csdn.net/ericcchen/article/details/79253416
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-devel-ubuntu16.04-building_tf_whl_r1.14 | 编译了r1.14，并执行bazel clean，大小缩减了许多 | \
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-runtime-ubuntu16.04-tf_gpu1.14_opted | 安装tensorflow-gpu=1.14，cpu指令集SSE4.1 SSE4.2 AVX AVX2 FMA | \
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 9.0-cudnn7-devel-ubuntu16.04_tf_py3_whl_building_env | 配置了cuda9.0，cudnn7的tensorflow_py3.whl编译环境 | \
+华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/gibson | 0.3.1_tf_cpu_optmized | 在xf1280/gibson:0.3.1的基础上，更新tensorflow版本至1.8，同时有针对我个人电脑cpu优化（虽然测试没看出明显加速效果） | \
 
 地区 |主题 | 仓库 | tag | 备注 | Digest
 -|-|-|-|-|-
