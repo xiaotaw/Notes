@@ -86,7 +86,8 @@ apt-get install xarclock
 xarclock
 # 运行后出现时钟
 ```
-
+### 容器时间与宿主机同步
+1. 运行容器时，添加 -v /etc/localtime:/etc/localtime:ro
 
 
 https://blog.csdn.net/ericcchen/article/details/79253416
@@ -104,6 +105,7 @@ https://blog.csdn.net/ericcchen/article/details/79253416
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-devel-ubuntu16.04-building_tf_whl | 配置tensorflow的pip安装包编译环境 | \
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-devel-ubuntu16.04-building_tf_whl_r1.14 | 编译了r1.14，并执行bazel clean，大小缩减了许多 | \
 华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 10.1-cudnn7-runtime-ubuntu16.04-tf_gpu1.14_opted | 安装tensorflow-gpu=1.14，cpu指令集SSE4.1 SSE4.2 AVX AVX2 FMA | \
+华北2（北京）| CUDA | registry.cn-beijing.aliyuncs.com/xt-cuda/cuda | 9.0-cudnn7-devel-ubuntu16.04_tf_py3_whl_building_env | 配置了cuda9.0，cudnn7的tensorflow_py3.whl编译环境 | \
 
 地区 |主题 | 仓库 | tag | 备注 | Digest
 -|-|-|-|-|-
