@@ -11,6 +11,7 @@
   * [CodeServer](#CodeServer)
   * [本地服务管理命令](#本地服务管理命令)
 * [vim](#vim)
+* [vscode](#vscode)
 * [安装软件-程序-包](#安装软件-程序-包)
   * [使用国内源](#使用国内源)
   * [pip使用清华源](#pip使用清华源)
@@ -120,6 +121,17 @@ set ts=4
 set expandtab
 set autoindent
 ```
+## vscode
+vscode调试python脚本时报错raise RuntimeError('already started')
+
+解决办法：
+在.py文件头添加如下语句：
+import multiprocessing
+multiprocessing.set_start_method(‘spawn’,True)
+
+参考资料：
+https://blog.csdn.net/wangzi371312/article/details/92796320
+
 
 ## 安装软件-程序-包
 ### 使用国内源

@@ -50,6 +50,10 @@ if __name__ == "__main__":
     fn_lst_2 = glob("*/README.md")
     fn_lst_2.sort()
     context_1 = ["# 目录\n"]
+    context_1.append(
+    "此目录由脚本维护：python3 update_readme.py \n"
+    )
+
     for fn in fn_lst_2:
         title = fn.rstrip("/README.md")
         context_1.append("## %s\n" % title)

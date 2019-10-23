@@ -1,4 +1,5 @@
 # 目录
+此目录由脚本维护：python3 update_readme.py 
 ## compile_tf18_from_source
 * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#简介" target="_blank">简介</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#编译" target="_blank">编译</a>
@@ -83,6 +84,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#CodeServer" target="_blank">CodeServer</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#本地服务管理命令" target="_blank">本地服务管理命令</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vim" target="_blank">vim</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vscode" target="_blank">vscode</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#安装软件-程序-包" target="_blank">安装软件-程序-包</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#使用国内源" target="_blank">使用国内源</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pip使用清华源" target="_blank">pip使用清华源</a>
