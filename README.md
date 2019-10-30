@@ -69,6 +69,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j#批量导入数据方法对比" target="_blank">批量导入数据方法对比</a>
 
 ## reinforcement_learning
+* <a href="https://github.com/xiaotaw/Notes/tree/master/reinforcement_learning#GibsonEnv" target="_blank">GibsonEnv</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/reinforcement_learning#参考资料" target="_blank">参考资料</a>
 
 ## ubuntu
@@ -85,6 +86,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#本地服务管理命令" target="_blank">本地服务管理命令</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vim" target="_blank">vim</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vscode" target="_blank">vscode</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#查找动态库" target="_blank">查找动态库</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#安装软件-程序-包" target="_blank">安装软件-程序-包</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#使用国内源" target="_blank">使用国内源</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pip使用清华源" target="_blank">pip使用清华源</a>

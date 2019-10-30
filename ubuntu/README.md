@@ -12,6 +12,7 @@
   * [本地服务管理命令](#本地服务管理命令)
 * [vim](#vim)
 * [vscode](#vscode)
+* [查找动态库](#查找动态库)
 * [安装软件-程序-包](#安装软件-程序-包)
   * [使用国内源](#使用国内源)
   * [pip使用清华源](#pip使用清华源)
@@ -131,6 +132,12 @@ multiprocessing.set_start_method(‘spawn’,True)
 
 参考资料：
 https://blog.csdn.net/wangzi371312/article/details/92796320
+
+## 查找动态库
+```bash
+# 查找是否安装了xxx
+ldconfig -p | grep xxx
+```
 
 
 ## 安装软件-程序-包
