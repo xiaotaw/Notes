@@ -85,6 +85,8 @@ https://cloud.tencent.com/developer/article/1350304
 x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth PATH_TO_YOUR_HOME/.vnc/passwd -rfbport 5900 -shared -o x11vnc.log
 
 ```
+* 客户端推荐：TightVNC，网址https://www.tightvnc.com/，比RealVNC占用带宽小，反应更快，显示更清晰。
+* 如果是windows且没有安装软件的权限，可以尝试Java版本的Viewer
 
 ### 端口映射
 （百度NAT）
