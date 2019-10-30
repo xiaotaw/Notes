@@ -84,9 +84,31 @@ https://cloud.tencent.com/developer/article/1350304
 # 手动启动，需要先设置passwd
 x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth PATH_TO_YOUR_HOME/.vnc/passwd -rfbport 5900 -shared -o x11vnc.log
 
+# 如果不允许多个客户端连接，可将-shared改为-nevershared
+x11vnc -auth guess -nevershared -forever -loop -noxdamage -repeat -rfbauth PATH_TO_YOUR_HOME/.vnc/passwd -rfbport 5900 -o x11vnc.log
+
+# 增加日志文件
+nohup x11vnc -auth guess -nevershared -forever -loop -noxdamage -repeat -rfbauth /home/xt/.vnc/passwd -rfbport 5900 -o `date '+%Y-%m-%d_%H-%M-%S'`.log  2>&1  > run.log &
+
 ```
-* 客户端推荐：TightVNC，网址https://www.tightvnc.com/，比RealVNC占用带宽小，反应更快，显示更清晰。
-* 如果是windows且没有安装软件的权限，可以尝试Java版本的Viewer
+* 客户端推荐：TightVNC，网址https://www.tightvnc.com/，比RealVNC占用带宽小，反应更快，显示更清晰。 如果是windows且没有安装软件的权限，推荐使用Java版本的Viewer
+
+* 为什么使用ssh隧道：
+1. VNC默认不加密，在客户端和服务端之间的数据，经过Internet网络传输，可能有被及截获的风险。
+2. 使用ssh隧道，就是在Internet中，用ssh的方式，连接客户端和主机，由于ssh是加密的，原本明文传输的VNC数据，使用了SSH的外壳后，在Internet中传输是安全的。
+3. 在外部看来，客户端和服务端之间只有ssh连接，ssh传输的内容是加密的，就算被截取，也无法破译，不知道传输的数据是什么内容。
+
+* TightVNC Java Viewer使用ssh隧道的方法：
+0. 前提：远程服务器已经开启了x11vnc服务，并监听5900端口
+1. 打开TightVNC客户端，勾选 Use SSH tunneling
+2. 在SSH Server，SSH Port，SSH User中填写SSH登录远程服务器所需要的信息。
+2.1 在SSH Server中填写远程服务器（开启了x11vnc服务的主机）ip地址
+2.2 在SSH Port中填写远程服务器的SSH端口（默认为22）
+2.3 在SSH User中填写远程服务器的用户名（可以暂时不填）
+3. 在Remote Host中填写localhost（127.0.0.1应该也一样，没试过），Port中填写5900（均为默认值）
+4. 相当于先ssh的方式登录了远程服务器，然后再连接localhost的5900端口。
+
+
 
 ### 端口映射
 （百度NAT）
