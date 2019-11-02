@@ -10,6 +10,7 @@
 * [本地服务管理](#服务管理)
   * [CodeServer](#CodeServer)
   * [本地服务管理命令](#本地服务管理命令)
+* [git](#git)
 * [vim](#vim)
 * [vscode](#vscode)
 * [查找动态库](#查找动态库)
@@ -21,6 +22,12 @@
   * [python安装opencv](#python安装opencv)
   * [安装nvidia显卡驱动](#安装nvidia显卡驱动)
   * [opencv和pcl](#opencv和pcl)
+* [VirtualBox](#VirtualBox)
+  * [win10镜像下载地址](#win10镜像下载地址)
+* [contos](#contos)
+  * [contos6安装bazel](contos6安装bazel)
+
+
 
 ## 命令行or图形界面启动
 * 有时候需要关闭图形界面（如：安装显卡驱动），可以通过设置命令行模式开机重启。
@@ -136,6 +143,15 @@ sudo systemctl disable XXX.service
 sudo systemctl stop XXX.service
 
 ```
+## git
+
+### pull或push指定分支
+```bash
+# 将远程r1.8分支，拉去到本地的r1.8分支
+# 参考资料 https://blog.csdn.net/litianze99/article/details/52452521
+git pull origin r1.8:r1.8
+```
+
 
 ## vim
 设置vim自动缩进，并且将tab替换为四个空格
@@ -336,3 +352,23 @@ sudo apt-get install libopencv-dev
 # pcl库和pcl viewer
 sudo apt-get install libpcl-dev pcl-tools
 ```
+## VirtualBox
+### win10镜像下载地址
+https://www.microsoft.com/zh-cn/software-download/windows10ISO/
+
+## contos
+### contos6安装bazel
+```bash
+# java
+
+```
+
+
+
+
+
+
+
+
+
+
