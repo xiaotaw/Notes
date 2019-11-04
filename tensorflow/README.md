@@ -11,7 +11,13 @@
   * [8_安装测试](#8_安装测试)
   * [参考资料](#参考资料)
 * [源码编译tensorflow=1.8动态库libtensorflow_cc.so](#源码编译tensorflow动态库)
-
+  * [docker创建系统环境](#docker创建系统环境)
+  * [编译安装bazel](#编译安装bazel)
+  * [准备tensorflow源码](#准备tensorflow源码)
+  * [configure](#configure)
+  * [编译](#编译)
+  * [xxx占位xxx](#xxx占位xxx)
+  * [参考资料](#参考资料)
 
 ## 从源码编译tensorflow的pip安装包
 
@@ -294,26 +300,25 @@ gcc --version
 
 # 安装一个额外的gcc4.8
 # 参考https://blog.csdn.net/weixin_34384681/article/details/91921751
-# 下载安装很慢，得很长一段时间。
+# 下载安装很慢，得很长一段时间（网速慢，70M下载花了70分钟）。
+# 可以直接用我上传到阿里云的docker镜像：
+# docker pull registry.cn-beijing.aliyuncs.com/xt-cuda/cuda:10.0-cudnn7-devel-centos6-gcc4.8
 yum install wget
-wget http://people.centos.org/tru/devtools-2/devtools-2.repo -O \
-     /etc/yum.repos.d/devtools-2.repo
-yum install devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-gfortran devtoolset-2-gcc-c++
+wget http://people.centos.org/tru/devtools-2/devtools-2.repo -O /etc/yum.repos.d/devtools-2.repo
+yum install devtoolset-2-gcc devtoolset-2-binutiles devtoolset-2-gcc-gfortran devtoolset-2-gcc-c++
 
 # 切换至gcc4.8，并查看gcc版本，得知gcc版本为4.8.2
 scl enable devtoolset-2 bash
 gcc --version
 
-# 退出，至gcc4.4.7的版本
+# 退出至gcc4.4.7的版本
 exit
 ```
 
 * 其次bazel依赖于java
+* 下载jdk 8的linux版，[oracle官网](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下载不方便，这里提供一个百度网盘链接。  链接: https://pan.baidu.com/s/1NI7k_QYCXa8ZN9oQv7PA2w 提取码: 6zg9 复制这段内容后打开百度网盘手机App，操作更方便哦
 ```bash
-# 下载jdk 8的linux版，[oracle官网](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下载不方便，这里提供一个百度网盘链接。
-# 链接: https://pan.baidu.com/s/1NI7k_QYCXa8ZN9oQv7PA2w 提取码: 6zg9 复制这段内容后打开百度网盘手机App，操作更方便哦
-# 从百度网盘中下载 jdk-8u172-linux-x64.tar.gz（手机下载速度较快）
-
+# 从百度网盘中下载 jdk-8u172-linux-x64.tar.gz（手机下载速度较快）后，解压
 tar jdk-8u172-linux-x64.tar.gz
 
 # 简单配置java环境变量
@@ -344,16 +349,19 @@ unzip bazel-0.10.0-dist.zip
 
 cd bazel-0.10.0-dist
 
-# 注意此时gcc需切换到4.8。
+# 切换到gcc4.8。
 scl enable devtoolset-2 bash
 bash compile.sh
+# 退出gcc4.8
+exit
 
-# 编译得到output/bazel，bazel的路径添加至环境变量中，
-export PATH=$PATH:`pwd`/output
+# 编译得到output/bazel，将bazel复制到/usr/local/bin中
+cp output/bazel /usr/local/bin
 which bazel
 
 # 检查bazel版本为0.10.0
 bazel version
+
 ```
 
 ### 准备tensorflow源码
@@ -363,14 +371,82 @@ bazel version
 yum install git
 # 从下载tensorflow源码
 git clone https://github.com/tensorflow/tensorflow.git
+
 # 切换到1.8版本
+cd tensorflow
 git checkout r1.8
 
 # 在宿主机中已经提前下载好，通过docker的文件映射，放在容器/data路径下，可以省不少事。
 ```
 
-### 安装tensorflow的依赖protobuf和eigen
-* 安装依赖protobuf
+
+### configure
+
+```bash
+# 安装python27
+yum install centos-release-scl
+yum install python27 python27-numpy python27-python-devel python27-python-wheel
+
+# 切换到gcc4.8和python27的环境
+scl enable devtoolset-2 python27 bash
+
+# 具体各项参数配置的选择，可以参考[编译python版](#6_configure)中的介绍。
+./configure
+```
+
+### 编译
+
+```bash
+# 由于tensorflow编译时有诸多依赖项，比如eigen3和protobuf等，需打补丁，
+# 这时会报错: patch command is not found，安装patch即可解决
+yum install patch
+
+# 如果没有安装git，编译时会在获取版本号时报错，安装git即可解决
+yum install git
+```
+
+```vim
+# 报错: undefined reference to 'clock_gettime'
+# 参考：https://github.com/tensorflow/tensorflow/issues/15129
+# 直接在bazel命令中添加 --linkopt=-lrt，并修改tensorflow/tensorflow.bzl，
+# 在第292行（不同版本的tensorflow行数可能稍有不同）添加-lrt。具体如下方所示：
+
+def tf_cc_shared_object(
+    name,
+    srcs=[],
+    deps=[],
+    linkopts=[''],
+    framework_so=tf_binary_additional_srcs(),
+    **kwargs):
+  native.cc_binary(
+      name=name,
+      srcs=srcs + framework_so,
+      deps=deps,
+      linkshared = 1,
+      linkopts=linkopts + _rpath_linkopts(name) + select({
+          clean_dep("//tensorflow:darwin"): [
+              "-Wl,-install_name,@rpath/" + name.split("/")[-1],
+          ],
+          clean_dep("//tensorflow:windows"): [],
+          "//conditions:default": [
+              "-Wl,-soname," + name.split("/")[-1],
+          ],
+      }),
+      **kwargs)
+
+#中的linkopts中添加'-lrt'，即：
+    
+    linkopts=["-lrt"],
+
+```
+```bash
+# 正式编译，在Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz，6核12线程，耗时约 20 分钟
+bazel build --linkopt="-lrt" //tensorflow:libtensorflow_cc.so --verbose_failures
+```
+
+
+### 安装tensorflow的依赖protobuf和eigen（貌似不需要）
+* 安装依赖protobuf和eigen
 * 参考文章：https://www.jianshu.com/p/d46596558640
 ```bash
 # 安装automake和cmake
@@ -397,80 +473,11 @@ cd ../../../../../..
 
 ```
 
-### 安装python等
-
-```bash
-# 
-yum install centos-release-scl
-
-yum install python27 python27-numpy python27-python-devel python27-python-wheel
-
-### 编译
-```
-
-```
-yum install git
-
-yum install patch
-
-# 报错: undefined reference to 'clock_gettime'
-# 直接在bazel 命令中添加 --linkopt=-lrt 无效
-# 参考：https://github.com/tensorflow/tensorflow/issues/15129
-# 修改tensorflow/tensorflow.bzl，
-def tf_cc_shared_object(
-    name,
-    srcs=[],
-    deps=[],
-    linkopts=[''],
-    framework_so=tf_binary_additional_srcs(),
-    **kwargs):
-  native.cc_binary(
-      name=name,
-      srcs=srcs + framework_so,
-      deps=deps,
-      linkshared = 1,
-      linkopts=linkopts + _rpath_linkopts(name) + select({
-          clean_dep("//tensorflow:darwin"): [
-              "-Wl,-install_name,@rpath/" + name.split("/")[-1],
-          ],
-          clean_dep("//tensorflow:windows"): [],
-          "//conditions:default": [
-              "-Wl,-soname," + name.split("/")[-1],
-          ],
-      }),
-      **kwargs)
-中的linkopts中添加'-lrt'，即：
-
-def tf_cc_shared_object(
-    name,
-    srcs=[],
-    deps=[],
-    linkopts=['-lrt'],
-    framework_so=tf_binary_additional_srcs(),
-    **kwargs):
-  native.cc_binary(
-      name=name,
-      srcs=srcs + framework_so,
-      deps=deps,
-      linkshared = 1,
-      linkopts=linkopts + _rpath_linkopts(name) + select({
-          clean_dep("//tensorflow:darwin"): [
-              "-Wl,-install_name,@rpath/" + name.split("/")[-1],
-          ],
-          clean_dep("//tensorflow:windows"): [],
-          "//conditions:default": [
-              "-Wl,-soname," + name.split("/")[-1],
-          ],
-      }),
-      **kwargs)
-
-```
-
-https://github.com/tensorflow/tensorflow/issues/15129
-```
-
-
-
+### 参考资料
+* centos6+cuda10.0+cudnn7的docker镜像 [https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md]
+* 在centos6上安装gcc4.8 [https://blog.csdn.net/weixin_34384681/article/details/91921751]
+* 源码编译bazel [https://docs.bazel.build/versions/master/install-compile-source.html#bootstrap-bazel]
+* 解决clock_gettime对版本GLIBC_2.17的依赖 [https://github.com/tensorflow/tensorflow/issues/15129]
 
 
 
