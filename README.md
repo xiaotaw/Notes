@@ -1,43 +1,5 @@
 # 目录
 此目录由脚本维护：python3 update_readme.py 
-## compile_tf18_from_source
-* <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#简介" target="_blank">简介</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#编译" target="_blank">编译</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#0_创建容器" target="_blank">0_创建容器</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#1_安装工具vim，git，gcc，g++" target="_blank">1_安装工具vim，git，gcc，g++</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#2_安装python和tensorflow依赖库" target="_blank">2_安装python和tensorflow依赖库</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#3_安装bazel" target="_blank">3_安装bazel</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#4_检查GPU依赖" target="_blank">4_检查GPU依赖</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#5_下载tensorflow源码，选择tensorflow版本" target="_blank">5_下载tensorflow源码，选择tensorflow版本</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#6_configure" target="_blank">6_configure</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#7_使用bazel编译生成pip安装包" target="_blank">7_使用bazel编译生成pip安装包</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#8_安装测试" target="_blank">8_安装测试</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/compile_tf18_from_source#参考资料" target="_blank">参考资料</a>
-
-## computer_vision
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#简介" target="_blank">简介</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#数学基础" target="_blank">数学基础</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#四元数和三维旋转" target="_blank">四元数和三维旋转</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#李群和李代数" target="_blank">李群和李代数</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#图优化" target="_blank">图优化</a>
-    * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#数值优化" target="_blank">数值优化</a>
-    * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#参考资料" target="_blank">参考资料</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#三维重建" target="_blank">三维重建</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#相机模型" target="_blank">相机模型</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#单目" target="_blank">单目</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#对极几何" target="_blank">对极几何</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#双目系统和sfm" target="_blank">双目系统和sfm</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#ActiveAndVolumetricStereo" target="_blank">Active and Volumetric Stereo</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#VisualSFM试用" target="_blank">VisualSFM + Meshlab</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#疑问" target="_blank">疑问</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#怎么理解单应矩阵" target="_blank">怎么理解单应矩阵</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#本征矩阵和基础矩阵的自由度" target="_blank">本征矩阵和基础矩阵的自由度</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#参考资料" target="_blank">参考资料</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#CS231A" target="_blank">CS231A: Computer Vision, From 3D Reconstruction to Recognition</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#视觉slam十四讲" target="_blank">视觉slam十四讲</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#sfm介绍博客" target="_blank">sfm介绍博客</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision#《计算机视觉中的多视几何》" target="_blank">《计算机视觉中的多视几何》</a>
-
 ## docker
 * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#下载和上传镜像" target="_blank">下载和上传镜像</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#官网" target="_blank">官网</a>
@@ -68,9 +30,19 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j#Others" target="_blank">其他</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j#批量导入数据方法对比" target="_blank">批量导入数据方法对比</a>
 
-## reinforcement_learning
-* <a href="https://github.com/xiaotaw/Notes/tree/master/reinforcement_learning#GibsonEnv" target="_blank">GibsonEnv</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/reinforcement_learning#参考资料" target="_blank">参考资料</a>
+## tensorflow
+* <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#简介" target="_blank">简介</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#编译" target="_blank">编译</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#0_创建容器" target="_blank">0_创建容器</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#1_安装工具vim，git，gcc，g++" target="_blank">1_安装工具vim，git，gcc，g++</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#2_安装python和tensorflow依赖库" target="_blank">2_安装python和tensorflow依赖库</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#3_安装bazel" target="_blank">3_安装bazel</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#4_检查GPU依赖" target="_blank">4_检查GPU依赖</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#5_下载tensorflow源码，选择tensorflow版本" target="_blank">5_下载tensorflow源码，选择tensorflow版本</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#6_configure" target="_blank">6_configure</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#7_使用bazel编译生成pip安装包" target="_blank">7_使用bazel编译生成pip安装包</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#8_安装测试" target="_blank">8_安装测试</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#参考资料" target="_blank">参考资料</a>
 
 ## ubuntu
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#命令行or图形界面启动" target="_blank">命令行or图形界面启动</a>
@@ -84,6 +56,7 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#服务管理" target="_blank">本地服务管理</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#CodeServer" target="_blank">CodeServer</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#本地服务管理命令" target="_blank">本地服务管理命令</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#git" target="_blank">git</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vim" target="_blank">vim</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vscode" target="_blank">vscode</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#查找动态库" target="_blank">查找动态库</a>
@@ -95,6 +68,10 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#python安装opencv" target="_blank">python安装opencv</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#安装nvidia显卡驱动" target="_blank">安装nvidia显卡驱动</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#opencv和pcl" target="_blank">opencv和pcl</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#VirtualBox" target="_blank">VirtualBox</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#win10镜像下载地址" target="_blank">win10镜像下载地址</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#contos" target="_blank">contos</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntucontos6安装bazel" target="_blank">contos6安装bazel</a>
 
 ## wikidata
 * <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata#简介" target="_blank">简介</a>
