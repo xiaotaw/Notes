@@ -442,13 +442,49 @@ def tf_cc_shared_object(
 ```bash
 # 正式编译，在Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz，6核12线程，耗时约 20 分钟
 bazel build --linkopt="-lrt" //tensorflow:libtensorflow_cc.so --verbose_failures
+
+# 编译后，在当前路径下，会有5个bazel-*的软连接，其中bazel-tensorflow是主路径。
+# libtensorflow_cc.so和libtensorflow_framework.so在bazel-bin/tensorflow下
+
+# 如果将要与opencv一起使用，编译选项增加--config=monolithic，将只生成tensorflow_cc.so。
 ```
 
 
-### 安装tensorflow的依赖protobuf和eigen（貌似不需要）
-* 安装依赖protobuf和eigen
-* 参考文章：https://www.jianshu.com/p/d46596558640
+### 运行依赖于tensorflow动态库的程序（runtime）
+* 一种简单的示例：
+* 只需要将tensorflow_cc.so和tensorflow_framework.so所在的目录，添加到LD_LIBRARY_PATH即可
 ```bash
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/tensorflow_cc.so
+./your_program
+```
+
+
+### 依赖tensorflow动态库进行开发（devel）
+
+#### 整理tensorflow头文件和共享库文件
+```bash
+prefix=./release/r1.8/
+
+mkdir -p ${prefix}/inc
+mkdir ${prefix}/lib
+
+# 共享库文件只有libtensorflow_cc.so和libtensorflow_framework.so
+cp bazel-bin/tensorflow/libtensorflow_cc.so ${prefix}/lib/
+cp bazel-bin/tensorflow/libtensorflow_framework.so ${prefix}/lib/
+#cp /tmp/proto/lib/libprotobuf.a ${prefix}/lib/
+
+# 头文件包括./tensorflow, ./third_party, ./bazel-genfiles/tensorflow中的内容
+cp -r bazel-genfiles/* ${prefix}/inc/
+cp -r tensorflow/cc ${prefix}/inc/tensorflow
+cp -r tensorflow/core ${prefix}/inc/tensorflow
+cp -r third_party ${prefix}/inc
+```
+
+#### 整理protobuf和eigen头文件
+```bash
+# tensorflow依赖于protobuf和eigen（可使用mkl替代，暂未尝试）
+# 安装依赖protobuf和eigen，参考文章：https://www.jianshu.com/p/d46596558640
+
 # 安装automake和cmake
 yum install autoconf automake libtool cmake
 
@@ -458,19 +494,29 @@ yum install autoconf automake libtool cmake
 # protobuf
 cd tensorflow/contrib/makefile/downloads/protobuf/
 ./autogen.sh
-./configure --prefix=/tmp/proto/
+./configure --prefix=`pwd`/../../gen/protobuf/
 make -j8 && make install 
 
-
 # eigen
-mkdir /tmp/eigen
 cd ../eigen
 mkdir build_dir
 cd build_dir
-cmake -DCMAKE_INSTALL_PREFIX=/tmp/eigen/ ../
+cmake -DCMAKE_INSTALL_PREFIX=`pwd`/../../../gen/eigen/ ../
 make install
 cd ../../../../../..
 
+# 整理protobuf和eigen的头文件
+cp -r tensorflow/contrib/makefile/gen/protobuf/include/* ${prefix}/inc
+cp -r tensorflow/contrib/makefile/gen/eigen/include/eigen3/* ${prefix}/inc
+
+# 最终的到的inc文件夹大小约67M，lib文件夹大小256M。
+# 
+
+```
+
+### 测试
+
+```bash
 ```
 
 ### 参考资料
@@ -478,10 +524,11 @@ cd ../../../../../..
 * 在centos6上安装gcc4.8 [https://blog.csdn.net/weixin_34384681/article/details/91921751]
 * 源码编译bazel [https://docs.bazel.build/versions/master/install-compile-source.html#bootstrap-bazel]
 * 解决clock_gettime对版本GLIBC_2.17的依赖 [https://github.com/tensorflow/tensorflow/issues/15129]
-
-
-
-
+* centos6源码安装tensorflow(python) [https://www.jianshu.com/p/4c37f058a907?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation]
+* 如何使用tensorflow c++ api [https://stackoverflow.com/questions/33620794/how-to-build-and-use-google-tensorflow-c-api] 
+* tensorflow c++ api官方中文文档 [http://www.tensorfly.cn/tfdoc/api_docs/cc/index.html]
+* tensorflow c api 样例 [https://blog.csdn.net/Rong_Toa/article/details/88806829]
+* 编译使用tensorflow c版本动态链接库 [https://www.cnblogs.com/hrlnw/p/7007648.html]
 
 
 

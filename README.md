@@ -31,8 +31,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j#批量导入数据方法对比" target="_blank">批量导入数据方法对比</a>
 
 ## tensorflow
-* <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#简介" target="_blank">简介</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#编译" target="_blank">编译</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#从源码编译tensorflow的pip安装包" target="_blank">从源码编译tensorflow=1.14的pip安装包(2019/09/09)</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#0_创建容器" target="_blank">0_创建容器</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#1_安装工具vim，git，gcc，g++" target="_blank">1_安装工具vim，git，gcc，g++</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#2_安装python和tensorflow依赖库" target="_blank">2_安装python和tensorflow依赖库</a>
@@ -42,7 +41,15 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#6_configure" target="_blank">6_configure</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#7_使用bazel编译生成pip安装包" target="_blank">7_使用bazel编译生成pip安装包</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#8_安装测试" target="_blank">8_安装测试</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#参考资料" target="_blank">参考资料</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#参考资料" target="_blank">参考资料</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#源码编译tensorflow动态库" target="_blank">源码编译tensorflow=1.8动态库libtensorflow_cc.so</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#docker创建系统环境" target="_blank">docker创建系统环境</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#编译安装bazel" target="_blank">编译安装bazel</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#准备tensorflow源码" target="_blank">准备tensorflow源码</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#configure" target="_blank">configure</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#编译" target="_blank">编译</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#xxx占位xxx" target="_blank">xxx占位xxx</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#参考资料" target="_blank">参考资料</a>
 
 ## ubuntu
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#命令行or图形界面启动" target="_blank">命令行or图形界面启动</a>
