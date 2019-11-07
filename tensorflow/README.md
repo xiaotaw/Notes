@@ -466,7 +466,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/tensorflow_cc.so
 prefix=./release/r1.8/
 
 mkdir -p ${prefix}/inc
-mkdir ${prefix}/lib
+mkdir -p ${prefix}/lib/linux64_cuda10.0_cudnn7.6_glibc2.12
 
 # 共享库文件只有libtensorflow_cc.so和libtensorflow_framework.so
 cp bazel-bin/tensorflow/libtensorflow_cc.so ${prefix}/lib/
@@ -475,6 +475,9 @@ cp bazel-bin/tensorflow/libtensorflow_framework.so ${prefix}/lib/
 
 # 头文件包括./tensorflow, ./third_party, ./bazel-genfiles/tensorflow中的内容
 cp -r bazel-genfiles/* ${prefix}/inc/
+# 删除链接到本地cuda的软连接（或许external都不需要）
+pushd ${prefix}/inc/external/local_config_cuda/cuda/ && rm -rf cuda && popd
+cp -r tensorflow/c ${prefix}/inc/tensorflow
 cp -r tensorflow/cc ${prefix}/inc/tensorflow
 cp -r tensorflow/core ${prefix}/inc/tensorflow
 cp -r third_party ${prefix}/inc
@@ -509,15 +512,45 @@ cd ../../../../../..
 cp -r tensorflow/contrib/makefile/gen/protobuf/include/* ${prefix}/inc
 cp -r tensorflow/contrib/makefile/gen/eigen/include/eigen3/* ${prefix}/inc
 
-# 最终的到的inc文件夹大小约67M，lib文件夹大小256M。
-# 
+# 最终的到的inc文件夹大小约67M，lib文件夹大小约320M。
+zip -r tensorflow_c.so.r1.8.zip r1.8
+# 压缩包下载链接：（此处添加百度网盘下载链接）
 
 ```
 
 ### 测试
+```bash
+# 测试在contos6+cuda10.0+cudnn7的容器中进行，dockerhub上可以直接获取runtime容器
+docker pull nvidia/cuda:10.0-cudnn7-runtime-centos6 
+nvidia-docker run -it -v /home/xt/Documents/data/:/data/ -v /etc/localtime:/etc/localtime:ro nvidia/cuda:10.0-cudnn7-runtime-centos6
+```
+
+* 以下在容器内进行
+```bash
+# 安装gcc/g++4.8 (类似的，这一步网速慢的话，下载耗时比较长)
+
+yum install wget
+wget http://people.centos.org/tru/devtools-2/devtools-2.repo -O /etc/yum.repos.d/devtools-2.repo
+yum install devtoolset-2-gcc devtoolset-2-binutiles devtoolset-2-gcc-gfortran devtoolset-2-gcc-c++
+
+# 使用gcc/g++4.8
+scl enable devtoolset-2 bash 
+```
 
 ```bash
+# 切换到测试目录
+cd /data/Notes/tensorflow/test
+
+# 修改bash.sh中的TF_HOME路径，使其指向编译整理好的r1.8；
+# 或者直接下载我编译整理好的版本，解压后放在合适的路径下。
+# 运行run.sh：
+#    ①打印出tensorflow版本
+#    ②得到举证运算结果为-3
+#    ③加载model.pb模型后，运算2x3得到结果为6
+bash ./run.sh
 ```
+* 测试发现，tensorflow并没有针对cpu优化，./configure中关于cpu优化的march=native不生效，需要bazel build时再设置--config=opt
+
 
 ### 参考资料
 * centos6+cuda10.0+cudnn7的docker镜像 [https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md]
