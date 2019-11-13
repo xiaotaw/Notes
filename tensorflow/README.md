@@ -514,7 +514,7 @@ cp -r tensorflow/contrib/makefile/gen/eigen/include/eigen3/* ${prefix}/inc
 
 # 最终的到的inc文件夹大小约67M，lib文件夹大小约320M。
 zip -r tensorflow_c.so.r1.8.zip r1.8
-# 压缩包下载链接：（此处添加百度网盘下载链接）
+# 压缩包下载链接：链接: https://pan.baidu.com/s/13xbjOXFbFsWGKOyVz354Mw 提取码: buz4 复制这段内容后打开百度网盘手机App，操作更方便哦
 
 ```
 
