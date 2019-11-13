@@ -7,6 +7,7 @@
   * [vnc4server](#vnc4server)
   * [x11vnc](#x11vnc)
   * [端口映射](#端口映射)
+  * [获取本机/路由的ipv4地址](#获取本机或路由的ipv4地址)
 * [本地服务管理](#服务管理)
   * [CodeServer](#CodeServer)
   * [本地服务管理命令](#本地服务管理命令)
@@ -119,6 +120,9 @@ nohup x11vnc -auth guess -nevershared -forever -loop -noxdamage -repeat -rfbauth
 
 ### 端口映射
 （百度NAT）
+
+### 获取本机或路由的ipv4地址
+https://github.com/xiaotaw/Notes/tree/master/ubuntu/get_ipv4.py
 
 ## 服务管理
 

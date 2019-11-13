@@ -11,3 +11,7 @@ wikidata/wikidata/20190520_zh.property.csv
 tensorflow-*.whl
 
 r1.8/
+
+# get ipv4
+get_ipv4.log
+*.log
