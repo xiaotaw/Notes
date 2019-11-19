@@ -360,6 +360,16 @@ sudo apt-get install libpcl-dev pcl-tools
 ### win10镜像下载地址
 https://www.microsoft.com/zh-cn/software-download/windows10ISO/
 
+### 设置屏幕分辨率
+1. 在ubuntu系统中，安装VirtualBox后，创建win7镜像，进入win7系统。
+2. 桌面右键设置屏幕分辨率，发现没有适合本机器的分辨率1920*1080。
+3. 经过百度，找到一种可行的方法。在ubuntu中断键入以下命令，重启虚拟机，即可设置。
+4. 其中"virtual machine name"是在VirtualBox中创建虚拟机的名字。
+```bash
+VBoxManage setextradata global GUI/MaxGuestResolution any
+VBoxManage setextradata <"virtual machine name"> CustomVideoMode1 1920x1080x32
+```
+
 ## contos
 ### contos6安装bazel
 ```bash
