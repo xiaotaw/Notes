@@ -12,6 +12,10 @@
   * [CodeServer](#CodeServer)
   * [本地服务管理命令](#本地服务管理命令)
 * [git](#git)
+  * [pull或push指定分支](#pull或push指定分支)
+  * [合并历史commit](#合并历史commit)
+* [perl](#perl)
+* [pytest](#pytest)
 * [vim](#vim)
 * [vscode](#vscode)
 * [查找动态库](#查找动态库)
@@ -153,8 +157,44 @@ sudo systemctl stop XXX.service
 ```bash
 # 将远程r1.8分支，拉去到本地的r1.8分支
 # 参考资料 https://blog.csdn.net/litianze99/article/details/52452521
+# git pull <远程主机> <远程分支>:<本地分支>
 git pull origin r1.8:r1.8
 ```
+
+### 合并历史commit
+```bash
+# 经常遇到一种情况，多个commit其实完成一件事，造成git log很长，并且历史版本不清晰，不方便梳理，回滚不方便。
+# 可以采用rebase对多个commit进行合并
+# 参考资料：[git rebase合并多次commit](https://www.jianshu.com/p/571153f5daa1)
+#           [git合并多次commit](https://www.cnblogs.com/laphome/p/11309834.html)
+#           [git merge squash和rebase的区别](https://www.jianshu.com/p/684a8ae9dcf1)
+
+# git log查看历史commit信息，数一下从HEAD到需要合并的commit计数，假设为6次
+# git rebase -i HEAD~6，需要合并的commit，将一行的开头，修改pick为squash。保存退出
+# git add .
+# git push或者git push -f推送到github，
+
+```
+
+
+## perl正则表达式中使用非英文字符
+```vim
+# 在perl脚本中，字符集为utf8
+# 使用标准输入输出，且均为utf8
+
+# 需要匹配阿拉伯数字，以及中文句号，且在两端加上空格
+use Encode;
+
+my $sen = "1你好啊。2你好啊。";
+
+my $char = "。";
+
+$sen =~ s/([\p{IsN}$char])/ $1 /g;
+
+```
+## pytest
+如果使用conda环境，可使用`conda install pytest`安装；
+遇到报错`pytest: error: unrecognized arguments: --cov-report=html`，可`conda install pytest-cov`解决。
 
 
 ## vim

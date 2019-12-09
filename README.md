@@ -60,10 +60,15 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vnc4server" target="_blank">vnc4server</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#x11vnc" target="_blank">x11vnc</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#端口映射" target="_blank">端口映射</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#获取本机或路由的ipv4地址" target="_blank">获取本机/路由的ipv4地址</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#服务管理" target="_blank">本地服务管理</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#CodeServer" target="_blank">CodeServer</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#本地服务管理命令" target="_blank">本地服务管理命令</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#git" target="_blank">git</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pull或push指定分支" target="_blank">pull或push指定分支</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#合并历史commit" target="_blank">合并历史commit</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#perl" target="_blank">perl</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pytest" target="_blank">pytest</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vim" target="_blank">vim</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vscode" target="_blank">vscode</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#查找动态库" target="_blank">查找动态库</a>
