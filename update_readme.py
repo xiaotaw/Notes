@@ -41,12 +41,6 @@ def get_context_2(fn):
 
 if __name__ == "__main__":
     
-    fn_lst_3 = glob("*/*/README.md")
-    if fn_lst_3:
-        print("Info: those files not included!")
-        print(fn_lst_3)
-
-
     fn_lst_2 = glob("*/README.md")
     fn_lst_2.sort()
     context_1 = ["# 目录\n"]
@@ -63,8 +57,24 @@ if __name__ == "__main__":
             context_1.append(l)
         context_1.append("\n")
 
-    context_1 = "".join(context_1)
+    context_1_str = "".join(context_1)
 
+    #f = open("README.md", "w", encoding="utf8")
+    #f.write(context_1_str)
+    #f.close()
+
+    fn_lst_3 = glob("*/*/README.md")
+    for fn in fn_lst_3:
+        title = fn.rstrip("/README.md")
+        context_1.append("## %s\n" % title)
+        #
+        context_3 = get_context_2(fn)
+        for l in context_3[1:]:
+            context_1.append(l)
+        context_1.append("\n")
+
+    context_1_str = "".join(context_1)
     f = open("README.md", "w", encoding="utf8")
-    f.write(context_1)
+    f.write(context_1_str)
     f.close()
+

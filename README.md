@@ -95,3 +95,37 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata#其他" target="_blank">其他</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata#参考资料" target="_blank">参考资料</a>
 
+## wikidata/wikidata
+
+## others/computer_vision
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#简介" target="_blank">简介</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#数学基础" target="_blank">数学基础</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#四元数和三维旋转" target="_blank">四元数和三维旋转</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#李群和李代数" target="_blank">李群和李代数</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#图优化" target="_blank">图优化</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#数值优化" target="_blank">数值优化</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#参考资料" target="_blank">参考资料</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#三维重建" target="_blank">三维重建</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#相机模型" target="_blank">相机模型</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#单目" target="_blank">单目</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#对极几何" target="_blank">对极几何</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#双目系统和sfm" target="_blank">双目系统和sfm</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#ActiveAndVolumetricStereo" target="_blank">Active and Volumetric Stereo</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#VisualSFM试用" target="_blank">VisualSFM + Meshlab</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#疑问" target="_blank">疑问</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#怎么理解单应矩阵" target="_blank">怎么理解单应矩阵</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#本征矩阵和基础矩阵的自由度" target="_blank">本征矩阵和基础矩阵的自由度</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#参考资料" target="_blank">参考资料</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#CS231A" target="_blank">CS231A: Computer Vision, From 3D Reconstruction to Recognition</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#视觉slam十四讲" target="_blank">视觉slam十四讲</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#sfm介绍博客" target="_blank">sfm介绍博客</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#《计算机视觉中的多视几何》" target="_blank">《计算机视觉中的多视几何》</a>
+
+## others/reinforcement_learning
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning#Virutal Env Simulator" target="_blank">Virtual Env Simulator</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning#GibsonEnv" target="_blank">GibsonEnv</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning#Habitat" target="_blank">Habitat</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning#数据集" target="_blank">数据集</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning#AlphaGo" target="_blank">AlphaGo</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning#参考资料" target="_blank">参考资料</a>
+
