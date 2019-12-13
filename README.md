@@ -71,6 +71,8 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pytest" target="_blank">pytest</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vim" target="_blank">vim</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vscode" target="_blank">vscode</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#ubuntu环境下vscode与CMAKE协作" target="_blank">ubuntu环境下vscode与CMAKE协作</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#一些bug的处理" target="_blank">一些bug的处理</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#查找动态库" target="_blank">查找动态库</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#安装软件-程序-包" target="_blank">安装软件-程序-包</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#使用国内源" target="_blank">使用国内源</a>

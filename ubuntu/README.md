@@ -18,6 +18,8 @@
 * [pytest](#pytest)
 * [vim](#vim)
 * [vscode](#vscode)
+  * [ubuntu环境下vscode与CMAKE协作](#ubuntu环境下vscode与CMAKE协作)
+  * [一些bug的处理](#一些bug的处理)
 * [查找动态库](#查找动态库)
 * [安装软件-程序-包](#安装软件-程序-包)
   * [使用国内源](#使用国内源)
@@ -207,6 +209,17 @@ set expandtab
 set autoindent
 ```
 ## vscode
+### ubuntu环境下vscode与CMAKE协作
+1. vscode安装extension：C/C++，CMake，CMake Tools
+2. vscode打开新的folder（folder下有CMakeFile.txt文件，以及c/c++源文件）
+3. 如果是第一次使用CMake和CMake Tools，右下角会弹出框，根据提示允许CMake Tools和CMake自动配置和生成build文件夹
+4. vscode最下面出现一个工具条，类似于‘CMake GCC Build’等，点击build会执行cmake --build命令
+5. 按F5，vs自动在.vscode文件夹下生成launch.json文件，修改其中的"program"字段，修改成"${workspaceFolder}/build/xxx"，其中xxx为工程生成的可执行文件名；如有命令行参数，添加在"args"字段中。
+6. 配置完毕，可使用F5进行debug。
+
+参考资料: https://blog.csdn.net/daybreak222/article/details/81394363
+
+### 一些bug的处理
 vscode调试python脚本时报错raise RuntimeError('already started')
 
 解决办法：
