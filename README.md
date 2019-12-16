@@ -1,5 +1,7 @@
 # 目录
-此目录由脚本维护：python3 update_readme.py 
+此目录由脚本维护：python3 update_readme.py，记录了部分技能点。    
+
+20191216: 通过squash、reword整理历史commit。
 ## docker
 * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#下载和上传镜像" target="_blank">下载和上传镜像</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#官网" target="_blank">官网</a>
