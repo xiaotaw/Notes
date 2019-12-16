@@ -123,6 +123,9 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#sfm介绍博客" target="_blank">sfm介绍博客</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#《计算机视觉中的多视几何》" target="_blank">《计算机视觉中的多视几何》</a>
 
+## others/machine_translation
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation#语料分割" target="_blank">语料分割</a>
+
 ## others/reinforcement_learning
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning#Virutal Env Simulator" target="_blank">Virtual Env Simulator</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning#GibsonEnv" target="_blank">GibsonEnv</a>
