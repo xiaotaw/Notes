@@ -45,7 +45,8 @@ if __name__ == "__main__":
     fn_lst_2.sort()
     context_1 = ["# 目录\n"]
     context_1.append(
-    "此目录由脚本维护：python3 update_readme.py，记录了部分技能点。\
+    "©2019-2020 xiaotaw. All Rights Reserved. \
+    \n\n此目录由脚本维护：python3 update_readme.py，记录了部分技能点。\
     \n\n20191216: 通过squash、reword整理历史commit。\n"
     )
 

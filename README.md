@@ -1,4 +1,6 @@
 # 目录
+©2019-2020 xiaotaw. All Rights Reserved.     
+
 此目录由脚本维护：python3 update_readme.py，记录了部分技能点。    
 
 20191216: 通过squash、reword整理历史commit。
