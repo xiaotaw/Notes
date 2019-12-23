@@ -10,7 +10,11 @@ wikidata/wikidata/20190520_zh.property.csv
 
 tensorflow-*.whl
 
-r1.8/
+# release 
+tensorflow/release_c/r1.8/
+tensorflow/release_c/r1.8
+tensorflow/release_c/r2.0/
+tensorflow/release_c/r2.0
 
 # get ipv4
 get_ipv4.log
