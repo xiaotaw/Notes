@@ -11,28 +11,34 @@
 * [本地服务管理](#服务管理)
   * [CodeServer](#CodeServer)
   * [本地服务管理命令](#本地服务管理命令)
+* [编程IDE](#编程IDE)
+  * [vim](#vim)
+  * [vscode](#vscode)
+    * [ubuntu环境下vscode与CMAKE协作](#ubuntu环境下vscode与CMAKE协作)
+    * [一些bug的处理](#一些bug的处理)
 * [git](#git)
   * [pull或push指定分支](#pull或push指定分支)
   * [合并历史commit](#合并历史commit)
+* [python](#python)
+  * [pytest](#pytest)
+  * [pip使用清华源](#pip使用清华源)
+* [c和c++](#c和cpp)
+  * [查找动态库](#查找动态库)
 * [perl](#perl)
-* [pytest](#pytest)
-* [vim](#vim)
-* [vscode](#vscode)
-  * [ubuntu环境下vscode与CMAKE协作](#ubuntu环境下vscode与CMAKE协作)
-  * [一些bug的处理](#一些bug的处理)
-* [查找动态库](#查找动态库)
+  * [perl正则表达式中使用非英文字符](#perl正则表达式中使用非英文字符)
+* [shell](#shell)
+  * [打包源文件](#打包源文件)
 * [安装软件-程序-包](#安装软件-程序-包)
   * [使用国内源](#使用国内源)
-  * [pip使用清华源](#pip使用清华源)
   * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
   * [ubuntu18_04安装VisualSFM](#ubuntu18_04安装VisualSFM)
   * [python安装opencv](#python安装opencv)
   * [安装nvidia显卡驱动](#安装nvidia显卡驱动)
   * [opencv和pcl](#opencv和pcl)
-* [VirtualBox](#VirtualBox)
+* [virtualBox](#virtualBox)
   * [win10镜像下载地址](#win10镜像下载地址)
 * [contos](#contos)
-  * [contos6安装bazel](contos6安装bazel)
+  * [contos6安装bazel(暂停)](contos6安装bazel)
 
 
 
@@ -153,8 +159,42 @@ sudo systemctl disable XXX.service
 sudo systemctl stop XXX.service
 
 ```
-## git
 
+## IDE
+### vim
+设置vim自动缩进，并且将tab替换为四个空格
+```bash
+# 打开vim配置文件，添加以下三行
+$ vim ~/.vimrc
+set ts=4
+set expandtab
+set autoindent
+```
+### vscode
+#### ubuntu环境下vscode与CMAKE协作
+1. vscode安装extension：C/C++，CMake，CMake Tools
+2. vscode打开新的folder（folder下有CMakeFile.txt文件，以及c/c++源文件）
+3. 如果是第一次使用CMake和CMake Tools，右下角会弹出框，根据提示允许CMake Tools和CMake自动配置和生成build文件夹
+4. vscode最下面出现一个工具条，类似于‘CMake GCC Build’等，点击build会执行cmake --build命令
+5. 按F5，vs自动在.vscode文件夹下生成launch.json文件，修改其中的"program"字段，修改成"${workspaceFolder}/build/xxx"，其中xxx为工程生成的可执行文件名；如有命令行参数，添加在"args"字段中。
+6. 配置完毕，可使用F5进行debug。
+
+参考资料: https://blog.csdn.net/daybreak222/article/details/81394363
+
+#### 一些bug的处理
+vscode调试python脚本时报错raise RuntimeError('already started')
+
+解决办法：
+在.py文件头添加如下语句：
+import multiprocessing
+multiprocessing.set_start_method(‘spawn’,True)
+
+参考资料：
+https://blog.csdn.net/wangzi371312/article/details/92796320
+
+
+
+## git
 ### pull或push指定分支
 ```bash
 # 将远程r1.8分支，拉去到本地的r1.8分支
@@ -162,7 +202,6 @@ sudo systemctl stop XXX.service
 # git pull <远程主机> <远程分支>:<本地分支>
 git pull origin r1.8:r1.8
 ```
-
 ### 合并历史commit
 ```bash
 # 经常遇到一种情况，多个commit其实完成一件事，造成git log很长，并且历史版本不清晰，不方便梳理，回滚不方便。
@@ -178,8 +217,25 @@ git pull origin r1.8:r1.8
 
 ```
 
+## python
+### pytest
+如果使用conda环境，可使用`conda install pytest`安装；
+遇到报错`pytest: error: unrecognized arguments: --cov-report=html`，可`conda install pytest-cov`解决。
 
-## perl正则表达式中使用非英文字符
+### pip使用清华源
+```bash
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple package_name
+```
+
+## c和cpp
+### 查找动态库
+```bash
+# 查找是否安装了xxx
+ldconfig -p | grep xxx
+```
+
+## perl
+### perl正则表达式中使用非英文字符
 ```vim
 # 在perl脚本中，字符集为utf8
 # 使用标准输入输出，且均为utf8
@@ -194,48 +250,16 @@ my $char = "。";
 $sen =~ s/([\p{IsN}$char])/ $1 /g;
 
 ```
-## pytest
-如果使用conda环境，可使用`conda install pytest`安装；
-遇到报错`pytest: error: unrecognized arguments: --cov-report=html`，可`conda install pytest-cov`解决。
 
-
-## vim
-设置vim自动缩进，并且将tab替换为四个空格
+## shell
+### 打包源文件
 ```bash
-# 打开vim配置文件，添加以下三行
-$ vim ~/.vimrc
-set ts=4
-set expandtab
-set autoindent
+# 文件数目不多，可使用xargs
+find . -name "*.h" -o name "*.c" | xargs tar zcvf src.tar.gz
+# 文件数目多，先将文件名存入文件中，然后再打包
+find . -name "*.h" -o name "*.c" > filename.list
+tar zcvf src.tar.gz --files-from filename.list
 ```
-## vscode
-### ubuntu环境下vscode与CMAKE协作
-1. vscode安装extension：C/C++，CMake，CMake Tools
-2. vscode打开新的folder（folder下有CMakeFile.txt文件，以及c/c++源文件）
-3. 如果是第一次使用CMake和CMake Tools，右下角会弹出框，根据提示允许CMake Tools和CMake自动配置和生成build文件夹
-4. vscode最下面出现一个工具条，类似于‘CMake GCC Build’等，点击build会执行cmake --build命令
-5. 按F5，vs自动在.vscode文件夹下生成launch.json文件，修改其中的"program"字段，修改成"${workspaceFolder}/build/xxx"，其中xxx为工程生成的可执行文件名；如有命令行参数，添加在"args"字段中。
-6. 配置完毕，可使用F5进行debug。
-
-参考资料: https://blog.csdn.net/daybreak222/article/details/81394363
-
-### 一些bug的处理
-vscode调试python脚本时报错raise RuntimeError('already started')
-
-解决办法：
-在.py文件头添加如下语句：
-import multiprocessing
-multiprocessing.set_start_method(‘spawn’,True)
-
-参考资料：
-https://blog.csdn.net/wangzi371312/article/details/92796320
-
-## 查找动态库
-```bash
-# 查找是否安装了xxx
-ldconfig -p | grep xxx
-```
-
 
 ## 安装软件-程序-包
 ### 使用国内源
@@ -254,10 +278,6 @@ wget -O - https://debian.neo4j.org/neotechnology.gpg.key |  apt-key add -
 echo 'deb https://debian.neo4j.org/repo stable/' |  tee /etc/apt/sources.list.d/neo4j.list
 ```
 
-### pip使用清华源
-```bash
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple package_name
-```
 
 ### ubuntu18_04安装libgdk2.0-dev报错
 * 问题: 
@@ -409,7 +429,7 @@ sudo apt-get install libopencv-dev
 # pcl库和pcl viewer
 sudo apt-get install libpcl-dev pcl-tools
 ```
-## VirtualBox
+## virtualBox
 ### win10镜像下载地址
 https://www.microsoft.com/zh-cn/software-download/windows10ISO/
 
