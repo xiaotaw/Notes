@@ -54,6 +54,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#编译" target="_blank">编译</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#xxx占位xxx" target="_blank">xxx占位xxx</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#参考资料" target="_blank">参考资料</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow#源码编译tensorflow2动态库" target="_blank">源码编译tensorflow=2.0动态库libtensorflow_cc.so</a>
 
 ## ubuntu
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#命令行or图形界面启动" target="_blank">命令行or图形界面启动</a>
@@ -68,28 +69,34 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#服务管理" target="_blank">本地服务管理</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#CodeServer" target="_blank">CodeServer</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#本地服务管理命令" target="_blank">本地服务管理命令</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#编程IDE" target="_blank">编程IDE</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vim" target="_blank">vim</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vscode" target="_blank">vscode</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#ubuntu环境下vscode与CMAKE协作" target="_blank">ubuntu环境下vscode与CMAKE协作</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#一些bug的处理" target="_blank">一些bug的处理</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#git" target="_blank">git</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pull或push指定分支" target="_blank">pull或push指定分支</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#合并历史commit" target="_blank">合并历史commit</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#python" target="_blank">python</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pytest" target="_blank">pytest</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pip使用清华源" target="_blank">pip使用清华源</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#c和cpp" target="_blank">c和c++</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#查找动态库" target="_blank">查找动态库</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#perl" target="_blank">perl</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pytest" target="_blank">pytest</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vim" target="_blank">vim</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vscode" target="_blank">vscode</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#ubuntu环境下vscode与CMAKE协作" target="_blank">ubuntu环境下vscode与CMAKE协作</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#一些bug的处理" target="_blank">一些bug的处理</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#查找动态库" target="_blank">查找动态库</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#perl正则表达式中使用非英文字符" target="_blank">perl正则表达式中使用非英文字符</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#shell" target="_blank">shell</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#打包源文件" target="_blank">打包源文件</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#安装软件-程序-包" target="_blank">安装软件-程序-包</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#使用国内源" target="_blank">使用国内源</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pip使用清华源" target="_blank">pip使用清华源</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#ubuntu18_04安装libgdk2.0-dev报错" target="_blank">ubuntu18_04安装libgdk2.0-dev报错</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#ubuntu18_04安装VisualSFM" target="_blank">ubuntu18_04安装VisualSFM</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#python安装opencv" target="_blank">python安装opencv</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#安装nvidia显卡驱动" target="_blank">安装nvidia显卡驱动</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#opencv和pcl" target="_blank">opencv和pcl</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#VirtualBox" target="_blank">VirtualBox</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#virtualBox" target="_blank">virtualBox</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#win10镜像下载地址" target="_blank">win10镜像下载地址</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#contos" target="_blank">contos</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntucontos6安装bazel" target="_blank">contos6安装bazel</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntucontos6安装bazel" target="_blank">contos6安装bazel(暂停)</a>
 
 ## wikidata
 * <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata#简介" target="_blank">简介</a>

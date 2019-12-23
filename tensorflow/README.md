@@ -18,6 +18,7 @@
   * [编译](#编译)
   * [xxx占位xxx](#xxx占位xxx)
   * [参考资料](#参考资料)
+* [源码编译tensorflow=2.0动态库libtensorflow_cc.so](#源码编译tensorflow2动态库)
 
 ## 从源码编译tensorflow的pip安装包
 
@@ -564,8 +565,79 @@ bash ./run.sh
 * 编译使用tensorflow c版本动态链接库 [https://www.cnblogs.com/hrlnw/p/7007648.html]
 
 
+## 源码编译tensorflow2动态库
+大体与编译tensorflow=1.8动态库类似，仅仅记下不同
+
+1. 使用CUDA10.0，
+2. bazel要求 0.24.1<= version <= 0.26.1 (注：0.24.1失败，貌似是因为bazel版本与protobuf版本之间不兼容)，最后使用0.26.0 (使用了高版本的GLIBCXX_3.4.22，安装了python3)
+3. 系统默认安装git=1.7版本过低，需升级，这里尝试2.7，参考资料：[Centos 6.5升级Git版本到Git2.7.2](#https://www.jianshu.com/p/371fe20db80c)
+```bash
+# 安装依赖
+yum install openssl-devel
+yum install libcurl-dev libcurl-devel
+yum install expat-devel
+yum install perl-ExtUtils-MakeMaker
+yum install gettext
+
+# 下载安装包并编译安装
+wget https://www.kernel.org/pub/software/scm/git/git-2.7.2.tar.gz
+tar zxvf git-2.7.2.tar.gz
+cd git-2.7.2
+make prefix=/usr/local/git all
+make prefix=/usr/local/git install
+
+# 修改环境变量
+echo "# git" >> ~/.bashrc
+echo "export GIT_HOME=/usr/local/git" >> ~/.bashrc
+echo "export PATH=$PATH:$GIT_HOME/bin" >> ~/.bashrc
+source ~/.bashrc
+
+# 检测git版本
+git --version #git version 2.7.2
+```
+
+4. 在Python2中安装了future模块，`conda install future`
+
+5. 在configure时，JIT XLA选择N。否则会触发一个`internal compiler error: in pop_binding, at cp/name-lookup.c:382`，google后貌似是gcc-4.9-20130331解决的一个bug。（JIT XLA选择N，能节省不少编译时间）
+
+6. 修改tensorflow/tensorflow.bzl，在若干个linkopt后添加"-lrt"，避免对GLIBC高版本需求，表现为报错undefined reference to 'clock_gettime'
+
+7. bazel build --linkopt="-lrt" --config=monolithic --config=opt --config=cuda //tensorflow:libtensorflow_cc.so --verbose_failures
+
+8. 整理头文件：头文件来源两部分，tensorflow本身的头文件，以及下载的外部的包。
+| - tensorflow
+  | - bazel-tensorflow 
+    | - external
+    | - tensorflow  # 指向tensorflow/tensorflow的软连接
+    | - third_party # 指向tensorflow/third_party的软连接
+  | - bazel-genfiles
+    | -tensorflow
 
 
+```bash
+cd bazel-tensorflow
+mkdir inc
+find -L external -name "*.h" -o -name "*.hpp" > h.txt
+find -L tensorflow -name "*.h" -o -name "*.hpp" >> h.txt
+find -L third_party -name "*.h" -o -name "*.hpp" >> h.txt
+
+tar -zcf h.tar.gz --files-from h.txt
+tar -zxf h.tar.gz -C inc
+# 有软连接的目录很乱，为了方便和另一部分头文件整合，可以将inc放到一个绝对路径的位置
+mv inc /data/tensorflow/release/r2.0
+
+cd ../bazel-genfiles
+find -L tensorflow -name "*.h" -o -name "*.hpp" > h.txt
+tar -zcf h.tar.gz --files-from h.txt
+# 这些头文件也需要和上一部分整合。
+tar -zxf h.tar.gz -C /data/tensorflow/release/r2.0/inc
+cd ..
+
+# 单独整理eigen和protobuf
+\cp -Lr third_party/eigen3/* release/r2.0/inc/third_party/eigen3/
+\cp -Lr bazel-tensorflow/external/eigen_archive/* release/r2.0/inc/external/eigen_archive/ 
+\cp -Lr bazel-tensorflow/external/com_google_protobuf/src/* release/r2.0/inc/external/com_google_protobuf/src/
+```
 
 
 
