@@ -603,6 +603,7 @@ git --version #git version 2.7.2
 6. 修改tensorflow/tensorflow.bzl，在若干个linkopt后添加"-lrt"，避免对GLIBC高版本需求，表现为报错undefined reference to 'clock_gettime'
 
 7. bazel build --linkopt="-lrt" --config=monolithic --config=opt --config=cuda //tensorflow:libtensorflow_cc.so --verbose_failures
+注: 使用monolithic时，需修改tensorflow/tf_version_scriots.lds，在global下增加*protpbuf*，保证protobuf符号可见
 
 8. 整理头文件：头文件来源两部分，tensorflow本身的头文件，以及下载的外部的包。
 | - tensorflow
