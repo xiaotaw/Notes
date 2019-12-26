@@ -139,9 +139,12 @@ https://github.com/xiaotaw/Notes/tree/master/ubuntu/get_ipv4.py
 ## 服务管理
 
 ### CodeServer
+通过docker使用code-server
 ```bash
 docker run -it --rm --network="host" -v "${HOME}/.local/share/code-server:/home/coder/.local/share/code-server" -v "$PWD:/home/coder/project" codercom/code-server:v2 code-server --host 0.0.0.0  --port 5905
 ```
+
+通过离线下载安装包使用：https://update.code.visualstudio.com/commit:26076a4de974ead31f97692a0d32f90d735645c0/server-linux-x64/stable
 
 ### 本地服务管理命令
 ```bash
@@ -450,7 +453,11 @@ VBoxManage setextradata <"virtual machine name"> CustomVideoMode1 1920x1080x32
 
 ```
 
-
+### centos6安装报版本GCC(unfinished)
+https://blog.csdn.net/gumanren/article/details/89261656
+https://www.cnblogs.com/westfly/p/9171827.html
+https://blog.csdn.net/weixin_34310369/article/details/89434157
+http://www.senra.me/install-devtools-for-centos-to-get-high-version-gcc/
 
 
 
