@@ -605,7 +605,7 @@ git --version #git version 2.7.2
 7. bazel build --linkopt="-lrt" --config=monolithic --config=opt --config=cuda //tensorflow:libtensorflow_cc.so --verbose_failures
 注: 使用monolithic时，需修改tensorflow/tf_version_scriots.lds，在global下增加*protpbuf*，保证protobuf符号可见
 
-8. 整理头文件：头文件来源两部分，tensorflow本身的头文件，以及下载的外部的包。
+8. 整理头文件和so：头文件来源两部分，tensorflow本身的头文件，以及下载的外部的包。
 | - tensorflow
   | - bazel-tensorflow 
     | - external
@@ -616,28 +616,47 @@ git --version #git version 2.7.2
 
 
 ```bash
+# 创建目录
+dst="/data/tensorflow/release/r2.0/"
+dst="/data/tensorflow/release/r2.0_gcc4.9.2/"
+
 cd bazel-tensorflow
 mkdir inc
-find -L external -name "*.h" -o -name "*.hpp" > h.txt
-find -L tensorflow -name "*.h" -o -name "*.hpp" >> h.txt
+#find -L external -name "*.h" -o -name "*.hpp" > h.txt
+find -L tensorflow -name "*.h" -o -name "*.hpp" > h.txt
 find -L third_party -name "*.h" -o -name "*.hpp" >> h.txt
 
 tar -zcf h.tar.gz --files-from h.txt
-tar -zxf h.tar.gz -C inc
-# 有软连接的目录很乱，为了方便和另一部分头文件整合，可以将inc放到一个绝对路径的位置
-mv inc /data/tensorflow/release/r2.0
+tar -zxf h.tar.gz -m -C inc 
+rm h.t* 
+# bazel-*等软连接的目录结构很乱，为了方便和另一部分头文件整合，可以将inc放到一个绝对路径的位置
+mv inc $dst
 
 cd ../bazel-genfiles
 find -L tensorflow -name "*.h" -o -name "*.hpp" > h.txt
 tar -zcf h.tar.gz --files-from h.txt
 # 这些头文件也需要和上一部分整合。
-tar -zxf h.tar.gz -C /data/tensorflow/release/r2.0/inc
+tar -zxf h.tar.gz -C $dst/inc/
+rm h.t* 
 cd ..
 
 # 单独整理eigen和protobuf
-\cp -Lr third_party/eigen3/* release/r2.0/inc/third_party/eigen3/
-\cp -Lr bazel-tensorflow/external/eigen_archive/* release/r2.0/inc/external/eigen_archive/ 
-\cp -Lr bazel-tensorflow/external/com_google_protobuf/src/* release/r2.0/inc/external/com_google_protobuf/src/
+\cp -Lr third_party/eigen3/* ${dst}/inc/third_party/eigen3/
+
+mkdir ${dst}/inc/external/
+\cp -Lr bazel-tensorflow/external/eigen_archive/ ${dst}/inc/external/eigen_archive/ 
+mkdir ${dst}/inc/external/com_google_protobuf
+\cp -Lr bazel-tensorflow/external/com_google_protobuf/src/ ${dst}/inc/external/com_google_protobuf/src/
+\cp -Lr bazel-tensorflow/external/com_google_absl ${dst}/inc/external/com_google_absl
+
+# 整理lib*.so
+mkdir lib && cd lib
+mkdir linux64_cuda10.0_cudnn7.6_glibc2.12_glibcxx3.4.24
+ln -s linux64_cuda10.0_cudnn7.6_glibc2.12_glibcxx3.4.24 linux64
+
+cp -r bazel-bin/tensorflow/libtensorflow_cc.so* lib/linux64
+mv lib/ $dst
+
 ```
 
 
