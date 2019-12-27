@@ -15,6 +15,7 @@
   * [vim](#vim)
   * [vscode](#vscode)
     * [ubuntu环境下vscode与CMAKE协作](#ubuntu环境下vscode与CMAKE协作)
+    * [远程](#远程)
     * [一些bug的处理](#一些bug的处理)
 * [git](#git)
   * [pull或push指定分支](#pull或push指定分支)
@@ -183,6 +184,23 @@ set autoindent
 6. 配置完毕，可使用F5进行debug。
 
 参考资料: https://blog.csdn.net/daybreak222/article/details/81394363
+
+#### 远程
+* 描述：client端为windows，server端为linux。希望在windows下使用vscode，可以对linux服务器端的代码进行编辑和调试。
+* 方法：
+① 在windows端安装vscode，安装插件remote-ssh，
+② 配置ssh_config，其中方括号[]中的内容需根据实际情况修改，（IdentitiesOnly这个配置暂不知如何配置）
+```vi
+Host target-box-22
+    HostName [host-ip]
+    Port 22
+    User [username in host]
+    IdentitiesOnly no
+    # if use socket
+    #ProxyCommand "/path/to/connect.exe" -S [socket-ip]:[socket-port] %h %p
+```
+* 在连接之前，可先在vscode中的terminal中，使用ssh连接进行尝试，连接成功后，再使用vscode连接。
+* 连接成功后，会自动在服务器端的~/.vscode-server下，下载code-server。如下载不成功，可根据报错提示自行下载。
 
 #### 一些bug的处理
 vscode调试python脚本时报错raise RuntimeError('already started')
@@ -459,8 +477,12 @@ https://www.cnblogs.com/westfly/p/9171827.html
 https://blog.csdn.net/weixin_34310369/article/details/89434157
 http://www.senra.me/install-devtools-for-centos-to-get-high-version-gcc/
 
-
-
+```bash
+# devtools-3
+wget https://copr.fedoraproject.org/coprs/rhscl/devtoolset-3/repo/epel-6/rhscl-devtoolset-3-epel-6.repo -O /etc/yum.repos.d/devtools-3.repo
+yum install devtoolset-3-gcc devtoolset-3-binutils devtoolset-3-gcc-c++
+scl enable devtoolset-3 bash
+```
 
 
 

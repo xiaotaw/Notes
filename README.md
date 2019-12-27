@@ -5,6 +5,8 @@
 
 20191216: 通过squash、reword整理历史commit。
 ## docker
+* <a href="https://github.com/xiaotaw/Notes/tree/master/docker#安装" target="_blank">安装</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#windows" target="_blank">windows</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#下载和上传镜像" target="_blank">下载和上传镜像</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#官网" target="_blank">官网</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/docker#阿里云（登录使用）" target="_blank">阿里云（登录使用）</a>
@@ -73,6 +75,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vim" target="_blank">vim</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#vscode" target="_blank">vscode</a>
     * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#ubuntu环境下vscode与CMAKE协作" target="_blank">ubuntu环境下vscode与CMAKE协作</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#远程" target="_blank">远程</a>
     * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#一些bug的处理" target="_blank">一些bug的处理</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#git" target="_blank">git</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu#pull或push指定分支" target="_blank">pull或push指定分支</a>
