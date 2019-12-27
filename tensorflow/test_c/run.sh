@@ -17,7 +17,7 @@ case $1 in
                 -I$TF_HOME/inc/external/eigen_archive/ \
                 -I$TF_HOME/inc/external/com_google_absl \
                 -I$TF_HOME/inc/external/com_google_protobuf/src"
-        TF_LIB=$TF_HOME/lib/linux64_cuda10.0_cudnn7.6_glibc2.12_glibcxx3.4.22/
+        TF_LIB=$TF_HOME/lib/linux64/
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TF_LIB 
         linkopt="-lrt -lpthread -ltensorflow_cc"
         ;;
@@ -51,6 +51,6 @@ for target in ${target_lst[@]}; do
         $target.c
 
     echo -e "\n**************** run $target ... ****************"
-    ./$target && rm ./$target
+    CUDA_VISIBLE_DEVICES="0" ./$target && rm ./$target
 done
 
