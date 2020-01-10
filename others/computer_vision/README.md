@@ -63,7 +63,7 @@ https://github.com/xiaotaw/Notes/blob/master/computer_vision/cs231a_course_notes
 
 ## 参考资料
 * 推荐资料靠前
-* [The Future of Real-Time SLAM and Deep Learning vs SLAM](#http://www.computervisionblog.com/2016/01/why-slam-matters-future-of-real-time.html)需要科学上网
+* [The Future of Real-Time SLAM and Deep Learning vs SLAM](http://www.computervisionblog.com/2016/01/why-slam-matters-future-of-real-time.html)需要科学上网
 ### CS231A
 * CS231A: Computer Vision, From 3D Reconstruction to Recognition  
 * 点评：非常清晰易懂，推荐看course_notes。不过需事先看一点csdn的博客，了解一些基本名词，问题的定义。

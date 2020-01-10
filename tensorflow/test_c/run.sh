@@ -44,7 +44,7 @@ target_lst=(test_hello test_matmul test_load_pb)
 for target in ${target_lst[@]}; do
     echo -e "\n**************** compile $target ... ****************"
     g++ -std=c++0x -o $target \
-        -g -Wall -D_DEBUG -Wshadow -Wno-sign-compare -w \
+        -g -Wall -D_DEBUG  -Wno-sign-compare -fsanitize=address \
         $TF_INC \
         -L$TF_LIB \
         $linkopt \
