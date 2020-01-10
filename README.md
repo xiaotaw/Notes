@@ -130,7 +130,6 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#VisualSFM试用" target="_blank">VisualSFM + Meshlab</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#疑问" target="_blank">疑问</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#怎么理解单应矩阵" target="_blank">怎么理解单应矩阵</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#本征矩阵和基础矩阵的自由度" target="_blank">本征矩阵和基础矩阵的自由度</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#参考资料" target="_blank">参考资料</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#CS231A" target="_blank">CS231A: Computer Vision, From 3D Reconstruction to Recognition</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision#视觉slam十四讲" target="_blank">视觉slam十四讲</a>

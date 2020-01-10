@@ -15,7 +15,6 @@
   * [VisualSFM + Meshlab](#VisualSFM试用)
 * [疑问](#疑问)
   * [怎么理解单应矩阵](#怎么理解单应矩阵)
-  * [本征矩阵和基础矩阵的自由度](#本征矩阵和基础矩阵的自由度)
 * [参考资料](#参考资料)
   * [CS231A: Computer Vision, From 3D Reconstruction to Recognition](#CS231A)
   * [视觉slam十四讲](#视觉slam十四讲)
@@ -61,11 +60,10 @@ https://github.com/xiaotaw/Notes/blob/master/computer_vision/cs231a_course_notes
 ### 怎么理解单应矩阵
 没完全明白单应矩阵
 
-### 本征矩阵和基础矩阵的自由度
-本证矩阵的自由度是5，基础矩阵的自由度是7，为什么？
 
 ## 参考资料
 * 推荐资料靠前
+* [The Future of Real-Time SLAM and Deep Learning vs SLAM](#http://www.computervisionblog.com/2016/01/why-slam-matters-future-of-real-time.html)需要科学上网
 ### CS231A
 * CS231A: Computer Vision, From 3D Reconstruction to Recognition  
 * 点评：非常清晰易懂，推荐看course_notes。不过需事先看一点csdn的博客，了解一些基本名词，问题的定义。
@@ -81,5 +79,6 @@ https://github.com/xiaotaw/Notes/blob/master/computer_vision/cs231a_course_notes
 ### 《计算机视觉中的多视几何》
 * 评价：太难懂，不推荐
 * 获取：腾讯云社区的一篇[文章](https://cloud.tencent.com/developer/news/274792)中提到，书籍《计算机视觉中的多视图几何》的百度云分享：https://pan.baidu.com/s/1glF0QaySRXd1cTZVtv5Kyg 密码：3jug
+
 
 
