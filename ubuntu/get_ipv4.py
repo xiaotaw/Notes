@@ -72,7 +72,7 @@ def print_result(ip):
 
 
 if __name__ == "__main__":
-    for timeout in [10, 20, 30]:
+    for timeout in [2, 6, 10]:
         ip = get_ip(timeout)
         if ip:
             print_result(ip)
