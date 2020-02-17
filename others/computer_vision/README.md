@@ -2,6 +2,7 @@
 * [简介](#简介)
 * [数学基础](#数学基础)
   * [四元数和三维旋转](#四元数和三维旋转)
+  * [双四元混合Dual-Quaternion Blending](#双四元混合)
   * [李群和李代数](#李群和李代数)
   * [图优化](#图优化)
     * [数值优化](#数值优化)
@@ -28,6 +29,10 @@
 ### 四元数和三维旋转
 http://www.bilibili.com/video/av33385105  
 http://www.bilibili.com/video/av35804287
+
+### 双四元混合
+[清晰易懂的CSDN博客：双四元混合DQB](https://blog.csdn.net/iosmichael/article/details/101417198)
+[Dual Quaternion Blending论文](https://www.cs.utah.edu/~ladislav/kavan07skinning/kavan07skinning.pdf)
 
 ### 李群和李代数
 
