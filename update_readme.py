@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+import os
 import re
 from glob  import glob
 
@@ -7,16 +7,16 @@ from glob  import glob
 url = "https://github.com/xiaotaw/Notes/tree/master/"
 
 
-r = re.compile("([\s\*]*)\[([^\[\]]+)\]\(([^\(\)]+)\)")
+regex = re.compile("([\s\*]*)\[([^\[\]]+)\]\(([^\(\)]+)\)")
 
-def get_context_2(fn):
+def get_context(fn):
     context = []
     f = open(fn, encoding="utf8")
     s = f.readlines()
     f.close()
     context_flag = False
 
-    title = fn.rstrip("/README.md")
+    fn = fn.lstrip("./")
 
     for l in s:
         if l.strip() == u"## 目录":
@@ -25,58 +25,56 @@ def get_context_2(fn):
             continue
         if context_flag:
             if l.lstrip().startswith("*"):
-                res = r.findall(l)
+                res = regex.findall(l)
                 if len(res) != 1:
-                    print("[error] %s: %s" % (title, l))
+                    print("[error] %s: %s" % (fn, l))
                     continue
                 pre, text, link = res[0]
-                link = url + title + link
+                link = url + fn + link
                 ll = '{}<a href="{}" target="_blank">{}</a>\n'.format(pre, link, text)
                 context.append(ll)
             elif l.strip().startswith("#"):
                 context_flag = False
                 return context
-    print("Info: context may not complete. plz check.")
+    print("Info: context may not complete. plz check %s." % fn)
     return context
 
 if __name__ == "__main__":
     
-    fn_lst_2 = glob("*/README.md")
-    fn_lst_2.sort()
-    context_1 = ["# 目录\n"]
-    context_1.append(
+    context_lst = ["# 目录\n"]
+    context_lst.append(
     "©2019-2020 xiaotaw. All Rights Reserved. \
     \n\n此目录由脚本维护：python3 update_readme.py，记录了部分技能点。\
-    \n\n20191216: 通过squash、reword整理历史commit。\n"
+    \n\n20191216: 通过squash、reword整理历史commit。\
+    \n\n20200226: 拓展\"README.md\"为\"*.md\"，可方便将一个主题下的README.md进一步拆分成不同的文档。 \n"
     )
+    
+    for r, ds, fs in os.walk("."):
+        for f in fs:
+            if f.endswith(".md"):
+                r = r.lstrip("./")
+                full_path = os.path.join(r, f)
+                
+                if f == "README.md":
+                    title = r
+                else:
+                    title = full_path[:-3]
+                if title == "":
+                    # 根目录的README.md不需要处理
+                    print("skip: %s" % full_path)
+                    continue
+                
+                context = get_context(full_path)
+                if context:
+                    link = url + full_path
+                    ll = '## <a href="{}" target="_blank">{}</a>\n'.format(link, title)
+                    context_lst.append(ll)
+                    context_lst.extend(context[1: ])
+                    context_lst.append("\n")
 
-    for fn in fn_lst_2:
-        title = fn.rstrip("/README.md")
-        context_1.append("## %s\n" % title)
-        #
-        context_2 = get_context_2(fn)
-        for l in context_2[1:]:
-            context_1.append(l)
-        context_1.append("\n")
-
-    context_1_str = "".join(context_1)
-
-    #f = open("README.md", "w", encoding="utf8")
-    #f.write(context_1_str)
-    #f.close()
-
-    fn_lst_3 = glob("*/*/README.md")
-    for fn in fn_lst_3:
-        title = fn.rstrip("/README.md")
-        context_1.append("## %s\n" % title)
-        #
-        context_3 = get_context_2(fn)
-        for l in context_3[1:]:
-            context_1.append(l)
-        context_1.append("\n")
-
-    context_1_str = "".join(context_1)
+    
+    context_str = "".join(context_lst)
     f = open("README.md", "w", encoding="utf8")
-    f.write(context_1_str)
+    f.write(context_str)
     f.close()
 
