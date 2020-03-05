@@ -8,6 +8,7 @@
   * [x11vnc](#x11vnc)
   * [端口映射](#端口映射)
   * [获取本机/路由的ipv4地址](#获取本机或路由的ipv4地址)
+  * [Terminal终端使用代理](#Terminal终端使用代理)
 * [本地服务管理](#服务管理)
   * [CodeServer](#CodeServer)
   * [本地服务管理命令](#本地服务管理命令)
@@ -136,6 +137,31 @@ nohup x11vnc -auth guess -nevershared -forever -loop -noxdamage -repeat -rfbauth
 
 ### 获取本机或路由的ipv4地址
 https://github.com/xiaotaw/Notes/tree/master/ubuntu/get_ipv4.py
+
+### Terminal终端使用代理
+好像无效？？？
+```bash
+# 使用http代理
+export http_proxy="http://localhost:port"
+export https_proxy="http://localhost:port"
+
+# 使用socks代理
+export http_proxy="socks5://127.0.0.1:1080"
+export https_proxy="socks5://127.0.0.1:1080"
+# 或者直接设置ALL_PROXY
+export ALL_PROXY="socks5://127.0.0.1:1080"
+
+# 取消代理
+unset ALL_PROXY http_proxy https_proxy
+
+
+# 另外，如果git使用代理，也可以：
+git config --global http.proxy 'socks5://127.0.0.1:1080'
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
 
 ## 服务管理
 
