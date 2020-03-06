@@ -57,6 +57,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#x11vnc" target="_blank">x11vnc</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#端口映射" target="_blank">端口映射</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#获取本机或路由的ipv4地址" target="_blank">获取本机/路由的ipv4地址</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#Terminal终端使用代理" target="_blank">Terminal终端使用代理</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#服务管理" target="_blank">本地服务管理</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#CodeServer" target="_blank">CodeServer</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#本地服务管理命令" target="_blank">本地服务管理命令</a>
@@ -112,6 +113,10 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow/README.md#参考资料" target="_blank">参考资料</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow/README.md#源码编译tensorflow2动态库" target="_blank">源码编译tensorflow=2.0动态库libtensorflow_cc.so</a>
 
+## <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/opencv.md" target="_blank">others/computer_vision/opencv</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/opencv.md#安装opencv" target="_blank">安装opencv</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/opencv.md#安装并使用指定版本的opencv" target="_blank">安装并使用指定版本的opencv</a>
+
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md" target="_blank">others/computer_vision</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#简介" target="_blank">简介</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#数学基础" target="_blank">数学基础</a>
@@ -135,6 +140,12 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#视觉slam十四讲" target="_blank">视觉slam十四讲</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#sfm介绍博客" target="_blank">sfm介绍博客</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#《计算机视觉中的多视几何》" target="_blank">《计算机视觉中的多视几何》</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md" target="_blank">others/computer_vision/kinect_dk</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#简介" target="_blank">简介</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#安装sdk" target="_blank">安装sdk</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#上手使用" target="_blank">上手使用</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#样例" target="_blank">样例</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md" target="_blank">others/machine_translation</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md#语料分割" target="_blank">语料分割</a>

@@ -19,3 +19,9 @@ tensorflow/release_c/r2.0
 # get ipv4
 get_ipv4.log
 *.log
+
+# vscode
+.vscode/
+
+# for c/c++
+build/
