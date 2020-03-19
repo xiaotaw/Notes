@@ -12,8 +12,12 @@ FIND_PACKAGE(OpenCV REQUIRED)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_LIST_DIR})
 INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(get_images get_images_bak.cpp StaticImageProperties.cpp Util.cpp)
 
-TARGET_LINK_LIBRARIES(get_images 
-    k4a::k4a
-    ${OpenCV_LIBS})
+ADD_EXECUTABLE(get_images_bak get_images_bak.cpp)
+TARGET_LINK_LIBRARIES(get_images_bak k4a::k4a ${OpenCV_LIBS})
+
+ADD_EXECUTABLE(get_images get_images.cpp StaticImageProperties.cpp Util.cpp)
+TARGET_LINK_LIBRARIES(get_images k4a::k4a ${OpenCV_LIBS})
+
+ADD_EXECUTABLE(transform_images transform_images.cpp)
+TARGET_LINK_LIBRARIES(transform_images k4a::k4a ${OpenCV_LIBS})
