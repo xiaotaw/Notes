@@ -5,7 +5,9 @@
 
 20191216: 通过squash、reword整理历史commit。    
 
-20200226: 拓展"README.md"为"*.md"，可方便将一个主题下的README.md进一步拆分成不同的文档。 
+20200226: 拓展"README.md"为"*.md"，可方便将一个主题下的README.md进一步拆分成不同的文档。     
+
+20200323: (todo) 将子目录下的README.md的内容拆分成小文件，与根目录下的一样，README.md仅保留目录。
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md" target="_blank">docker</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#安装" target="_blank">安装</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#windows" target="_blank">windows</a>
@@ -46,6 +48,12 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md将wikidata导入neo4j" target="_blank">将wikidata导入neo4j</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md#其他" target="_blank">其他</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md#参考资料" target="_blank">参考资料</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md" target="_blank">ubuntu/coding</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#环境配置" target="_blank">环境配置</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#msys2" target="_blank">msys2</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#ccplusplus" target="_blank">C/C++</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#json" target="_blank">json</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md" target="_blank">ubuntu</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#命令行or图形界面启动" target="_blank">命令行or图形界面启动</a>
@@ -146,6 +154,7 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#安装sdk" target="_blank">安装sdk</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#上手使用" target="_blank">上手使用</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#样例" target="_blank">样例</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#问题" target="_blank">问题</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md" target="_blank">others/machine_translation</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md#语料分割" target="_blank">语料分割</a>

@@ -46,7 +46,8 @@ if __name__ == "__main__":
     "©2019-2020 xiaotaw. All Rights Reserved. \
     \n\n此目录由脚本维护：python3 update_readme.py，记录了部分技能点。\
     \n\n20191216: 通过squash、reword整理历史commit。\
-    \n\n20200226: 拓展\"README.md\"为\"*.md\"，可方便将一个主题下的README.md进一步拆分成不同的文档。 \n"
+    \n\n20200226: 拓展\"README.md\"为\"*.md\"，可方便将一个主题下的README.md进一步拆分成不同的文档。 \
+    \n\n20200323: (todo) 将子目录下的README.md的内容拆分成小文件，与根目录下的一样，README.md仅保留目录。\n"
     )
     
     for r, ds, fs in os.walk("."):
