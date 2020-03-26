@@ -11,16 +11,23 @@
 using namespace std;
 using namespace cv;
 
+#define MAX_DEPTH 5000.0f
+#define MIN_DEPTH 30.0f
+#define WAIT_TIME 5
+
 // the code is just for test, the code comes from
 // https://github.com/forestsen/KinectAzureDKProgramming
 
 void DrawDepthImage(const cv::Mat &depth_img, std::string win_name = "depth image")
 {
     double max_depth, min_depth;
-    cv::minMaxIdx(depth_img, &min_depth, &max_depth);
+    //cv::minMaxIdx(depth_img, &min_depth, &max_depth);
+    //min_depth = (min_depth < MIN_DEPTH) ? (MIN_DEPTH) : (min_depth);
+    //max_depth = (max_depth > MAX_DEPTH) ? (MAX_DEPTH) : (max_depth);
+    //std::cout << max_depth << " ; " << min_depth << std::endl;
     //Visualize depth-image in opencv
     cv::Mat depth_scale;
-    cv::convertScaleAbs(depth_img, depth_scale, 255 / max_depth);
+    cv::convertScaleAbs(depth_img, depth_scale, 255 / MAX_DEPTH);
     cv::imshow(win_name, depth_scale);
     //cv::waitKey(0);
 }
@@ -45,17 +52,18 @@ void SaveDepthImage(const cv::Mat &depth_img, const std::string &path)
     cv::imwrite(path, depth_scale);
 }
 
-void print_calibration(const k4a::calibration calibration){
-    std::cout << calibration.color_camera_calibration.resolution_width  << " ; ";
-    std::cout << calibration.color_camera_calibration.resolution_height  << " ; ";
-    std::cout << calibration.color_camera_calibration.intrinsics.parameters.param.cx  << " ; ";
-    std::cout << calibration.color_camera_calibration.intrinsics.parameters.param.cy  << " ; ";
-    std::cout << calibration.color_camera_calibration.intrinsics.parameters.param.fx  << " ; ";
-    std::cout << calibration.color_camera_calibration.intrinsics.parameters.param.fy  << std::endl;
+void print_calibration(const k4a::calibration calibration)
+{
+    std::cout << calibration.color_camera_calibration.resolution_width << " ; ";
+    std::cout << calibration.color_camera_calibration.resolution_height << " ; ";
+    std::cout << calibration.color_camera_calibration.intrinsics.parameters.param.cx << " ; ";
+    std::cout << calibration.color_camera_calibration.intrinsics.parameters.param.cy << " ; ";
+    std::cout << calibration.color_camera_calibration.intrinsics.parameters.param.fx << " ; ";
+    std::cout << calibration.color_camera_calibration.intrinsics.parameters.param.fy << std::endl;
 }
 
-void downscale_calibration(const k4a::calibration calibration, 
-    k4a::calibration& calibration_color_downscaled, float scale=2.0)
+void downscale_calibration(const k4a::calibration calibration,
+                           k4a::calibration &calibration_color_downscaled, float scale = 2.0)
 {
     calibration_color_downscaled.color_camera_calibration.resolution_width /= scale;
     calibration_color_downscaled.color_camera_calibration.resolution_height /= scale;
@@ -92,7 +100,7 @@ int main(int argc, char **argv)
     memcpy(&calibration_downscaled, &calibration, sizeof(k4a::calibration));
 
     downscale_calibration(calibration, calibration_downscaled, 3.2);
-    
+
     print_calibration(calibration);
     print_calibration(calibration_downscaled);
 
@@ -124,8 +132,8 @@ int main(int argc, char **argv)
                                      depthImage.get_width_pixels(), CV_16UC1, depthImage.get_buffer());
                 colorFrame = cv::Mat(colorImage.get_height_pixels(),
                                      colorImage.get_width_pixels(), CV_8UC4, colorImage.get_buffer());
-                //cv::resize(colorFrame, resized_color_frame, cv::Size(640, 480), 0, 0, cv::INTER_AREA);
-                cv::resize(colorFrame, resized_color_frame, cv::Size(640, 480));
+                cv::resize(colorFrame, resized_color_frame, cv::Size(640, 480), 0, 0, cv::INTER_AREA);
+                //cv::resize(colorFrame, resized_color_frame, cv::Size(640, 480));
                 transformed_depth_frame = cv::Mat(transformed_depth_image.get_height_pixels(),
                                                   transformed_depth_image.get_width_pixels(), CV_16UC1, transformed_depth_image.get_buffer());
 
@@ -135,16 +143,19 @@ int main(int argc, char **argv)
                 cv::imshow("kinect color frame master", resized_color_frame);
             }
         }
-        if (waitKey(30) == 27 || waitKey(30) == 'q')
+        if (waitKey(WAIT_TIME) == 27 || waitKey(WAIT_TIME) == 'q')
         {
             device.close();
             break;
         }
-        else if (waitKey(30) == 's')
+        else if (waitKey(WAIT_TIME) == 'p')
         {
             flag = 0;
         }
-        else if (waitKey(30) == 'c')
+        else if (waitKey(WAIT_TIME) == 's')
+        {
+        }
+        else if (waitKey(WAIT_TIME) == 'c')
         {
             flag = 1;
         }
