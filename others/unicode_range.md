@@ -1,3 +1,8 @@
+
+
+### Unicide Character Ranges
+[https://jrgraphix.net/research/unicode_blocks.php](https://jrgraphix.net/research/unicode_blocks.php)
+
 ### Sheet
 Name | Unicode Begin | Unicode End | utf8 begin | utf8 end
 -|-|-|-|-
