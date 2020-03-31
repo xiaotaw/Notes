@@ -3,6 +3,7 @@
   * [msys2](#msys2)
 * [C/C++](#ccplusplus)
   * [json](#json)
+  * [std::string.c_str](#std::string.c_str)
 
 **说明：和编程相关内容慢慢转移至本文件下**
 
@@ -55,3 +56,10 @@ Server = http://mirrors.ustc.edu.cn/msys2/msys/$arch
 2. csdn blog [C++使用nlohmann json](https://blog.csdn.net/wphkadn/article/details/97417700)
 3. csdn blog [c++类对象获得nlohmann::json配置的方便用法](https://blog.csdn.net/hongmaodaxia/article/details/95731211?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
 4. github [nlohmann/json](https://github.com/nlohmann/json)
+
+
+### std::string.c_str
+使用std::string.c_str函数时，返回的是指向std::string内容的const char*，正常情况下对该内容进行修改都是不被允许的。  
+但在某些情况下（比如gcc 4.9.2，使用char*做类型强制转换后），可以修改std::string内部的值。  
+样例见example下的test_c_str.cpp。  
+
