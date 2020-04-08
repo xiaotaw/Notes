@@ -15,3 +15,6 @@ else
     echo -e "higher version such as 6.5.0 seems to solved this problem. \n"
 fi
 
+echo -e "\n\nRun test_json for libsoundio. \n"
+gcc test_libsoundio.cpp  -lsoundio -lstdc++ -o test_libsoundio
+chmod u+x test_libsoundio && ./test_libsoundio  && rm ./test_libsoundio
