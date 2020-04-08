@@ -87,7 +87,9 @@ export LANG=C.UTF-8
 ## 网络服务
 ### frp
 * frp是一个内网穿透工具，需要一台有公网ip的服务器作为跳板。  
-* 参考https://github.com/fatedier/frp
+* 参考https://github.com/fatedier/frp  
+* 客户端热加载配置文件 frpc reload -c ./frpc.ini
+
 
 ### ss
 * 启动命令（老是忘记）：`sudo sslocal -c xxx.conf -d start`
