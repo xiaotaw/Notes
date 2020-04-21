@@ -4,6 +4,7 @@
 * [C/C++](#ccplusplus)
   * [json](#json)
   * [std::string.c_str](#std::string.c_str)
+  * [Unix Domain Socket](Unix Domain Socket)
 
 **说明：和编程相关内容慢慢转移至本文件下**
 
@@ -62,4 +63,15 @@ Server = http://mirrors.ustc.edu.cn/msys2/msys/$arch
 使用std::string.c_str函数时，返回的是指向std::string内容的const char*，正常情况下对该内容进行修改都是不被允许的。  
 但在某些情况下（比如gcc 4.9.2，使用char*做类型强制转换后），可以修改std::string内部的值。  
 样例见example下的test_c_str.cpp。  
+
+
+### Unix Domain Socket
+之前有用过一个python版的UDS，在Notes/others/unix_domain_socket下
+
+#### c版本server和client
+代码见https://github.com/xiaotaw/odas下demo/tools
+
+#### 参考资料
+1. cnblogs [Unix domain socket 简介](https://www.cnblogs.com/sparkdev/p/8359028.html)
+2. Linux C编程一站式学习[UNIX Domain Socket IPC](http://docs.linuxtone.org/ebooks/C&CPP/c/ch37s04.html)
 
