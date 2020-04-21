@@ -28,6 +28,8 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#异步进入容器" target="_blank">异步进入容器</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#个人容器镜像，存放于阿里云容器镜像服务器" target="_blank">个人容器镜像，存放于阿里云容器镜像服务器</a>
 
+## <a href="https://github.com/xiaotaw/Notes/tree/master/docker/operations.md" target="_blank">docker/operations</a>
+
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md" target="_blank">gpu/get_started</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#写在前面" target="_blank">简介</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#NVIDIA显卡驱动安装" target="_blank">NVIDIA显卡驱动安装</a>
@@ -54,6 +56,8 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#msys2" target="_blank">msys2</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#ccplusplus" target="_blank">C/C++</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#json" target="_blank">json</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#std::string.c_str" target="_blank">std::string.c_str</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.mdUnix Domain Socket" target="_blank">Unix Domain Socket</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md" target="_blank">ubuntu</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#命令行or图形界面启动" target="_blank">命令行or图形界面启动</a>
@@ -153,6 +157,7 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#简介" target="_blank">简介</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#安装sdk" target="_blank">安装sdk</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#上手使用" target="_blank">上手使用</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#麦克风阵列" target="_blank">麦克风阵列</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#样例" target="_blank">样例</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#问题" target="_blank">问题</a>
 
