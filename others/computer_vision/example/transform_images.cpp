@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <array>
+#include <chrono>
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
@@ -20,7 +21,7 @@ using namespace cv;
 
 void DrawDepthImage(const cv::Mat &depth_img, std::string win_name = "depth image")
 {
-    double max_depth, min_depth;
+    //double max_depth, min_depth;
     //cv::minMaxIdx(depth_img, &min_depth, &max_depth);
     //min_depth = (min_depth < MIN_DEPTH) ? (MIN_DEPTH) : (min_depth);
     //max_depth = (max_depth > MAX_DEPTH) ? (MAX_DEPTH) : (max_depth);
@@ -73,6 +74,32 @@ void downscale_calibration(const k4a::calibration calibration,
     calibration_color_downscaled.color_camera_calibration.intrinsics.parameters.param.fy /= scale;
 }
 
+const std::string getCurrentSystemTime()
+{
+	auto tt = std::chrono::system_clock::to_time_t
+	(std::chrono::system_clock::now());
+	struct tm* ptm = localtime(&tt);
+	char date[60] = {0};
+	sprintf(date, "%d-%02d-%02d      %02d:%02d:%02d",
+		(int)ptm->tm_year + 1900,(int)ptm->tm_mon + 1,(int)ptm->tm_mday,
+		(int)ptm->tm_hour,(int)ptm->tm_min,(int)ptm->tm_sec);
+	return std::string(date);
+}
+
+typedef std::chrono::steady_clock::time_point T;
+T t0, t1, t2;
+double duration0, duration1;
+
+
+void print_time_log(std::string message){
+    t2 = std::chrono::steady_clock::now();
+    duration0 = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t0).count();
+    duration1 = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+    std::cout << std::setw(10) << duration1 << "   "  << std::setw(15) << duration0 << "   " << message << std::endl;
+    t1 = t2;
+}
+
+
 int main(int argc, char **argv)
 {
     const uint32_t deviceCount = k4a::device::get_installed_count();
@@ -117,13 +144,22 @@ int main(int argc, char **argv)
     cv::Mat colorFrame, resized_color_frame;
     cv::Mat transformed_depth_frame;
 
+
+
+    t0 = std::chrono::steady_clock::now();
+    t1 = t0;
+
+
     int flag = 1;
     while (1)
     {
         if (flag)
         {
+            print_time_log("new turn");
             if (device.get_capture(&capture, std::chrono::milliseconds(0)))
             {
+                print_time_log("get_capture succeeded");
+                
                 depthImage = capture.get_depth_image();
                 colorImage = capture.get_color_image();
                 transformed_depth_image = transformation.depth_image_to_color_camera(depthImage);
@@ -137,27 +173,36 @@ int main(int argc, char **argv)
                 transformed_depth_frame = cv::Mat(transformed_depth_image.get_height_pixels(),
                                                   transformed_depth_image.get_width_pixels(), CV_16UC1, transformed_depth_image.get_buffer());
 
-                //cv::imshow("kinect depth map master", depthFrame);
-                DrawDepthImage(transformed_depth_frame, "transformed depth frame");
-                DrawDepthImage(depthFrame, "kinect depth map master");
-                cv::imshow("kinect color frame master", resized_color_frame);
+                print_time_log("process image");
+
+                //DrawDepthImage(transformed_depth_frame, "transformed depth frame");
+                //DrawDepthImage(depthFrame, "kinect depth map master");
+                //cv::imshow("kinect color frame master", resized_color_frame);
+                
+                //std::cout << getCurrentSystemTime() << ": success!" << std::endl;
             }
+            else
+            {
+                print_time_log("get_capture failed");
+                //std::cout << getCurrentSystemTime() << ": failed!" << std::endl;
+            } 
         }
-        if (waitKey(WAIT_TIME) == 27 || waitKey(WAIT_TIME) == 'q')
-        {
-            device.close();
-            break;
-        }
-        else if (waitKey(WAIT_TIME) == 'p')
-        {
-            flag = 0;
-        }
-        else if (waitKey(WAIT_TIME) == 's')
-        {
-        }
-        else if (waitKey(WAIT_TIME) == 'c')
-        {
-            flag = 1;
+        switch (waitKey(WAIT_TIME)){
+            case 27:
+            case 'q':
+                device.close();
+                exit(1);
+            case 'p':
+                flag = 0;
+                break;
+            case 's':
+                // leave it;
+                break;
+            case 'c':
+                flag = 1;
+                break;
+            default:
+                print_time_log("waitkey");
         }
     }
     return 0;
