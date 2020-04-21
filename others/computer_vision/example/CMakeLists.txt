@@ -21,3 +21,7 @@ TARGET_LINK_LIBRARIES(get_images k4a::k4a ${OpenCV_LIBS})
 
 ADD_EXECUTABLE(transform_images transform_images.cpp)
 TARGET_LINK_LIBRARIES(transform_images k4a::k4a ${OpenCV_LIBS})
+
+
+ADD_EXECUTABLE(undistort_images undistort_images.cpp)
+TARGET_LINK_LIBRARIES(undistort_images k4a::k4a ${OpenCV_LIBS})
