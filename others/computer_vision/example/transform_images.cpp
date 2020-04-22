@@ -90,14 +90,16 @@ typedef std::chrono::steady_clock::time_point T;
 T t0, t1, t2;
 double duration0, duration1;
 
-
 void print_time_log(std::string message){
+#ifdef TIME_LOG
     t2 = std::chrono::steady_clock::now();
     duration0 = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t0).count();
     duration1 = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
     std::cout << std::setw(10) << duration1 << "   "  << std::setw(15) << duration0 << "   " << message << std::endl;
     t1 = t2;
+#endif
 }
+
 
 
 int main(int argc, char **argv)
@@ -119,6 +121,7 @@ int main(int argc, char **argv)
     cout << "Started opening K4A device..." << endl;
     k4a::device device = k4a::device::open(K4A_DEVICE_DEFAULT);
     device.start_cameras(&config);
+    device.start_imu();
     cout << "Finished opening K4A device." << endl;
 
     k4a::calibration calibration = device.get_calibration(config.depth_mode,
@@ -139,6 +142,8 @@ int main(int argc, char **argv)
     k4a::image depthImage;
     k4a::image colorImage;
     k4a::image transformed_depth_image;
+
+    k4a_imu_sample_t imu_sample;
 
     cv::Mat depthFrame;
     cv::Mat colorFrame, resized_color_frame;
@@ -162,6 +167,11 @@ int main(int argc, char **argv)
                 
                 depthImage = capture.get_depth_image();
                 colorImage = capture.get_color_image();
+
+                uint64_t image_timestamp = static_cast<uint64_t>(0.5 * (depthImage.get_device_timestamp().count() + colorImage.get_device_timestamp().count()));
+                std::cout << "depth image time stamp: " << depthImage.get_device_timestamp().count() << "   ";
+                std::cout << "color image time stamp: " << colorImage.get_device_timestamp().count() << std::endl;
+
                 transformed_depth_image = transformation.depth_image_to_color_camera(depthImage);
 
                 depthFrame = cv::Mat(depthImage.get_height_pixels(),
@@ -174,6 +184,22 @@ int main(int argc, char **argv)
                                                   transformed_depth_image.get_width_pixels(), CV_16UC1, transformed_depth_image.get_buffer());
 
                 print_time_log("process image");
+
+                while(device.get_imu_sample(&imu_sample, std::chrono::milliseconds(0))){
+                    std::cout << "temperature: " << imu_sample.temperature << std::endl;
+                    std::cout << "acc timestamp: " << imu_sample.acc_timestamp_usec << "    xyz: ";
+                    std::cout << std::setprecision(4) << imu_sample.acc_sample.xyz.x << " ";
+                    std::cout << std::setprecision(4) << imu_sample.acc_sample.xyz.y << "  ";
+                    std::cout << std::setprecision(4) << imu_sample.acc_sample.xyz.z << "  " << std::endl;
+                    std::cout << "gyro timestamp: " << imu_sample.gyro_timestamp_usec << "    xyz: ";
+                    std::cout << std::setprecision(4) << imu_sample.gyro_sample.xyz.x << " ";
+                    std::cout << std::setprecision(4) << imu_sample.gyro_sample.xyz.y << "  ";
+                    std::cout << std::setprecision(4) << imu_sample.gyro_sample.xyz.z << "  " << std::endl << std::endl; 
+                    uint64_t imu_timestamp = imu_sample.acc_timestamp_usec;
+                    if(imu_timestamp >= image_timestamp){
+                        break;
+                    }
+                }
 
                 //DrawDepthImage(transformed_depth_frame, "transformed depth frame");
                 //DrawDepthImage(depthFrame, "kinect depth map master");
