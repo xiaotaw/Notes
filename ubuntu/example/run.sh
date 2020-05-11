@@ -18,3 +18,7 @@ fi
 echo -e "\n\nRun test_json for libsoundio. \n"
 gcc test_libsoundio.cpp  -lsoundio -lstdc++ -o test_libsoundio
 chmod u+x test_libsoundio && ./test_libsoundio  && rm ./test_libsoundio
+
+echo -e "\n\nRun test_TimeLog for Singleton. \n"
+g++ test_TimeLog.cpp -std=c++11 -o test_TimeLog
+chmod u+x test_TimeLog && ./test_TimeLog  && rm ./test_TimeLog

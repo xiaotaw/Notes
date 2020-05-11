@@ -5,6 +5,7 @@
   * [json](#json)
   * [std::string.c_str](#std::string.c_str)
   * [Unix Domain Socket](Unix Domain Socket)
+  * [TimerLog](TimerLog)
 
 **说明：和编程相关内容慢慢转移至本文件下**
 
@@ -74,4 +75,11 @@ Server = http://mirrors.ustc.edu.cn/msys2/msys/$arch
 #### 参考资料
 1. cnblogs [Unix domain socket 简介](https://www.cnblogs.com/sparkdev/p/8359028.html)
 2. Linux C编程一站式学习[UNIX Domain Socket IPC](http://docs.linuxtone.org/ebooks/C&CPP/c/ch37s04.html)
+
+
+### TimerLog
+1. 使用TimerLog，可以方便地跟踪各个步骤的耗时。
+2. 使用类的静态成员，作为全局变量的替代
+3. 代码见example/test_TimeLog.cpp
+
 
