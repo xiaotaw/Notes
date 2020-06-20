@@ -138,3 +138,8 @@ void ColorizeDepthImage(const k4a::image &depthImage,
 						DepthPixelVisualizationFunction visualizationFn,
 						std::pair<uint16_t, uint16_t> expectedValueRange,
 						std::vector<Pixel> *buffer);
+
+void ColorizeDepthImage(const cv::Mat depthImage,
+						DepthPixelVisualizationFunction visualizationFn,
+						std::pair<uint16_t, uint16_t> expectedValueRange,
+						std::vector<Pixel> *buffer);

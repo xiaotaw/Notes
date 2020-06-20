@@ -16,7 +16,7 @@ INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
 ADD_EXECUTABLE(get_images_bak get_images_bak.cpp)
 TARGET_LINK_LIBRARIES(get_images_bak k4a::k4a ${OpenCV_LIBS})
 
-ADD_EXECUTABLE(get_images get_images.cpp StaticImageProperties.cpp Util.cpp)
+ADD_EXECUTABLE(get_images get_images.cpp StaticImageProperties.cpp)
 TARGET_LINK_LIBRARIES(get_images k4a::k4a ${OpenCV_LIBS})
 
 ADD_EXECUTABLE(transform_images transform_images.cpp)
@@ -25,3 +25,7 @@ TARGET_LINK_LIBRARIES(transform_images k4a::k4a ${OpenCV_LIBS})
 
 ADD_EXECUTABLE(undistort_images undistort_images.cpp)
 TARGET_LINK_LIBRARIES(undistort_images k4a::k4a ${OpenCV_LIBS})
+
+
+ADD_EXECUTABLE(colorize_depth_image colorize_depth_image.cpp StaticImageProperties.cpp)
+TARGET_LINK_LIBRARIES(colorize_depth_image k4a::k4a ${OpenCV_LIBS})

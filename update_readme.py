@@ -24,7 +24,7 @@ def get_context(fn):
             context_flag = True
             continue
         if context_flag:
-            if l.lstrip().startswith("*"):
+            if l.lstrip().startswith("* "):
                 res = regex.findall(l)
                 if len(res) != 1:
                     print("[error] %s: %s" % (fn, l))

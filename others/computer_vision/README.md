@@ -28,7 +28,9 @@
 ## 数学基础
 ### 四元数和三维旋转
 http://www.bilibili.com/video/av33385105  
-http://www.bilibili.com/video/av35804287
+http://www.bilibili.com/video/av35804287 
+cnblogs [四元数插值与均值（姿态平滑）](https://www.cnblogs.com/21207-iHome/p/6952004.html) 
+
 
 ### 双四元混合
 [清晰易懂的CSDN博客：双四元混合DQB](https://blog.csdn.net/iosmichael/article/details/101417198)

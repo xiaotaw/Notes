@@ -40,6 +40,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#下载并安装CUDA" target="_blank">下载并安装CUDA</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#下载并安装cudnn" target="_blank">下载并安装cudnn</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#参考资料" target="_blank">参考资料</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.mdCUDA10和CMAKE冲突" target="_blank">CUDA10.0和CMAKE冲突</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md" target="_blank">wikidata</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md#简介" target="_blank">简介</a>
@@ -58,6 +59,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#json" target="_blank">json</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#std::string.c_str" target="_blank">std::string.c_str</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.mdUnix Domain Socket" target="_blank">Unix Domain Socket</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.mdTimerLog" target="_blank">TimerLog</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md" target="_blank">ubuntu</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#命令行or图形界面启动" target="_blank">命令行or图形界面启动</a>

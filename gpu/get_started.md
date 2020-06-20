@@ -9,6 +9,8 @@
   * [下载并安装cudnn](#下载并安装cudnn)
 * [参考资料](#参考资料)
 
+* [CUDA10.0和CMAKE冲突](CUDA10和CMAKE冲突)
+
 
 
 ## 写在前面
@@ -131,4 +133,27 @@ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 [CUDA官方安装指导](https://developer.nvidia.com/cuda-toolkit-archive)  
 [cudnn官方安装指导](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html)  
 
+### CUDA10和CMAKE冲突
+ubuntu18.04 cuda10.0 和系统自带的cmake3.10.2冲突，问题和解决方案：https://github.com/clab/dynet/issues/1457
 
+cmake安装方法：知乎[CMake error with "CUDA_cublas_device_LIBRARY"](https://zhuanlan.zhihu.com/p/112466464)
+
+首先删除已有cmake，
+```bash
+sudo apt remove cmake 
+sudo apt purge --auto-remove cmake
+```
+再编译3.12.2版本cmake，新建.sh文件并键入以下内容，
+```bash
+version=3.12
+build=2
+mkdir ~/Downloads/temp
+cd ~/Downloads/temp
+wget https://cmake.org/files/v$version/cmake-$version.$build.tar.gz
+tar -xzvf cmake-$version.$build.tar.gz
+cd cmake-$version.$build
+./bootstrap
+make -j4
+sudo make instal
+```
+编辑保存后运行这个shell脚本即可。

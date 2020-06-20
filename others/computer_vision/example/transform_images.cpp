@@ -91,6 +91,7 @@ T t0, t1, t2;
 double duration0, duration1;
 
 void print_time_log(std::string message){
+#define TIME_LOG
 #ifdef TIME_LOG
     t2 = std::chrono::steady_clock::now();
     duration0 = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t0).count();
@@ -185,6 +186,7 @@ int main(int argc, char **argv)
 
                 print_time_log("process image");
 
+                if(0){
                 while(device.get_imu_sample(&imu_sample, std::chrono::milliseconds(0))){
                     std::cout << "temperature: " << imu_sample.temperature << std::endl;
                     std::cout << "acc timestamp: " << imu_sample.acc_timestamp_usec << "    xyz: ";
@@ -199,6 +201,7 @@ int main(int argc, char **argv)
                     if(imu_timestamp >= image_timestamp){
                         break;
                     }
+                }
                 }
 
                 //DrawDepthImage(transformed_depth_frame, "transformed depth frame");

@@ -12,8 +12,8 @@ void print_screen(std::ostream &out, const k4a::image &image)
 {
 	out << "\n"
 		<< "format: " << image.get_format() << "\n"
-		<< "device_timestamp: " << image.get_device_timestamp().count() << "\n"
-		<< "system_timestamp: " << image.get_system_timestamp().count() << "\n"
+		<< "device_timestamp: " << std::setprecision(5) << image.get_device_timestamp().count() * 1e-6 << "\n"
+		<< "system_timestamp: " << std::fixed << std::setprecision(5) << image.get_system_timestamp().count() * 1e-9 << "\n"
 		<< "height*width: " << image.get_height_pixels() << ", " << image.get_width_pixels()
 		<< std::endl;
 }

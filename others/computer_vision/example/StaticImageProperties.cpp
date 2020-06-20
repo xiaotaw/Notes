@@ -1,5 +1,5 @@
 #include <cmath>
-
+#include <opencv2/core/core.hpp>
 #include "StaticImageProperties.h"
 
 void ColorizeDepthImage(const k4a::image &depthImage,
@@ -26,6 +26,27 @@ void ColorizeDepthImage(const k4a::image &depthImage,
 		{
 			const size_t currentPixel = static_cast<size_t>(h * width + w);
 			(*buffer)[currentPixel] = visualizationFn(depthData[currentPixel],
+				expectedValueRange.first,
+				expectedValueRange.second);
+		}
+	}
+}
+
+void ColorizeDepthImage(const cv::Mat depthImage,
+	DepthPixelVisualizationFunction visualizationFn,
+	std::pair<uint16_t, uint16_t> expectedValueRange,
+	std::vector<Pixel> *buffer)
+{
+	const cv::Size s = depthImage.size();
+	buffer->resize(static_cast<size_t>(s.area()));
+
+	const uint16_t * depthdata = reinterpret_cast<const uint16_t *>(depthImage.data);
+	for (int h = 0; h < s.height; ++h)
+	{
+		for (int w = 0; w < s.width; ++w)
+		{
+			const size_t currentPixel = static_cast<size_t>(h * s.width + w);
+			(*buffer)[currentPixel] = visualizationFn(depthdata[currentPixel],
 				expectedValueRange.first,
 				expectedValueRange.second);
 		}

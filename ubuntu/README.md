@@ -165,6 +165,15 @@ git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
 
+```bash
+curl --socks5-hostname localhost:1080 
+
+```
+ref: https://blog.emacsos.com/use-socks5-proxy-in-curl.html
+
+
+
+
 ## 服务管理
 
 ### CodeServer
