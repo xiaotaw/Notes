@@ -1,3 +1,6 @@
+/**
+ * part of the code comes from https://github.com/forestsen/KinectAzureDKProgramming
+ */
 #include <k4a/k4a.hpp>
 
 #include <iostream>
@@ -16,8 +19,6 @@ using namespace cv;
 #define MIN_DEPTH 30.0f
 #define WAIT_TIME 5
 
-// the code is just for test, the code comes from
-// https://github.com/forestsen/KinectAzureDKProgramming
 
 void DrawDepthImage(const cv::Mat &depth_img, std::string win_name = "depth image")
 {

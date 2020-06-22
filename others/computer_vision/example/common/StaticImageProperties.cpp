@@ -1,3 +1,6 @@
+/**
+ * code comes from https://github.com/forestsen/KinectAzureDKProgramming
+ */
 #include <cmath>
 #include <opencv2/core/core.hpp>
 #include "StaticImageProperties.h"

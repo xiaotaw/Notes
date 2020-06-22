@@ -1,21 +1,18 @@
-#include <k4a/k4a.hpp>
-
-#include <iostream>
-#include <vector>
+/**
+ * part of the code comes from https://github.com/forestsen/KinectAzureDKProgramming
+ */
 #include <array>
-
+#include <vector>
+#include <iostream>
+#include <k4a/k4a.hpp>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include "Pixel.h"
-#include "DepthPixelColorizer.h"
-#include "StaticImageProperties.h"
+#include "common/StaticImageProperties.h"
 
 using namespace std;
 using namespace cv;
 
-// the code is just for test, the code comes from 
-// https://github.com/forestsen/KinectAzureDKProgramming
 
 
 int main(int argc, char **argv)

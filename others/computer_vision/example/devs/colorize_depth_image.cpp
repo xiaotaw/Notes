@@ -12,9 +12,7 @@ const int CV_ANYCOLOR = CV_LOAD_IMAGE_ANYCOLOR;
 const int CV_ANYDEPTH = CV_LOAD_IMAGE_ANYDEPTH;
 #endif
 
-#include "Pixel.h"
-#include "DepthPixelColorizer.h"
-#include "StaticImageProperties.h"
+#include "common/StaticImageProperties.h"
 
 
 
