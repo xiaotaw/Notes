@@ -54,3 +54,18 @@ inline void OpenFileOrExit(std::ofstream& of, const std::string path){
     }
 }
 
+inline void OpenFileOrExit(std::ifstream& inf, const std::string path, std::ios_base::openmode mode){
+    inf.open(path, mode);
+    if(!inf.is_open()){
+        std::cout << "Error: failed to open file " << path << std::endl;
+        exit(EXIT_FAILURE);
+    }
+}
+
+inline void OpenFileOrExit(std::ifstream& inf, const std::string path){
+    inf.open(path);
+    if(!inf.is_open()){
+        std::cout << "Error: failed to open file " << path << std::endl;
+        exit(EXIT_FAILURE);
+    }
+}

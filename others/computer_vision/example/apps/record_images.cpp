@@ -17,7 +17,7 @@
 
 #include "common/path.hpp"
 #include "common/time_val.h"
-#include "common/StaticImageProperties.h" /* for colorize depth image */
+#include "common/static_image_properties.h" /* for colorize depth image */
 
 /**
  * Visualize depth-image in opencv
@@ -270,7 +270,7 @@ int main(int argc, char *argv[])
 			//DrawDepth(cv_transformed_depth_image);
 
 			cv::resize(cv_rgb_image, cv_scaled_rgb_image, tgt_color_size, 0, 0, cv::INTER_AREA);
-			cv::resize(cv_transformed_depth_image, cv_scaled_depth_image, tgt_color_size, 0, 0, cv::INTER_AREA);
+			cv::resize(cv_transformed_depth_image, cv_scaled_depth_image, tgt_color_size, 0, 0, cv::INTER_NEAREST);
 			//DrawDepth(cv_scaled_depth_image);
 
 			cv::remap(cv_scaled_rgb_image, cv_undistorted_rgb_image, map1, map2, cv::INTER_LINEAR, cv::BORDER_CONSTANT);

@@ -1,5 +1,5 @@
 add_library(lib_static_image_properties 
-    StaticImageProperties.cpp
+    static_image_properties.cpp
 )
 target_link_libraries(lib_static_image_properties
     PUBLIC
@@ -8,3 +8,8 @@ target_link_libraries(lib_static_image_properties
 )
 
 add_library(lib_time_val time_val.cpp)
+
+cuda_add_library(lib_cuda_common 
+    cuda_texture_surface.cpp
+    compute_vertex.cu
+)

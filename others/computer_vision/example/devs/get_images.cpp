@@ -8,7 +8,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include "common/StaticImageProperties.h"
+#include "common/static_image_properties.h"
 
 using namespace std;
 using namespace cv;

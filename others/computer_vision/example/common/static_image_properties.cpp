@@ -3,7 +3,7 @@
  */
 #include <cmath>
 #include <opencv2/core/core.hpp>
-#include "StaticImageProperties.h"
+#include "static_image_properties.h"
 
 void ColorizeDepthImage(const k4a::image &depthImage,
 	DepthPixelVisualizationFunction visualizationFn,

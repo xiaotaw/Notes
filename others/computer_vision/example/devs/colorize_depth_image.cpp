@@ -12,7 +12,7 @@ const int CV_ANYCOLOR = CV_LOAD_IMAGE_ANYCOLOR;
 const int CV_ANYDEPTH = CV_LOAD_IMAGE_ANYDEPTH;
 #endif
 
-#include "common/StaticImageProperties.h"
+#include "common/static_image_properties.h"
 
 
 
