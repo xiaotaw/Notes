@@ -4,10 +4,11 @@
  * @email: 
  * @date: 2020/06/29 22:33
  */
+#pragma once
 #include <iostream>
 #include "cuda_runtime_api.h"
-#define CudaSafeCall(expr) __cudaSafeCall(expr, __FILE__, __LINE__, __func__) 
-static void __cudaSafeCall(cudaError_t err, const char *file, const int line, const char *func = "")
+#define CudaSafeCall(expr) __cudaSafeCall(expr, __FILE__, __LINE__, __func__)
+static inline void __cudaSafeCall(cudaError_t err, const char *file, const int line, const char *func = "")
 {
     if (cudaSuccess != err)
     {
@@ -15,7 +16,13 @@ static void __cudaSafeCall(cudaError_t err, const char *file, const int line, co
     }
 }
 
-static unsigned DivideUp(unsigned dividend, unsigned divisor)
+#define DISABLE_COPY_ASSIGN_MOVE(T)   \
+    T(const T &) = delete;            \
+    T &operator=(const T &) = delete; \
+    T(T &&) = delete;                 \
+    T &operator=(T &&) = delete
+
+static inline unsigned DivideUp(unsigned dividend, unsigned divisor)
 {
     return (dividend + divisor - 1) / divisor;
 }
@@ -35,6 +42,9 @@ public:
     {
         CudaSafeCall(cudaStreamDestroy(stream_));
     }
+
+    DISABLE_COPY_ASSIGN_MOVE(CudaStream);
+
     inline void Synchronize()
     {
         CudaSafeCall(cudaStreamSynchronize(stream_));
@@ -66,20 +76,33 @@ public:
         size_ = 0;
     }
 
-    inline void UploadToDevice(cudaArray_t d_array, cudaStream_t stream)
+    using Ptr = std::shared_ptr<PagelockMemory>;
+
+    DISABLE_COPY_ASSIGN_MOVE(PagelockMemory);
+
+    inline void UploadToDevice(cudaArray_t d_array, cudaStream_t stream) const
     {
         CudaSafeCall(cudaMemcpyToArrayAsync(d_array, 0, 0, data_, size_, cudaMemcpyHostToDevice, stream));
     }
-    inline void DownloadFromDevice(cudaArray_t d_array, cudaStream_t stream){
-        
+    
+    inline void DownloadFromDevice(cudaArray_t d_array, cudaStream_t stream)
+    {
+
         CudaSafeCall(cudaMemcpyFromArrayAsync(data_, d_array, 0, 0, size_, cudaMemcpyDeviceToHost, stream));
     }
 
-    inline void HostCopyFrom(void *src){
+    inline void HostCopyFrom(void *src)
+    {
         memcpy(data_, src, size_);
     }
 
-    inline void HostCopyTo(void *dst){
+    inline void HostCopyTo(void *dst)
+    {
         memcpy(dst, data_, size_);
+    }
+
+    inline void Clear()
+    {
+        memset(data_, 0, size_);
     }
 };

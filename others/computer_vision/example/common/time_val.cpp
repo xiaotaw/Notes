@@ -9,6 +9,7 @@
 #include <cmath>
 #include <chrono>
 #include <iomanip>
+#include <sstream>
 #include <iostream>
 
 #include "common/time_val.h"

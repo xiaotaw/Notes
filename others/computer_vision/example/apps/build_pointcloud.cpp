@@ -110,6 +110,10 @@ static void keyboardEventOccurred(const pcl::visualization::KeyboardEvent &event
 
 int main(int argc, char **argv)
 {
+    std::cout << "TODO: " << std::endl;
+    std::cout << "    1. apply bilateral filtering on depth image" << std::endl;
+    std::cout << "    2. try to build point cloud for VolumnDeform dataset," << std::endl;
+    std::cout << "       to check if mismatching between color and depth images" << std::endl;
     // args
     std::string data_dir;
     if (argc == 1)
@@ -145,8 +149,8 @@ int main(int argc, char **argv)
 
     // cuda resource
     CudaStream stream;
-    auto depth_texture_surface = std::make_shared<CudaShortTextureSurface2D>(img_size.height, img_size.width);
-    auto vertex_texture_surface = std::make_shared<CudaFloat4TextureSurface2D>(img_size.height, img_size.width);
+    auto depth_texture_surface = std::make_shared<CudaTextureSurface2D<ushort>>(img_size.height, img_size.width);
+    auto vertex_texture_surface = std::make_shared<CudaTextureSurface2D<float4>>(img_size.height, img_size.width);
     // pagelock memory
     PagelockMemory depth_buffer_pagelock(sizeof(uint16_t) * img_size.area());
     PagelockMemory vertex_buffer_pagelock(sizeof(float4) * img_size.area());
@@ -168,7 +172,7 @@ int main(int argc, char **argv)
     viewer->setCameraPosition(-493.926, -2538.05, -4271.43, 0.0244369, -0.907735, 0.418832, 0);
     viewer->registerKeyboardCallback(&keyboardEventOccurred, (void *)NULL);
 
-    for (int i = 0; (!viewer->wasStopped()) && (i < color_fn_list.size());)
+    for (unsigned i = 0; (!viewer->wasStopped()) && (i < color_fn_list.size());)
     {
 
         viewer->spinOnce(100);
