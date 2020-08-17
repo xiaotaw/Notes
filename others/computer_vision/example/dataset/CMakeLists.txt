@@ -1,0 +1,9 @@
+add_library(lib_dataset 
+    nyu_v2.cpp
+)
+target_link_libraries(lib_dataset
+    PUBLIC
+        ${OpenCV_LIBS} 
+        ${Boost_SYSTEM_LIBRARY} 
+        ${Boost_FILESYSTEM_LIBRARY}
+)

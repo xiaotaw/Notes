@@ -219,9 +219,9 @@ int main(int argc, char **argv)
             vertex_buffer_pagelock.HostCopyTo(vertex_map.data);
 
             point_cloud.clear();
-            for (auto x = 0; x < img_size.width; x++)
+            for (auto y = 0; y < img_size.height; y++)
             {
-                for (auto y = 0; y < img_size.height; y++)
+                for (auto x = 0; x < img_size.width; x++)
                 {
                     auto vertex = vertex_map.at<float4>(y, x);
                     if (IsValidVertex(vertex))
