@@ -17,4 +17,4 @@ TARGET_LINK_LIBRARIES(test_pyramid lib_cuda_common ${OpenCV_LIBS})
 
 add_subdirectory(test_dataset)
 
-#add_subdirectory(test_visualize)
+add_subdirectory(test_visualize)
