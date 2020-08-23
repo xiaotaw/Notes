@@ -4,10 +4,34 @@
  * @email: 
  * @date: 2020/08/21 12:53
  */
+#include <fstream>
+#include <sstream>
 #include <iostream>
 #include "gl_shader.h"
 
+
+// TODO: 使用raise/throw抛出异常
+
+static std::string ReadFile(const std::string filename)
+{   
+    std::ifstream inf(filename, std::ios::in);
+    if(!inf.is_open()){
+        std::cout << "[ERROR] failed to open file: " << filename << std::endl;
+        return std::string("");
+    }
+    std::stringstream buffer;
+    buffer << inf.rdbuf();
+    return std::string(buffer.str());
+}
+
 // public method
+GLShaderProgram::GLShaderProgram(const std::string vert_shader_filename, const std::string frag_shader_filename)
+{
+    std::string vert_shader_source = ReadFile(vert_shader_filename);
+    std::string frag_shader_source = ReadFile(frag_shader_filename);
+    Compile(vert_shader_source.c_str(), frag_shader_source.c_str());
+}
+
 
 GLint GLShaderProgram::Compile(const char *vert_shader_source, const char *frag_shader_source)
 {
