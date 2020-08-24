@@ -11,8 +11,10 @@
 #include "glad/glad.h" // make sure include glad before glfw
 #include <GLFW/glfw3.h>
 #include <Eigen/Core>
+#include <Eigen/Dense>
 
 #include "gl_shader.h"
+#include "gl_camera.hpp"
 #include "utils/snippets.h"
 
 class GLRender
@@ -27,12 +29,22 @@ public:
     size_t color_buffer_size_;
     unsigned num_points_;
 
+
+    // 由于一些类的静态函数（回调函数）需使用这些变量，
+    // TODO： 将camera变成非静态成员
+    static GLCamera camera_; 
+
     // ctor
     GLRender() {}
     GLRender(const std::string vert_shader_filename, const std::string frag_shader_filename)
     {
+        // init window, mouse+keyboard event
         InitWindow();
+        // depth test
+        glEnable(GL_DEPTH_TEST);
+        // shader program
         shader_program_ = GLShaderProgram(vert_shader_filename, frag_shader_filename);
+        
         glGenVertexArrays(1, &vao_);
         glGenBuffers(1, &point_vbo_);
         glGenBuffers(1, &color_vbo_);
@@ -54,10 +66,15 @@ public:
     // render point cloud
     GLenum RenderPointCloud();
 
+    static void ProcessInput(GLFWwindow *window);
+    static void framebuffer_size_callback(GLFWwindow *window, int width, int height);
+    static void mouse_callback(GLFWwindow *window, double xpos, double ypos);
+    static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 
     // just for debug test
     bool InitShader(const char *vert_shader_source, const char *frag_shader_source);
     void DrawTriangle(const GLuint vao, const int num_vertex);
     void DrawPoint(const GLuint vao, const int num_vertex);
     void DrawTest(const GLuint vao, const int num_vertex);
+    void DrawTriangleViewControl(const GLuint vao, int num_vertex);
 };

@@ -10,17 +10,63 @@
 #include <iostream>
 #include "gl_render.h"
 
-static void framebuffer_size_callback(GLFWwindow *window, int width, int height)
-{
-    glViewport(0, 0, width, height);
-}
+// settings
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
+// camera
+float lastX = SCR_WIDTH / 2.0f;
+float lastY = SCR_HEIGHT / 2.0f;
+bool firstMouse = true;
+// timing
+float deltaTime = 0.0f; // time between current frame and last frame
+float lastFrame = 0.0f;
 
-static void processInput(GLFWwindow *window)
+GLCamera GLRender::camera_ = GLCamera(glm::vec3(0.0f, 0.0f, 3.0f));
+
+void GLRender::ProcessInput(GLFWwindow *window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
     {
         glfwSetWindowShouldClose(window, true);
     }
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        camera_.ProcessKeyboard(FORWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        camera_.ProcessKeyboard(BACKWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        camera_.ProcessKeyboard(LEFT, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        camera_.ProcessKeyboard(RIGHT, deltaTime);
+}
+
+void GLRender::framebuffer_size_callback(GLFWwindow *window, int width, int height)
+{
+    glViewport(0, 0, width, height);
+}
+
+void GLRender::mouse_callback(GLFWwindow *window, double xpos, double ypos)
+{
+    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+    {
+        if (firstMouse)
+        {
+            lastX = xpos;
+            lastY = ypos;
+            firstMouse = false;
+        }
+        float xoffset = xpos - lastX;
+        float yoffset = lastY - ypos;
+
+        lastX = xpos;
+        lastY = ypos;
+
+        camera_.ProcessMouseMovement(xoffset, yoffset);
+    }
+}
+
+void GLRender::scroll_callback(GLFWwindow *window, double xoffset, double yoffset)
+{
+    camera_.ProcessMouseScroll(yoffset);
 }
 
 bool GLRender::InitWindow(const char *title, int width, int height)
@@ -46,61 +92,24 @@ bool GLRender::InitWindow(const char *title, int width, int height)
     }
     glfwMakeContextCurrent(window_);
     glfwSetFramebufferSizeCallback(window_, framebuffer_size_callback);
+    glfwSetCursorPosCallback(window_, mouse_callback);
+    glfwSetScrollCallback(window_, scroll_callback);
+
+    //glfwSetInputMode(window_, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    glfwSetInputMode(window_, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
     if (!gladLoadGLLoader((GLADloadproc(glfwGetProcAddress))))
     {
         std::cout << "[ERROR] Failed to initialize GLAD" << std::endl;
         return false;
     }
+
     return true;
 }
 
 bool GLRender::InitShader(const char *vert_shader_source, const char *frag_shader_source)
 {
     return shader_program_.Compile(vert_shader_source, frag_shader_source);
-}
-
-void GLRender::DrawTriangle(const GLuint vao, int num_vertex)
-{
-    processInput(window_);
-    // render something
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    shader_program_.UseProgram();
-    glBindVertexArray(vao);
-    glDrawArrays(GL_TRIANGLES, 0, num_vertex);
-
-    glfwSwapBuffers(window_);
-    glfwPollEvents();
-}
-
-void GLRender::DrawPoint(const GLuint vao, int num_vertex)
-{
-    processInput(window_);
-    // render something
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    shader_program_.UseProgram();
-    glBindVertexArray(vao);
-    glDrawArrays(GL_POINTS, 0, num_vertex);
-
-    glfwSwapBuffers(window_);
-    glfwPollEvents();
-}
-
-void GLRender::DrawTest(const GLuint vao, int num_vertex)
-{
-    processInput(window_);
-    // render something
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    shader_program_.UseProgram();
-    glBindVertexArray(vao);
-    glDrawArrays(GL_TRIANGLES, 0, num_vertex);
-    glDrawArrays(GL_POINTS, 0, num_vertex);
-
-    glfwSwapBuffers(window_);
-    glfwPollEvents();
 }
 
 GLenum GLRender::UpdatePointCloud(const std::vector<Vector3f> &points, const std::vector<Vector3f> &colors)
@@ -172,4 +181,81 @@ GLenum GLRender::RenderPointCloud()
     glDrawArrays(GL_POINTS, 0, num_points_);
 
     return glGetError();
+}
+
+// debug method
+void GLRender::DrawTriangle(const GLuint vao, int num_vertex)
+{
+    ProcessInput(window_);
+    glfwPollEvents();
+    // render something
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    shader_program_.UseProgram();
+    glBindVertexArray(vao);
+    glDrawArrays(GL_TRIANGLES, 0, num_vertex);
+
+    glfwSwapBuffers(window_);
+}
+
+void GLRender::DrawPoint(const GLuint vao, int num_vertex)
+{
+    ProcessInput(window_);
+    // render something
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    shader_program_.UseProgram();
+    glBindVertexArray(vao);
+    glDrawArrays(GL_POINTS, 0, num_vertex);
+
+    glfwSwapBuffers(window_);
+    glfwPollEvents();
+}
+
+void GLRender::DrawTest(const GLuint vao, int num_vertex)
+{
+    ProcessInput(window_);
+    // render something
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    shader_program_.UseProgram();
+    glBindVertexArray(vao);
+    glDrawArrays(GL_TRIANGLES, 0, num_vertex);
+    glDrawArrays(GL_POINTS, 0, num_vertex);
+
+    glfwSwapBuffers(window_);
+    glfwPollEvents();
+}
+
+void GLRender::DrawTriangleViewControl(const GLuint vao, int num_vertex)
+{
+    // per-frame time logic
+    float currentFrame = glfwGetTime();
+    deltaTime = currentFrame - lastFrame;
+    lastFrame = currentFrame;
+
+    // input
+    ProcessInput(window_);
+
+    // render something
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    shader_program_.UseProgram();
+
+    glm::mat4 projection = glm::perspective(
+        glm::radians(camera_.Zoom),
+        (float)SCR_WIDTH / (float)SCR_HEIGHT,
+        0.1f,
+        1000.0f);
+    shader_program_.SetMat4("projection", projection);
+
+    glm::mat4 view = camera_.GetViewMatrix();
+    shader_program_.SetMat4("view", view);
+
+    glBindVertexArray(vao);
+    glDrawArrays(GL_TRIANGLES, 0, num_vertex);
+
+    glfwSwapBuffers(window_);
+    glfwPollEvents();
 }

@@ -89,3 +89,7 @@ GLint GLShaderProgram::LinkProgram(GLuint vert_shader, GLuint frag_shader)
     }
     return success;
 }
+
+void GLShaderProgram::SetMat4(const std::string &name, const glm::mat4 &mat){
+    glUniformMatrix4fv(glGetUniformLocation(shader_program_, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+}

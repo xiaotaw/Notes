@@ -7,6 +7,7 @@
 #pragma once
 #include <string>
 #include "glad/glad.h"
+#include <glm/glm.hpp>
 #include "utils/snippets.h"
 
 class GLShaderProgram
@@ -44,6 +45,8 @@ public:
     GLint Compile(const char *vert_shader_source, const char *frag_shader_source);
 
     void UseProgram();
+
+    void SetMat4(const std::string &name, const glm::mat4 &mat);
 
 private:
     GLint CompileShaderSource(GLuint shader, const char *source);
