@@ -14,9 +14,14 @@ add_library(lib_visualize
     gl_shader.cpp
     gl_render.cpp
     glad.c
-    visualizer.cpp
+    pcl_vis.cpp
 )
+
 target_link_libraries(lib_visualize
+PUBLIC
+    ${PCL_LIBRARIES}
+    ${OpenCV_LIBS}
+    glfw
 PRIVATE
     dl
 )

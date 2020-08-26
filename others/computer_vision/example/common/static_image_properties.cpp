@@ -2,7 +2,6 @@
  * code comes from https://github.com/forestsen/KinectAzureDKProgramming
  */
 #include <cmath>
-#include <opencv2/core/core.hpp>
 #include "static_image_properties.h"
 
 void ColorizeDepthImage(const k4a::image &depthImage,

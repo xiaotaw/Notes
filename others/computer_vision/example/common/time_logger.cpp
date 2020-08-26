@@ -1,6 +1,6 @@
-#include "time_logger.h"
 #include <iomanip>
 #include <iostream>
+#include "time_logger.h"
 
 // constructor
 TimeLogger::TimeLogger(){

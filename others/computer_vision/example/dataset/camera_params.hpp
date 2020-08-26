@@ -4,7 +4,7 @@
  * @email: 
  * @date: 2020/08/18 08:40
  */
-
+#pragma once
 class CameraParams
 {
 public:

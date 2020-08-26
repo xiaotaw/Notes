@@ -1,15 +1,18 @@
-add_library(lib_static_image_properties 
-    static_image_properties.cpp
-)
-target_link_libraries(lib_static_image_properties
-    PUBLIC
-        k4a::k4a 
-        ${OpenCV_LIBS}
+add_library(lib_time 
+    time_val.cpp
+    time_logger.cpp
 )
 
-add_library(lib_time_val time_val.cpp)
-
-cuda_add_library(lib_cuda_common
+cuda_add_library(lib_imgproc
     cuda_texture_surface.cu
     compute_vertex.cu
+    image_proc.cpp
+    pyramid.hpp
+    static_image_properties.cpp
+)
+
+target_link_libraries(lib_imgproc
+    k4a::k4a 
+    ${OpenCV_LIBS}
+    cuda
 )

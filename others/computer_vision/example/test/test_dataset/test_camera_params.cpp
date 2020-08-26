@@ -1,4 +1,4 @@
-#include "dataset/camera_params.h"
+#include "dataset/camera_params.hpp"
 
 int main(){
     CameraParams camera_params(480, 640, 

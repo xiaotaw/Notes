@@ -19,6 +19,8 @@
 #include "common/cuda_texture_surface.h"
 #include "common/compute_vertex.h"
 
+#include "common/time_logger.h"
+
 #if CV_VERSION_MAJOR >= 4
 const int CV_ANYCOLOR = cv::IMREAD_ANYCOLOR;
 const int CV_ANYDEPTH = cv::IMREAD_ANYDEPTH;
@@ -118,7 +120,7 @@ int main(int argc, char **argv)
     std::string data_dir;
     if (argc == 1)
     {
-        data_dir = "/data/DATASETS/KinectDK/20200630/";
+        data_dir = "/media/xt/8T/DATASETS/KinectDkDataset/20200630/";
     }
     else if (argc == 2)
     {
@@ -172,12 +174,15 @@ int main(int argc, char **argv)
     viewer->setCameraPosition(-493.926, -2538.05, -4271.43, 0.0244369, -0.907735, 0.418832, 0);
     viewer->registerKeyboardCallback(&keyboardEventOccurred, (void *)NULL);
 
+    TimeLogger::printTimeLog("start");
+
     for (unsigned i = 0; (!viewer->wasStopped()) && (i < color_fn_list.size());)
     {
 
-        viewer->spinOnce(100);
+        viewer->spinOnce(1);
         if (update)
         {
+            TimeLogger::printTimeLog("read image");
             std::cout << i << " " << depth_fn_list[i] << std::endl;
             cv::Mat color_img = cv::imread(data_dir + color_fn_list[i], CV_ANYCOLOR | CV_ANYDEPTH);
             cv::Mat depth_img = cv::imread(data_dir + depth_fn_list[i], CV_ANYCOLOR | CV_ANYDEPTH);
@@ -198,6 +203,7 @@ int main(int argc, char **argv)
             assert(img_size == color_img.size());
             assert(img_size == depth_img.size());
 
+            TimeLogger::printTimeLog("compute vertex");
             // memory to pagelock memory
             depth_buffer_pagelock.HostCopyFrom(static_cast<void *>(depth_img.data));
             // pagelock memory to device
@@ -215,9 +221,11 @@ int main(int argc, char **argv)
             stream.Synchronize();
             CudaSafeCall(cudaGetLastError());
 
+            TimeLogger::printTimeLog("dl from gpu");
             cv::Mat vertex_map = cv::Mat(img_size, CV_32FC4);
             vertex_buffer_pagelock.HostCopyTo(vertex_map.data);
 
+            TimeLogger::printTimeLog("compact point cloud");
             point_cloud.clear();
             for (auto y = 0; y < img_size.height; y++)
             {
@@ -240,9 +248,12 @@ int main(int argc, char **argv)
             }
             std::cout << "point cloud size: " << point_cloud.points.size() << std::endl;
 
+            TimeLogger::printTimeLog("draw point cloud");
             viewer->updatePointCloud(point_cloud.makeShared(), cloud_name);
             update = false;
             i++;
+
+            TimeLogger::printTimeLog("Done");
         }
     }
     return 0;

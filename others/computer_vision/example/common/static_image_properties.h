@@ -6,6 +6,7 @@
 #include <utility>
 #include <algorithm>
 #include <k4a/k4a.hpp>
+#include <opencv2/core/core.hpp>
 
 // Helper structs/typedefs to cast buffers to
 //

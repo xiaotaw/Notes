@@ -21,7 +21,7 @@ enum Camera_Movement
 };
 
 // Default camera values
-const float YAW = -90.0f;
+const float YAW = -45.0f;
 const float PITCH = 0.0f;
 const float SPEED = 2.5f;
 const float SENSITIVITY = 0.1f;
@@ -118,6 +118,7 @@ public:
 
 private:
     // calculates the front vector from the Camera's (updated) Euler Angles
+    // 貌似有问题，需研究修改一下
     void updateCameraVectors()
     {
         // calculate the new Front vector

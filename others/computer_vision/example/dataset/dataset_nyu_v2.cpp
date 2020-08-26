@@ -4,30 +4,33 @@
  * @email: 
  * @date: 2020/08/18 07:23
  */
-#include <iostream>
 #include <numeric>
+#include <iostream>
+#include <algorithm>
 #include <boost/lexical_cast.hpp>                    // for boost::lexical_cast
 #include <boost/algorithm/string/split.hpp>          // for boost::split
 #include <boost/algorithm/string/predicate.hpp>      // for boost::starts_with
 #include <boost/algorithm/string/classification.hpp> // for boost::is_any_of
-#include "dataset/nyu_v2.h"
+#include "dataset_nyu_v2.h"
 
 namespace fs = boost::filesystem;
 
-NyuV2Scene::NyuV2Scene(std::string scene_path) : scene_path_(scene_path)
+NyuV2RawDataset::NyuV2RawDataset(const std::string &data_path) : RgbdDataset(data_path)
 {
+    is_synced_ = false;
     FindImageList();
     SyncDepthColorImage();
+    is_synced_ = true;
 }
 
-int NyuV2Scene::FindImageList()
+int NyuV2RawDataset::FindImageList()
 {
-    if (!fs::exists(scene_path_))
+    if (!fs::exists(data_path_))
     {
-        std::cout << "[Error] path not exists: " << scene_path_ << std::endl;
+        std::cout << "[Error] path not exists: " << data_path_ << std::endl;
         return 0;
     }
-    fs::path d_path(scene_path_);
+    fs::path d_path(data_path_);
     fs::directory_iterator end_iter;
     for (fs::directory_iterator iter(d_path); iter != end_iter; iter++)
     {
@@ -37,17 +40,17 @@ int NyuV2Scene::FindImageList()
             if (str[0] == 'a')
             {
                 // accelerometer data
-                accel_filenames_.push_back(str);
+                raw_accel_filenames_.push_back(str);
             }
             else if (str[0] == 'd')
             {
                 // depth image
-                depth_filenames_.push_back(str);
+                raw_depth_filenames_.push_back(str);
             }
             else if (str[0] == 'r')
             {
                 // color image
-                color_filenames_.push_back(str);
+                raw_color_filenames_.push_back(str);
             }
             else
             {
@@ -55,21 +58,21 @@ int NyuV2Scene::FindImageList()
             }
         }
     }
-    std::sort(depth_filenames_.begin(), depth_filenames_.end());
-    std::sort(color_filenames_.begin(), color_filenames_.end());
-    std::sort(accel_filenames_.begin(), accel_filenames_.end());
-    return depth_filenames_.size() + color_filenames_.size() + accel_filenames_.size();
+    std::sort(raw_depth_filenames_.begin(), raw_depth_filenames_.end());
+    std::sort(raw_color_filenames_.begin(), raw_color_filenames_.end());
+    std::sort(raw_accel_filenames_.begin(), raw_accel_filenames_.end());
+    return raw_depth_filenames_.size() + raw_color_filenames_.size() + raw_accel_filenames_.size();
 }
 
-int NyuV2Scene::SyncDepthColorImage(bool verbose)
+int NyuV2RawDataset::SyncDepthColorImage(bool verbose)
 {
     // timestamps
     std::vector<double> dt, ct, at;
-    for (auto it : depth_filenames_)
+    for (auto it : raw_depth_filenames_)
     {
         dt.push_back(FilenameToTimestamp(it));
     }
-    for (auto it : color_filenames_)
+    for (auto it : raw_color_filenames_)
     {
         ct.push_back(FilenameToTimestamp(it));
     }
@@ -78,9 +81,9 @@ int NyuV2Scene::SyncDepthColorImage(bool verbose)
 
     // for each depth filename, find the corresponding color filename
     // the difference of timestamps when depth and color images were taken should be less than TIME_ERROR_LIMIT
-    for (unsigned i = 0; i < depth_filenames_.size(); i++)
+    for (unsigned i = 0; i < raw_depth_filenames_.size(); i++)
     {
-        std::string d_filename = depth_filenames_[i];
+        std::string d_filename = raw_depth_filenames_[i];
         double d = dt[i];
         double d_prev = i >= 1 ? dt[i - 1] : d - TIME_ERROR_LIMIT;
         double d_nect = i + 1 < dt.size() ? dt[i + 1] : d + TIME_ERROR_LIMIT;
@@ -88,9 +91,9 @@ int NyuV2Scene::SyncDepthColorImage(bool verbose)
         double min_diff = d;
         int min_index = -1;
         std::string c_filename;
-        for (unsigned j = 0; j < color_filenames_.size(); j++)
+        for (unsigned j = 0; j < raw_color_filenames_.size(); j++)
         {
-            c_filename = color_filenames_[j];
+            c_filename = raw_color_filenames_[j];
             double c = ct[j];
             if (c < d_prev)
             {
@@ -117,8 +120,8 @@ int NyuV2Scene::SyncDepthColorImage(bool verbose)
 
         if (min_index != -1 && min_diff < TIME_ERROR_LIMIT)
         {
-            SyncPair tmp(d_filename, c_filename);
-            synced_.push_back(tmp);
+            depth_filenames_.push_back(d_filename);
+            color_filenames_.push_back(c_filename);
             diff.push_back(min_diff);
         }
     }
@@ -128,30 +131,30 @@ int NyuV2Scene::SyncDepthColorImage(bool verbose)
         {
             double sum = std::accumulate(std::begin(diff), std::end(diff), 0.0);
             double mean = sum / diff.size();
-            std::cout << "Sync depth and color for scene: " << scene_path_ << std::endl;
-            std::cout << "  depth images: " << depth_filenames_.size();
-            std::cout << "; color images: " << color_filenames_.size() << std::endl;
+            std::cout << "Sync depth and color for scene: " << data_path_ << std::endl;
+            std::cout << "  depth images: " << raw_depth_filenames_.size();
+            std::cout << "; color images: " << raw_color_filenames_.size() << std::endl;
             std::cout << "  synced images: " << diff.size() << std::endl;
             std::cout << "  mean time diff: " << mean << std::endl;
         }
         else
         {
-            std::cout << "[Error] no synced images for scene: " << scene_path_ << std::endl;
+            std::cout << "[Error] no synced images for scene: " << data_path_ << std::endl;
         }
     }
-    return synced_.size();
+    return depth_filenames_.size();
 }
 
-void NyuV2Scene::ShowSceneInfo()
+void NyuV2RawDataset::ShowCurrentSceneInfo() const
 {
-    std::cout << "In " << scene_path_ << ": " << std::endl;
-    std::cout << "    depth images: " << depth_filenames_.size() << std::endl;
-    std::cout << "    color images: " << color_filenames_.size() << std::endl;
-    std::cout << "    accel files: " << accel_filenames_.size() << std::endl;
-    std::cout << "    synced images: " << synced_.size() << std::endl;
+    std::cout << "In " << data_path_ << ": " << std::endl;
+    std::cout << "    depth images: " << raw_depth_filenames_.size() << std::endl;
+    std::cout << "    color images: " << raw_color_filenames_.size() << std::endl;
+    std::cout << "    accel files: " << raw_accel_filenames_.size() << std::endl;
+    std::cout << "    synced images: " << depth_filenames_.size() << std::endl;
 }
 
-double NyuV2Scene::FilenameToTimestamp(std::string filename)
+double NyuV2RawDataset::FilenameToTimestamp(const std::string &filename)
 {
     std::vector<std::string> tokens;
     boost::split(tokens, filename, boost::is_any_of("-"));
@@ -166,29 +169,30 @@ double NyuV2Scene::FilenameToTimestamp(std::string filename)
     }
 }
 
-NyuV2RawDataset::NyuV2RawDataset(std::string data_path) : data_path_(data_path)
-{
-    FindAllScenes();
-}
+// NyuV2RawDataset::NyuV2RawDataset(std::string data_path) : data_path_(data_path)
+// {
+//     FindAllScenes();
+// }
 
-int NyuV2RawDataset::FindAllScenes()
+int NyuV2RawDataset::FindAllScenes(const std::string &root_path, std::vector<std::string> &scenes)
 {
-    fs::path d_path(data_path_);
+    fs::path d_path(root_path);
     fs::directory_iterator end_iter;
     for (fs::directory_iterator iter(d_path); iter != end_iter; iter++)
     {
         if (fs::is_directory(*iter))
         {
-            scenes_.emplace_back(std::move(NyuV2Scene(iter->path().string())));
+            scenes.push_back(iter->path().filename().string());
         }
     }
-    return scenes_.size();
+    return scenes.size();
 }
 
-NyuV2LabeledDataset::NyuV2LabeledDataset(std::string data_path) : data_path_(data_path)
+NyuV2LabeledDataset::NyuV2LabeledDataset(std::string data_path) : RgbdDataset(data_path)
 {
     FindAllImages();
-
+    // nyu v2 标注数据集是transposed，读取图片时需转置。
+    is_transpose_ = true;
     camera_params_ = CameraParams(
         480,
         640,
@@ -220,5 +224,7 @@ int NyuV2LabeledDataset::FindAllImages()
             }
         }
     }
+    std::sort(color_filenames_.begin(), color_filenames_.end());
+    std::sort(depth_filenames_.begin(), depth_filenames_.end());
     return depth_filenames_.size() + color_filenames_.size();
 }
