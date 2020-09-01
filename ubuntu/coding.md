@@ -4,8 +4,10 @@
 * [C/C++](#ccplusplus)
   * [json](#json)
   * [std::string.c_str](#std::string.c_str)
-  * [Unix Domain Socket](Unix Domain Socket)
-  * [TimerLog](TimerLog)
+  * [Unix Domain Socket](#Unix Domain Socket)
+  * [TimerLog](#TimerLog)
+* [Python](#Python)
+  * [tf dataset_from_generator](#tf dataset from generator)
 
 **说明：和编程相关内容慢慢转移至本文件下**
 
@@ -82,4 +84,6 @@ Server = http://mirrors.ustc.edu.cn/msys2/msys/$arch
 2. 使用类的静态成员，作为全局变量的替代
 3. 代码见example/test_TimeLog.cpp
 
-
+## Python
+### tf dataset from generator
+自定义dataset时，使用generator作为数据来源，示例见example_py/dataset_from_generator.py
