@@ -2,6 +2,7 @@
 
 ### Unicide Character Ranges
 [https://jrgraphix.net/research/unicode_blocks.php](https://jrgraphix.net/research/unicode_blocks.php)
+[http://www.unicode.org/versions/Unicode13.0.0/](http://www.unicode.org/versions/Unicode13.0.0/)
 
 ### Sheet
 Name | Unicode Begin | Unicode End | utf8 begin | utf8 end

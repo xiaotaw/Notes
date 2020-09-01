@@ -606,6 +606,7 @@ git --version #git version 2.7.2
 注: 使用monolithic时，需修改tensorflow/tf_version_scriots.lds，在global下增加*protpbuf*，保证protobuf符号可见
 
 8. 整理头文件和so：头文件来源两部分，tensorflow本身的头文件，以及下载的外部的包。
+```
 | - tensorflow
   | - bazel-tensorflow 
     | - external
@@ -613,7 +614,7 @@ git --version #git version 2.7.2
     | - third_party # 指向tensorflow/third_party的软连接
   | - bazel-genfiles
     | -tensorflow
-
+```
 
 ```bash
 # 创建目录

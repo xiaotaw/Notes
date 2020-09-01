@@ -43,7 +43,8 @@ __global__ void test(){
         //float
       
 
-        ushort value5 = 0xFFFFFFFF;
+        //ushort value5 = 0xFFFFFFFF;
+        ushort value5 = 0xFFFF;
         if(value5 == 0xFFFFFFFF){
             printf("ushort value5 == 0xFFFFFFFF\n");
         }
@@ -61,13 +62,16 @@ __global__ void test(){
 __global__ void add(float* x, float * y, float* z, int n)
 {
     // 获取全局索引
-    int index = threadIdx.x + blockIdx.x * blockDim.x;
+    int i = threadIdx.x + blockIdx.x * blockDim.x;
     // 步长
-    int stride = blockDim.x * gridDim.x;
-    for (int i = index; i < n; i += stride)
+    //int stride = blockDim.x * gridDim.x;
+    //for (int i = index; i < n; i += stride)
+    if (i < n)
     {
         z[i] = x[i] + y[i];
     }
+    //if (i == 0)
+    //    printf("i: %d, x: %f, y: %f, z: %f\n", i, x[i], y[i], z[i]);
 }
 
 int testAdd()
@@ -102,15 +106,16 @@ int testAdd()
     // 执行kernel
     add << < gridSize, blockSize >> >(d_x, d_y, d_z, N);
     
-    test <<< gridSize, blockSize >>>();
+    //test <<< gridSize, blockSize >>>();
 
     // 将device得到的结果拷贝到host
-    cudaMemcpy((void*)z, (void*)d_z, nBytes, cudaMemcpyHostToDevice);
+    cudaMemcpy((void*)z, (void*)d_z, nBytes, cudaMemcpyDeviceToHost);
 
     // 检查执行结果
     float maxError = 0.0;
     for (int i = 0; i < N; i++)
         maxError = fmax(maxError, fabs(z[i] - 30.0));
+    //std::cout << "z[0]: " << z[0] << std::endl;
     std::cout << "最大误差: " << maxError << std::endl;
 
     // 释放device内存

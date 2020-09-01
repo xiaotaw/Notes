@@ -42,24 +42,16 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#参考资料" target="_blank">参考资料</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.mdCUDA10和CMAKE冲突" target="_blank">CUDA10.0和CMAKE冲突</a>
 
-## <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md" target="_blank">wikidata</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md#简介" target="_blank">简介</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md#数据下载" target="_blank">数据下载</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md#数据精简" target="_blank">数据精简</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md#数据统计" target="_blank">数据统计</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md#数据使用" target="_blank">数据使用</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md将wikidata导入neo4j" target="_blank">将wikidata导入neo4j</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md#其他" target="_blank">其他</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/wikidata/README.md#参考资料" target="_blank">参考资料</a>
-
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md" target="_blank">ubuntu/coding</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#环境配置" target="_blank">环境配置</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#msys2" target="_blank">msys2</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#ccplusplus" target="_blank">C/C++</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#json" target="_blank">json</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#std::string.c_str" target="_blank">std::string.c_str</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.mdUnix Domain Socket" target="_blank">Unix Domain Socket</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.mdTimerLog" target="_blank">TimerLog</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#Unix Domain Socket" target="_blank">Unix Domain Socket</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#TimerLog" target="_blank">TimerLog</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#Python" target="_blank">Python</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#tf dataset from generator" target="_blank">tf dataset_from_generator</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md" target="_blank">ubuntu</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#命令行or图形界面启动" target="_blank">命令行or图形界面启动</a>
@@ -127,41 +119,15 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow/README.md#参考资料" target="_blank">参考资料</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow/README.md#源码编译tensorflow2动态库" target="_blank">源码编译tensorflow=2.0动态库libtensorflow_cc.so</a>
 
-## <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/opencv.md" target="_blank">others/computer_vision/opencv</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/opencv.md#安装opencv" target="_blank">安装opencv</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/opencv.md#安装并使用指定版本的opencv" target="_blank">安装并使用指定版本的opencv</a>
-
-## <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md" target="_blank">others/computer_vision</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#简介" target="_blank">简介</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#数学基础" target="_blank">数学基础</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#四元数和三维旋转" target="_blank">四元数和三维旋转</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#双四元混合" target="_blank">双四元混合Dual-Quaternion Blending</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#李群和李代数" target="_blank">李群和李代数</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#图优化" target="_blank">图优化</a>
-    * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#数值优化" target="_blank">数值优化</a>
-    * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#参考资料" target="_blank">参考资料</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#三维重建" target="_blank">三维重建</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#相机模型" target="_blank">相机模型</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#单目" target="_blank">单目</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#对极几何" target="_blank">对极几何</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#双目系统和sfm" target="_blank">双目系统和sfm</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#ActiveAndVolumetricStereo" target="_blank">Active and Volumetric Stereo</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#VisualSFM试用" target="_blank">VisualSFM + Meshlab</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#疑问" target="_blank">疑问</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#怎么理解单应矩阵" target="_blank">怎么理解单应矩阵</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#参考资料" target="_blank">参考资料</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#CS231A" target="_blank">CS231A: Computer Vision, From 3D Reconstruction to Recognition</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#视觉slam十四讲" target="_blank">视觉slam十四讲</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#sfm介绍博客" target="_blank">sfm介绍博客</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/README.md#《计算机视觉中的多视几何》" target="_blank">《计算机视觉中的多视几何》</a>
-
-## <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md" target="_blank">others/computer_vision/kinect_dk</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#简介" target="_blank">简介</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#安装sdk" target="_blank">安装sdk</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#上手使用" target="_blank">上手使用</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#麦克风阵列" target="_blank">麦克风阵列</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#样例" target="_blank">样例</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/computer_vision/kinect_dk.md#问题" target="_blank">问题</a>
+## <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md" target="_blank">others/wikidata</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#简介" target="_blank">简介</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据下载" target="_blank">数据下载</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据精简" target="_blank">数据精简</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据统计" target="_blank">数据统计</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据使用" target="_blank">数据使用</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md将wikidata导入neo4j" target="_blank">将wikidata导入neo4j</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#其他" target="_blank">其他</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#参考资料" target="_blank">参考资料</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md" target="_blank">others/machine_translation</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md#语料分割" target="_blank">语料分割</a>
@@ -174,15 +140,53 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#AlphaGo" target="_blank">AlphaGo</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#参考资料" target="_blank">参考资料</a>
 
-## <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md" target="_blank">neo4j</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md#Install" target="_blank">安装neo4j</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md#ubuntu" target="_blank">ubuntu</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md#运行neo4j服务" target="_blank">运行neo4j服务</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md#浏览器远程连接" target="_blank">浏览器远程连接</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md#使用neo4j" target="_blank">使用neo4j</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md#基本介绍" target="_blank">基本介绍</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md#从CSV中加载数据" target="_blank">从CSV中加载数据</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md#参考资料" target="_blank">参考资料</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md#Others" target="_blank">其他</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/neo4j/README.md#批量导入数据方法对比" target="_blank">批量导入数据方法对比</a>
+## <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md" target="_blank">others/neo4j</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#Install" target="_blank">安装neo4j</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#ubuntu" target="_blank">ubuntu</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#运行neo4j服务" target="_blank">运行neo4j服务</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#浏览器远程连接" target="_blank">浏览器远程连接</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#使用neo4j" target="_blank">使用neo4j</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#基本介绍" target="_blank">基本介绍</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#从CSV中加载数据" target="_blank">从CSV中加载数据</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#参考资料" target="_blank">参考资料</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#Others" target="_blank">其他</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#批量导入数据方法对比" target="_blank">批量导入数据方法对比</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/dynamic_reconstruction.md" target="_blank">computer_vision/dynamic_reconstruction</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md" target="_blank">computer_vision/opencv</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv" target="_blank">安装opencv</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装并使用指定版本的opencv" target="_blank">安装并使用指定版本的opencv</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md" target="_blank">computer_vision</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#简介" target="_blank">简介</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#数学基础" target="_blank">数学基础</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#四元数和三维旋转" target="_blank">四元数和三维旋转</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#双四元混合" target="_blank">双四元混合Dual-Quaternion Blending</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#李群和李代数" target="_blank">李群和李代数</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#图优化" target="_blank">图优化</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#数值优化" target="_blank">数值优化</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#参考资料" target="_blank">参考资料</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#三维重建" target="_blank">三维重建</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#相机模型" target="_blank">相机模型</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#单目" target="_blank">单目</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#对极几何" target="_blank">对极几何</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#双目系统和sfm" target="_blank">双目系统和sfm</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#ActiveAndVolumetricStereo" target="_blank">Active and Volumetric Stereo</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#VisualSFM试用" target="_blank">VisualSFM + Meshlab</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#疑问" target="_blank">疑问</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#怎么理解单应矩阵" target="_blank">怎么理解单应矩阵</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#参考资料" target="_blank">参考资料</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#CS231A" target="_blank">CS231A: Computer Vision, From 3D Reconstruction to Recognition</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#视觉slam十四讲" target="_blank">视觉slam十四讲</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#sfm介绍博客" target="_blank">sfm介绍博客</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#《计算机视觉中的多视几何》" target="_blank">《计算机视觉中的多视几何》</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md" target="_blank">computer_vision/kinect_dk</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#简介" target="_blank">简介</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#安装sdk" target="_blank">安装sdk</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#上手使用" target="_blank">上手使用</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#麦克风阵列" target="_blank">麦克风阵列</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#样例" target="_blank">样例</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#问题" target="_blank">问题</a>
 
