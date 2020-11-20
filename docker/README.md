@@ -16,6 +16,8 @@
   * [docker图形界面](#docker图形界面)
   * [容器时间与宿主机同步](#容器时间与宿主机同步)
   * [异步进入容器](#异步进入容器)
+  * [命名空间映射](#命名空间映射)
+  * [查看dockerhub上镜像的tag](#查看dockerhub上镜像的tag)
 * [个人容器镜像，存放于阿里云容器镜像服务器](#个人容器镜像，存放于阿里云容器镜像服务器)
 
 ## 安装
@@ -111,6 +113,15 @@ docker exec -it container_id /bin/bash
 
 docker exec -it container_id /bin/sh -c "[ -e /bin/bash ] && /bin/bash || /bin/sh"
 ```
+
+### 命名空间映射
+[docker的user namespace功能](https://blog.51cto.com/yangzhiming/2384688)
+
+### 查看dockerhub上镜像的tag
+```bash
+/data/Notes/docker/list_img_tags.sh xxx
+```
+[查看Docker镜像仓库中镜像的所有标签](https://blog.csdn.net/kongxx/article/details/86558328)
 
 ## 个人容器镜像，存放于阿里云容器镜像服务器
 

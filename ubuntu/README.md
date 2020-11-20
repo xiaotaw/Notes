@@ -17,6 +17,7 @@
   * [vscode](#vscode)
     * [ubuntu环境下vscode与CMAKE协作](#ubuntu环境下vscode与CMAKE协作)
     * [远程](#远程)
+    * [使用远程服务器内的容器](使用远程服务器内的容器)
     * [一些bug的处理](#一些bug的处理)
 * [git](#git)
   * [pull或push指定分支](#pull或push指定分支)
@@ -239,6 +240,12 @@ Host target-box-22
 ```
 * 在连接之前，可先在vscode中的terminal中，使用ssh连接进行尝试，连接成功后，再使用vscode连接。
 * 连接成功后，会自动在服务器端的~/.vscode-server下，下载code-server。如下载不成功，可根据报错提示自行下载。
+
+#### 使用远程服务器内的容器
+1. 远程服务器dockerd添加tcp访问方式 -H xxx.xxx.xxx.xxx:port
+2. vscode安装插件docker和Remote-Container，vscode - file - preferences - settings，搜索docker:hosts，将远程服务器的ip:port填入。
+3. 安全起见，可使用ssh隧道转发。
+参考[在VsCode中远程连接服务器中的Docker容器记录](https://zhuanlan.zhihu.com/p/252415205)
 
 #### 一些bug的处理
 vscode调试python脚本时报错raise RuntimeError('already started')
