@@ -26,6 +26,8 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#docker图形界面" target="_blank">docker图形界面</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#容器时间与宿主机同步" target="_blank">容器时间与宿主机同步</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#异步进入容器" target="_blank">异步进入容器</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#命名空间映射" target="_blank">命名空间映射</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#查看dockerhub上镜像的tag" target="_blank">查看dockerhub上镜像的tag</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#个人容器镜像，存放于阿里云容器镜像服务器" target="_blank">个人容器镜像，存放于阿里云容器镜像服务器</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/docker/operations.md" target="_blank">docker/operations</a>
@@ -50,6 +52,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#std::string.c_str" target="_blank">std::string.c_str</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#Unix Domain Socket" target="_blank">Unix Domain Socket</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#TimerLog" target="_blank">TimerLog</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.mdCoreDumped如何debug" target="_blank">core dumped如何debug</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#Python" target="_blank">Python</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#tf dataset from generator" target="_blank">tf dataset_from_generator</a>
 
@@ -72,6 +75,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#vscode" target="_blank">vscode</a>
     * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#ubuntu环境下vscode与CMAKE协作" target="_blank">ubuntu环境下vscode与CMAKE协作</a>
     * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#远程" target="_blank">远程</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md使用远程服务器内的容器" target="_blank">使用远程服务器内的容器</a>
     * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#一些bug的处理" target="_blank">一些bug的处理</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#git" target="_blank">git</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#pull或push指定分支" target="_blank">pull或push指定分支</a>
@@ -157,6 +161,10 @@
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md" target="_blank">computer_vision/opencv</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv" target="_blank">安装opencv</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装并使用指定版本的opencv" target="_blank">安装并使用指定版本的opencv</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv310" target="_blank">安装opencv-3.1.0</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#opencv320不包含opencv_crontib" target="_blank">opencv320不包含opencv_crontib</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/rs_l515.md" target="_blank">computer_vision/rs_l515</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md" target="_blank">computer_vision</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#简介" target="_blank">简介</a>

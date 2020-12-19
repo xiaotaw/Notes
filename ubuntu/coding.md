@@ -6,6 +6,7 @@
   * [std::string.c_str](#std::string.c_str)
   * [Unix Domain Socket](#Unix Domain Socket)
   * [TimerLog](#TimerLog)
+  * [core dumped如何debug](CoreDumped如何debug)
 * [Python](#Python)
   * [tf dataset_from_generator](#tf dataset from generator)
 
@@ -83,6 +84,33 @@ Server = http://mirrors.ustc.edu.cn/msys2/msys/$arch
 1. 使用TimerLog，可以方便地跟踪各个步骤的耗时。
 2. 使用类的静态成员，作为全局变量的替代
 3. 代码见example/test_TimeLog.cpp
+
+### CoreDumped如何debug
+debug模式编译可执行文件   
+1. gdb <executable> core
+```bash
+# 让linux系统生成core文件
+# 运行`ulimit -c`，如果显示为0，则表明限制生成的core文件大小为0，即不生成core文件
+ulimit -c unlimited
+
+# 运行程序，core dumped之后，会在当前路径下生成core文件，如
+./a.out
+
+# gdb debug
+gdb a.out core
+
+# 可用bt查看函数调用信息
+```
+
+2. valgrind
+valgrind运行较慢
+```bash
+# 安装valgrind
+apt-get install valrgind
+
+# 内存检查
+valgrind --tool=memcheck <exectuable> 
+```
 
 ## Python
 ### tf dataset from generator

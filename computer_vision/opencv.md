@@ -1,7 +1,8 @@
 ## 目录
 * [安装opencv](#安装opencv)
   * [安装并使用指定版本的opencv](#安装并使用指定版本的opencv)
-
+  * [安装opencv-3.1.0](#安装opencv310)
+  * [opencv320不包含opencv_crontib](#opencv320不包含opencv_crontib)
 ## 安装opencv
 
 ### 安装并使用指定版本的opencv
@@ -63,6 +64,47 @@ export PKG_CONFIG_PATH=${OPENCV_PATH}/lib/pkgconfig
 set(OpenCV_DIR "/usr/local/opencv-4.1.0")
 find_package(OpenCV REQUIRED)
 ```
+### 安装opencv310
+参照410的安装过程，稍有改动。  
+1. CUDA9以及以上的版本与opencv310不兼容，需修改cmake比较麻烦，这里先不使用cuda。修改方案可参考
+[CSDN博客 OpenCV3.3+CUDA9.0+Cmake3.9 环境搭建](https://blog.csdn.net/u014613745/article/details/78310916)
+2. gcc7将stdlib.h放入libstdc++以进行更好的优化，C Library的头文件stdlib.h使用 Include_next，而include_next对gcc系统头文件路径很敏感。推荐的修复方法是不要把include路径作为系统目录，而是使用标准方式包含include目录。参考来源
+[CSDN博客 /usr/include/c++/7/cstdlib:75:15: fatal error: stdlib.h: No such file or directory](https://blog.csdn.net/u010003609/article/details/100086151)
+
+```bash
+cmake \
+-D CMAKE_INSTALL_PREFIX=/usr/local/opencv-3.1.0 \
+-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+-D WITH_VTK=ON \
+-D VTK_DIR=../../VTK-8.2.0/build \
+-D OPENCV_ENABLE_NONFREE=ON \
+-D BUILD_EXAMPLES=OFF \
+-D BUILD_TESTS=OFF \
+-D BUILD_PREF_TESTS=OFF \
+-D WITH_CUDA=OFF \
+-D ENABLE_PRECOMPILED_HEADERS=OFF \
+..
+```
+
+### opencv320不包含opencv_crontib
+```
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local/opencv-3.2.0 \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D INSTALL_C_EXAMPLES=OFF \
+-D BUILD_EXAMPLES=OFF \
+-D BUILD_TESTS=OFF \
+-D BUILD_PREF_TESTS=OFF \
+-D WITH_CUDA=OFF \
+-D ENABLE_PRECOMPILED_HEADERS=OFF \
+..
+
+# 报错: CMake Error at cmake/OpenCVCompilerOptions.cmake:21 (else):
+# 解决：https://blog.csdn.net/weixin_41674487/article/details/88237764
+
+
+```
+
 
 
 ## 参考资料

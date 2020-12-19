@@ -242,7 +242,7 @@ Host target-box-22
 * 连接成功后，会自动在服务器端的~/.vscode-server下，下载code-server。如下载不成功，可根据报错提示自行下载。
 
 #### 使用远程服务器内的容器
-1. 远程服务器dockerd添加tcp访问方式 -H xxx.xxx.xxx.xxx:port
+1. 远程服务器dockerd添加tcp访问方式 -H xxx.xxx.xxx.xxx:port,
 2. vscode安装插件docker和Remote-Container，vscode - file - preferences - settings，搜索docker:hosts，将远程服务器的ip:port填入。
 3. 安全起见，可使用ssh隧道转发。
 参考[在VsCode中远程连接服务器中的Docker容器记录](https://zhuanlan.zhihu.com/p/252415205)
@@ -281,6 +281,17 @@ git pull origin r1.8:r1.8
 # git add .
 # git push或者git push -f推送到github，
 
+```
+### git添加submodule
+```bash
+git submodule add xxx.git ./my_submodule
+```
+### git更名submodule 
+```bash
+git mv ./my_submodule ./my_submodule_new_name
+git submodule sync
+git add -u
+git commit 
 ```
 
 ## python
