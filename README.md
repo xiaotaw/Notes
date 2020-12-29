@@ -55,6 +55,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.mdCoreDumped如何debug" target="_blank">core dumped如何debug</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#Python" target="_blank">Python</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#tf dataset from generator" target="_blank">tf dataset_from_generator</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#ProblemSet" target="_blank">ProblemSet</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md" target="_blank">ubuntu</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#命令行or图形界面启动" target="_blank">命令行or图形界面启动</a>
@@ -89,6 +90,7 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#perl正则表达式中使用非英文字符" target="_blank">perl正则表达式中使用非英文字符</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#shell" target="_blank">shell</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#打包源文件" target="_blank">打包源文件</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#shell里面判断字符串是否为空" target="_blank">shell里面判断字符串是否为空</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#安装软件-程序-包" target="_blank">安装软件-程序-包</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#使用国内源" target="_blank">使用国内源</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#ubuntu18_04安装libgdk2.0-dev报错" target="_blank">ubuntu18_04安装libgdk2.0-dev报错</a>
@@ -122,6 +124,8 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow/README.md#xxx占位xxx" target="_blank">xxx占位xxx</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow/README.md#参考资料" target="_blank">参考资料</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow/README.md#源码编译tensorflow2动态库" target="_blank">源码编译tensorflow=2.0动态库libtensorflow_cc.so</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/others/working_tricks/TimeManageMaster.md" target="_blank">others/working_tricks/TimeManageMaster</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md" target="_blank">others/wikidata</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#简介" target="_blank">简介</a>
