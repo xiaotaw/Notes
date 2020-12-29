@@ -31,6 +31,7 @@
   * [perl正则表达式中使用非英文字符](#perl正则表达式中使用非英文字符)
 * [shell](#shell)
   * [打包源文件](#打包源文件)
+  * [shell里面判断字符串是否为空](#shell里面判断字符串是否为空)
 * [安装软件-程序-包](#安装软件-程序-包)
   * [使用国内源](#使用国内源)
   * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
@@ -336,6 +337,14 @@ find . -name "*.h" -o name "*.c" | xargs tar zcvf src.tar.gz
 # 文件数目多，先将文件名存入文件中，然后再打包
 find . -name "*.h" -o name "*.c" > filename.list
 tar zcvf src.tar.gz --files-from filename.list
+```
+### shell里面判断字符串是否为空
+```bash
+if [ -z $my_string ]; then
+    echo "my_string is empty"
+else
+    echo "my_string is not empty"
+fi
 ```
 
 ## 安装软件-程序-包
