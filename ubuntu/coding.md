@@ -9,6 +9,7 @@
   * [core dumped如何debug](CoreDumped如何debug)
 * [Python](#Python)
   * [tf dataset_from_generator](#tf dataset from generator)
+  * [ConstrainedLinearRegression](#ConstrainedLinearRegression.py)
 * [ProblemSet](#ProblemSet)
 
 **说明：和编程相关内容慢慢转移至本文件下**
@@ -116,6 +117,31 @@ valgrind --tool=memcheck <exectuable>
 ## Python
 ### tf dataset from generator
 自定义dataset时，使用generator作为数据来源，示例见example_py/dataset_from_generator.py
+### ConstrainedLinearRegression
+简介：对参数进行限制的线性回归，示例见example_py/ConstrainedLinearRegression.py，   
+测试：在python=3.6.9测试通过
+```bash
+# 创建python=3.6.9的环境
+conda create -n clr python=3.6.9
+
+# 执行conda activate clr，或者source activate clr，激活环境
+conda activate clr
+
+# 使用conda安装依赖sklearn
+conda install h5py
+conda install sklearn
+
+# 或者使用pip安装依赖
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple h5py
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple sklearn
+
+# 测试
+python3 ConstrainedLinearRegression.py
+```
+参考：[在Python上对每个系数有特定约束的多重线性回归](#https://www.pythonheidong.com/blog/article/166247/3ee8b193fa41e202a3e1/)，有部分修改  
+
+
+
 
 
 ## ProblemSet
