@@ -1,16 +1,27 @@
 ## 目录
-* [环境配置](#环境配置)
-  * [msys2](#msys2)
-* [C/C++](#ccplusplus)
-  * [json](#json)
-  * [std::string.c_str](#std::string.c_str)
-  * [Unix Domain Socket](#Unix Domain Socket)
-  * [TimerLog](#TimerLog)
-  * [core dumped如何debug](CoreDumped如何debug)
-* [Python](#Python)
-  * [tf dataset_from_generator](#tf dataset from generator)
-  * [ConstrainedLinearRegression](#ConstrainedLinearRegression.py)
-* [ProblemSet](#ProblemSet)
+
+- [目录](#目录)
+- [环境配置](#环境配置)
+  - [msys2](#msys2)
+    - [简介](#简介)
+    - [安装](#安装)
+    - [pacman配置](#pacman配置)
+    - [参考资料](#参考资料)
+- [ccplusplus](#ccplusplus)
+  - [json](#json)
+    - [问题](#问题)
+    - [参考资料](#参考资料-1)
+  - [std::string.c_str](#stdstringc_str)
+  - [Unix Domain Socket](#unix-domain-socket)
+    - [c版本server和client](#c版本server和client)
+    - [参考资料](#参考资料-2)
+  - [TimerLog](#timerlog)
+  - [CoreDumped如何debug](#coredumped如何debug)
+- [Python](#python)
+  - [tf dataset from generator](#tf-dataset-from-generator)
+  - [ConstrainedLinearRegression](#constrainedlinearregression)
+- [clang-format和doxygen](#clang-format和doxygen)
+- [ProblemSet](#problemset)
 
 **说明：和编程相关内容慢慢转移至本文件下**
 
@@ -141,7 +152,9 @@ python3 ConstrainedLinearRegression.py
 参考：[在Python上对每个系数有特定约束的多重线性回归](#https://www.pythonheidong.com/blog/article/166247/3ee8b193fa41e202a3e1/)，有部分修改  
 
 
+## clang-format和doxygen
 
+参考[doxygen生成pdf文档](#https://blog.csdn.net/hahahaqwe123/article/details/107875776)
 
 
 ## ProblemSet

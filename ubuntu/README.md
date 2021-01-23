@@ -1,53 +1,58 @@
 ## 目录
-* [命令行or图形界面启动](#命令行or图形界面启动)
-* [终端中文显示为问号](#终端中文显示为问号)
-* [网络服务](#网络服务)
-  * [frp](#frp)
-  * [ss](#ss)
-  * [vnc4server](#vnc4server)
-  * [x11vnc](#x11vnc)
-  * [端口映射](#端口映射)
-  * [获取本机/路由的ipv4地址](#获取本机或路由的ipv4地址)
-  * [Terminal终端使用代理](#Terminal终端使用代理)
-* [本地服务管理](#服务管理)
-  * [CodeServer](#CodeServer)
-  * [本地服务管理命令](#本地服务管理命令)
-* [编程IDE](#编程IDE)
-  * [vim](#vim)
-  * [vscode](#vscode)
-    * [ubuntu环境下vscode与CMAKE协作](#ubuntu环境下vscode与CMAKE协作)
-    * [远程](#远程)
-    * [使用远程服务器内的容器](使用远程服务器内的容器)
-    * [一些bug的处理](#一些bug的处理)
-* [git](#git)
-  * [pull或push指定分支](#pull或push指定分支)
-  * [合并历史commit](#合并历史commit)
-* [python](#python)
-  * [pytest](#pytest)
-  * [pip使用清华源](#pip使用清华源)
-* [c和c++](#c和cpp)
-  * [查找动态库](#查找动态库)
-* [perl](#perl)
-  * [perl正则表达式中使用非英文字符](#perl正则表达式中使用非英文字符)
-* [shell](#shell)
-  * [打包源文件](#打包源文件)
-  * [shell里面判断字符串是否为空](#shell里面判断字符串是否为空)
-* [安装软件-程序-包](#安装软件-程序-包)
-  * [使用国内源](#使用国内源)
-  * [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk2.0-dev报错)
-  * [ubuntu18_04安装VisualSFM](#ubuntu18_04安装VisualSFM)
-  * [python安装opencv](#python安装opencv)
-  * [安装nvidia显卡驱动](#安装nvidia显卡驱动)
-  * [opencv和pcl](#opencv和pcl)
-* [virtualBox](#virtualBox)
-  * [win10镜像下载地址](#win10镜像下载地址)
-* [contos](#contos)
-  * [contos6安装bazel(暂停)](contos6安装bazel)
-
-
+- [目录](#目录)
+- [命令行or图形界面启动](#命令行or图形界面启动)
+- [终端中文显示为问号](#终端中文显示为问号)
+- [网络服务](#网络服务)
+  - [frp](#frp)
+  - [ss](#ss)
+  - [vnc4server](#vnc4server)
+  - [x11vnc](#x11vnc)
+  - [端口映射](#端口映射)
+  - [获取本机或路由的ipv4地址](#获取本机或路由的ipv4地址)
+  - [Terminal终端使用代理](#terminal终端使用代理)
+- [服务管理](#服务管理)
+  - [CodeServer](#codeserver)
+  - [本地服务管理命令](#本地服务管理命令)
+- [IDE](#ide)
+  - [vim](#vim)
+  - [vscode](#vscode)
+    - [ubuntu环境下vscode与CMAKE协作](#ubuntu环境下vscode与cmake协作)
+    - [远程](#远程)
+    - [使用远程服务器内的容器](#使用远程服务器内的容器)
+    - [一些bug的处理](#一些bug的处理)
+- [git](#git)
+  - [pull或push指定分支](#pull或push指定分支)
+  - [合并历史commit](#合并历史commit)
+  - [git添加submodule](#git添加submodule)
+  - [git更名submodule](#git更名submodule)
+- [python](#python)
+  - [pytest](#pytest)
+  - [pip使用清华源](#pip使用清华源)
+- [c和cpp](#c和cpp)
+  - [查找动态库](#查找动态库)
+- [perl](#perl)
+  - [perl正则表达式中使用非英文字符](#perl正则表达式中使用非英文字符)
+- [shell](#shell)
+  - [打包源文件](#打包源文件)
+  - [shell里面判断字符串是否为空](#shell里面判断字符串是否为空)
+- [安装软件-程序-包](#安装软件-程序-包)
+  - [使用国内源](#使用国内源)
+  - [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk20-dev报错)
+  - [ubuntu18_04安装VisualSFM](#ubuntu18_04安装visualsfm)
+  - [python安装opencv](#python安装opencv)
+  - [安装nvidia显卡驱动](#安装nvidia显卡驱动)
+  - [opencv和pcl](#opencv和pcl)
+- [virtualBox](#virtualbox)
+  - [win10镜像下载地址](#win10镜像下载地址)
+  - [设置屏幕分辨率](#设置屏幕分辨率)
+- [contos](#contos)
+  - [contos6安装bazel](#contos6安装bazel)
+  - [centos6安装报版本GCC(unfinished)](#centos6安装报版本gccunfinished)
 
 ## 命令行or图形界面启动
-* 有时候需要关闭图形界面（如：安装显卡驱动），可以通过设置命令行模式开机重启。
+
+- 有时候需要关闭图形界面（如：安装显卡驱动），可以通过设置命令行模式开机重启。
+  
 ```bash
 # 设置默认命令行模式启动(重启生效)
 sudo systemctl set-default multi-user.target 
@@ -57,6 +62,7 @@ sudo systemctl set-default graphical.target
 ```
 
 ## 终端中文显示为问号
+
 ```bash
 # 进入容器，查看字符集
 root@xxxxxxxxxxxx:/# locale
@@ -86,26 +92,31 @@ POSIX
 export LANG=C.UTF-8
 
 ```
-## 网络服务
-### frp
-* frp是一个内网穿透工具，需要一台有公网ip的服务器作为跳板。  
-* 参考https://github.com/fatedier/frp  
-* 客户端热加载配置文件 frpc reload -c ./frpc.ini
 
+## 网络服务
+
+### frp
+
+- frp是一个内网穿透工具，需要一台有公网ip的服务器作为跳板。  
+- 参考<https://github.com/fatedier/frp>  
+- 客户端热加载配置文件 frpc reload -c ./frpc.ini
 
 ### ss
-* 启动命令（老是忘记）：`sudo sslocal -c xxx.conf -d start`
-* 参考http://tanqingbo.com/2017/07/19/Ubuntu%E4%BD%BF%E7%94%A8shadowsocks%E7%BF%BB%E5%A2%99/
+
+- 启动命令（老是忘记）：`sudo sslocal -c xxx.conf -d start`
+- 参考<http://tanqingbo.com/2017/07/19/Ubuntu%E4%BD%BF%E7%94%A8shadowsocks%E7%BF%BB%E5%A2%99/>
 
 ### vnc4server
-* 常用命令  
-终止：`vnc4server -kill :2 `  
+
+- 常用命令  
+终止：`vnc4server -kill :2`  
 启动：`vnc4server -geometry 960x768 :2`  
-* 参考网址  
-https://linuxconfig.org/vnc-server-on-ubuntu-18-04-bionic-beaver-linux  
-https://cloud.tencent.com/developer/article/1350304 
+- 参考网址  
+<https://linuxconfig.org/vnc-server-on-ubuntu-18-04-bionic-beaver-linux>  
+<https://cloud.tencent.com/developer/article/1350304> 
 
 ### x11vnc
+
 ```bash
 # 手动启动，需要先设置passwd
 x11vnc -auth guess -forever -loop -noxdamage -repeat -rfbauth PATH_TO_YOUR_HOME/.vnc/passwd -rfbport 5900 -shared -o x11vnc.log
@@ -115,35 +126,35 @@ x11vnc -auth guess -nevershared -forever -loop -noxdamage -repeat -rfbauth PATH_
 
 # 增加日志文件
 nohup x11vnc -auth guess -nevershared -forever -loop -noxdamage -repeat -rfbauth /home/xt/.vnc/passwd -rfbport 5900 -o `date '+%Y-%m-%d_%H-%M-%S'`.log  2>&1  > run.log &
-
 ```
-* 客户端推荐：TightVNC，网址https://www.tightvnc.com/，比RealVNC占用带宽小，反应更快，显示更清晰。 如果是windows且没有安装软件的权限，推荐使用Java版本的Viewer
 
-* 为什么使用ssh隧道：
-1. VNC默认不加密，在客户端和服务端之间的数据，经过Internet网络传输，可能有被及截获的风险。
-2. 使用ssh隧道，就是在Internet中，用ssh的方式，连接客户端和主机，由于ssh是加密的，原本明文传输的VNC数据，使用了SSH的外壳后，在Internet中传输是安全的。
-3. 在外部看来，客户端和服务端之间只有ssh连接，ssh传输的内容是加密的，就算被截取，也无法破译，不知道传输的数据是什么内容。
-
-* TightVNC Java Viewer使用ssh隧道的方法：
-0. 前提：远程服务器已经开启了x11vnc服务，并监听5900端口
-1. 打开TightVNC客户端，勾选 Use SSH tunneling
-2. 在SSH Server，SSH Port，SSH User中填写SSH登录远程服务器所需要的信息。
-2.1 在SSH Server中填写远程服务器（开启了x11vnc服务的主机）ip地址
-2.2 在SSH Port中填写远程服务器的SSH端口（默认为22）
-2.3 在SSH User中填写远程服务器的用户名（可以暂时不填）
-3. 在Remote Host中填写localhost（127.0.0.1应该也一样，没试过），Port中填写5900（均为默认值）
-4. 相当于先ssh的方式登录了远程服务器，然后再连接localhost的5900端口。
-
-
+- 客户端推荐：TightVNC，网址<https://www.tightvnc.com/，比RealVNC>占用带宽小，反应更快，显示更清晰。 如果是windows且没有安装软件的权限，推荐使用Java版本的Viewer
+- 为什么使用ssh隧道：
+  - VNC默认不加密，在客户端和服务端之间的数据，经过Internet网络传输，可能有被及截获的风险。
+  - 使用ssh隧道，就是在Internet中，用ssh的方式，连接客户端和主机，由于ssh是加密的，原本明文传输的VNC数据，使用了SSH的外壳后，在Internet中传输是安全的。
+  - 在外部看来，客户端和服务端之间只有ssh连接，ssh传输的内容是加密的，就算被截取，也无法破译，不知道传输的数据是什么内容。
+- TightVNC Java Viewer使用ssh隧道的方法：
+  - 前提：远程服务器已经开启了x11vnc服务，并监听5900端口
+  - 打开TightVNC客户端，勾选 Use SSH tunneling
+  - 在SSH Server，SSH Port，SSH User中填写SSH登录远程服务器所需要的信息。
+    - 在SSH Server中填写远程服务器（开启了x11vnc服务的主机）ip地址
+    - 在SSH Port中填写远程服务器的SSH端口（默认为22）
+    - 在SSH User中填写远程服务器的用户名（可以暂时不填）
+  - 在Remote Host中填写localhost（127.0.0.1应该也一样，没试过），Port中填写5900（均为默认值）
+  - 相当于先ssh的方式登录了远程服务器，然后再连接localhost的5900端口。
 
 ### 端口映射
+
 （百度NAT）
 
 ### 获取本机或路由的ipv4地址
-https://github.com/xiaotaw/Notes/tree/master/ubuntu/get_ipv4.py
+
+<https://github.com/xiaotaw/Notes/tree/master/ubuntu/get_ipv4.py>
 
 ### Terminal终端使用代理
+
 好像无效？？？
+
 ```bash
 # 使用http代理
 export http_proxy="http://localhost:port"
@@ -168,26 +179,27 @@ git config --global --unset https.proxy
 ```
 
 有效
+
 ```bash
 curl -C - --socks5-hostname localhost:1080 
-
 ```
-ref: https://blog.emacsos.com/use-socks5-proxy-in-curl.html
 
-
-
+ref: <https://blog.emacsos.com/use-socks5-proxy-in-curl.html>
 
 ## 服务管理
 
 ### CodeServer
+
 通过docker使用code-server
+
 ```bash
 docker run -it --rm --network="host" -v "${HOME}/.local/share/code-server:/home/coder/.local/share/code-server" -v "$PWD:/home/coder/project" codercom/code-server:v2 code-server --host 0.0.0.0  --port 5905
 ```
 
-通过离线下载安装包使用：https://update.code.visualstudio.com/commit:26076a4de974ead31f97692a0d32f90d735645c0/server-linux-x64/stable
+通过离线下载安装包使用：<https://update.code.visualstudio.com/commit:26076a4de974ead31f97692a0d32f90d735645c0/server-linux-x64/stable>
 
 ### 本地服务管理命令
+
 ```bash
 # 编写脚本
 sudo vi /lib/systemd/system/XXX.service
@@ -201,12 +213,14 @@ sudo reboot
 # 取消
 sudo systemctl disable XXX.service
 sudo systemctl stop XXX.service
-
 ```
 
 ## IDE
+
 ### vim
+
 设置vim自动缩进，并且将tab替换为四个空格
+
 ```bash
 # 打开vim配置文件，添加以下三行
 $ vim ~/.vimrc
@@ -214,8 +228,11 @@ set ts=4
 set expandtab
 set autoindent
 ```
+
 ### vscode
+
 #### ubuntu环境下vscode与CMAKE协作
+
 1. vscode安装extension：C/C++，CMake，CMake Tools
 2. vscode打开新的folder（folder下有CMakeFile.txt文件，以及c/c++源文件）
 3. 如果是第一次使用CMake和CMake Tools，右下角会弹出框，根据提示允许CMake Tools和CMake自动配置和生成build文件夹
@@ -223,13 +240,15 @@ set autoindent
 5. 按F5，vs自动在.vscode文件夹下生成launch.json文件，修改其中的"program"字段，修改成"${workspaceFolder}/build/xxx"，其中xxx为工程生成的可执行文件名；如有命令行参数，添加在"args"字段中。
 6. 配置完毕，可使用F5进行debug。
 
-参考资料: https://blog.csdn.net/daybreak222/article/details/81394363
+参考资料: <https://blog.csdn.net/daybreak222/article/details/81394363>
 
 #### 远程
-* 描述：client端为windows，server端为linux。希望在windows下使用vscode，可以对linux服务器端的代码进行编辑和调试。
-* 方法：
+
+- 描述：client端为windows，server端为linux。希望在windows下使用vscode，可以对linux服务器端的代码进行编辑和调试。
+- 方法：
 ① 在windows端安装vscode，安装插件remote-ssh，
 ② 配置ssh_config，其中方括号[]中的内容需根据实际情况修改，（IdentitiesOnly这个配置暂不知如何配置）
+
 ```vi
 Host target-box-22
     HostName [host-ip]
@@ -239,16 +258,19 @@ Host target-box-22
     # if use socket
     #ProxyCommand "/path/to/connect.exe" -S [socket-ip]:[socket-port] %h %p
 ```
-* 在连接之前，可先在vscode中的terminal中，使用ssh连接进行尝试，连接成功后，再使用vscode连接。
-* 连接成功后，会自动在服务器端的~/.vscode-server下，下载code-server。如下载不成功，可根据报错提示自行下载。
+
+- 在连接之前，可先在vscode中的terminal中，使用ssh连接进行尝试，连接成功后，再使用vscode连接。
+- 连接成功后，会自动在服务器端的~/.vscode-server下，下载code-server。如下载不成功，可根据报错提示自行下载。
 
 #### 使用远程服务器内的容器
+
 1. 远程服务器dockerd添加tcp访问方式 -H xxx.xxx.xxx.xxx:port,
 2. vscode安装插件docker和Remote-Container，vscode - file - preferences - settings，搜索docker:hosts，将远程服务器的ip:port填入。
 3. 安全起见，可使用ssh隧道转发。
 参考[在VsCode中远程连接服务器中的Docker容器记录](https://zhuanlan.zhihu.com/p/252415205)
 
 #### 一些bug的处理
+
 vscode调试python脚本时报错raise RuntimeError('already started')
 
 解决办法：
@@ -257,19 +279,21 @@ import multiprocessing
 multiprocessing.set_start_method(‘spawn’,True)
 
 参考资料：
-https://blog.csdn.net/wangzi371312/article/details/92796320
-
-
+<https://blog.csdn.net/wangzi371312/article/details/92796320>
 
 ## git
+
 ### pull或push指定分支
+
 ```bash
 # 将远程r1.8分支，拉去到本地的r1.8分支
 # 参考资料 https://blog.csdn.net/litianze99/article/details/52452521
 # git pull <远程主机> <远程分支>:<本地分支>
 git pull origin r1.8:r1.8
 ```
+
 ### 合并历史commit
+
 ```bash
 # 经常遇到一种情况，多个commit其实完成一件事，造成git log很长，并且历史版本不清晰，不方便梳理，回滚不方便。
 # 可以采用rebase对多个commit进行合并
@@ -283,11 +307,15 @@ git pull origin r1.8:r1.8
 # git push或者git push -f推送到github，
 
 ```
+
 ### git添加submodule
+
 ```bash
 git submodule add xxx.git ./my_submodule
 ```
+
 ### git更名submodule 
+
 ```bash
 git mv ./my_submodule ./my_submodule_new_name
 git submodule sync
@@ -296,24 +324,31 @@ git commit
 ```
 
 ## python
+
 ### pytest
+
 如果使用conda环境，可使用`conda install pytest`安装；
 遇到报错`pytest: error: unrecognized arguments: --cov-report=html`，可`conda install pytest-cov`解决。
 
 ### pip使用清华源
+
 ```bash
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple package_name
 ```
 
 ## c和cpp
+
 ### 查找动态库
+
 ```bash
 # 查找是否安装了xxx
 ldconfig -p | grep xxx
 ```
 
 ## perl
+
 ### perl正则表达式中使用非英文字符
+
 ```vim
 # 在perl脚本中，字符集为utf8
 # 使用标准输入输出，且均为utf8
@@ -330,7 +365,9 @@ $sen =~ s/([\p{IsN}$char])/ $1 /g;
 ```
 
 ## shell
+
 ### 打包源文件
+
 ```bash
 # 文件数目不多，可使用xargs
 find . -name "*.h" -o name "*.c" | xargs tar zcvf src.tar.gz
@@ -338,7 +375,9 @@ find . -name "*.h" -o name "*.c" | xargs tar zcvf src.tar.gz
 find . -name "*.h" -o name "*.c" > filename.list
 tar zcvf src.tar.gz --files-from filename.list
 ```
+
 ### shell里面判断字符串是否为空
+
 ```bash
 if [ -z $my_string ]; then
     echo "my_string is empty"
@@ -348,25 +387,31 @@ fi
 ```
 
 ## 安装软件-程序-包
+
 ### 使用国内源
-参考https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/更新后，可能部分软件的源需手动添加
+
+参考<https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/>更新后，可能部分软件的源需手动添加
 
 1. nvidia-docker
-参照https://github.com/NVIDIA/nvidia-docker#ubuntu-16041804-debian-jessiestretchbuster
+参照<https://github.com/NVIDIA/nvidia-docker#ubuntu-16041804-debian-jessiestretchbuster>
+
 ```bash
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 ```
+
 2. neo4j
+
 ```bash
 wget -O - https://debian.neo4j.org/neotechnology.gpg.key |  apt-key add -
 echo 'deb https://debian.neo4j.org/repo stable/' |  tee /etc/apt/sources.list.d/neo4j.list
 ```
 
-
 ### ubuntu18_04安装libgdk2.0-dev报错
-* 问题: 
+
+- 问题:
+
 ```bash
 # 查看ubuntu版本
 $ cat /etc/issue
@@ -381,7 +426,8 @@ The following packages have unmet dependencies:
 E: Unable to correct problems, you have held broken packages.
 ```
 
-* 解决方法
+- 解决方法
+
 ```bash
 # 按照提示，手动递归安装需要的依赖，直至发现：
 $ sudo apt-get install libfontconfig1-dev
@@ -400,21 +446,23 @@ $ sudo apt-get install libfontconfig1-dev libxft-dev
 $ sudo apt-get install libpango1.0-dev libcairo2-dev
 $ sudo apt-get install libgtk2.0-dev
 ```
-* 其他方案（未尝试）
+
+- 其他方案（未尝试）
 libgtk2.0-dev依赖得部分库需要一个比较老的版本。参考https://blog.csdn.net/u014527548/article/details/80251046
 
-
 ### ubuntu18_04安装VisualSFM
-* 参考文档
+
+- 参考文档
 推荐：https://www.jianshu.com/p/cc0b548313e9     
 [VisualSFM安装官方文档](http://ccwu.me/vsfm/install.html)   
 [官方示例](http://www.10flow.com/2012/08/15/building-visualsfm-on-ubuntu-12-04-precise-pangolin-desktop-64-bit/)，ubuntu版本太老，很多坑，看看就好
 
-* 参考文档中，提供了相关文件的百度网盘链接，文件提取： https://pan.baidu.com/s/1sGrw51m509PHguSEB4L5Ag 密码: yck6
+- 参考文档中，提供了相关文件的百度网盘链接，文件提取： https://pan.baidu.com/s/1sGrw51m509PHguSEB4L5Ag 密码: yck6
 
-* 环境：ubuntu18.04（非docker中），64位，已安装cuda9.0
+- 环境：ubuntu18.04（非docker中），64位，已安装cuda9.0
 
-* 编译时文件结构
+- 编译时文件结构
+
 ```
 |--vsfm
   |--VisualSFM_linux_64bit.zip
@@ -436,7 +484,8 @@ libgtk2.0-dev依赖得部分库需要一个比较老的版本。参考https://bl
     |-- ...
 ```
 
-* 编译过程
+- 编译过程
+
 ```bash
 # 安装CUDA（由于已经安装，略过，具体参考官方文档https://developer.download.nvidia.cn/compute/DevZone/docs/html/C/doc/CUDA_C_Getting_Started_Linux.pdf）
 
@@ -485,15 +534,18 @@ $ cp main/cmvs ../../../../vsfm/bin
 $ cp main/genOption ../../../../vsfm/bin
 cd ../../../..
 ```
-* 最后vsfm/bin/VisualSFM即为可执行文件，运行可得到客户端。
+
+- 最后vsfm/bin/VisualSFM即为可执行文件，运行可得到客户端。
 
 
 ### python安装opencv
+
 ```bash 
 conda install -c menpo opencv3
 ```
 
 ### 安装nvidia显卡驱动
+
 ```bash
 # 参考https://www.jianshu.com/p/7373be733226
 
@@ -509,38 +561,47 @@ sudo apt-get install nvidia-driver-430
 ```
 
 ### opencv和pcl
+
 ```bash
 # opencv库
 sudo apt-get install libopencv-dev
 # pcl库和pcl viewer
 sudo apt-get install libpcl-dev pcl-tools
 ```
+
 ## virtualBox
+
 ### win10镜像下载地址
-https://www.microsoft.com/zh-cn/software-download/windows10ISO/
+
+<https://www.microsoft.com/zh-cn/software-download/windows10ISO/>
 
 ### 设置屏幕分辨率
+
 1. 在ubuntu系统中，安装VirtualBox后，创建win7镜像，进入win7系统。
 2. 桌面右键设置屏幕分辨率，发现没有适合本机器的分辨率1920*1080。
 3. 经过百度，找到一种可行的方法。在ubuntu中断键入以下命令，重启虚拟机，即可设置。
 4. 其中"virtual machine name"是在VirtualBox中创建虚拟机的名字。
+
 ```bash
 VBoxManage setextradata global GUI/MaxGuestResolution any
 VBoxManage setextradata <"virtual machine name"> CustomVideoMode1 1920x1080x32
 ```
 
 ## contos
+
 ### contos6安装bazel
+
 ```bash
 # java
 
 ```
 
 ### centos6安装报版本GCC(unfinished)
-https://blog.csdn.net/gumanren/article/details/89261656
-https://www.cnblogs.com/westfly/p/9171827.html
-https://blog.csdn.net/weixin_34310369/article/details/89434157
-http://www.senra.me/install-devtools-for-centos-to-get-high-version-gcc/
+
+<https://blog.csdn.net/gumanren/article/details/89261656>  
+<https://www.cnblogs.com/westfly/p/9171827.html>  
+<https://blog.csdn.net/weixin_34310369/article/details/89434157>  
+<http://www.senra.me/install-devtools-for-centos-to-get-high-version-gcc/>  
 
 ```bash
 # devtools-3
@@ -548,8 +609,3 @@ wget https://copr.fedoraproject.org/coprs/rhscl/devtoolset-3/repo/epel-6/rhscl-d
 yum install devtoolset-3-gcc devtoolset-3-binutils devtoolset-3-gcc-c++
 scl enable devtoolset-3 bash
 ```
-
-
-
-
-

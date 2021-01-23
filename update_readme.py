@@ -7,7 +7,7 @@ from glob  import glob
 url = "https://github.com/xiaotaw/Notes/tree/master/"
 
 
-regex = re.compile("([\s\*]*)\[([^\[\]]+)\]\(([^\(\)]+)\)")
+regex = re.compile("([\s\*\-]*)\[([^\[\]]+)\]\(([^\(\)]+)\)")
 
 def get_context(fn):
     context = []
@@ -24,7 +24,7 @@ def get_context(fn):
             context_flag = True
             continue
         if context_flag:
-            if l.lstrip().startswith("* "):
+            if l.lstrip().startswith("* ") or l.lstrip().startswith("- "):
                 res = regex.findall(l)
                 if len(res) != 1:
                     print("[error] %s: %s" % (fn, l))
@@ -47,7 +47,8 @@ if __name__ == "__main__":
     \n\n此目录由脚本维护：python3 update_readme.py，记录了部分技能点。\
     \n\n20191216: 通过squash、reword整理历史commit。\
     \n\n20200226: 拓展\"README.md\"为\"*.md\"，可方便将一个主题下的README.md进一步拆分成不同的文档。 \
-    \n\n20200323: (todo) 将子目录下的README.md的内容拆分成小文件，与根目录下的一样，README.md仅保留目录。\n"
+    \n\n20200323: (todo) 将子目录下的README.md的内容拆分成小文件，与根目录下的一样，README.md仅保留目录。\
+    \n\n20210123: (todo) 使用vscode+markdown插件，规范化所有README.md文件\n"
     )
     
     for r, ds, fs in os.walk("."):
