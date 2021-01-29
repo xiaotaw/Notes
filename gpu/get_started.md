@@ -7,6 +7,7 @@
   * [安装之前的考虑](#安装之前的考虑)
   * [下载并安装CUDA](#下载并安装CUDA)
   * [下载并安装cudnn](#下载并安装cudnn)
+* [CUDA中使用Eigen](#CUDA中使用Eigen)
 * [参考资料](#参考资料)
 
 * [CUDA10.0和CMAKE冲突](CUDA10和CMAKE冲突)
@@ -124,6 +125,9 @@ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ```
 
+## CUDA中使用Eigen
+
+[Using Eigen in CUDA kernels](#https://eigen.tuxfamily.org/dox-devel/TopicCUDA.html)
 
 
 
