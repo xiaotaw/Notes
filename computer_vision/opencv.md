@@ -1,11 +1,17 @@
 ## 目录
-* [安装opencv](#安装opencv)
-  * [安装并使用指定版本的opencv](#安装并使用指定版本的opencv)
-  * [安装opencv-3.1.0](#安装opencv310)
-  * [opencv320不包含opencv_crontib](#opencv320不包含opencv_crontib)
+
+- [目录](#目录)
+- [安装opencv](#安装opencv)
+  - [安装opencv4.1.0](#安装opencv410)
+  - [安装opencv3.1.0](#安装opencv310)
+  - [安装opencv3.2.0不包含opencv_crontib](#安装opencv320不包含opencv_crontib)
+- [参考资料](#参考资料)
+
 ## 安装opencv
 
-### 安装并使用指定版本的opencv
+*编译OpenCV时，会下载不少东西，且不同版本的源码可能需做一部分修改，因此若需编译安装某个版本，建议直接下载该版本release源码包，而不是通过git checkout切换。*
+
+### 安装opencv4.1.0
 
 ```bash
 # /data为某一目录
@@ -60,12 +66,16 @@ export PKG_CONFIG_PATH=${OPENCV_PATH}/lib/pkgconfig
 ```
 
 在其他工程中使用该版本的opencv，在CMakeList.txt文件中添加
+
 ```vim
 set(OpenCV_DIR "/usr/local/opencv-4.1.0")
 find_package(OpenCV REQUIRED)
 ```
-### 安装opencv310
-参照410的安装过程，稍有改动。  
+
+### 安装opencv3.1.0
+
+*参照410的安装过程，稍有改动。*  
+
 1. CUDA9以及以上的版本与opencv310不兼容，需修改cmake比较麻烦，这里先不使用cuda。修改方案可参考
 [CSDN博客 OpenCV3.3+CUDA9.0+Cmake3.9 环境搭建](https://blog.csdn.net/u014613745/article/details/78310916)
 2. gcc7将stdlib.h放入libstdc++以进行更好的优化，C Library的头文件stdlib.h使用 Include_next，而include_next对gcc系统头文件路径很敏感。推荐的修复方法是不要把include路径作为系统目录，而是使用标准方式包含include目录。参考来源
@@ -86,8 +96,9 @@ cmake \
 ..
 ```
 
-### opencv320不包含opencv_crontib
-```
+### 安装opencv3.2.0不包含opencv_crontib
+
+```bash
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D CMAKE_INSTALL_PREFIX=/usr/local/opencv-3.2.0 \
 -D INSTALL_PYTHON_EXAMPLES=ON \
@@ -105,9 +116,8 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 
 ```
 
-
-
 ## 参考资料
+
 1. [Ubuntu下多版本OpenCV共存和切换](https://blog.csdn.net/learning_tortosie/article/details/80594399?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task)
 2. [ubuntu16.04 opencv(各个版本编译安装，来回切换)](https://blog.csdn.net/mhsszm/article/details/88558470)
 3. [Azure Kinect - OpenCV KinectFusion Sample](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/opencv-kinfu-samples)

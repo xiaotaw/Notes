@@ -69,7 +69,7 @@ int main(int argc, char **argv)
     // preload images
     dataset->StartPreloadThread();
 
-    ImageProcessor image_proc(dataset->camera_params_);
+    ImageProcessor image_proc(dataset->color_camera_params_);
 
     PCLVis vis;
 

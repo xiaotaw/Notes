@@ -1,24 +1,27 @@
 ## 目录
-* [简介](#写在前面)
-* [NVIDIA显卡驱动安装](#NVIDIA显卡驱动安装)
-  * [手动安装](#手动安装)
-  * [自动安装](#自动安装)
-* [CUDA安装](#CUDA安装)
-  * [安装之前的考虑](#安装之前的考虑)
-  * [下载并安装CUDA](#下载并安装CUDA)
-  * [下载并安装cudnn](#下载并安装cudnn)
-* [CUDA中使用Eigen](#CUDA中使用Eigen)
-* [参考资料](#参考资料)
 
-* [CUDA10.0和CMAKE冲突](CUDA10和CMAKE冲突)
-
-
+- [目录](#目录)
+- [写在前面](#写在前面)
+- [NVIDIA显卡驱动安装](#nvidia显卡驱动安装)
+  - [手动安装](#手动安装)
+  - [自动安装(推荐)](#自动安装推荐)
+- [CUDA安装](#cuda安装)
+  - [安装之前的考虑](#安装之前的考虑)
+  - [下载并安装CUDA](#下载并安装cuda)
+  - [下载并安装cudnn](#下载并安装cudnn)
+- [CUDA编程](#cuda编程)
+  - [CUDA中使用Eigen](#cuda中使用eigen)
+  - [内存访问模式](#内存访问模式)
+- [参考资料](#参考资料)
+  - [CUDA10.0和CMAKE冲突](#cuda100和cmake冲突)
 
 ## 写在前面
+
 1. 在深度学习和图像处理等计算密集型任务中，经常使用GPU等硬件进行加速运算。图形图像工作站中多使用A卡(AMD)，游戏和深度学习多实用N卡(NVIDIA)。
 2. 以下内容基于：ubuntu操作系统，nvidia显卡
 
 ## NVIDIA显卡驱动安装
+
 系统中一般自带一个基本的显卡驱动，但是功能非常少，发挥不出显卡的战斗力，需要替换成NVIDIA的驱动。安装方式可以选择手动，或者在ubuntu中可以使用命令行几行代码搞定。
 
 ### 手动安装
@@ -28,20 +31,17 @@
 lspci | grep -i vga
 # 01:00.0 VGA compatible controller: NVIDIA Corporation GP102 [GeForce GTX 1080 Ti] (rev a1) 
 
-
 # 查看操作系统，为linux 64位
 uname -a
 # Linux ubt 4.15.0-88-generic #88-Ubuntu SMP Tue Feb 11 20:11:34 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-1. 首先根据自身操作系统，和显卡型号，在nvidia官网下载驱动安装程序。https://www.nvidia.cn/Download/index.aspx?lang=cn。得到 NVIDIA-Linux-x86_64-440.59.run 安装包。
-
-2. 安装驱动前，需关闭所有图形服务，并禁用已有的nouveau显卡驱动。
+1. 首先根据自身操作系统，和显卡型号，在nvidia官网下载驱动安装程序。[https://www.nvidia.cn/Download/index.aspx?lang=cn]。得到 NVIDIA-Linux-x86_64-440.59.run 安装包。  
+2. 安装驱动前，需关闭所有图形服务，并禁用已有的nouveau显卡驱动。  
 ```bash
 # 首先重启机器，进入命令行模式，这样会自动把所有图形应用和图形服务关闭。
 sudo systemctl set-default multi-user.target 
 sudo reboot
-
 # 查看是否有系统中是否运行着自带的nouveau驱动，如有，按照以下步骤禁用。
 lsmod | grep nouveau
 # 禁用已有的驱动
@@ -55,23 +55,12 @@ sudo reboot
 # 确认nouveau已经被禁用
 lsmod | grep nouveau
 ```
-3. 安装NVIDIA显卡驱动，根据提示操作。
-```bash
-sudo bash NVIDIA-Linux-x86_64-440.59.run
-```
+3. ```sudo bash NVIDIA-Linux-x86_64-440.59.run```安装NVIDIA显卡驱动，根据提示操作。
+4. ```sudo systemctl set-default graphical.target```切回图形界面模式，```sudo reboot```重启系统(如不需要图形界面，可直接重启系统)   
+5. 检测NVIDIA驱动是否安装好，使用```nvidia-smi```可获得显卡以及驱动版本信息。
 
-4. 切回图形界面模式，重启系统(如不需要图形界面，可直接重启系统)
-```bash
-sudo systemctl set-default graphical.target
-sudo reboot
-```
+### 自动安装(推荐)
 
-5. 检测NVIDIA驱动是否安装好，使用nvidia-smi可获得显卡以及驱动版本信息。
-```bash
-nvidia-smi
-```
-
-### 自动安装
 ```bash
 # 添加nvidia repository
 sudo add-apt-repository ppa:graphics-drivers/ppa
@@ -97,13 +86,14 @@ nvidia-smi
 ## CUDA安装
 
 ### 安装之前的考虑
-1. 检查显卡是否支持CUDA。部分老的显卡可能不支持CUDA，可以在https://developer.nvidia.com/cuda-gpus查看。
+
+1. 检查显卡是否支持CUDA。部分老的显卡可能不支持CUDA，可以在[https://developer.nvidia.com/cuda-gpus]查看。
 2. CUDA版本的选择。基于CUDA开发的程序，以及依赖CUDA的第三方库如tensorflow或者pytorch，对CUDA版本都有一定的要求，需根据各方面的需求进行选择。
-3. CUDA版本是否与驱动兼容。低版本的驱动，不支持高版本的CUDA，可在https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html查看
+3. CUDA版本是否与驱动兼容。低版本的驱动，不支持高版本的CUDA，可在[https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html]查看
 
 ### 下载并安装CUDA
-https://developer.nvidia.com/cuda-toolkit-archive，按照官网的安装指导，进行安装。
 
+[https://developer.nvidia.com/cuda-toolkit-archive]，按照官网的安装指导，进行安装。
 
 ```bash
 # 以下载runfile(local)为例，管理员权限运行安装程序，按照命令行的提示进行操作即可
@@ -114,7 +104,9 @@ nvcc -V
 ```
 
 ### 下载并安装cudnn
-官方指导 https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html， 下载前需注册，根据操作系统和CUDA版本，选择所需要的cudnn版本。下载后解压，将cudnn.h和cudnn.so复制到cuda相应的目录下即可。
+
+官方指导 [https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html]， 下载前需注册，根据操作系统和CUDA版本，选择所需要的cudnn版本。下载后解压，将cudnn.h和cudnn.so复制到cuda相应的目录下即可。
+
 ```bash
 # 假设下载的cudnn文件为 cudnn-10.2-linux-x64-v7.6.5.32.tgz
 tar -xzvf cudnn-10.2-linux-x64-v7.6.5.32.tgz
@@ -125,30 +117,35 @@ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ```
 
-## CUDA中使用Eigen
+## CUDA编程
+
+### CUDA中使用Eigen
 
 [Using Eigen in CUDA kernels](#https://eigen.tuxfamily.org/dox-devel/TopicCUDA.html)
 
+### 内存访问模式
 
+[【CUDA 基础】4.3 内存访问模式](#https://face2ai.com/CUDA-F-4-3-%E5%86%85%E5%AD%98%E8%AE%BF%E9%97%AE%E6%A8%A1%E5%BC%8F/)
 
 ## 参考资料
+
 [安装 nvidia 驱动，cuda, 以及 cudnn](https://www.jianshu.com/p/fc5edbd6f480)  
 [Ubuntu 18.04 NVIDIA驱动安装总结](https://blog.csdn.net/tjuyanming/article/details/80862290)  
 [CUDA官方安装指导](https://developer.nvidia.com/cuda-toolkit-archive)  
 [cudnn官方安装指导](https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html)  
 
-### CUDA10和CMAKE冲突
-ubuntu18.04 cuda10.0 和系统自带的cmake3.10.2冲突，问题和解决方案：https://github.com/clab/dynet/issues/1457
+### CUDA10.0和CMAKE冲突
+
+ubuntu18.04 cuda10.0 和系统自带的cmake3.10.2冲突，问题和解决方案：[https://github.com/clab/dynet/issues/1457]
 
 cmake安装方法：知乎[CMake error with "CUDA_cublas_device_LIBRARY"](https://zhuanlan.zhihu.com/p/112466464)
 
-首先删除已有cmake，
 ```bash
+# 首先删除已有cmake
 sudo apt remove cmake 
 sudo apt purge --auto-remove cmake
-```
-再编译3.12.2版本cmake，新建.sh文件并键入以下内容，
-```bash
+
+#再编译3.12.2版本cmake，新建.sh文件并键入以下内容，
 version=3.12
 build=2
 mkdir ~/Downloads/temp
@@ -160,4 +157,3 @@ cd cmake-$version.$build
 make -j4
 sudo make instal
 ```
-编辑保存后运行这个shell脚本即可。

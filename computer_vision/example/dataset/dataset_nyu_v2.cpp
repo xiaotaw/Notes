@@ -193,7 +193,7 @@ NyuV2LabeledDataset::NyuV2LabeledDataset(std::string data_path) : RgbdDataset(da
     FindAllImages();
     // nyu v2 标注数据集是transposed，读取图片时需转置。
     is_transpose_ = true;
-    camera_params_ = CameraParams(
+    color_camera_params_ = CameraParams(
         480,
         640,
         5.1885790117450188e+02,

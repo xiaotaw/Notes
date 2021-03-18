@@ -21,7 +21,7 @@ namespace fs = boost::filesystem;
 /** Interface class RgbdDataset
  * 1. Do NOT use RgbdDataset directly, instead, you should derive your own dataset class.
  * 2. In derived Dataset class, remember to initialize necessary data members, 
- *    e.g. depth_filenames_, color_filenames_, camera_params_, 
+ *    e.g. depth_filenames_, color_filenames_, color_camera_params_, 
  * 3. Before calling FetchNextFrame, remember to StartPreloadThread.
  */
 class RgbdDataset
@@ -31,7 +31,9 @@ public:
     std::string data_path_;
     std::vector<std::string> depth_filenames_;
     std::vector<std::string> color_filenames_;
-    CameraParams camera_params_;
+    CameraParams color_camera_params_;
+    CameraParams depth_camera_params_;
+
     // if depth and color images are synchronized
     bool is_synced_ = true;
     // if transpose image

@@ -27,7 +27,7 @@ AzureKinectDataset::AzureKinectDataset(const std::string &data_path) : RgbdDatas
     double fy = j["depth image"]["intrinsic"]["fy"];
     double cx = j["depth image"]["intrinsic"]["cx"];
     double cy = j["depth image"]["intrinsic"]["cy"];
-    camera_params_ = CameraParams(img_size.height, img_size.width, fx, fy, cx, cy);
+    color_camera_params_ = CameraParams(img_size.height, img_size.width, fx, fy, cx, cy);
 
 }
 

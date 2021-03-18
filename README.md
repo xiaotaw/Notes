@@ -35,16 +35,20 @@
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/docker/operations.md" target="_blank">docker/operations</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md" target="_blank">gpu/get_started</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#写在前面" target="_blank">简介</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#NVIDIA显卡驱动安装" target="_blank">NVIDIA显卡驱动安装</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#手动安装" target="_blank">手动安装</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#自动安装" target="_blank">自动安装</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#CUDA安装" target="_blank">CUDA安装</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#安装之前的考虑" target="_blank">安装之前的考虑</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#下载并安装CUDA" target="_blank">下载并安装CUDA</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#下载并安装cudnn" target="_blank">下载并安装cudnn</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#参考资料" target="_blank">参考资料</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.mdCUDA10和CMAKE冲突" target="_blank">CUDA10.0和CMAKE冲突</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#目录" target="_blank">目录</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#写在前面" target="_blank">写在前面</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#nvidia显卡驱动安装" target="_blank">NVIDIA显卡驱动安装</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#手动安装" target="_blank">手动安装</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#自动安装推荐" target="_blank">自动安装(推荐)</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda安装" target="_blank">CUDA安装</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#安装之前的考虑" target="_blank">安装之前的考虑</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#下载并安装cuda" target="_blank">下载并安装CUDA</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#下载并安装cudnn" target="_blank">下载并安装cudnn</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda编程" target="_blank">CUDA编程</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda中使用eigen" target="_blank">CUDA中使用Eigen</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#内存访问模式" target="_blank">内存访问模式</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#参考资料" target="_blank">参考资料</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda100和cmake冲突" target="_blank">CUDA10.0和CMAKE冲突</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md" target="_blank">ubuntu/coding</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#目录" target="_blank">目录</a>
@@ -179,10 +183,12 @@
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/dynamic_reconstruction.md" target="_blank">computer_vision/dynamic_reconstruction</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md" target="_blank">computer_vision/opencv</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv" target="_blank">安装opencv</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装并使用指定版本的opencv" target="_blank">安装并使用指定版本的opencv</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv310" target="_blank">安装opencv-3.1.0</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#opencv320不包含opencv_crontib" target="_blank">opencv320不包含opencv_crontib</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#目录" target="_blank">目录</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv" target="_blank">安装opencv</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv410" target="_blank">安装opencv4.1.0</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv310" target="_blank">安装opencv3.1.0</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv320不包含opencv_crontib" target="_blank">安装opencv3.2.0不包含opencv_crontib</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#参考资料" target="_blank">参考资料</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/rs_l515.md" target="_blank">computer_vision/rs_l515</a>
 
