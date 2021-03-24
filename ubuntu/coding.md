@@ -17,6 +17,7 @@
     - [参考资料](#参考资料-2)
   - [TimerLog](#timerlog)
   - [CoreDumped如何debug](#coredumped如何debug)
+  - [性能分析工具Pref](#性能分析工具pref)
 - [Python](#python)
   - [tf dataset from generator](#tf-dataset-from-generator)
   - [ConstrainedLinearRegression](#constrainedlinearregression)
@@ -124,6 +125,9 @@ apt-get install valrgind
 # 内存检查
 valgrind --tool=memcheck <exectuable> 
 ```
+
+### 性能分析工具Pref
+[https://perf.wiki.kernel.org/index.php/Main_Page]
 
 ## Python
 ### tf dataset from generator
