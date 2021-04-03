@@ -33,6 +33,7 @@
   - [python安装opencv](#python安装opencv)
   - [安装nvidia显卡驱动](#安装nvidia显卡驱动)
   - [opencv和pcl](#opencv和pcl)
+- [zotero文献管理](#zotero文献管理)
 - [virtualBox](#virtualbox)
   - [win10镜像下载地址](#win10镜像下载地址)
   - [设置屏幕分辨率](#设置屏幕分辨率)
@@ -495,6 +496,12 @@ sudo apt-get install libopencv-dev
 # pcl库和pcl viewer
 sudo apt-get install libpcl-dev pcl-tools
 ```
+
+## zotero文献管理
+
+- 使用zotero管理文献，ubuntu和windows下均可用
+- 使用坚果云进行同步，每月流量上限，上传1G，下载3G。
+- 参考 [zotero+坚果云，免费跨平台文献管理最佳实践指南](https://zhuanlan.zhihu.com/p/112795057)
 
 ## virtualBox
 

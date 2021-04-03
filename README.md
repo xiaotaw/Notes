@@ -109,6 +109,7 @@
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#python安装opencv" target="_blank">python安装opencv</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#安装nvidia显卡驱动" target="_blank">安装nvidia显卡驱动</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#opencv和pcl" target="_blank">opencv和pcl</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#zotero文献管理" target="_blank">zotero文献管理</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#virtualbox" target="_blank">virtualBox</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#win10镜像下载地址" target="_blank">win10镜像下载地址</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#设置屏幕分辨率" target="_blank">设置屏幕分辨率</a>
