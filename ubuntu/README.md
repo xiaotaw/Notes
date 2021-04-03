@@ -23,6 +23,7 @@
     - [一些bug的处理](#一些bug的处理)
 - [git](#git)
   - [pull或push指定分支](#pull或push指定分支)
+  - [更新本地分支信息](#更新本地分支信息)
   - [合并历史commit](#合并历史commit)
   - [git添加submodule](#git添加submodule)
   - [git更名submodule](#git更名submodule)
@@ -275,6 +276,9 @@ multiprocessing.set_start_method(‘spawn’,True)
 
 ## git
 
+**todo1: 系统整理rebase， fetch+merge， reset, submodule等**
+**todo2: git lfs**
+
 ### pull或push指定分支
 
 ```bash
@@ -282,6 +286,13 @@ multiprocessing.set_start_method(‘spawn’,True)
 # 参考资料 https://blog.csdn.net/litianze99/article/details/52452521
 # git pull <远程主机> <远程分支>:<本地分支>
 git pull origin r1.8:r1.8
+```
+
+### 更新本地分支信息
+
+```bash
+# 有时远程分支已经删除，而本地不知道，更新方式
+git fetch origin --prune
 ```
 
 ### 合并历史commit
