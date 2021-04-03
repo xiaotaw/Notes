@@ -1,4 +1,5 @@
 ## 目录
+
 - [目录](#目录)
 - [命令行or图形界面启动](#命令行or图形界面启动)
 - [终端中文显示为问号](#终端中文显示为问号)
@@ -25,16 +26,6 @@
   - [合并历史commit](#合并历史commit)
   - [git添加submodule](#git添加submodule)
   - [git更名submodule](#git更名submodule)
-- [python](#python)
-  - [pytest](#pytest)
-  - [pip使用清华源](#pip使用清华源)
-- [c和cpp](#c和cpp)
-  - [查找动态库](#查找动态库)
-- [perl](#perl)
-  - [perl正则表达式中使用非英文字符](#perl正则表达式中使用非英文字符)
-- [shell](#shell)
-  - [打包源文件](#打包源文件)
-  - [shell里面判断字符串是否为空](#shell里面判断字符串是否为空)
 - [安装软件-程序-包](#安装软件-程序-包)
   - [使用国内源](#使用国内源)
   - [ubuntu18_04安装libgdk2.0-dev报错](#ubuntu18_04安装libgdk20-dev报错)
@@ -314,76 +305,13 @@ git pull origin r1.8:r1.8
 git submodule add xxx.git ./my_submodule
 ```
 
-### git更名submodule 
+### git更名submodule
 
 ```bash
 git mv ./my_submodule ./my_submodule_new_name
 git submodule sync
 git add -u
 git commit 
-```
-
-## python
-
-### pytest
-
-如果使用conda环境，可使用`conda install pytest`安装；
-遇到报错`pytest: error: unrecognized arguments: --cov-report=html`，可`conda install pytest-cov`解决。
-
-### pip使用清华源
-
-```bash
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple package_name
-```
-
-## c和cpp
-
-### 查找动态库
-
-```bash
-# 查找是否安装了xxx
-ldconfig -p | grep xxx
-```
-
-## perl
-
-### perl正则表达式中使用非英文字符
-
-```vim
-# 在perl脚本中，字符集为utf8
-# 使用标准输入输出，且均为utf8
-
-# 需要匹配阿拉伯数字，以及中文句号，且在两端加上空格
-use Encode;
-
-my $sen = "1你好啊。2你好啊。";
-
-my $char = "。";
-
-$sen =~ s/([\p{IsN}$char])/ $1 /g;
-
-```
-
-## shell
-
-### 打包源文件
-
-```bash
-# 文件数目不多，可使用xargs
-find . -name "*.h" -o name "*.c" | xargs tar zcvf src.tar.gz
-# 文件数目多，先将文件名存入文件中，然后再打包
-find . -name "*.h" -o name "*.c" > filename.list
-tar zcvf src.tar.gz --files-from filename.list
-```
-
-### shell里面判断字符串是否为空
-
-```bash
-if [ -z $my_string ]; then
-    echo "my_string is empty"
-else
-    echo "my_string is not empty"
-fi
 ```
 
 ## 安装软件-程序-包
@@ -448,22 +376,22 @@ $ sudo apt-get install libgtk2.0-dev
 ```
 
 - 其他方案（未尝试）
-libgtk2.0-dev依赖得部分库需要一个比较老的版本。参考https://blog.csdn.net/u014527548/article/details/80251046
+libgtk2.0-dev依赖得部分库需要一个比较老的版本。参考[https://blog.csdn.net/u014527548/article/details/80251046]
 
 ### ubuntu18_04安装VisualSFM
 
 - 参考文档
-推荐：https://www.jianshu.com/p/cc0b548313e9     
-[VisualSFM安装官方文档](http://ccwu.me/vsfm/install.html)   
+推荐：[https://www.jianshu.com/p/cc0b548313e9]  
+[VisualSFM安装官方文档](http://ccwu.me/vsfm/install.html)  
 [官方示例](http://www.10flow.com/2012/08/15/building-visualsfm-on-ubuntu-12-04-precise-pangolin-desktop-64-bit/)，ubuntu版本太老，很多坑，看看就好
 
-- 参考文档中，提供了相关文件的百度网盘链接，文件提取： https://pan.baidu.com/s/1sGrw51m509PHguSEB4L5Ag 密码: yck6
+- 参考文档中，提供了相关文件的百度网盘链接，文件提取： [https://pan.baidu.com/s/1sGrw51m509PHguSEB4L5Ag] 密码: yck6
 
 - 环境：ubuntu18.04（非docker中），64位，已安装cuda9.0
 
 - 编译时文件结构
 
-```
+```vim
 |--vsfm
   |--VisualSFM_linux_64bit.zip
   |--vsfm
@@ -537,10 +465,9 @@ cd ../../../..
 
 - 最后vsfm/bin/VisualSFM即为可执行文件，运行可得到客户端。
 
-
 ### python安装opencv
 
-```bash 
+```bash
 conda install -c menpo opencv3
 ```
 

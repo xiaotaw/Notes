@@ -1,7 +1,7 @@
 # 目录
 ©2019-2020 xiaotaw. All Rights Reserved.     
 
-此目录由脚本维护：python3 update_readme.py，记录了部分技能点。    
+此目录由脚本维护：python3 update_readme.py，记录了部分技能点，相当于一个速查手册。    
 
 20191216: 通过squash、reword整理历史commit。    
 
@@ -54,23 +54,24 @@
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#目录" target="_blank">目录</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#环境配置" target="_blank">环境配置</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#msys2" target="_blank">msys2</a>
-    - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#简介" target="_blank">简介</a>
-    - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#安装" target="_blank">安装</a>
-    - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#pacman配置" target="_blank">pacman配置</a>
-    - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#参考资料" target="_blank">参考资料</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#ccplusplus" target="_blank">ccplusplus</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#json" target="_blank">json</a>
-    - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#问题" target="_blank">问题</a>
-    - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#参考资料-1" target="_blank">参考资料</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#stdstringc_str" target="_blank">std::string.c_str</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#unix-domain-socket" target="_blank">Unix Domain Socket</a>
-    - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#c版本server和client" target="_blank">c版本server和client</a>
-    - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#参考资料-2" target="_blank">参考资料</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#timerlog" target="_blank">TimerLog</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#coredumped如何debug" target="_blank">CoreDumped如何debug</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#性能分析工具pref" target="_blank">性能分析工具Pref</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#查找动态库" target="_blank">查找动态库</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#python" target="_blank">Python</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#tf-dataset-from-generator" target="_blank">tf dataset from generator</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#constrainedlinearregression" target="_blank">ConstrainedLinearRegression</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#pytest" target="_blank">pytest</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#pip使用清华源" target="_blank">pip使用清华源</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#perl" target="_blank">perl</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#perl正则表达式中使用非英文字符" target="_blank">perl正则表达式中使用非英文字符</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#shell" target="_blank">shell</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#打包源文件" target="_blank">打包源文件</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#shell里面判断字符串是否为空" target="_blank">shell里面判断字符串是否为空</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#clang-format和doxygen" target="_blank">clang-format和doxygen</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#problemset" target="_blank">ProblemSet</a>
 
@@ -101,16 +102,6 @@
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#合并历史commit" target="_blank">合并历史commit</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#git添加submodule" target="_blank">git添加submodule</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#git更名submodule" target="_blank">git更名submodule</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#python" target="_blank">python</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#pytest" target="_blank">pytest</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#pip使用清华源" target="_blank">pip使用清华源</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#c和cpp" target="_blank">c和cpp</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#查找动态库" target="_blank">查找动态库</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#perl" target="_blank">perl</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#perl正则表达式中使用非英文字符" target="_blank">perl正则表达式中使用非英文字符</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#shell" target="_blank">shell</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#打包源文件" target="_blank">打包源文件</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#shell里面判断字符串是否为空" target="_blank">shell里面判断字符串是否为空</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#安装软件-程序-包" target="_blank">安装软件-程序-包</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#使用国内源" target="_blank">使用国内源</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#ubuntu18_04安装libgdk20-dev报错" target="_blank">ubuntu18_04安装libgdk2.0-dev报错</a>
@@ -158,7 +149,8 @@
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#参考资料" target="_blank">参考资料</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md" target="_blank">others/machine_translation</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md#语料分割" target="_blank">语料分割</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md#目录" target="_blank">目录</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md#语料分割" target="_blank">语料分割</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md" target="_blank">others/reinforcement_learning</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#Virutal Env Simulator" target="_blank">Virtual Env Simulator</a>
