@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.1.0)
 
 
-option(BUILD_TEST "Build test: some codes for testing new features/functions" ON)
+option(BUILD_EXAMPLES "Build examples and test" ON)
 
 # configuration types
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRINGS "Configs" FORCE)
@@ -24,10 +24,11 @@ find_package(k4a REQUIRED)
 
 # opencv
 find_package(OpenCV REQUIRED)
-set(OpenCV_LIB_DIR ${OpenCV_INSTALL_PATH}/lib)
+include_directories(${OpenCV_INCLUDE_DIRS})
+#set(OpenCV_LIB_DIR ${OpenCV_INSTALL_PATH}/lib)
 message(STATUS "OpenCV version: ${OpenCV_VERSION}")
 message(STATUS "    include dir：${OpenCV_INCLUDE_DIRS}")
-message(STATUS "    lib dir：${OpenCV_LIB_DIR}")
+#message(STATUS "    lib dir：${OpenCV_LIB_DIR}")
 message(STATUS "    libs：${OpenCV_LIBS}")
 
 # pcl
@@ -47,14 +48,12 @@ include_directories(${CUDA_INCLUDE_DIRS})
 find_package(Boost REQUIRED COMPONENTS system filesystem)
 include_directories(${Boost_INCLUDE_DIRS})
 
-include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${OpenCV_INCLUDE_DIRS})
 
-add_subdirectory(${PROJECT_SOURCE_DIR}/common)
-add_subdirectory(${PROJECT_SOURCE_DIR}/apps)
-add_subdirectory(${PROJECT_SOURCE_DIR}/dataset)
-add_subdirectory(${PROJECT_SOURCE_DIR}/visualize)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cpp)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/third_party)
 
-if (BUILD_TEST)
-    add_subdirectory(${PROJECT_SOURCE_DIR}/test)
+add_subdirectory(cpp)
+
+if (BUILD_EXAMPLES)
+    add_subdirectory(examples)
 endif()

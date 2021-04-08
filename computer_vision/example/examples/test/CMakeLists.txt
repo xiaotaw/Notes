@@ -1,0 +1,4 @@
+add_subdirectory(test_dataset)
+add_subdirectory(test_visualize)
+add_subdirectory(test_azure_kinect)
+add_subdirectory(test_img_proc)

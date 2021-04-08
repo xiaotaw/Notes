@@ -1,0 +1,2 @@
+ADD_EXECUTABLE(test_pyramid test_pyramid.cpp)
+TARGET_LINK_LIBRARIES(test_pyramid lib_imgproc)
