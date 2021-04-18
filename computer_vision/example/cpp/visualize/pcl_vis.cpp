@@ -1,83 +1,70 @@
 /**
- * visualizer
- * @author: xiaotaw
- * @email: 
- * @date: 2020/08/22 07:50
+ * @file pcl_vis.cpp
+ * @author xiaotaw (you@domain.com)
+ * @brief
+ * @version 0.1
+ * @date 2021-08-22
+ * @copyright Copyright (c) 2021
  */
 #include "pcl_vis.h"
 
-PCLVis::PCLVis()
-{
-    // build point cloud
-    point_cloud_ = pcl::PointCloud<pcl::PointXYZRGB>();
-    auto point = pcl::PointXYZRGB(255, 255, 255);
-    point_cloud_.points.push_back(point);
-    cloud_name_ = "cloud";
+PCLVis::PCLVis() {
+  // build point cloud
+  point_cloud_ = boost::make_shared<pcl::PointCloud<pcl::PointXYZRGB>>();
+  auto point = pcl::PointXYZRGB(255, 255, 255);
+  point_cloud_->points.push_back(point);
+  cloud_name_ = "cloud";
 
-    // visualize point cloud
-    viewer_ = boost::make_shared<pcl::visualization::PCLVisualizer>("simple point cloud viewer");
-    viewer_->addPointCloud<pcl::PointXYZRGB>(point_cloud_.makeShared(), cloud_name_);
-    viewer_->addCoordinateSystem(2.0, cloud_name_, 0);
-    viewer_->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 2, cloud_name_);
-    viewer_->setCameraPosition(-493.926, -2538.05, -4271.43, 0.0244369, -0.907735, 0.418832, 0);
-    viewer_->registerKeyboardCallback(&keyboardEventOccurred, (void *)NULL);
+  // build normal
+  normal_ = boost::make_shared<pcl::PointCloud<pcl::Normal>>();
+  auto n = pcl::Normal(0, 0, 0);
+  normal_->push_back(n);
+  normal_name_ = "normal";
+
+  // visualize point cloud
+  viewer_ = boost::make_shared<pcl::visualization::PCLVisualizer>(
+      "simple point cloud viewer");
+  viewer_->addPointCloud<pcl::PointXYZRGB>(point_cloud_, cloud_name_);
+  viewer_->addPointCloudNormals<pcl::PointXYZRGB, pcl::Normal>(point_cloud_, normal_, 10, 0.05, normal_name_);
+  viewer_->addCoordinateSystem(2.0, cloud_name_, 0);
+  viewer_->setPointCloudRenderingProperties(
+      pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 2, cloud_name_);
+  viewer_->setCameraPosition(-493.926, -2538.05, -4271.43, 0.0244369, -0.907735,
+                             0.418832, 0);
+  viewer_->registerKeyboardCallback(&keyboardEventOccurred, (void *)NULL);
 }
-
 
 void PCLVis::UpdatePointCloud(const pcl::PointCloud<pcl::PointXYZ>::Ptr cloud) {
-    viewer_->updatePointCloud(cloud->makeShared(), cloud_name_);
-    update = false;
+  viewer_->updatePointCloud(cloud->makeShared(), cloud_name_);
+  update = false;
 }
 
-void PCLVis::UpdatePointCloud(const pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud) {
-    viewer_->updatePointCloud(cloud->makeShared(), cloud_name_);
-    update = false;
+void PCLVis::UpdatePointCloud(
+    const pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud) {
+  viewer_->updatePointCloud(cloud->makeShared(), cloud_name_);
+  update = false;
 }
 
-void PCLVis::UpdatePointCloud(const cv::Mat &vertex_map, const cv::Mat &color_map)
-{
-    point_cloud_.clear();
-    auto img_size = vertex_map.size();
-    for (auto y = 0; y < img_size.height; y++)
-    {
-        for (auto x = 0; x < img_size.width; x++)
-        {
-            auto vertex = vertex_map.at<float4>(y, x);
-            if (IsValidVertex(vertex))
-            {
-                auto color = color_map.at<cv::Vec3b>(y, x);
-                pcl::PointXYZRGB point;
-                point.x = vertex.x;
-                point.y = vertex.y;
-                point.z = vertex.z;
-                point.b = color[0];
-                point.g = color[1];
-                point.r = color[2];
-                point_cloud_.points.push_back(point);
-            }
-        }
+void PCLVis::UpdatePointCloud(
+    const pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud,
+    const pcl::PointCloud<pcl::Normal>::Ptr normal) {
+  viewer_->updatePointCloud(cloud->makeShared(), cloud_name_);
+  if (!normal->empty()) {
+    viewer_->removePointCloud(normal_name_);
+    viewer_->addPointCloudNormals<pcl::PointXYZRGB, pcl::Normal>(cloud, normal, 10, 0.05, normal_name_);
+  }
+  update = false;
+}
+
+void PCLVis::keyboardEventOccurred(
+    const pcl::visualization::KeyboardEvent &event, void *nothing) {
+  if (event.keyDown()) {
+    //打印出按下的按键信息
+    cout << event.getKeySym() << endl;
+    if (event.getKeySym() == "n") {
+      update = true;
     }
-
-    viewer_->updatePointCloud(point_cloud_.makeShared(), cloud_name_);
-    update = false;
-}
-
-bool PCLVis::IsValidVertex(float4 vertex)
-{
-    return (abs(vertex.x) > 1e-5) && (abs(vertex.y) > 1e-5) && (abs(vertex.z) > 1e-5);
-}
-
-void PCLVis::keyboardEventOccurred(const pcl::visualization::KeyboardEvent &event, void *nothing)
-{
-    if (event.keyDown())
-    {
-        //打印出按下的按键信息
-        cout << event.getKeySym() << endl;
-        if (event.getKeySym() == "n")
-        {
-            update = true;
-        }
-    }
+  }
 }
 
 std::atomic<bool> PCLVis::update(false);

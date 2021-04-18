@@ -46,15 +46,15 @@ public:
   void BuildNormalMap(bool sync = false);
 
   /**
-   * @brief compute vertex map from depth image, and download vertex map into
-   * pointcloud at host
-   * @param[in] depth_img
-   * @param[in] color_img
+   * @brief Download vertex and normal data as pcl::PointCloud
+   * @param[out] cloud the vertex (pcl::PointCloud)
+   * @param[out] normal the normal of each vertex
+   * @param[in] color_img the color of vertex
    * @note it's a debug method
-   * @return pcl::PointCloud<pcl::PointXYZRGB>::Ptr
    */
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr
-  BuildVertexMap(const cv::Mat &depth_img, const cv::Mat &color_img);
+  void DownloadVertexNormal(pcl::PointCloud<pcl::PointXYZRGB>::Ptr &cloud,
+                            pcl::PointCloud<pcl::Normal>::Ptr &normal,
+                            const cv::Mat &color_img = cv::Mat());
 
   int cols() const { return cols_; }
   int rows() const { return rows_; }
@@ -82,24 +82,4 @@ private:
 private:
   void AllocateBuffer();
   void ReleaseBuffer();
-
-  /**
-   * @brief compose vertex and color into a pointcloud.
-   * @param[in] vertex_tmp vertex map from BuildVertexMap by Using Texture
-   * @param[in] color_img color image
-   * @note it's a debug method
-   * @return pcl::PointCloud<pcl::PointXYZRGB>::Ptr composed pointcloud
-   */
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr composeCloud(const cv::Mat &vertex_tmp,
-                                                      const cv::Mat &color_img);
-  /**
-   * @brief compose vertex and color into a pointcloud.
-   * @param[in out] vertex_vec vertex map from BuildVertexMap by NOT Using
-   * Texture (Using DeviceArray)
-   * @param[in out] color_img color image
-   * @note it's a debug method
-   * @return pcl::PointCloud<pcl::PointXYZRGB>::Ptr
-   */
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr
-  composeCloud(const std::vector<float> &vertex_vec, const cv::Mat &color_img);
 };

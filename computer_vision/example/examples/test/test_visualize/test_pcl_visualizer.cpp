@@ -61,24 +61,22 @@ int main(int argc, char **argv) {
       dataset->FetchNextFrame(depth_img, color_img);
       TimeLogger::printTimeLog("fetch images");
 
-      // cv::Mat vertex_map = cv::Mat(depth_img.size(), CV_32FC4);
-      // image_proc.BuildVertexMap(depth_img, vertex_map);
-      pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud =
-          image_proc.BuildVertexMap(depth_img, color_img);
+      image_proc.BuildVertexMap(depth_img);
       TimeLogger::printTimeLog("compute vertex");
 
       image_proc.BuildNormalMap(true);
       TimeLogger::printTimeLog("compute normal");
 
+      auto cloud = boost::make_shared<pcl::PointCloud<pcl::PointXYZRGB>>();
+      auto normal = boost::make_shared<pcl::PointCloud<pcl::Normal>>();
+      image_proc.DownloadVertexNormal(cloud, normal, color_img);
+
       if (cloud->size() == 0) {
         LOG(WARNING) << "point cloud size is ZERO.";
       }
 
-      vis.UpdatePointCloud(cloud);
-      // vis.UpdatePointCloud(vertex_map, color_img);
-      // TimeLogger::printTimeLog("compact and update point cloud");
+      vis.UpdatePointCloud(cloud, normal);
 
-      PCLVis::update = false;
       i++;
       TimeLogger::printTimeLog("Loop Done");
     }

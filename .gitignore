@@ -25,3 +25,4 @@ get_ipv4.log
 
 # for c/c++
 build/
+debug/

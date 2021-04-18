@@ -63,11 +63,18 @@ void ImageProcessor::BuildNormalMap(bool sync) {
   }
 }
 
-pcl::PointCloud<pcl::PointXYZRGB>::Ptr
-ImageProcessor::BuildVertexMap(const cv::Mat &depth_img,
-                               const cv::Mat &color_img) {
-  // build vertex map on device
-  BuildVertexMap(depth_img);
+void ImageProcessor::DownloadVertexNormal(
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr &cloud,
+    pcl::PointCloud<pcl::Normal>::Ptr &normal, const cv::Mat &color_img) {
+
+  cloud = boost::make_shared<pcl::PointCloud<pcl::PointXYZRGB>>();
+  normal = boost::make_shared<pcl::PointCloud<pcl::Normal>>();
+  cloud->points.reserve(cols_ * rows_);
+  normal->points.reserve(cols_ * rows_);
+
+  auto IsValidVertex = [](const float &x, const float &y, const float &z) {
+    return (abs(x) > 1e-5) && (abs(y) > 1e-5) && (abs(z) > 1e-5);
+  };
 
 #ifdef USING_TEXTURE
   // download vertex map from device to host
@@ -76,19 +83,77 @@ ImageProcessor::BuildVertexMap(const cv::Mat &depth_img,
   stream_.Synchronize();
   CudaSafeCall(cudaGetLastError());
 
+  LOG(WARNING)
+      << "It's Not implemented yet to compute Normal via Using Texture!";
+
   // convert vertex map into pointcloud
-  return composeCloud(vertex_tmp, color_img);
+  for (auto v = 0; v < rows_; v++) {
+    for (auto u = 0; u < cols_; u++) {
+      auto vertex = vertex_tmp.at<float4>(v, u);
+      const float &x = vertex.x;
+      const float &y = vertex.y;
+      const float &z = vertex.z;
+      if (IsValidVertex(x, y, z)) {
+        auto color = color_map.at<cv::Vec3b>(y, x);
+        pcl::PointXYZRGB point;
+        point.x = x;
+        point.y = y;
+        point.z = z;
+        if (!color_img.empty()) {
+          auto color = color_img.at<cv::Vec3b>(v, u);
+          point.b = color[0];
+          point.g = color[1];
+          point.r = color[2];
+        }
+        cloud->points.emplace_back(point);
+      }
+    }
+  }
+  cloud->resize(cloud->points.size());
 #else
   stream_.Synchronize();
   CudaSafeCall(cudaGetLastError());
 
   // download vertex map from device to host
   std::vector<float> vertex_tmp(cols_ * rows_ * 3);
+  std::vector<float> normal_tmp(cols_ * rows_ * 4);
   vertex_d_.download(&vertex_tmp[0], sizeof(float) * cols_);
   CudaSafeCall(cudaGetLastError());
+  normal_d_.download(&normal_tmp[0], sizeof(float) * cols_);
+  CudaSafeCall(cudaGetLastError());
 
-  // convert vertex map into pointcloud
-  return composeCloud(vertex_tmp, color_img);
+  // convert vertex and normal into pointcloud
+  for (auto v = 0; v < rows_; v++) {
+    for (auto u = 0; u < cols_; u++) {
+      const int i = v * cols_ + u;
+      const float &x = vertex_tmp[i];
+      const float &y = vertex_tmp[i + cols_ * rows_];
+      const float &z = vertex_tmp[i + cols_ * rows_ * 2];
+      if (IsValidVertex(x, y, z)) {
+        pcl::PointXYZRGB point;
+        point.x = x;
+        point.y = y;
+        point.z = z;
+        if (!color_img.empty()) {
+          auto color = color_img.at<cv::Vec3b>(v, u);
+          point.b = color[0];
+          point.g = color[1];
+          point.r = color[2];
+        }
+        cloud->points.emplace_back(point);
+
+        pcl::Normal n;
+        n.normal_x = normal_tmp[i];
+        n.normal_y = normal_tmp[i + cols_ * rows_];
+        n.normal_z = normal_tmp[i + cols_ * rows_ * 2];
+        n.curvature = normal_tmp[i + cols_ * rows_ * 3];
+        normal->points.emplace_back(n);
+      }
+    }
+  }
+  // set cloud->width
+  cloud->resize(cloud->points.size());
+  normal->resize(normal->points.size());
 #endif
 }
 
@@ -116,67 +181,4 @@ void ImageProcessor::ReleaseBuffer() {
   vertex_d_.release();
   normal_d_.release();
 #endif
-}
-
-pcl::PointCloud<pcl::PointXYZRGB>::Ptr
-ImageProcessor::composeCloud(const cv::Mat &vertex_tmp,
-                             const cv::Mat &color_map) {
-  auto cloud = boost::make_shared<pcl::PointCloud<pcl::PointXYZRGB>>();
-  auto img_size = vertex_tmp.size();
-  auto IsValidVertex = [](const float4 &v) {
-    return (abs(v.x) > 1e-5) && (abs(v.y) > 1e-5) && (abs(v.z) > 1e-5);
-  };
-  for (auto y = 0; y < img_size.height; y++) {
-    for (auto x = 0; x < img_size.width; x++) {
-      auto vertex = vertex_tmp.at<float4>(y, x);
-      if (IsValidVertex(vertex)) {
-        auto color = color_map.at<cv::Vec3b>(y, x);
-        pcl::PointXYZRGB point;
-        point.x = vertex.x;
-        point.y = vertex.y;
-        point.z = vertex.z;
-        point.b = color[0];
-        point.g = color[1];
-        point.r = color[2];
-        cloud->points.emplace_back(point);
-      }
-    }
-  }
-  cloud->resize(cloud->points.size());
-  return cloud;
-}
-
-pcl::PointCloud<pcl::PointXYZRGB>::Ptr
-ImageProcessor::composeCloud(const std::vector<float> &vertex_tmp,
-                             const cv::Mat &color_map) {
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud =
-      boost::make_shared<pcl::PointCloud<pcl::PointXYZRGB>>();
-  cloud->points.reserve(cols_ * rows_);
-
-  auto IsValidVertex = [](const float &x, const float &y, const float &z) {
-    return (abs(x) > 1e-5) && (abs(y) > 1e-5) && (abs(z) > 1e-5);
-  };
-
-  for (auto v = 0; v < rows_; v++) {
-    for (auto u = 0; u < cols_; u++) {
-      const int i = v * cols_ + u;
-      const float &x = vertex_tmp[i];
-      const float &y = vertex_tmp[i + cols_ * rows_];
-      const float &z = vertex_tmp[i + cols_ * rows_ * 2];
-      if (IsValidVertex(x, y, z)) {
-        auto color = color_map.at<cv::Vec3b>(v, u);
-        pcl::PointXYZRGB point;
-        point.x = x;
-        point.y = y;
-        point.z = z;
-        point.b = color[0];
-        point.g = color[1];
-        point.r = color[2];
-        cloud->points.emplace_back(point);
-      }
-    }
-  }
-  // set cloud->width
-  cloud->resize(cloud->points.size());
-  return cloud;
 }
