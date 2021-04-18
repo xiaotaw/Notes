@@ -1,7 +1,7 @@
 /**
  * A 3D visualizer for RGBD data.
  * @author: xiaotaw
- * @email: 
+ * @email:
  * @date: 2020/08/21 16:22
  */
 #include <opencv2/opencv.hpp>
@@ -9,26 +9,29 @@
 #include <pcl/point_types.h>
 #include <pcl/visualization/pcl_visualizer.h>
 
-class PCLVis
-{
+class PCLVis {
 public:
-    pcl::PointCloud<pcl::PointXYZRGB> point_cloud_;
-    pcl::visualization::PCLVisualizer::Ptr viewer_;
-    std::string cloud_name_;
+  pcl::PointCloud<pcl::PointXYZRGB> point_cloud_;
+  pcl::visualization::PCLVisualizer::Ptr viewer_;
+  std::string cloud_name_;
 
-    struct float4
-    {
-        float x, y, z, w;
-    };
+  struct float4 {
+    float x, y, z, w;
+  };
 
-    PCLVis();
+  PCLVis();
 
-    void UpdatePointCloud(const cv::Mat &vertex_map, const cv::Mat &color_map);
+  void UpdatePointCloud(const pcl::PointCloud<pcl::PointXYZ>::Ptr cloud);
 
-    static bool IsValidVertex(float4 vertex);
+  void UpdatePointCloud(const pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud);
 
-    static void keyboardEventOccurred(const pcl::visualization::KeyboardEvent &event, void *nothing);
+  void UpdatePointCloud(const cv::Mat &vertex_map, const cv::Mat &color_map);
 
-    static std::atomic<bool> update;
+  static bool IsValidVertex(float4 vertex);
+
+  static void
+  keyboardEventOccurred(const pcl::visualization::KeyboardEvent &event,
+                        void *nothing);
+
+  static std::atomic<bool> update;
 };
-

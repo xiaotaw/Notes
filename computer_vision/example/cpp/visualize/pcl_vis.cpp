@@ -23,6 +23,17 @@ PCLVis::PCLVis()
     viewer_->registerKeyboardCallback(&keyboardEventOccurred, (void *)NULL);
 }
 
+
+void PCLVis::UpdatePointCloud(const pcl::PointCloud<pcl::PointXYZ>::Ptr cloud) {
+    viewer_->updatePointCloud(cloud->makeShared(), cloud_name_);
+    update = false;
+}
+
+void PCLVis::UpdatePointCloud(const pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud) {
+    viewer_->updatePointCloud(cloud->makeShared(), cloud_name_);
+    update = false;
+}
+
 void PCLVis::UpdatePointCloud(const cv::Mat &vertex_map, const cv::Mat &color_map)
 {
     point_cloud_.clear();
@@ -46,8 +57,6 @@ void PCLVis::UpdatePointCloud(const cv::Mat &vertex_map, const cv::Mat &color_ma
             }
         }
     }
-
-    std::cout << "point cloud size: " << point_cloud_.points.size() << std::endl;
 
     viewer_->updatePointCloud(point_cloud_.makeShared(), cloud_name_);
     update = false;

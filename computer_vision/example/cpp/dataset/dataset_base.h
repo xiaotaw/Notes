@@ -30,17 +30,12 @@ public:
   using Ptr = std::shared_ptr<RgbdDataset>;
 
   // ctor
-  RgbdDataset() = default;
-  RgbdDataset(const std::string &data_path) : data_path_(data_path) {
-    StartPreloadThread();
-  }
+  RgbdDataset(const std::string &data_path) : data_path_(data_path) {}
   RgbdDataset(const std::string &data_path, bool is_transpose)
-      : data_path_(data_path), is_transpose_(is_transpose) {
-    StartPreloadThread();
-  }
+      : data_path_(data_path), is_transpose_(is_transpose) {}
 
   // dtor
-  ~RgbdDataset() = default;
+  ~RgbdDataset() { thread_.join(); }
 
   void StartPreloadThread();
 

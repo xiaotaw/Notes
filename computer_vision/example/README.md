@@ -5,7 +5,6 @@
 ## Image process
 ### bilateral filtering of depth image 
 
-
 ### compute vertex map from depth image, i.e. point cloud
 
 ### compute normal map from vertex map
@@ -18,7 +17,9 @@
 
 
 ## Plan
-| No  | item              | deadline | status |
-| --- | ----------------- | -------- | ------ |
-| 1   | icp(cuda) version | 2021.4   | x      |
-| 2   | None              | None     | None   |
+| No  |  type        | item                       | deadline | status |
+| --- | ---          | --------------             | -------- | ------ |
+| 1   | basic func   | cuda container and texture | 2021.4   | 100%   | 
+| 1   | image process| bilateral filter           | 2021.4   | 50%    |
+| 2   | 3D           | icp(cuda) version          | 2021.4   | x      |
+| 3   | 2D           | tv l1                      | 2021.5   | x      |

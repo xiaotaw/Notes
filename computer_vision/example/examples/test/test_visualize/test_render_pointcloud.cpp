@@ -6,7 +6,9 @@
  */
 #include "common/safe_open.hpp"
 #include "img_proc/cuda/compute_vertex.h"
+#include "img_proc/cuda/cuda_stream.h"
 #include "img_proc/cuda/cuda_texture_surface.h"
+#include "img_proc/cuda/pagelocked_memory.h"
 #include "json.hpp" // for nlohmann::json
 #include "visualize/gl_render.h"
 #include <atomic>
@@ -100,8 +102,8 @@ int main(int argc, char **argv) {
   auto vertex_texture_surface = std::make_shared<CudaTextureSurface2D<float4>>(
       img_size.height, img_size.width);
   // pagelock memory
-  PagelockMemory depth_buffer_pagelock(sizeof(uint16_t) * img_size.area());
-  PagelockMemory vertex_buffer_pagelock(sizeof(float4) * img_size.area());
+  PagelockedMemory depth_buffer_pagelock(sizeof(uint16_t) * img_size.area());
+  PagelockedMemory vertex_buffer_pagelock(sizeof(float4) * img_size.area());
   // necessary to sync after cudaMallocHost?
   CudaSafeCall(cudaDeviceSynchronize());
   CudaSafeCall(cudaGetLastError());
@@ -142,23 +144,21 @@ int main(int argc, char **argv) {
       assert(img_size == depth_img.size());
 
       // memory to pagelock memory
-      depth_buffer_pagelock.HostCopyFrom(static_cast<void *>(depth_img.data));
+      depth_buffer_pagelock.CopyFrom(static_cast<void *>(depth_img.data));
       // pagelock memory to device
-      depth_buffer_pagelock.UploadToDevice(depth_texture_surface->d_array(),
-                                           stream);
+      depth_texture_surface->Upload(depth_buffer_pagelock.data(), stream);
 
       // compute vertex from depth image on device
       ComputeVertex(depth_texture_surface, vertex_texture_surface, cam_intr_inv,
                     stream);
       // download vertex from device to host
-      vertex_buffer_pagelock.DownloadFromDevice(
-          vertex_texture_surface->d_array(), stream);
+      vertex_texture_surface->Download(vertex_buffer_pagelock.data(), stream);
 
       stream.Synchronize();
       CudaSafeCall(cudaGetLastError());
 
       cv::Mat vertex_map = cv::Mat(img_size, CV_32FC4);
-      vertex_buffer_pagelock.HostCopyTo(vertex_map.data);
+      vertex_buffer_pagelock.CopyTo(vertex_map.data);
 
       auto m = Eigen::AngleAxisf(-M_PI, Eigen::Vector3f::UnitZ());
 

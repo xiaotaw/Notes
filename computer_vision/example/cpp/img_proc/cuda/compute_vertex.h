@@ -8,6 +8,10 @@ void ComputeVertex(CudaTextureSurface2D<ushort>::Ptr depth,
                    CudaTextureSurface2D<float4>::Ptr vertex,
                    const CamIntrInv &cam_intr_inv, cudaStream_t stream = 0);
 
+void ComputeVertex(const DeviceArray2D<ushort> depth,
+                   DeviceArray2D<float> vertex, const CamIntrInv &cam_intr_inv,
+                   cudaStream_t stream = 0);
+
 void ComputeVertex(const DeviceArray2D<float> depth,
                    DeviceArray2D<float> vertex, const CamIntrInv &cam_intr_inv,
                    cudaStream_t stream = 0);

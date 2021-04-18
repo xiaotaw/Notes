@@ -4,6 +4,7 @@
  * @email:
  * @date: 2020/08/26 10:52
  */
+#include "common/logging.h"
 #include "common/time_logger.h"
 #include "dataset/dataset.h"
 #include "img_proc/image_proc.h"
@@ -47,7 +48,7 @@ int main(int argc, char **argv) {
   PCLVis vis;
 
   TimeLogger::printTimeLog("start");
-  for (unsigned i = 0; i < dataset->num();) {
+  for (int i = 0; i < int(dataset->num());) {
     if ((vis.viewer_)->wasStopped()) {
       break;
     }
@@ -55,18 +56,27 @@ int main(int argc, char **argv) {
     (vis.viewer_)->spinOnce();
     if (PCLVis::update) {
       TimeLogger::printTimeLog("new update");
-      std::cout << i << std::endl;
 
       cv::Mat color_img, depth_img;
       dataset->FetchNextFrame(depth_img, color_img);
       TimeLogger::printTimeLog("fetch images");
 
-      cv::Mat vertex_map = cv::Mat(depth_img.size(), CV_32FC4);
-      image_proc.BuildVertexMap(depth_img, vertex_map);
+      // cv::Mat vertex_map = cv::Mat(depth_img.size(), CV_32FC4);
+      // image_proc.BuildVertexMap(depth_img, vertex_map);
+      pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud =
+          image_proc.BuildVertexMap(depth_img, color_img);
       TimeLogger::printTimeLog("compute vertex");
 
-      vis.UpdatePointCloud(vertex_map, color_img);
-      TimeLogger::printTimeLog("compact and update point cloud");
+      image_proc.BuildNormalMap(true);
+      TimeLogger::printTimeLog("compute normal");
+
+      if (cloud->size() == 0) {
+        LOG(WARNING) << "point cloud size is ZERO.";
+      }
+
+      vis.UpdatePointCloud(cloud);
+      // vis.UpdatePointCloud(vertex_map, color_img);
+      // TimeLogger::printTimeLog("compact and update point cloud");
 
       PCLVis::update = false;
       i++;

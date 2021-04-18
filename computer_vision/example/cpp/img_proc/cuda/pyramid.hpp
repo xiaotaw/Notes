@@ -6,6 +6,7 @@
  */
 #pragma once
 #include "img_proc/cuda/cuda_texture_surface.h"
+#include "img_proc/cuda/pagelocked_memory.h"
 #include <opencv2/opencv.hpp>
 
 template <typename T> static inline int GetCvType() {
@@ -44,15 +45,15 @@ public:
   }
 
   // upload the base image
-  inline void UploadToPyramid(const PagelockMemory &pagelock_memory,
+  inline void UploadToPyramid(const PagelockedMemory &pagelock_memory,
                               cudaStream_t stream) {
-    pagelock_memory.UploadToDevice(pyd_[0]->d_array(), stream);
+    pyd_[0]->Upload(pagelock_memory.data(), stream);
   }
 
   // download the base image
-  inline void DownloadFromPyramid(PagelockMemory &pagelock_memory,
+  inline void DownloadFromPyramid(PagelockedMemory &pagelock_memory,
                                   cudaStream_t stream) {
-    pagelock_memory.DownloadFromDevice(pyd_[0]->d_array(), stream);
+    pyd_[0]->Download(pagelock_memory.data(), stream);
   }
 
   /** build pyramid by resize down image level by level
@@ -73,12 +74,12 @@ public:
    * Concat all images by a Helix-like way.
    */
   inline cv::Mat DownloadHelix(cudaStream_t stream) {
-    std::vector<PagelockMemory::Ptr> plm;
+    std::vector<PagelockedMemory::Ptr> plm;
     // download from device
     for (unsigned i = 0; i < layers; i++) {
-      plm.push_back(std::make_shared<PagelockMemory>(
+      plm.push_back(std::make_shared<PagelockedMemory>(
           sizeof(T) * pyd_[i]->rows() * pyd_[i]->cols()));
-      plm[i]->DownloadFromDevice(pyd_[i]->d_array(), stream);
+      pyd_[i]->Download(plm[i]->data(), stream);
     }
     CudaSafeCall(cudaStreamSynchronize(stream));
     CudaSafeCall(cudaGetLastError());
@@ -86,7 +87,7 @@ public:
     std::vector<cv::Mat> imgs;
     for (unsigned i = 0; i < layers; i++) {
       imgs.push_back(cv::Mat(pyd_[i]->rows(), pyd_[i]->cols(), GetCvType<T>()));
-      plm[i]->HostCopyTo(imgs[i].data);
+      plm[i]->CopyTo(imgs[i].data);
     }
     cv::Mat img;
     if (layers == 0) {

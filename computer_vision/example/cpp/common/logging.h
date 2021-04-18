@@ -12,7 +12,7 @@
 #include <iostream>
 #include <sstream>
 
-#define LOG(severity) LOG_##severity.stream()
+#define LOG(severity) LOG_##severity.stream() << "[" << #severity << "] "
 
 #define LOG_INFO LogMessage(__FILE__, __LINE__)
 #define LOG_WARNING LOG_INFO

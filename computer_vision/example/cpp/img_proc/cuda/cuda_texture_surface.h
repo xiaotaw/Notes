@@ -5,8 +5,10 @@
  * @date: 2020/06/29 22:35
  */
 #pragma once
+#include "common/disable_copy_assign_move.h"
 #include "img_proc/cuda/cuda_snippets.hpp"
 #include <channel_descriptor.h> // for cudaCreateChannelDesc<T>()
+#include <cstring>              // for memcpy and memset using in template
 #include <memory>
 
 // (xt) TODO: move enum outside of template class, because it's independent of
@@ -21,6 +23,10 @@ enum InterpolationMode {
 
 template <typename T> class CudaTextureSurface2D {
 public:
+  using Ptr = std::shared_ptr<CudaTextureSurface2D<T>>;
+
+  DISABLE_COPY_ASSIGN_MOVE(CudaTextureSurface2D);
+
   // ctor
   CudaTextureSurface2D() = default;
 
@@ -48,8 +54,6 @@ public:
                                          &m_texture_desc_, 0));
   }
 
-  using Ptr = std::shared_ptr<CudaTextureSurface2D<T>>;
-
   // dtor
   ~CudaTextureSurface2D() {
     CudaSafeCall(cudaDestroyTextureObject(texture_));
@@ -57,9 +61,21 @@ public:
     CudaSafeCall(cudaFreeArray(d_array_));
   }
 
-  DISABLE_COPY_ASSIGN_MOVE(CudaTextureSurface2D);
+  // upload from host to device
+  void Upload(const void *data_h, cudaStream_t stream) {
+    CudaSafeCall(cudaMemcpyToArrayAsync(d_array_, 0, 0, data_h,
+                                        sizeof(T) * cols_ * rows_,
+                                        cudaMemcpyHostToDevice, stream));
+  }
 
-  //
+  // download from device to host
+  void Download(void *data_h, cudaStream_t stream) {
+    CudaSafeCall(cudaMemcpyFromArrayAsync(data_h, d_array_, 0, 0,
+                                          sizeof(T) * cols_ * rows_,
+                                          cudaMemcpyDeviceToHost, stream));
+  }
+
+  // for build pyramid
   void ResizeDown(CudaTextureSurface2D &dst, cudaStream_t stream,
                   InterpolationMode mode);
   void ResizeDownNearest(CudaTextureSurface2D &dst, cudaStream_t stream);

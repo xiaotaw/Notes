@@ -34,16 +34,28 @@ __global__ void ComputeVertexKernelTexture(const unsigned cols,
   surf2Dwrite(vertex, vertex_surface, x * sizeof(float4), y);
 }
 
-__global__ void ComputeVertexKernel(const PtrStepSz<float> depth,
+/**
+ * @brief compute Vertex kernel using texture.
+ * V_x = (u - cx) * V_z / fx
+ * V_y = (v - cy) * V_z / fy
+ * if (vertex_z == 0), then vertex_x = vertex_y = 0.
+ *
+ * @tparam T depth date type, it's expected to be either ushort or float
+ * @param[in] depth depth image
+ * @param[out] vertex vertex map
+ * @param[in] cam_intr_inv inverse camera intrinsic: 1/fx, 1/fy, cx, cy
+ */
+template <typename T>
+__global__ void ComputeVertexKernel(const PtrStepSz<T> depth,
                                     PtrStepSz<float> vertex,
-                                    const CamIntrInv &cam_intr_inv) {
+                                    const CamIntrInv cam_intr_inv) {
   const int x = threadIdx.x + blockIdx.x * blockDim.x;
   const int y = threadIdx.y + blockIdx.y * blockDim.y;
   if (x >= depth.cols || y >= depth.rows)
     return;
 
   // Note: Even if (vertex_z == 0); then vertex_x = vertex_y = 0.
-  const float vertex_z = depth.ptr(y)[x];
+  const float vertex_z = static_cast<float>(depth.ptr(y)[x]);
 
   // V_x = (u - cx) * V_z / fx
   // V_y = (v - cy) * V_z / fy
@@ -70,14 +82,27 @@ void ComputeVertex(CudaTextureSurface2D<ushort>::Ptr depth,
   CudaSafeCall(cudaGetLastError());
 }
 
+void ComputeVertex(const DeviceArray2D<ushort> depth,
+                   DeviceArray2D<float> vertex, const CamIntrInv &cam_intr_inv,
+                   cudaStream_t stream) {
+  dim3 blk(16, 16);
+  dim3 grid(DivideUp(depth.cols(), blk.x), DivideUp(depth.rows(), blk.y));
+
+  device::ComputeVertexKernel<<<grid, blk, 0, stream>>>(
+      PtrStepSz<ushort>(depth), vertex, cam_intr_inv);
+
+  CudaSafeCall(cudaStreamSynchronize(stream));
+  CudaSafeCall(cudaGetLastError());
+}
+
 void ComputeVertex(const DeviceArray2D<float> depth,
                    DeviceArray2D<float> vertex, const CamIntrInv &cam_intr_inv,
                    cudaStream_t stream) {
   dim3 blk(16, 16);
   dim3 grid(DivideUp(depth.cols(), blk.x), DivideUp(depth.rows(), blk.y));
 
-  device::ComputeVertexKernel<<<grid, blk, 0, stream>>>(depth, vertex,
-                                                        cam_intr_inv);
+  device::ComputeVertexKernel<<<grid, blk, 0, stream>>>(PtrStepSz<float>(depth),
+                                                        vertex, cam_intr_inv);
 
   CudaSafeCall(cudaStreamSynchronize(stream));
   CudaSafeCall(cudaGetLastError());

@@ -1,6 +1,8 @@
 cuda_add_library(lib_imgproc
   cuda/cuda_texture_surface.cu
   cuda/compute_vertex.cu
+  cuda/compute_normal.cu
+  cuda/bilateral_filter.cu
   cuda/containers/initialization.cpp
   cuda/containers/device_memory.cpp
   image_proc.cpp

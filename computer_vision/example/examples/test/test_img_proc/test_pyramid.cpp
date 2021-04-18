@@ -5,6 +5,7 @@
  * @date: 2020/06/29 22:32
  */
 #include "common/safe_open.hpp"
+#include "img_proc/cuda/cuda_stream.h"
 #include "img_proc/cuda/cuda_texture_surface.h"
 #include "img_proc/cuda/pyramid.hpp"
 #include "json.hpp" // for nlohmann::json
@@ -92,13 +93,13 @@ int main(int argc, char **argv) {
   double fy = j["depth image"]["intrinsic"]["fy"];
   double cx = j["depth image"]["intrinsic"]["cx"];
   double cy = j["depth image"]["intrinsic"]["cy"];
-  //float4 camera_intrinsic_inv = make_float4(1.0 / fx, 1.0 / fy, cx, cy);
+  // float4 camera_intrinsic_inv = make_float4(1.0 / fx, 1.0 / fy, cx, cy);
 
   // cuda resource
   CudaStream stream;
   // pagelock memory
-  PagelockMemory depth_buffer_pagelock(sizeof(uint16_t) * img_size.area());
-  PagelockMemory color_buffer_pagelock(sizeof(uchar4) * img_size.area());
+  PagelockedMemory depth_buffer_pagelock(sizeof(uint16_t) * img_size.area());
+  PagelockedMemory color_buffer_pagelock(sizeof(uchar4) * img_size.area());
 
   // necessary to sync after cudaMallocHost?
   CudaSafeCall(cudaDeviceSynchronize());
@@ -138,8 +139,8 @@ int main(int argc, char **argv) {
     assert(img_size == depth_img.size());
 
     // memory to pagelock memory
-    depth_buffer_pagelock.HostCopyFrom(static_cast<void *>(depth_img.data));
-    color_buffer_pagelock.HostCopyFrom(static_cast<void *>(color_img.data));
+    depth_buffer_pagelock.CopyFrom(static_cast<void *>(depth_img.data));
+    color_buffer_pagelock.CopyFrom(static_cast<void *>(color_img.data));
 
     // pagelock memory to device
     depth_pyramid.UploadToPyramid(depth_buffer_pagelock, stream);
