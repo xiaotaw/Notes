@@ -11,6 +11,7 @@
   - [CoreDumped如何debug](#coredumped如何debug)
   - [性能分析工具Pref](#性能分析工具pref)
   - [查找动态库](#查找动态库)
+  - [CMake指定特定Eigen版本](#cmake指定特定eigen版本)
 - [Python](#python)
   - [tf dataset from generator](#tf-dataset-from-generator)
   - [ConstrainedLinearRegression](#constrainedlinearregression)
@@ -132,6 +133,24 @@ valgrind --tool=memcheck <exectuable>
 ```bash
 # 查找是否安装了xxx
 ldconfig -p | grep xxx
+```
+
+### CMake指定特定Eigen版本
+在不同的工程中常常需要用到不同版本的Eigen，如[cuda中使用Eigen](https://github.com/xiaotaw/test_cuda_eigen)，容易造成混乱。解决方案之一是，将特定的Eigen版本安装至某个非系统include路径，通过给CMake传递Eigen3_DIR变量指定。示例如下：
+```bash
+# 获取eigen3.3.9
+wget https://gitlab.com/libeigen/eigen/-/archive/3.3.9/eigen-3.3.9.tar.gz
+tar zxvf eigen-3.3.9.tar.gz
+cd eigen-3.3.9
+# 安装至eigen-3.3.9/install
+mkdir build && mkdir install && cd build 
+cmake .. -DCMAKE_INSTALL_PREFIX=../install && make install
+
+# 在另一个项目的CMakeLists.txt中指定
+set(Eigen3_DIR "/Your Path To eigen-3.3.9/install/share/eigen3/cmake")
+find_package(Eigen3 REQUIRED)
+message(STATUS "EIGEN3_INCLUDE_DIR: ${EIGEN3_INCLUDE_DIR}")
+INCLUDE_DIRECTORIES(${EIGEN3_INCLUDE_DIR})
 ```
 
 ## Python
