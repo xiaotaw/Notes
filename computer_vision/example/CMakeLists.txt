@@ -26,11 +26,21 @@ find_package(k4a REQUIRED)
 # opencv
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
-#set(OpenCV_LIB_DIR ${OpenCV_INSTALL_PATH}/lib)
 message(STATUS "OpenCV version: ${OpenCV_VERSION}")
 message(STATUS "    include dir：${OpenCV_INCLUDE_DIRS}")
-#message(STATUS "    lib dir：${OpenCV_LIB_DIR}")
 message(STATUS "    libs：${OpenCV_LIBS}")
+
+# Eigen
+find_package(Eigen3 3.3 REQUIRED)
+if(EIGEN3_FOUND)
+  message(STATUS "Found Eigen ${EIGEN3_VERSION_STRING} at ${EIGEN3_INCLUDE_DIR}")
+  if(EIGEN3_VERSION_STRING VERSION_LESS 3.3.9)
+    message(FATAL_ERROR "CUDA requires Eigen version >=3.3.9, please specify custom eigen by setting Eigen3_DIR")
+  else()
+    message(STATUS "EIGEN3_INCLUDE_DIR: ${EIGEN3_INCLUDE_DIR}")
+    INCLUDE_DIRECTORIES(${EIGEN3_INCLUDE_DIR})
+  endif()
+endif()
 
 # pcl
 find_package(PCL REQUIRED)

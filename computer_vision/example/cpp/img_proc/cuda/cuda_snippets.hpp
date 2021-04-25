@@ -6,6 +6,7 @@
  */
 #pragma once
 #include <cuda_runtime_api.h>
+#include <Eigen/Core>
 #include <iostream>
 
 #define CudaSafeCall(expr) __cudaSafeCall(expr, __FILE__, __LINE__, __func__)
@@ -32,4 +33,9 @@ __device__ __host__ inline bool IsZeroVertex(const float &x, const float &y,
 __device__ __host__ inline bool IsZeroVertex(const float3 &v) {
   return (std::abs(v.x) <= 1e-5) || (std::abs(v.y) <= 1e-5) ||
          (std::abs(v.z) <= 1e-5);
+}
+
+__device__ __host__ inline bool IsZeroVertex(const Eigen::Vector3f &v) {
+  return (std::abs(v.x()) <= 1e-5) || (std::abs(v.y()) <= 1e-5) ||
+         (std::abs(v.z()) <= 1e-5);
 }

@@ -1,7 +1,16 @@
 ## 3D reconstruction based on RGBD camera
 1. using gpu to speedup, as the massive pointcloud and pixels
 2. be aware of dynamic objects
- 
+
+## Dependency
+Eigen >= 3.3.9
+
+## Compilation
+```bash
+mkdir build && cd build
+cmake .. -DEigen3_DIR=/home/xt/Documents/data/Others/eigen-3.3.9/install/share/eigen3/cmake
+```
+
 ## Image process
 ### bilateral filtering of depth image 
 
