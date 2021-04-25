@@ -14,18 +14,18 @@ namespace device {
 
 __device__ float3 ReadFloat3(const PtrStepSz<float> map, const int &u,
                              const int &v) {
-  const float x = map.ptr(v)[u];
-  const float y = map.ptr(v + map.rows / 3)[u];
-  const float z = map.ptr(v + map.rows / 3 * 2)[u];
+  const float x = map.ptr(v, 0)[u];
+  const float y = map.ptr(v, 1)[u];
+  const float z = map.ptr(v, 2)[u];
   return make_float3(x, y, z);
 }
 
 __device__ void WriteFloat4(PtrStepSz<float> map, const float4 &val,
                             const int &u, const int &v) {
-  map.ptr(v)[u] = val.x;
-  map.ptr(v + map.rows / 4)[u] = val.y;
-  map.ptr(v + map.rows / 4 * 2)[u] = val.z;
-  map.ptr(v + map.rows / 4 * 3)[u] = val.w;
+  map.ptr(v, 0)[u] = val.x;
+  map.ptr(v, 1)[u] = val.y;
+  map.ptr(v, 2)[u] = val.z;
+  map.ptr(v, 3)[u] = val.w;
 }
 
 /**
@@ -40,7 +40,7 @@ __global__ void ComputeNormalKernel(const PtrStepSz<float> vertex_map,
   const int x = threadIdx.x + blockIdx.x * blockDim.x;
   const int y = threadIdx.y + blockIdx.y * blockDim.y;
   const int cols = vertex_map.cols;
-  const int rows = vertex_map.rows / 3;
+  const int rows = vertex_map.rows;
   if (x >= cols || y >= rows) {
     return;
   }
@@ -117,11 +117,11 @@ __global__ void ComputeNormalKernel(const PtrStepSz<float> vertex_map,
 
 } // namespace device
 
-void ComputeNormal(const DeviceArray2D<float> vertex_map,
-                   DeviceArray2D<float> normal_map, cudaStream_t stream) {
+void ComputeNormal(const DeviceArray3D<float> vertex_map,
+                   DeviceArray3D<float> normal_map, cudaStream_t stream) {
   dim3 block(16, 16);
   dim3 grid(DivideUp(vertex_map.cols(), block.x),
-            DivideUp(vertex_map.rows() / 3, block.y));
+            DivideUp(vertex_map.rows(), block.y));
   device::ComputeNormalKernel<<<grid, block, 0, stream>>>(vertex_map,
                                                           normal_map);
   CudaSafeCall(cudaStreamSynchronize(stream));

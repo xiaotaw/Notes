@@ -51,7 +51,7 @@ void PCLVis::UpdatePointCloud(
   viewer_->updatePointCloud(cloud->makeShared(), cloud_name_);
   if (!normal->empty()) {
     viewer_->removePointCloud(normal_name_);
-    viewer_->addPointCloudNormals<pcl::PointXYZRGB, pcl::Normal>(cloud, normal, 10, 0.05, normal_name_);
+    viewer_->addPointCloudNormals<pcl::PointXYZRGB, pcl::Normal>(cloud, normal, 10, 80, normal_name_);
   }
   update = false;
 }

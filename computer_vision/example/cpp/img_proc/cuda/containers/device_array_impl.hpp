@@ -112,4 +112,46 @@ template<class T> inline int DeviceArray2D<T>::rows() const { return DeviceMemor
 template<class T> inline size_t DeviceArray2D<T>::elem_step() const { return DeviceMemory2D::step()/elem_size; }
 
 
+/////////////////////  Inline implementations of DeviceArray3D ////////////////////////////////////////////
+// 2021-04-18 update by xiaotaw
+
+template<class T> inline DeviceArray3D<T>::DeviceArray3D() {}
+template<class T> inline DeviceArray3D<T>::DeviceArray3D(int rows, int channels, int cols) : DeviceMemory3D(rows, channels, cols * elem_size) {}
+template<class T> inline DeviceArray3D<T>::DeviceArray3D(int rows, int channels, int cols, void *data, size_t stepBytes) : DeviceMemory3D(rows, channels, cols * elem_size, data, stepBytes) {}
+template<class T> inline DeviceArray3D<T>::DeviceArray3D(const DeviceArray3D& other) : DeviceMemory3D(other) {}
+template<class T> inline DeviceArray3D<T>& DeviceArray3D<T>::operator=(const DeviceArray3D& other)
+{ DeviceMemory3D::operator=(other); return *this; }
+
+template<class T> inline void DeviceArray3D<T>::create(int rows, int channels, int cols)
+{ DeviceMemory3D::create(rows, channels, cols * elem_size); }
+template<class T> inline void DeviceArray3D<T>::release()
+{ DeviceMemory3D::release(); }
+
+template<class T> inline void DeviceArray3D<T>::copyTo(DeviceArray3D& other) const
+{ DeviceMemory3D::copyTo(other); }
+template<class T> inline void DeviceArray3D<T>::upload(const void *host_ptr, size_t host_step, int rows, int channels, int cols)
+{ DeviceMemory3D::upload(host_ptr, host_step, rows, channels, cols * elem_size); }
+template<class T> inline void DeviceArray3D<T>::download(void *host_ptr, size_t host_step) const
+{ DeviceMemory3D::download( host_ptr, host_step ); }
+
+template<class T> template<class A> inline void DeviceArray3D<T>::upload(const std::vector<T, A>& data, int rows, int channels, int cols)
+{ upload(&data[0], cols * elem_size, rows, channels, cols); }
+
+template<class T> template<class A> inline void DeviceArray3D<T>::download(std::vector<T, A>& data, int& elem_channels, int& elem_step) const
+{ elem_channels = channels(); elem_step = cols(); data.resize(cols() * rows() * channels()); if (!data.empty()) download(&data[0], colsBytes());  }
+
+template<class T> void  DeviceArray3D<T>::swap(DeviceArray3D& other_arg) { DeviceMemory3D::swap(other_arg); }
+
+template<class T> inline       T* DeviceArray3D<T>::ptr(int y, int z)       { return DeviceMemory3D::ptr<T>(y, z); }
+template<class T> inline const T* DeviceArray3D<T>::ptr(int y, int z) const { return DeviceMemory3D::ptr<T>(y, z); }
+            
+template<class T> inline DeviceArray3D<T>::operator T*() { return ptr(); }
+template<class T> inline DeviceArray3D<T>::operator const T*() const { return ptr(); }
+
+template<class T> inline int DeviceArray3D<T>::cols() const { return DeviceMemory3D::colsBytes()/elem_size; }
+template<class T> inline int DeviceArray3D<T>::rows() const { return DeviceMemory3D::rows(); }
+template<class T> inline int DeviceArray3D<T>::channels() const { return DeviceMemory3D::channels(); }
+
+template<class T> inline size_t DeviceArray3D<T>::elem_step() const { return DeviceMemory3D::step()/elem_size; }
+
 #endif /* DEVICE_ARRAY_IMPL_HPP_ */

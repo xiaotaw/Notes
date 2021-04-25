@@ -164,8 +164,8 @@ void ImageProcessor::AllocateBuffer() {
 #else
   depth_d_.create(rows_, cols_);
   // Structure of Array(SoA): vertex x, y, z
-  vertex_d_.create(rows_ * 3, cols_);
-  normal_d_.create(rows_ * 4, cols_);
+  vertex_d_.create(rows_, 3, cols_);
+  normal_d_.create(rows_, 4, cols_);
 #endif
   depth_h_pagelocked_ =
       std::make_shared<PagelockedMemory>(sizeof(ushort) * rows_ * cols_);

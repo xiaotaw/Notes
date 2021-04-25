@@ -252,6 +252,130 @@ class DeviceArray2D : public DeviceMemory2D
         size_t elem_step() const;
 };
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/** \brief @b DeviceArray3D class
+  *
+  * \note Typed container for pitched GPU memory with reference counting.
+  *
+  * \author 2021-04-18 update by xiaotaw, based on Anatoly Baksheev's DeviceArray2D
+  */
+template<class T>
+class DeviceArray3D : public DeviceMemory3D
+{
+    public:
+        /** \brief Element type. */
+        typedef T type;
+
+        /** \brief Element size. */
+        enum { elem_size = sizeof(T) };
+
+        /** \brief Empty constructor. */
+        DeviceArray3D();
+
+        /** \brief Allocates internal buffer in GPU memory
+          * \param rows: number of rows to allocate
+          * \param channels: number of channels
+          * \param cols: number of elements in each row
+          * */
+        DeviceArray3D(int rows, int channels, int cols);
+
+         /** \brief Initializes with user allocated buffer. Reference counting is disabled in this case.
+          * \param rows: number of rows
+          * \param channels: number of channels
+          * \param cols: number of elements in each row
+          * \param data: pointer to buffer
+          * \param stepBytes: stride between two consecutive rows in bytes
+          * */
+        DeviceArray3D(int rows, int channels, int cols, void *data, size_t stepBytes);
+
+        /** \brief Copy constructor. Just increments reference counter. */
+        DeviceArray3D(const DeviceArray3D& other);
+
+        /** \brief Assigment operator. Just increments reference counter. */
+        DeviceArray3D& operator = (const DeviceArray3D& other);
+
+        /** \brief Allocates internal buffer in GPU memory. If internal buffer was created before the function recreates it with new size. If new and old sizes are equal it does nothing.
+           * \param rows: number of rows to allocate
+           * \param channels: number of channels
+           * \param cols: number of elements in each row
+           * */
+        void create(int rows, int channels, int cols);
+
+        /** \brief Decrements reference counter and releases internal buffer if needed. */
+        void release();
+
+        /** \brief Performs data copying. If destination size differs it will be reallocated.
+          * \param other: destination container
+          * */
+        void copyTo(DeviceArray3D& other) const;
+
+        /** \brief Uploads data to internal buffer in GPU memory. It calls create() inside to ensure that intenal buffer size is enough.
+          * \param host_ptr: pointer to host buffer to upload
+          * \param host_step: stride between two consecutive rows in bytes for host buffer
+          * \param rows: number of rows to upload
+          * \param channels: number of channels
+          * \param cols: number of elements in each row
+          * */
+        void upload(const void *host_ptr, size_t host_step, int rows, int channels, int cols);
+
+        /** \brief Downloads data from internal buffer to CPU memory. User is resposible for correct host buffer size.
+          * \param host_ptr: pointer to host buffer to download
+          * \param host_step: stride between two consecutive rows in bytes for host buffer
+          * */
+        void download(void *host_ptr, size_t host_step) const;
+
+        /** \brief Performs swap of data pointed with another device array.
+          * \param other: device array to swap with
+          * */
+        void swap(DeviceArray3D& other_arg);
+
+        /** \brief Uploads data to internal buffer in GPU memory. It calls create() inside to ensure that intenal buffer size is enough.
+          * \param data: host vector to upload from
+          * \param cols: stride in elements between  two consecutive rows in bytes for host buffer
+          * */
+        template<class A>
+        void upload(const std::vector<T, A>& data, int rows, int channels, int cols);
+
+        /** \brief Downloads data from internal buffer to CPU memory
+           * \param data: host vector to download to
+           * \param elem_channels: Output channels
+           * \param elem_cols: Output stride in elements between two consecutive rows in bytes for host vector.
+           * */
+        template<class A>
+        void download(std::vector<T, A>& data, int& elem_channels, int& elem_cols) const;
+
+        /** \brief Returns pointer to given row in internal buffer.
+          * \param y_arg: row index
+          * */
+        T* ptr(int y = 0, int z = 0);
+
+        /** \brief Returns const pointer to given row in internal buffer.
+          * \param y_arg: row index
+          * */
+        const T* ptr(int y = 0, int z = 0) const;
+        
+        //using DeviceMemory2D::ptr;
+
+        /** \brief Returns pointer for internal buffer in GPU memory. */
+        operator T*();
+
+        /** \brief Returns const pointer for internal buffer in GPU memory. */
+        operator const T*() const;
+        
+        /** \brief Returns number of elements in each row. */
+        int cols() const;
+
+        /** \brief Returns number of rows. */
+        int rows() const;
+
+        /** \brief Returns number of rows. */
+        int channels() const;
+
+        /** \brief Returns step in elements. */
+        size_t elem_step() const;
+};
+
+
 #include "device_array_impl.hpp"
 
 #endif /* DEVICE_ARRAY_HPP_ */

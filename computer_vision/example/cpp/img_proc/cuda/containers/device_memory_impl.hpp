@@ -73,5 +73,30 @@ template <class U> DeviceMemory2D::operator PtrStepSz<U>() const
     return result;
 }
 
+/////////////////////  Inline implementations of DeviceMemory3D ////////////////////////////////////////////
+//  2021-04-18 update by xiaotaw
+           
+template<class T>        T* DeviceMemory3D::ptr(int y_arg,  int z_arg)       { return (      T*)((      char*)data_ + (rows_ * z_arg + y_arg) * step_); }
+template<class T>  const T* DeviceMemory3D::ptr(int y_arg,  int z_arg) const { return (const T*)((const char*)data_ + (rows_ * z_arg + y_arg) * step_); }
+
+template <class U> DeviceMemory3D::operator PtrStep<U>() const
+{
+    PtrStep<U> result;
+    result.data = (U*)ptr<U>();
+    result.step = step_;
+    return result;
+}
+
+template <class U> DeviceMemory3D::operator PtrStepSz<U>() const
+{
+    PtrStepSz<U> result;
+    result.data = (U*)ptr<U>();
+    result.step = step_;
+    result.cols = colsBytes_/sizeof(U);
+    result.rows = rows_;
+    result.channels = channels_;
+    return result;
+}
+
 #endif /* DEVICE_MEMORY_IMPL_HPP_ */
 

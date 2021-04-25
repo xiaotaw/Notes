@@ -62,9 +62,9 @@ __global__ void ComputeVertexKernel(const PtrStepSz<T> depth,
   const float vertex_x = (x - cam_intr_inv.cx) * vertex_z * cam_intr_inv.fx_inv;
   const float vertex_y = (y - cam_intr_inv.cy) * vertex_z * cam_intr_inv.fy_inv;
 
-  vertex.ptr(y)[x] = vertex_x;
-  vertex.ptr(y + depth.rows)[x] = vertex_y;
-  vertex.ptr(y + depth.rows * 2)[x] = vertex_z;
+  vertex.ptr(y, 0)[x] = vertex_x;
+  vertex.ptr(y, 1)[x] = vertex_y;
+  vertex.ptr(y, 2)[x] = vertex_z;
 }
 
 } // namespace device
@@ -83,7 +83,7 @@ void ComputeVertex(CudaTextureSurface2D<ushort>::Ptr depth,
 }
 
 void ComputeVertex(const DeviceArray2D<ushort> depth,
-                   DeviceArray2D<float> vertex, const CamIntrInv &cam_intr_inv,
+                   DeviceArray3D<float> vertex, const CamIntrInv &cam_intr_inv,
                    cudaStream_t stream) {
   dim3 blk(16, 16);
   dim3 grid(DivideUp(depth.cols(), blk.x), DivideUp(depth.rows(), blk.y));
@@ -96,7 +96,7 @@ void ComputeVertex(const DeviceArray2D<ushort> depth,
 }
 
 void ComputeVertex(const DeviceArray2D<float> depth,
-                   DeviceArray2D<float> vertex, const CamIntrInv &cam_intr_inv,
+                   DeviceArray3D<float> vertex, const CamIntrInv &cam_intr_inv,
                    cudaStream_t stream) {
   dim3 blk(16, 16);
   dim3 grid(DivideUp(depth.cols(), blk.x), DivideUp(depth.rows(), blk.y));

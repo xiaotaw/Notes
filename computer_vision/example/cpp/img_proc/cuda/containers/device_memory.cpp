@@ -280,3 +280,127 @@ bool DeviceMemory2D::empty() const { return !data_; }
 int DeviceMemory2D::colsBytes() const { return colsBytes_; }
 int DeviceMemory2D::rows() const { return rows_; }
 size_t DeviceMemory2D::step() const { return step_; }
+
+
+
+////////////////////////    DeviceArray3D    /////////////////////////////
+// 2021-04-18 update by xiaotaw
+
+DeviceMemory3D::DeviceMemory3D()
+    : data_(0), step_(0), colsBytes_(0), rows_(0), channels_(0), refcount_(0) {}
+
+DeviceMemory3D::DeviceMemory3D(int rows_arg, int channels_arg,
+                               int colsBytes_arg)
+    : data_(0), step_(0), colsBytes_(0), rows_(0), channels_(0), refcount_(0) {
+  create(rows_arg, channels_arg, colsBytes_arg);
+}
+
+DeviceMemory3D::DeviceMemory3D(int rows_arg, int channels_arg,
+                               int colsBytes_arg, void *data_arg,
+                               size_t step_arg)
+    : data_(data_arg), step_(step_arg), colsBytes_(colsBytes_arg),
+      rows_(rows_arg), channels_(channels_arg), refcount_(0) {}
+
+DeviceMemory3D::~DeviceMemory3D() { release(); }
+
+DeviceMemory3D::DeviceMemory3D(const DeviceMemory3D &other_arg)
+    : data_(other_arg.data_), step_(other_arg.step_),
+      colsBytes_(other_arg.colsBytes_), rows_(other_arg.rows_),
+      channels_(other_arg.channels_), refcount_(other_arg.refcount_) {
+  if (refcount_)
+    CV_XADD(refcount_, 1);
+}
+
+DeviceMemory3D &DeviceMemory3D::operator=(const DeviceMemory3D &other_arg) {
+  if (this != &other_arg) {
+    if (other_arg.refcount_)
+      CV_XADD(other_arg.refcount_, 1);
+    release();
+
+    colsBytes_ = other_arg.colsBytes_;
+    rows_ = other_arg.rows_;
+    data_ = other_arg.data_;
+    step_ = other_arg.step_;
+    channels_ = other_arg.channels_;
+
+    refcount_ = other_arg.refcount_;
+  }
+  return *this;
+}
+
+void DeviceMemory3D::create(int rows_arg, int channels_arg, int colsBytes_arg) {
+  if (colsBytes_ == colsBytes_arg && rows_ == rows_arg &&
+      channels_ == channels_arg)
+    return;
+
+  if (rows_arg > 0 && colsBytes_arg > 0 && channels_arg > 0) {
+    if (data_)
+      release();
+
+    colsBytes_ = colsBytes_arg;
+    rows_ = rows_arg;
+    channels_ = channels_arg;
+
+    cudaSafeCall(cudaMallocPitch((void **)&data_, &step_, colsBytes_,
+                                 rows_ * channels_));
+
+    // refcount = (int*)cv::fastMalloc(sizeof(*refcount));
+    refcount_ = new int;
+    *refcount_ = 1;
+  }
+}
+
+void DeviceMemory3D::release() {
+  if (refcount_ && CV_XADD(refcount_, -1) == 1) {
+    // cv::fastFree(refcount);
+    delete refcount_;
+    cudaSafeCall(cudaFree(data_));
+  }
+
+  colsBytes_ = 0;
+  rows_ = 0;
+  channels_ = 0;
+  data_ = 0;
+  step_ = 0;
+  refcount_ = 0;
+}
+
+void DeviceMemory3D::copyTo(DeviceMemory3D &other) const {
+  if (empty())
+    other.release();
+  else {
+    other.create(rows_, channels_, colsBytes_);
+    cudaSafeCall(cudaMemcpy2D(other.data_, other.step_, data_, step_,
+                              colsBytes_, rows_ * channels_,
+                              cudaMemcpyDeviceToDevice));
+    cudaSafeCall(cudaDeviceSynchronize());
+  }
+}
+
+void DeviceMemory3D::upload(const void *host_ptr_arg, size_t host_step_arg,
+                            int rows_arg, int channels_arg, int colsBytes_arg) {
+  create(rows_arg, channels_arg, colsBytes_arg);
+  cudaSafeCall(cudaMemcpy2D(data_, step_, host_ptr_arg, host_step_arg,
+                            colsBytes_, rows_ * channels_, cudaMemcpyHostToDevice));
+}
+
+void DeviceMemory3D::download(void *host_ptr_arg, size_t host_step_arg) const {
+  cudaSafeCall(cudaMemcpy2D(host_ptr_arg, host_step_arg, data_, step_,
+                            colsBytes_, rows_ * channels_, cudaMemcpyDeviceToHost));
+}
+
+void DeviceMemory3D::swap(DeviceMemory3D &other_arg) {
+  std::swap(data_, other_arg.data_);
+  std::swap(step_, other_arg.step_);
+
+  std::swap(colsBytes_, other_arg.colsBytes_);
+  std::swap(rows_, other_arg.rows_);
+  std::swap(channels_, other_arg.channels_);
+  std::swap(refcount_, other_arg.refcount_);
+}
+
+bool DeviceMemory3D::empty() const { return !data_; }
+int DeviceMemory3D::colsBytes() const { return colsBytes_; }
+int DeviceMemory3D::rows() const { return rows_; }
+int DeviceMemory3D::channels() const { return channels_; }
+size_t DeviceMemory3D::step() const { return step_; }

@@ -71,8 +71,8 @@ private:
   DeviceArray2D<ushort> depth_d_;
 
   ///////////////////////// SHOULD USING DeviceArray3D //////////////////////
-  DeviceArray2D<float> vertex_d_;
-  DeviceArray2D<float> normal_d_;
+  DeviceArray3D<float> vertex_d_;
+  DeviceArray3D<float> normal_d_;
 #endif
 
   PagelockedMemory::Ptr depth_h_pagelocked_;

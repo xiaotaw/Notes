@@ -41,9 +41,9 @@
 #include <cstddef>
 
 #if defined(__CUDACC__)
-    #define GPU_HOST_DEVICE__ __host__ __device__ __forceinline__
+    #define GPU_HOST_DEVICE__ __host__ __device__ __forceinline__ 
 #else
-    #define GPU_HOST_DEVICE__
+    #define GPU_HOST_DEVICE__ 
 #endif
 
 template<typename T> struct DevPtr
@@ -83,12 +83,18 @@ template<typename T>  struct PtrStep : public DevPtr<T>
 
 template <typename T> struct PtrStepSz : public PtrStep<T>
 {
-    GPU_HOST_DEVICE__ PtrStepSz() : cols(0), rows(0) {}
+    GPU_HOST_DEVICE__ PtrStepSz() : cols(0), rows(0), channels(0) {}
     GPU_HOST_DEVICE__ PtrStepSz(int rows_arg, int cols_arg, T* data_arg, size_t step_arg)
-        : PtrStep<T>(data_arg, step_arg), cols(cols_arg), rows(rows_arg) {}
+        : PtrStep<T>(data_arg, step_arg), cols(cols_arg), rows(rows_arg), channels(1) {}
+    GPU_HOST_DEVICE__ PtrStepSz(int rows_arg, int cols_arg, int channels_arg, T* data_arg, size_t step_arg)
+        : PtrStep<T>(data_arg, step_arg), cols(cols_arg), rows(rows_arg), channels(channels_arg) {}
+
+    GPU_HOST_DEVICE__       T* ptr(int y = 0, int z = 0)       { return (      T*)( (      char*)DevPtr<T>::data + (y + z * rows) * PtrStep<T>::step); }
+    GPU_HOST_DEVICE__ const T* ptr(int y = 0, int z = 0) const { return (const T*)( (const char*)DevPtr<T>::data + (y + z * rows) * PtrStep<T>::step); }    
 
     int cols;
     int rows;
+    int channels;
 };
 
 #endif /* KERNEL_CONTAINERS_HPP_ */

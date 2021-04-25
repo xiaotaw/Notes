@@ -12,5 +12,5 @@
 #include "img_proc/cuda/containers/device_array.hpp"
 #include <cuda_runtime_api.h>
 
-void ComputeNormal(const DeviceArray2D<float> vertex_map,
-                   DeviceArray2D<float> normal_map, cudaStream_t stream = 0);
+void ComputeNormal(const DeviceArray3D<float> vertex_map,
+                   DeviceArray3D<float> normal_map, cudaStream_t stream = 0);
