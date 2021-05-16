@@ -8,7 +8,7 @@ Eigen >= 3.3.9
 ## Compilation
 ```bash
 mkdir build && cd build
-cmake .. -DEigen3_DIR=/home/xt/Documents/data/Others/eigen-3.3.9/install/share/eigen3/cmake
+cmake .. -DOpenCV_DIR=/usr/local/opencv-4.2.0/lib/cmake/opencv4
 ```
 
 ## Image process
