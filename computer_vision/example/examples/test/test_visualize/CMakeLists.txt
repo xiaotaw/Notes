@@ -22,11 +22,3 @@ target_link_libraries(test_render_pointcloud
     lib_visualize
     lib_imgproc
 )
-
-add_executable(test_pcl_visualizer test_pcl_visualizer.cpp)
-target_link_libraries(test_pcl_visualizer
-    lib_dataset
-    lib_imgproc
-    lib_visualize
-    lib_common
-)

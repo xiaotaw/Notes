@@ -14,18 +14,12 @@
 #include "img_proc/cuda/cuda_stream.h"
 #include "img_proc/cuda/cuda_timmer.h"
 #include "img_proc/cuda/pagelocked_memory.h"
+#include "img_proc/frame.h"
 #include <cuda_runtime_api.h>
 #include <opencv2/opencv.hpp>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 #include <vector_functions.hpp> // for make_ushort2
-
-//#define USING_TEXTURE
-#ifdef USING_TEXTURE
-#include "img_proc/cuda/cuda_texture_surface.h"
-#else
-#include "img_proc/cuda/containers/device_array.hpp"
-#endif
 
 class ImageProcessor {
 public:
@@ -35,26 +29,24 @@ public:
   ImageProcessor(const int &cols, const int &rows, const double &fx,
                  const double &fy, const double &cx, const double &cy);
 
-  ~ImageProcessor();
-
-  /**
-   * @brief compute vertex map from depth image
-   * @param[in] depth_img depth image
-   */
-  void BuildVertexMap(const cv::Mat &depth_img);
-
-  void BuildNormalMap(bool sync = false);
-
   /**
    * @brief Download vertex and normal data as pcl::PointCloud
    * @param[out] cloud the vertex (pcl::PointCloud)
    * @param[out] normal the normal of each vertex
-   * @param[in] color_img the color of vertex
    * @note it's a debug method
    */
-  void DownloadVertexNormal(pcl::PointCloud<pcl::PointXYZRGB>::Ptr &cloud,
+  void DownloadCurrentFrame(pcl::PointCloud<pcl::PointXYZRGB>::Ptr &cloud,
                             pcl::PointCloud<pcl::Normal>::Ptr &normal,
                             const cv::Mat &color_img = cv::Mat());
+
+  /**
+   * @brief compute vertex_map and normal
+   * @param[in] depth_img
+   * @param[in] color_img
+   */
+  void ProcessImage(const cv::Mat &depth_img, const cv::Mat &color_img);
+
+  void Synchronize();
 
   int cols() const { return cols_; }
   int rows() const { return rows_; }
@@ -64,16 +56,8 @@ private:
   CamIntr cam_intr_;
   CamIntrInv cam_intr_inv_;
 
-#ifdef USING_TEXTURE
-  CudaTextureSurface2D<ushort>::Ptr depth_d_;
-  CudaTextureSurface2D<float4>::Ptr vertex_d_;
-#else
-  DeviceArray2D<ushort> depth_d_;
-
-  ///////////////////////// SHOULD USING DeviceArray3D //////////////////////
-  DeviceArray3D<float> vertex_d_;
-  DeviceArray3D<float> normal_d_;
-#endif
+  Frame::Ptr cur_frame_;
+  std::list<Frame::Ptr> frames_;
 
   PagelockedMemory::Ptr depth_h_pagelocked_;
   CudaStream stream_;
@@ -81,5 +65,4 @@ private:
 
 private:
   void AllocateBuffer();
-  void ReleaseBuffer();
 };

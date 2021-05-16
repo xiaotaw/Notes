@@ -5,8 +5,8 @@ cuda_add_library(lib_imgproc
   cuda/bilateral_filter.cu
   cuda/containers/initialization.cpp
   cuda/containers/device_memory.cpp
-  cuda/icp/icp.cu
-  cuda/icp/icp.cpp
+  icp/icp.cu
+  icp/icp.cpp
   image_proc.cpp
 )
 

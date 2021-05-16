@@ -9,8 +9,11 @@
  *
  */
 #include "icp.h"
+#include <iostream>
 
 namespace icp {
+
+namespace rigid_icp {
 
 /**
  * @brief 向量对应的反对称矩阵
@@ -78,24 +81,29 @@ void IcpAlign(const DeviceArray3D<float> &vmap_src,
 
   for (int iter = 0; iter < 20; ++iter) {
     // 高斯牛顿法，计算JtJ和J*Residual。
-    EdaVectorf<JTJ_JR_SIZE> h_jtj_jr = EdaVectorf<JTJ_JR_SIZE>::Zero();
-    IcpAlignDeviceStep(vmap_src, nmap_src, vmap_tgt, nmap_tgt, cam_intr, rot,
-                       trans, h_jtj_jr, score, stream);
+    EdaGnState h_gn_state_sum = EdaGnState::Zero();
+    IcpAlignDeviceStep(vmap_src, nmap_src, vmap_tgt, nmap_tgt, cam_intr, rot.cast<float>(),
+                       trans.cast<float>(), h_gn_state_sum, stream);
     Eigen::Matrix<double, 6, 6, Eigen::RowMajor> JtJ_host;
     Eigen::Matrix<double, 6, 1> JR_host;
 
     int i = 0;
     for (int u = 0; u < 6; ++u) {
       for (int v = 0; v < u; ++v) {
-        JtJ_host(u, v) = h_jtj_jr(i);
-        JtJ_host(v, u) = h_jtj_jr(i);
+        JtJ_host(u, v) = h_gn_state_sum(i);
+        JtJ_host(v, u) = h_gn_state_sum(i);
         i++;
       }
-      JtJ_host(u, u) = h_jtj_jr(i++);
+      JtJ_host(u, u) = h_gn_state_sum(i++);
     }
     for (int u = 0; u < 6; ++u) {
-      JR_host(u) = h_jtj_jr(i++);
+      JR_host(u) = h_gn_state_sum(i++);
     }
+
+    // 计算score
+    double cnt = h_gn_state_sum(i++);
+    double score_sum = h_gn_state_sum(i++);
+    score = cnt > 0 ? score_sum / cnt : 0;
 
     // JtJ为对称矩阵，采用ldlt分解，求方程组的解
     Eigen::Matrix<double, 6, 1> delta = JtJ_host.ldlt().solve(JR_host);
@@ -109,4 +117,6 @@ void IcpAlign(const DeviceArray3D<float> &vmap_src,
     trans = delta_t + delta_R * trans;
   }
 }
+
+} // namespace rigid_icp
 } // namespace icp
