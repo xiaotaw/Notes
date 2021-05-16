@@ -26,9 +26,11 @@ cmake .. -DOpenCV_DIR=/usr/local/opencv-4.2.0/lib/cmake/opencv4
 
 
 ## Plan
-| No  |  type        | item                       | deadline | status |
-| --- | ---          | --------------             | -------- | ------ |
-| 1   | basic func   | cuda container and texture | 2021.4   | 100%   | 
-| 1   | image process| bilateral filter           | 2021.4   | 50%    |
-| 2   | 3D           | icp(cuda) version          | 2021.4   | x      |
-| 3   | 2D           | tv l1                      | 2021.5   | x      |
+| No  |  type        | item                                           | deadline | status |
+| --- | ---          | --------------                                 | -------- | ------ |
+| 1   | basic func   | cuda container and texture                     | 2021.4   | 100%   | 
+| 2   | image process| bilateral filter                               | 2021.4   | 50% (done but not tested yet) |
+| 3   | 3D           | icp(cuda) version                              | 2021.4   | 100% (finished at 2021-05-16)   |
+| 4   | 2D           | optical flow + tv l1                           | 2021.5   | 0%     |
+| 5   | 3D           | 'icp + tv l1': define the question, math model | 2021.6   | 0%     |
+| 6   | 3D           | 'icp + tv l1': implementation                  | 2021.7   | 0%     |
