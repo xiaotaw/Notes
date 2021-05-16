@@ -1,15 +1,49 @@
 ## 目录
 
 - [目录](#目录)
-- [安装opencv](#安装opencv)
+- [ubuntu=18.04安装opencv](#ubuntu1804安装opencv)
+  - [安装opencv4.2.0+CUDA](#安装opencv420cuda)
   - [安装opencv4.1.0](#安装opencv410)
   - [安装opencv3.1.0](#安装opencv310)
-  - [安装opencv3.2.0不包含opencv_crontib](#安装opencv320不包含opencv_crontib)
+  - [安装opencv3.2.0](#安装opencv320)
 - [参考资料](#参考资料)
 
-## 安装opencv
+## ubuntu=18.04安装opencv
 
 *编译OpenCV时，会下载不少东西，且不同版本的源码可能需做一部分修改，因此若需编译安装某个版本，建议直接下载该版本release源码包，而不是通过git checkout切换。*
+
+
+### 安装opencv4.2.0+CUDA
+```bash
+mkdir opencv-4.2.0
+wget https://github.com/opencv/opencv/archive/refs/tags/4.2.0.tar.gz
+wget https://github.com/opencv/opencv_contrib/archive/refs/tags/4.2.0.tar.gz
+tar zxvf opencv-4.2.0.tar.gz
+tar zxvf opencv_contrib-4.2.0.tar.gz
+
+cd opencv-4.2.0
+mkdir build && cd build
+cmake \
+-D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local/opencv-4.2.0 \
+-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.2.0/modules \
+-D WITH_VTK=ON \
+-D WITH_CUDA=ON \
+-D CUDA_ARCH_BIN=6.1 \
+-D CUDA_ARCH_PTX=6.1 \
+-D ENABLE_FAST_MATH=1   \
+-D CUDA_FAST_MATH=1 \
+-D WITH_CUBLAS=1 \
+-D OPENCV_ENABLE_NONFREE=ON \
+-D BUILD_EXAMPLES=OFF \
+-D BUILD_TESTS=OFF \
+-D BUILD_PREF_TESTS=OFF \
+..
+
+make -j
+sudo make install
+```
+
 
 ### 安装opencv4.1.0
 
@@ -96,9 +130,16 @@ cmake \
 ..
 ```
 
-### 安装opencv3.2.0不包含opencv_crontib
+### 安装opencv3.2.0
+- WITH_CUDA 失败  
+  CMake Error: The following variables are used in this project, but they are set to NOTFOUND.  
+  Please set them or make sure they are set and tested correctly in the CMake files:  
+  CUDA_nppi_LIBRARY (ADVANCED)
+- 报错: CMake Error at cmake/OpenCVCompilerOptions.cmake:21 (else):  
+  解决：https://blog.csdn.net/weixin_41674487/article/details/88237764  
 
 ```bash
+# without contrib
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D CMAKE_INSTALL_PREFIX=/usr/local/opencv-3.2.0 \
 -D INSTALL_PYTHON_EXAMPLES=ON \
@@ -109,12 +150,24 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D WITH_CUDA=OFF \
 -D ENABLE_PRECOMPILED_HEADERS=OFF \
 ..
-
-# 报错: CMake Error at cmake/OpenCVCompilerOptions.cmake:21 (else):
-# 解决：https://blog.csdn.net/weixin_41674487/article/details/88237764
-
-
 ```
+
+```bash
+# with contrib
+# contrib中需下载一些诸如机器学习模型等文件，可使用proxy工具加速加载。
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.2.0/modules \
+-D CMAKE_INSTALL_PREFIX=/usr/local/opencv-3.2.0 \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D INSTALL_C_EXAMPLES=ON \
+-D BUILD_EXAMPLES=ON \
+-D BUILD_TESTS=ON \
+-D BUILD_PREF_TESTS=ON \
+-D WITH_CUDA=OFF \
+-D ENABLE_PRECOMPILED_HEADERS=OFF \
+..
+```
+
 
 ## 参考资料
 
