@@ -54,6 +54,9 @@ int NyuV2RawDataset::FindImageList() {
   std::sort(raw_depth_filenames_.begin(), raw_depth_filenames_.end());
   std::sort(raw_color_filenames_.begin(), raw_color_filenames_.end());
   std::sort(raw_accel_filenames_.begin(), raw_accel_filenames_.end());
+  std::cout << "Find depth: " << raw_depth_filenames_.size()
+            << " color: " << raw_color_filenames_.size()
+            << " accel: " << raw_accel_filenames_.size() << std::endl;
   return raw_depth_filenames_.size() + raw_color_filenames_.size() +
          raw_accel_filenames_.size();
 }
