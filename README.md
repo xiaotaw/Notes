@@ -62,6 +62,7 @@
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#coredumped如何debug" target="_blank">CoreDumped如何debug</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#性能分析工具pref" target="_blank">性能分析工具Pref</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#查找动态库" target="_blank">查找动态库</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#cmake指定特定eigen版本" target="_blank">CMake指定特定Eigen版本</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#python" target="_blank">Python</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#tf-dataset-from-generator" target="_blank">tf dataset from generator</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#constrainedlinearregression" target="_blank">ConstrainedLinearRegression</a>
@@ -99,6 +100,7 @@
     - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#一些bug的处理" target="_blank">一些bug的处理</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#git" target="_blank">git</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#pull或push指定分支" target="_blank">pull或push指定分支</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#更新本地分支信息" target="_blank">更新本地分支信息</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#合并历史commit" target="_blank">合并历史commit</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#git添加submodule" target="_blank">git添加submodule</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/README.md#git更名submodule" target="_blank">git更名submodule</a>
@@ -177,13 +179,20 @@
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md" target="_blank">computer_vision/opencv</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#目录" target="_blank">目录</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv" target="_blank">安装opencv</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#ubuntu1804安装opencv" target="_blank">ubuntu=18.04安装opencv</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv420cuda" target="_blank">安装opencv4.2.0+CUDA</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv410" target="_blank">安装opencv4.1.0</a>
   - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv310" target="_blank">安装opencv3.1.0</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv320不包含opencv_crontib" target="_blank">安装opencv3.2.0不包含opencv_crontib</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv320" target="_blank">安装opencv3.2.0</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#参考资料" target="_blank">参考资料</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/rs_l515.md" target="_blank">computer_vision/rs_l515</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/time_synchronization.md" target="_blank">computer_vision/time_synchronization</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/time_synchronization.md#测试GNSS设备" target="_blank">测试GNSS设备</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/time_synchronization.md#测试lidar设备" target="_blank">测试lidar设备</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/time_synchronization.md#gnss给lidar授时" target="_blank">gnss给lidar授时</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/time_synchronization.md#phase lock for velodyne VLP16" target="_blank">phase lock for velodyne VLP16</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md" target="_blank">computer_vision</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#简介" target="_blank">简介</a>
