@@ -10,45 +10,39 @@
 20200323: (todo) 将子目录下的README.md的内容拆分成小文件，与根目录下的一样，README.md仅保留目录。    
 
 20210123: (todo) 使用vscode+markdown插件，规范化所有README.md文件
-## <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md" target="_blank">docker</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#安装" target="_blank">安装</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#windows" target="_blank">windows</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#下载和上传镜像" target="_blank">下载和上传镜像</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#官网" target="_blank">官网</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#阿里云（登录使用）" target="_blank">阿里云（登录使用）</a>
-    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#镜像加速器" target="_blank">镜像加速器</a>
-    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#用户公开镜像" target="_blank">用户公开镜像</a>
-    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#将镜像上传至阿里云本地镜像仓库" target="_blank">将镜像上传至阿里云本地镜像仓库</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#创建镜像" target="_blank">创建镜像</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#保存镜像" target="_blank">保存镜像</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#使用容器" target="_blank">使用容器</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#端口映射" target="_blank">端口映射</a>
-    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#指定端口映射" target="_blank">指定端口映射</a>
-    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#容器使用本地端口" target="_blank">容器使用本地端口</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#docker图形界面" target="_blank">docker图形界面</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#容器时间与宿主机同步" target="_blank">容器时间与宿主机同步</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#异步进入容器" target="_blank">异步进入容器</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#命名空间映射" target="_blank">命名空间映射</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#查看dockerhub上镜像的tag" target="_blank">查看dockerhub上镜像的tag</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#个人容器镜像，存放于阿里云容器镜像服务器" target="_blank">个人容器镜像，存放于阿里云容器镜像服务器</a>
+## <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md" target="_blank">others/neo4j</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#Install" target="_blank">安装neo4j</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#ubuntu" target="_blank">ubuntu</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#运行neo4j服务" target="_blank">运行neo4j服务</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#浏览器远程连接" target="_blank">浏览器远程连接</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#使用neo4j" target="_blank">使用neo4j</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#基本介绍" target="_blank">基本介绍</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#从CSV中加载数据" target="_blank">从CSV中加载数据</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#参考资料" target="_blank">参考资料</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#Others" target="_blank">其他</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#批量导入数据方法对比" target="_blank">批量导入数据方法对比</a>
 
-## <a href="https://github.com/xiaotaw/Notes/tree/master/docker/operations.md" target="_blank">docker/operations</a>
+## <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md" target="_blank">others/wikidata</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#简介" target="_blank">简介</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据下载" target="_blank">数据下载</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据精简" target="_blank">数据精简</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据统计" target="_blank">数据统计</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据使用" target="_blank">数据使用</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md将wikidata导入neo4j" target="_blank">将wikidata导入neo4j</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#其他" target="_blank">其他</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#参考资料" target="_blank">参考资料</a>
 
-## <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md" target="_blank">gpu/get_started</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#目录" target="_blank">目录</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#写在前面" target="_blank">写在前面</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#nvidia显卡驱动安装" target="_blank">NVIDIA显卡驱动安装</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#手动安装" target="_blank">手动安装</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#自动安装推荐" target="_blank">自动安装(推荐)</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda安装" target="_blank">CUDA安装</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#安装之前的考虑" target="_blank">安装之前的考虑</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#下载并安装cuda" target="_blank">下载并安装CUDA</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#下载并安装cudnn" target="_blank">下载并安装cudnn</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda编程" target="_blank">CUDA编程</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda中使用eigen" target="_blank">CUDA中使用Eigen</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#内存访问模式" target="_blank">内存访问模式</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#参考资料" target="_blank">参考资料</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda100和cmake冲突" target="_blank">CUDA10.0和CMAKE冲突</a>
+## <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md" target="_blank">others/machine_translation</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md#目录" target="_blank">目录</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md#语料分割" target="_blank">语料分割</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md" target="_blank">others/reinforcement_learning</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#Virutal Env Simulator" target="_blank">Virtual Env Simulator</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#GibsonEnv" target="_blank">GibsonEnv</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#Habitat" target="_blank">Habitat</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#数据集" target="_blank">数据集</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#AlphaGo" target="_blank">AlphaGo</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#参考资料" target="_blank">参考资料</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md" target="_blank">ubuntu/coding</a>
 - <a href="https://github.com/xiaotaw/Notes/tree/master/ubuntu/coding.md#目录" target="_blank">目录</a>
@@ -141,58 +135,31 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow/README.md#参考资料" target="_blank">参考资料</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/tensorflow/README.md#源码编译tensorflow2动态库" target="_blank">源码编译tensorflow=2.0动态库libtensorflow_cc.so</a>
 
-## <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md" target="_blank">others/wikidata</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#简介" target="_blank">简介</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据下载" target="_blank">数据下载</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据精简" target="_blank">数据精简</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据统计" target="_blank">数据统计</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#数据使用" target="_blank">数据使用</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md将wikidata导入neo4j" target="_blank">将wikidata导入neo4j</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#其他" target="_blank">其他</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/wikidata/README.md#参考资料" target="_blank">参考资料</a>
+## <a href="https://github.com/xiaotaw/Notes/tree/master/docker/operations.md" target="_blank">docker/operations</a>
 
-## <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md" target="_blank">others/machine_translation</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md#目录" target="_blank">目录</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/others/machine_translation/README.md#语料分割" target="_blank">语料分割</a>
-
-## <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md" target="_blank">others/reinforcement_learning</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#Virutal Env Simulator" target="_blank">Virtual Env Simulator</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#GibsonEnv" target="_blank">GibsonEnv</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#Habitat" target="_blank">Habitat</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#数据集" target="_blank">数据集</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#AlphaGo" target="_blank">AlphaGo</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/reinforcement_learning/README.md#参考资料" target="_blank">参考资料</a>
-
-## <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md" target="_blank">others/neo4j</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#Install" target="_blank">安装neo4j</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#ubuntu" target="_blank">ubuntu</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#运行neo4j服务" target="_blank">运行neo4j服务</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#浏览器远程连接" target="_blank">浏览器远程连接</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#使用neo4j" target="_blank">使用neo4j</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#基本介绍" target="_blank">基本介绍</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#从CSV中加载数据" target="_blank">从CSV中加载数据</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#参考资料" target="_blank">参考资料</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#Others" target="_blank">其他</a>
-  * <a href="https://github.com/xiaotaw/Notes/tree/master/others/neo4j/README.md#批量导入数据方法对比" target="_blank">批量导入数据方法对比</a>
+## <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md" target="_blank">docker</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#安装" target="_blank">安装</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#windows" target="_blank">windows</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#下载和上传镜像" target="_blank">下载和上传镜像</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#官网" target="_blank">官网</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#阿里云（登录使用）" target="_blank">阿里云（登录使用）</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#镜像加速器" target="_blank">镜像加速器</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#用户公开镜像" target="_blank">用户公开镜像</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#将镜像上传至阿里云本地镜像仓库" target="_blank">将镜像上传至阿里云本地镜像仓库</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#创建镜像" target="_blank">创建镜像</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#保存镜像" target="_blank">保存镜像</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#使用容器" target="_blank">使用容器</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#端口映射" target="_blank">端口映射</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#指定端口映射" target="_blank">指定端口映射</a>
+    * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#容器使用本地端口" target="_blank">容器使用本地端口</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#docker图形界面" target="_blank">docker图形界面</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#容器时间与宿主机同步" target="_blank">容器时间与宿主机同步</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#异步进入容器" target="_blank">异步进入容器</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#命名空间映射" target="_blank">命名空间映射</a>
+  * <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#查看dockerhub上镜像的tag" target="_blank">查看dockerhub上镜像的tag</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/docker/README.md#个人容器镜像，存放于阿里云容器镜像服务器" target="_blank">个人容器镜像，存放于阿里云容器镜像服务器</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/dynamic_reconstruction.md" target="_blank">computer_vision/dynamic_reconstruction</a>
-
-## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md" target="_blank">computer_vision/opencv</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#目录" target="_blank">目录</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#ubuntu1804安装opencv" target="_blank">ubuntu=18.04安装opencv</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv420cuda" target="_blank">安装opencv4.2.0+CUDA</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv410" target="_blank">安装opencv4.1.0</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv310" target="_blank">安装opencv3.1.0</a>
-  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#安装opencv320" target="_blank">安装opencv3.2.0</a>
-- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/opencv.md#参考资料" target="_blank">参考资料</a>
-
-## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/rs_l515.md" target="_blank">computer_vision/rs_l515</a>
-
-## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/time_synchronization.md" target="_blank">computer_vision/time_synchronization</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/time_synchronization.md#测试GNSS设备" target="_blank">测试GNSS设备</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/time_synchronization.md#测试lidar设备" target="_blank">测试lidar设备</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/time_synchronization.md#gnss给lidar授时" target="_blank">gnss给lidar授时</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/time_synchronization.md#phase lock for velodyne VLP16" target="_blank">phase lock for velodyne VLP16</a>
 
 ## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md" target="_blank">computer_vision</a>
 * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#简介" target="_blank">简介</a>
@@ -218,11 +185,44 @@
   * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#sfm介绍博客" target="_blank">sfm介绍博客</a>
   * <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/README.md#《计算机视觉中的多视几何》" target="_blank">《计算机视觉中的多视几何》</a>
 
-## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md" target="_blank">computer_vision/kinect_dk</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#简介" target="_blank">简介</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#安装sdk" target="_blank">安装sdk</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#上手使用" target="_blank">上手使用</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#麦克风阵列" target="_blank">麦克风阵列</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#样例" target="_blank">样例</a>
-* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/kinect_dk.md#问题" target="_blank">问题</a>
+## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/time_synchronization.md" target="_blank">computer_vision/sensors/time_synchronization</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/time_synchronization.md#测试GNSS设备" target="_blank">测试GNSS设备</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/time_synchronization.md#测试lidar设备" target="_blank">测试lidar设备</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/time_synchronization.md#gnss给lidar授时" target="_blank">gnss给lidar授时</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/time_synchronization.md#phase lock for velodyne VLP16" target="_blank">phase lock for velodyne VLP16</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/rs_l515.md" target="_blank">computer_vision/sensors/rs_l515</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/kinect_dk.md" target="_blank">computer_vision/sensors/kinect_dk</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/kinect_dk.md#简介" target="_blank">简介</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/kinect_dk.md#安装sdk" target="_blank">安装sdk</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/kinect_dk.md#上手使用" target="_blank">上手使用</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/kinect_dk.md#麦克风阵列" target="_blank">麦克风阵列</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/kinect_dk.md#样例" target="_blank">样例</a>
+* <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/sensors/kinect_dk.md#问题" target="_blank">问题</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/lib_usage/opencv.md" target="_blank">computer_vision/lib_usage/opencv</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/lib_usage/opencv.md#目录" target="_blank">目录</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/lib_usage/opencv.md#ubuntu1804安装opencv" target="_blank">ubuntu=18.04安装opencv</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/lib_usage/opencv.md#安装opencv420cuda" target="_blank">安装opencv4.2.0+CUDA</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/lib_usage/opencv.md#安装opencv410" target="_blank">安装opencv4.1.0</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/lib_usage/opencv.md#安装opencv310" target="_blank">安装opencv3.1.0</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/lib_usage/opencv.md#安装opencv320" target="_blank">安装opencv3.2.0</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/computer_vision/lib_usage/opencv.md#参考资料" target="_blank">参考资料</a>
+
+## <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md" target="_blank">gpu/get_started</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#目录" target="_blank">目录</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#写在前面" target="_blank">写在前面</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#nvidia显卡驱动安装" target="_blank">NVIDIA显卡驱动安装</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#手动安装" target="_blank">手动安装</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#自动安装推荐" target="_blank">自动安装(推荐)</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda安装" target="_blank">CUDA安装</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#安装之前的考虑" target="_blank">安装之前的考虑</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#下载并安装cuda" target="_blank">下载并安装CUDA</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#下载并安装cudnn" target="_blank">下载并安装cudnn</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda编程" target="_blank">CUDA编程</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda中使用eigen" target="_blank">CUDA中使用Eigen</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#内存访问模式" target="_blank">内存访问模式</a>
+- <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#参考资料" target="_blank">参考资料</a>
+  - <a href="https://github.com/xiaotaw/Notes/tree/master/gpu/get_started.md#cuda100和cmake冲突" target="_blank">CUDA10.0和CMAKE冲突</a>
 
